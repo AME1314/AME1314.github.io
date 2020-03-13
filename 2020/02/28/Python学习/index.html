@@ -390,6 +390,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/02/28/Python%E5%AD%A6%E4%B9%A0/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/02/28/Python%E5%AD%A6%E4%B9%A0/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -628,6 +638,9 @@
           
 
   
+    <div class="comments" id="comments">
+    </div>
+  
 
 
 
@@ -827,7 +840,7 @@
 
   
  &nbsp;&nbsp;|&nbsp;&nbsp;
-<i class="fa fa-pencil"></i> &nbsp;<span class="post-count">博客全站共41.7k字</span>
+<i class="fa fa-pencil"></i> &nbsp;<span class="post-count">博客全站共41.9k字</span>
 </div>
 <!--
 
@@ -996,6 +1009,28 @@
 
 
 
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'bGsNdVWCaWW8HkjheBRw271d-gzGzoHsz',
+        appKey: '6C8PE3ejfkQjY8RPMLcI7tto',
+        placeholder: '轻轻地你来了，你确定不留下点儿标记嘛',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
 
 
 
