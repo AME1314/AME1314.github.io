@@ -1,6 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>12.模块</title>
+    <url>/2020/03/14/12-%E6%A8%A1%E5%9D%97/</url>
+    <content><![CDATA[<div class="note info no-icon"><p>在本文中将讲解有关Python中模块的有关知识</p></div>
+<a id="more"></a>
+<h3 id="一、实验目的"><a href="#一、实验目的" class="headerlink" title="一、实验目的"></a>一、实验目的</h3><ul>
+<li>解释器</li>
+<li>模块的导入</li>
+<li>包</li>
+<li>默认/第三方模块介绍</li>
+<li>命令行参数</li>
+</ul>
+<h3 id="二、知识要点"><a href="#二、知识要点" class="headerlink" title="二、知识要点"></a>二、知识要点</h3><h5 id="1-解释器"><a href="#1-解释器" class="headerlink" title="1.解释器"></a>1.解释器</h5><p>在<code>实验1</code>中我们解释了在<code>linux</code>系统下解释器的使用，在本文中我想通过学习<code>Win32</code>系统中解释器来进行复习。Python的编程模式分为两种：<code>交互式</code>,<code>脚本式</code>，我们可以通过<code>Win+R</code>在运行框中输入<code>cmd</code>来启动命令提示符，当我们配置好Python环境时在命令提示符中输入<code>python</code>并按下<code>enter</code>此时即可启动Python的解释器，如图所示：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/10646648-b29e28c9c0e3bc07.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="交互式编程"></p>
+<p>在这个窗口中输入python语句就可以直接得到运行的结果，这就是交互式编程。而我们通过记事本或者其他文本编辑器事先在文档中输入Python语句并保存为<code>.py</code>文件，通过命令提示符调用该文件模式成为脚本式，例如，我在路径：<code>D:\\python</code>中保存了一个名为<code>hello.py</code>的脚本文件，通过：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/10646648-a371242cd1146cd0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="脚本式编程"></p>
+<p>可以发现Python解释器输出了脚本的内容。</p>
+<h4 id="2-模块"><a href="#2-模块" class="headerlink" title="2.模块"></a>2.模块</h4><p>当我们退出解释器再进入时，我们定义的所有方法和变量就全部消失了，为此Python提供了一个方法，把这些定义存放在文件中，为一些脚本或者交互式的解释器实例使用，这个文件就称之为<code>模块</code>。<br><div class="note info no-icon"><p>模块是一个包含了所有我们定义的函数和变量的文件，其后缀名为<code>.py</code>。模块可以被别的程序引入，以使用该模块中的函数等功能，这也是使用Python标准库的方法。</p></div><br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line">print(<span class="string">'命令行参数如下：'</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> sys.argv:</span><br><span class="line">    print(i)</span><br><span class="line"></span><br><span class="line">print(<span class="string">'\n\nPython路径为：'</span>, sys.path, <span class="string">'\n'</span>)</span><br></pre></td></tr></table></figure><br>我们通过命令提示符输入：<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">python module.py <span class="number">1</span> <span class="number">2</span></span><br></pre></td></tr></table></figure><br>输出为：<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">命令行参数如下：</span><br><span class="line">module.py</span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Python路径为： [<span class="string">'F:\\Python\\12'</span>, <span class="string">'C:\\Users\\zzzzh\\AppData\\Local\\Programs\\Python\\Python38\\python38.zip'</span>, <span class="string">'C:\\Users\\zzzzh\\AppDa</span></span><br><span class="line"><span class="string">ta\\Local\\Programs\\Python\\Python38\\DLLs'</span>, <span class="string">'C:\\Users\\zzzzh\\AppData\\Local\\Programs\\Python\\Python38\\lib'</span>, <span class="string">'C:\\Users\\zzzzh\\Ap</span></span><br><span class="line"><span class="string">pData\\Local\\Programs\\Python\\Python38'</span>, <span class="string">'F:\\Python\\venv'</span>, <span class="string">'F:\\Python\\venv\\lib\\site-packages'</span>, <span class="string">'F:\\Python\\venv\\lib\\site-pack</span></span><br><span class="line"><span class="string">ages\\setuptools-40.8.0-py3.8.egg'</span>, <span class="string">'F:\\Python\\venv\\lib\\site-packages\\pip-19.0.3-py3.8.egg'</span>]</span><br></pre></td></tr></table></figure><br>其中:<br><div class="note warning no-icon"><ul>
+<li><code>import sys</code> 引入 python 标准库中的<code>sys.py</code>模块；这是引入某一模块的方法。</li>
+<li><code>sys.argv</code> 是一个包含命令行参数的列表。</li>
+<li><code>sys.path</code> 包含了一个 Python 解释器自动查找所需模块的路径的列表。</li>
+</ul></div></p>
+<h5 id="3-import"><a href="#3-import" class="headerlink" title="3.import"></a>3.<code>import</code></h5><p>想使用 Python 源文件，只需在另一个源文件里执行 import 语句，语法如下：<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> module1[, module2[,... moduleN]</span><br></pre></td></tr></table></figure><br>当解释器遇到 import 语句，如果模块在当前的搜索路径就会被导入。搜索路径是一个解释器会先进行搜索的所有目录的列表。例如我们创建一个<code>print_f</code>模块：<br><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">```</span><br><span class="line"></span><br><span class="line"><span class="comment">### 三、实验内容</span></span><br><span class="line"><span class="comment">##### 1.分隔符</span></span><br><span class="line">&#123;%<span class="built_in"> note </span><span class="builtin-name">info</span> no-icon %&#125;</span><br><span class="line">写一个模块用于输出至少三种分隔符，调用包中的函数，参数输入数字，打印该数量的分割符，分隔符可以包括`*`,`-`,`+`</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">+ 代码:</span><br><span class="line"></span><br><span class="line">​```python</span><br><span class="line"><span class="comment"># ""</span></span><br><span class="line"><span class="comment"># Delimiter Modules</span></span><br><span class="line"><span class="comment"># ============</span></span><br><span class="line"><span class="comment"># ""</span></span><br><span class="line"></span><br><span class="line">def plus_d(num):</span><br><span class="line">    <span class="builtin-name">print</span>(<span class="string">"+"</span>*num)</span><br><span class="line"></span><br><span class="line">def Less_d(num):</span><br><span class="line">    <span class="builtin-name">print</span>(<span class="string">"-"</span>*num)</span><br><span class="line"></span><br><span class="line">def mult_d(num):</span><br><span class="line">    <span class="builtin-name">print</span>(<span class="string">"*"</span>*num)</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>结果：</li>
+</ul>
+<p>我们通过在解释器或者其他脚本中输入：<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> Delimiter</span><br><span class="line"></span><br><span class="line">Delimiter.plus_d(<span class="number">10</span>)</span><br><span class="line">Delimiter.Less_d(<span class="number">10</span>)</span><br><span class="line">Delimiter.mult_d(<span class="number">10</span>)</span><br></pre></td></tr></table></figure><br>输出为：<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">++++++++++</span><br><span class="line">----------</span><br><span class="line">**********</span><br></pre></td></tr></table></figure></p>
+<h3 id="四、实验结果"><a href="#四、实验结果" class="headerlink" title="四、实验结果"></a>四、实验结果</h3>]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>11.面向对象</title>
     <url>/2020/03/13/11-%E7%B1%BB/</url>
     <content><![CDATA[<div class="note info no-icon"><p>在本节将讲解有关Python3面向对象的有关知识</p></div>
@@ -83,7 +118,21 @@ Programmer --> Me</pre>
 <ul>
 <li>结果：</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">Dollar amount: <span class="number">20</span></span><br><span class="line">In CNY: <span class="number">132.0</span></span><br><span class="line">Sorry, no negative amount <span class="keyword">in</span> the account.</span><br><span class="line">Dollar amount: <span class="number">20</span></span><br></pre></td></tr></table></figure>]]></content>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">Dollar amount: <span class="number">20</span></span><br><span class="line">In CNY: <span class="number">132.0</span></span><br><span class="line">Sorry, no negative amount <span class="keyword">in</span> the account.</span><br><span class="line">Dollar amount: <span class="number">20</span></span><br></pre></td></tr></table></figure>
+<div class="note success no-icon"><p><strong>拓展：<code>property()</code>函数</strong><br><strong><code>property()</code></strong> 函数的作用是在新式类中返回属性值。基本语法为：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">property</span><span class="params">([fget[, fset[, fdel[, doc]]]])</span></span></span><br></pre></td></tr></table></figure>
+
+<p>其中:</p>
+<ul>
+<li>fget — 获取属性值的函数</li>
+<li>fset — 设置属性值的函数</li>
+<li>fdel — 删除属性值函数</li>
+<li>doc — 属性描述信息</li>
+</ul>
+<p>返回值为新式属性，例如定义一个可控属性值x：</p>
+<p><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self._x = <span class="literal">None</span></span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getx</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self._x</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">setx</span><span class="params">(self, value)</span>:</span></span><br><span class="line">        self._x = value</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">delx</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">del</span> self._x</span><br><span class="line"> </span><br><span class="line">    x = property(getx, setx, delx, <span class="string">"I'm the 'x' property."</span>)</span><br></pre></td></tr></table></figure><br>如果将类<code>C</code>实例化为<code>c</code>，则：</p>
+<p><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">c = C()</span><br><span class="line">print(c.x)  <span class="comment"># 触发setter</span></span><br><span class="line">c.x = <span class="number">5</span>     <span class="comment"># 触发getter</span></span><br><span class="line"><span class="keyword">del</span> c.x     <span class="comment"># 触发deleter</span></span><br></pre></td></tr></table></figure><br>将property作装饰器<code>@property</code>可以更方便的创建只读属性，有关装饰器的知识将在实验15中提及。</p></div>
+]]></content>
       <categories>
         <category>编程</category>
       </categories>
@@ -4282,7 +4331,9 @@ op->e</textarea><textarea id="flowchart-0-options" style="display: none">{"scale
   <entry>
     <title>初次部署HEXO+NEXT博客</title>
     <url>/2020/01/30/%E5%88%9D%E6%AC%A1%E9%83%A8%E7%BD%B2HEXO+NEXT%E5%8D%9A%E5%AE%A2/</url>
-    <content><![CDATA[<h1 id="常用指令以及部署参考"><a href="#常用指令以及部署参考" class="headerlink" title="常用指令以及部署参考"></a>常用指令以及部署参考</h1><div class="table-container">
+    <content><![CDATA[<div class="note info no-icon"><p>常用指令以及部署参考</p></div>
+<a id="more"></a>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -4310,10 +4361,17 @@ op->e</textarea><textarea id="flowchart-0-options" style="display: none">{"scale
 </tbody>
 </table>
 </div>
-<p><a class="btnc" href="https://hexo.io/zh-cn/docs/commands.html" target="_blank" rel="noopener">更多指令</a></p>
-<a id="more"></a>
-<h1 id="感谢如下技术支持"><a href="#感谢如下技术支持" class="headerlink" title="感谢如下技术支持"></a>感谢如下技术支持</h1><p><a class="btnc" href="https://www.zhyong.cn/posts/1da9/" target="_blank" rel="noopener">云日历</a>    <a class="btnc" href="https://yfzhou.coding.me/2018/08/27/Hexo-Next搭建个人博客（代码块复制功能）/" target="_blank" rel="noopener">代码块复制功能</a>    <a class="btnc" href="http://theme-next.iissnan.com/" target="_blank" rel="noopener">Next使用文档</a>    <a class="btnc" href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo使用文档</a>    <a class="btnc" href="https://blog.csdn.net/qq_27631797/article/details/102803121" target="_blank" rel="noopener">Windows 从零搭建个人博客</a>    <a class="btnc" href="https://blog.csdn.net/Wonz5130/article/details/84666519" target="_blank" rel="noopener">解决 Hexo 搭建博客显示不出分类、标签问题</a>    <a class="btnc" href="https://www.mscoder.cn/program/hexo-disable-scrollbar/" target="_blank" rel="noopener">NEXT主题下代码区域自动换行</a>    <a class="btnc" href="https://realneo.me/remove-next-gray-border/" target="_blank" rel="noopener">去除 Next 主题图片的灰色边框</a>    <a class="btnc" href="https://segmentfault.com/a/1190000009544924" target="_blank" rel="noopener">更多配置</a>    <a class="btnc" href="https://yfzhou.coding.me/categories/Hexo/" target="_blank" rel="noopener">小功能</a>    <a class="btnc" href="https://www.jianshu.com/p/c311d31265e0" target="_blank" rel="noopener">hexo页脚添加访客人数和总访问量</a>    <a class="btnc" href="https://blog.csdn.net/yefcion/article/details/88412025" target="_blank" rel="noopener">PicGo + GitHub 搭建个人图床工具</a>    <a class="btnc" href="https://blog.csdn.net/wgshun616/article/details/81019739" target="_blank" rel="noopener">HEXO绑定个人域名</a>    <a class="btnc" href="https://blog.csdn.net/Aoman_Hao/article/details/103758829" target="_blank" rel="noopener">Hexo博客Next主题友链页面</a>    <a class="btnc" href="https://gitee.com/mirrors/hexo-douban" target="_blank" rel="noopener">hexo部署豆瓣</a>    <a class="btnc" href="https://www.jianshu.com/p/68e6f82d88b7" target="_blank" rel="noopener">使用LaTex添加公式到Hexo博客里</a>    <a class="btnc" href="https://blog.csdn.net/Calvin_zhou/article/details/85218157" target="_blank" rel="noopener">Hexo博客开发之——电脑重装系统后如何恢复Hexo博客</a>    <a class="btnc" href="https://github.com/netcan/hexo-generator-index-pin-top" target="_blank" rel="noopener">Hexo博客开发之——文章置顶</a></p>
-<h1 id="之后可能会用到的"><a href="#之后可能会用到的" class="headerlink" title="之后可能会用到的"></a>之后可能会用到的</h1><p><a class="btnc" href="https://blog.pangao.vip/Hexo%E5%8D%9A%E5%AE%A2NexT%E4%B8%BB%E9%A2%98%E7%BE%8E%E5%8C%96%E4%B9%8B%E9%A1%B6%E9%83%A8%E5%8A%A0%E8%BD%BD%E8%BF%9B%E5%BA%A6%E6%9D%A1/" target="_blank" rel="noopener">顶部加载条</a></p>
+<div style="display:none">添加方式：<a class="btnc_d" href="跳转链接"><button class="btnc">名称</button></a></div>
+
+<p><a class="btnc_d"  href="https://hexo.io/zh-cn/docs/commands.html" target="_blank" rel="noopener"><button class="btnc">更多指令</button></a></p>
+<div class="note info no-icon"><p>感谢如下技术支持</p></div>
+<div class="btnc_d">
+<a class="btnc_d"  href="https://www.zhyong.cn/posts/1da9/" target="_blank" rel="noopener"><button class="btnc">云日历</button></a>    <a class="btnc_d" href="https://yfzhou.coding.me/2018/08/27/Hexo-Next搭建个人博客（代码块复制功能）/" target="_blank" rel="noopener"><button class="btnc">代码块复制功能</button></a>    <a class="btnc_d"  href="http://theme-next.iissnan.com/" target="_blank" rel="noopener"><button class="btnc">Next使用文档</button></a>    <a class="btnc_d"  href="https://hexo.io/zh-cn/" target="_blank" rel="noopener"><button class="btnc">Hexo使用文档</button></a>    <a class="btnc_d" href="https://blog.csdn.net/qq_27631797/article/details/102803121" target="_blank" rel="noopener"><button class="btnc">Windows 从零搭建个人博客</button></a>    <a class="btnc_d" href="https://blog.csdn.net/Wonz5130/article/details/84666519" target="_blank" rel="noopener"><button class="btnc">解决 Hexo 搭建博客显示不出分类、标签问题</button></a>    <a class="btnc_d" href="https://www.mscoder.cn/program/hexo-disable-scrollbar/" target="_blank" rel="noopener"><button class="btnc">NEXT主题下代码区域自动换行</button></a>    <a class="btnc_d" href="https://realneo.me/remove-next-gray-border/" target="_blank" rel="noopener"><button class="btnc">去除 Next 主题图片的灰色边框</button></a>    <a class="btnc_d" href="https://segmentfault.com/a/1190000009544924" target="_blank" rel="noopener"><button class="btnc">更多配置</button></a>    <a class="btnc_d" href="https://yfzhou.coding.me/categories/Hexo/" target="_blank" rel="noopener"><button class="btnc">小功能</button></a>    <a class="btnc_d" href="https://www.jianshu.com/p/c311d31265e0" target="_blank" rel="noopener"><button class="btnc">hexo页脚添加访客人数和总访问量</button></a>    <a class="btnc_d" href="https://blog.csdn.net/yefcion/article/details/88412025" target="_blank" rel="noopener"><button class="btnc">PicGo + GitHub 搭建个人图床工具</button></a>    <a class="btnc_d" href="https://blog.csdn.net/wgshun616/article/details/81019739" target="_blank" rel="noopener"><button class="btnc">HEXO绑定个人域名</button></a>    <a class="btnc_d" href="https://blog.csdn.net/Aoman_Hao/article/details/103758829" target="_blank" rel="noopener"><button class="btnc">Hexo博客Next主题友链页面</button></a>    <a class="btnc_d" href="https://gitee.com/mirrors/hexo-douban" target="_blank" rel="noopener"><button class="btnc">hexo部署豆瓣</button></a>    <a class="btnc_d" href="https://www.jianshu.com/p/68e6f82d88b7" target="_blank" rel="noopener"><button class="btnc">使用LaTex添加公式到Hexo博客里</button></a>    <a class="btnc_d" href="https://blog.csdn.net/Calvin_zhou/article/details/85218157" target="_blank" rel="noopener"><button class="btnc">Hexo博客开发之——电脑重装系统后如何恢复Hexo博客</button></a>    <a class="btnc_d" href="https://github.com/netcan/hexo-generator-index-pin-top" target="_blank" rel="noopener"><button class="btnc">Hexo博客开发之——文章置顶</button></a></div>
+
+
+
+<div class="note info no-icon"><p>之后可能会用到的</p></div>
+<p><a class="btnc_d" href="https://blog.pangao.vip/Hexo%E5%8D%9A%E5%AE%A2NexT%E4%B8%BB%E9%A2%98%E7%BE%8E%E5%8C%96%E4%B9%8B%E9%A1%B6%E9%83%A8%E5%8A%A0%E8%BD%BD%E8%BF%9B%E5%BA%A6%E6%9D%A1/" target="_blank" rel="noopener"><button class="btnc">顶部加载条</button></a></p>
 ]]></content>
       <categories>
         <category>博客</category>

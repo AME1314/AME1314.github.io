@@ -91,19 +91,20 @@
 
 
 
-<meta name="description" content="在本文中将给出Python中的变量和数据类型的一些解释">
+<meta name="description" content="在本文中将讲解有关Python中模块的有关知识">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2.变量和数据类型">
-<meta property="og:url" content="https://ame1314.github.io/2020/02/29/2-%E5%8F%98%E9%87%8F%E5%92%8C%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/index.html">
+<meta property="og:title" content="12.模块">
+<meta property="og:url" content="https://ame1314.github.io/2020/03/14/12-%E6%A8%A1%E5%9D%97/index.html">
 <meta property="og:site_name" content="小哲の博客">
-<meta property="og:description" content="在本文中将给出Python中的变量和数据类型的一些解释">
-<meta property="og:image" content="https://dn-simplecloud.shiyanlou.com/courses/uid1264885-20200229-1582964843955">
-<meta property="article:published_time" content="2020-02-29T08:46:59.000Z">
-<meta property="article:modified_time" content="2020-03-06T07:05:31.739Z">
+<meta property="og:description" content="在本文中将讲解有关Python中模块的有关知识">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/10646648-b29e28c9c0e3bc07.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/10646648-a371242cd1146cd0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="article:published_time" content="2020-03-14T01:57:27.000Z">
+<meta property="article:modified_time" content="2020-03-14T08:59:22.391Z">
 <meta property="article:author" content="小哲">
 <meta property="article:tag" content="Python">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://dn-simplecloud.shiyanlou.com/courses/uid1264885-20200229-1582964843955">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/10646648-b29e28c9c0e3bc07.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -133,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="https://ame1314.github.io/2020/02/29/2-变量和数据类型/"/>
+  <link rel="canonical" href="https://ame1314.github.io/2020/03/14/12-模块/"/>
 
 
 
 
 
-  <title>2.变量和数据类型 | 小哲の博客</title>
+  <title>12.模块 | 小哲の博客</title>
   
 
 
@@ -322,7 +323,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ame1314.github.io/2020/02/29/2-%E5%8F%98%E9%87%8F%E5%92%8C%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">
+    <link itemprop="mainEntityOfPage" href="https://ame1314.github.io/2020/03/14/12-%E6%A8%A1%E5%9D%97/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="小哲">
@@ -339,7 +340,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">2.变量和数据类型</h1>
+          <h1 class="post-title" itemprop="name headline">12.模块</h1>
         
 
         <div class="post-meta">
@@ -352,8 +353,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-29T16:46:59+08:00">
-                2020-02-29
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-14T09:57:27+08:00">
+                2020-03-14
               </time>
             
 
@@ -393,8 +394,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2020/02/29/2-%E5%8F%98%E9%87%8F%E5%92%8C%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2020/02/29/2-%E5%8F%98%E9%87%8F%E5%92%8C%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" itemprop="commentCount"></span>
+                <a href="/2020/03/14/12-%E6%A8%A1%E5%9D%97/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/03/14/12-%E6%A8%A1%E5%9D%97/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -416,7 +417,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  931
+                  857
                 </span>
               
 
@@ -432,7 +433,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  4
+                  3
                 </span>
               
             </div>
@@ -453,76 +454,31 @@
       
 
       
-        <div class="note info no-icon"><p>在本文中将给出Python中的变量和数据类型的一些解释</p></div>
+        <div class="note info no-icon"><p>在本文中将讲解有关Python中模块的有关知识</p></div>
 <a id="more"></a>
-<h4 id="一、实验目的"><a href="#一、实验目的" class="headerlink" title="一、实验目的"></a>一、实验目的</h4><ul>
-<li>python 关键字</li>
-<li>变量的定义与赋值</li>
-<li>input() 函数</li>
-<li>字符串的格式化</li>
+<h3 id="一、实验目的"><a href="#一、实验目的" class="headerlink" title="一、实验目的"></a>一、实验目的</h3><ul>
+<li>解释器</li>
+<li>模块的导入</li>
+<li>包</li>
+<li>默认/第三方模块介绍</li>
+<li>命令行参数</li>
 </ul>
-<h4 id="二、知识要点"><a href="#二、知识要点" class="headerlink" title="二、知识要点"></a>二、知识要点</h4><h5 id="1-Python常用的关键词可通过在Python控制台中依次输入help-gt-keywords来获取"><a href="#1-Python常用的关键词可通过在Python控制台中依次输入help-gt-keywords来获取" class="headerlink" title="1. Python常用的关键词可通过在Python控制台中依次输入help()-&gt;keywords来获取"></a>1. Python常用的关键词可通过在Python控制台中依次输入<code>help()</code>-&gt;<code>keywords</code>来获取</h5><blockquote>
-<p>Python3关键字及含义见链接：<a href="http://vxiaozhe1998.cn/2020/02/29/Python保留字/" target="_blank" rel="noopener">Python保留字</a></p>
-</blockquote>
-<h5 id="2-Python中的变量"><a href="#2-Python中的变量" class="headerlink" title="2.Python中的变量"></a>2.Python中的变量</h5><ul>
-<li>通过使用代码直接赋值来赋予变量类型，例如，我们输入<code>abc = 1</code>则变量<code>abc</code>就是整型，如果输入<code>abc = 1.0</code>那么变量<code>abc</code>就是浮点型，在Python中<strong>我们只需要输入变量名以及值即可完成变量的定义与赋值</strong></li>
-<li>通过使用双引号、单引号来对字符串进行操作，例如：</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">'XiaoZhe'</span></span><br><span class="line"><span class="string">'XiaoZhe'</span> </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">'XiaoZhe\'s blog'</span> </span><br><span class="line"><span class="string">"XiaoZhe's blog"</span></span><br></pre></td></tr></table></figure>
-<p>代码中的<code>\&#39;</code>是<code>&#39;</code>的转义字符，目的是为了在控制台中输出<code>&#39;</code> 符号。</p>
-<ul>
-<li>可以通过函数<code>input()</code>来读取键盘输入</li>
-</ul>
-<h5 id="3-Python中的单行多元素赋值"><a href="#3-Python中的单行多元素赋值" class="headerlink" title="3.Python中的单行多元素赋值"></a>3.Python中的单行多元素赋值</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a , b = <span class="number">45</span>, <span class="number">54</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a</span><br><span class="line"><span class="number">45</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b</span><br><span class="line"><span class="number">54</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a, b = b , a</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a</span><br><span class="line"><span class="number">54</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b</span><br><span class="line"><span class="number">45</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>data = ( <span class="string">"China"</span>, <span class="string">"Python"</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>country, language = data</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>country</span><br><span class="line"><span class="string">'China'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>language</span><br><span class="line"><span class="string">'Python'</span></span><br></pre></td></tr></table></figure>
-<h4 id="三、实验内容"><a href="#三、实验内容" class="headerlink" title="三、实验内容"></a>三、实验内容</h4><h5 id="1-使用Pycharm获取关键字"><a href="#1-使用Pycharm获取关键字" class="headerlink" title="1.使用Pycharm获取关键字"></a>1.使用Pycharm获取关键字</h5><ul>
-<li>通过在编辑器中输入<code>help()</code>并点击运行，在控制台中输入<code>keywords</code>就可以得到所有关键字了</li>
-</ul>
-<p><img src="https://dn-simplecloud.shiyanlou.com/courses/uid1264885-20200229-1582964843955" alt="Python关键字"></p>
-<ul>
-<li>我们也可以在控制台输入<code>modules</code>, <code>symbols</code> 或者 <code>topics</code>来分别获取<code>模块</code>、<code>运算符</code>和<code>文档</code></li>
-</ul>
-<h4 id="四、实验结果"><a href="#四、实验结果" class="headerlink" title="四、实验结果"></a>四、实验结果</h4><h5 id="1-求-N-个数字的平均值"><a href="#1-求-N-个数字的平均值" class="headerlink" title="1.求 N 个数字的平均值"></a>1.求 N 个数字的平均值</h5><div class="note info no-icon"><p>输入一个整数N，在接下来你将输入N个数，程序将计算这N个数的平均值</p></div>
-<ul>
-<li>代码：</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Calculate the average of N numbers</span></span><br><span class="line"><span class="comment"># Define a variable N and get the value from the keyboard</span></span><br><span class="line">print(<span class="string">"Please enter an integer N, the program will enter N integers and calculate their average"</span>)</span><br><span class="line">N = int(input(<span class="string">"Enter an integer: "</span>))</span><br><span class="line">count = <span class="number">1</span></span><br><span class="line">sum_my = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> count &lt;= N:</span><br><span class="line">    print(<span class="string">"Please enter the "</span>, count, <span class="string">" number: "</span>, end=<span class="string">' '</span>)</span><br><span class="line">    number = float(input())</span><br><span class="line">    sum_my = sum_my + number</span><br><span class="line">    count = count + <span class="number">1</span></span><br><span class="line">average_my = sum_my / N</span><br><span class="line">print(<span class="string">"The average of N number is:"</span>, <span class="string">"&#123;:.2f&#125;"</span>.format(average_my))</span><br></pre></td></tr></table></figure>
-<ul>
-<li>结果</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Enter an integer: <span class="number">5</span></span><br><span class="line">Please enter the  <span class="number">1</span>  number:  <span class="number">1</span></span><br><span class="line">Please enter the  <span class="number">2</span>  number:  <span class="number">2</span></span><br><span class="line">Please enter the  <span class="number">3</span>  number:  <span class="number">3</span></span><br><span class="line">Please enter the  <span class="number">4</span>  number:  <span class="number">4</span></span><br><span class="line">Please enter the  <span class="number">5</span>  number:  <span class="number">5</span></span><br><span class="line">The average of N number <span class="keyword">is</span>: <span class="number">3.00</span></span><br><span class="line"></span><br><span class="line">Process finished <span class="keyword">with</span> exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>函数说明：</li>
-</ul>
-<blockquote>
-<p><strong>print()函数</strong><br>输出信息，不同类型的变量用<code>,</code>连接，即：<code>print(&quot;string&quot;,int)</code>，也可以在函数中添加函数，如<code>print(&quot;{:.2f}.format(value)&quot;)</code>-&gt;<code>打印value保留两位小数的值</code>，如果需要输出后不换行，添加参数<code>end=&#39; &#39;</code>即<code>print(&quot;不换行&quot;,end=&#39; &#39;)</code></p>
-<p><strong>input()函数</strong><br>从键盘读取信息，参数中添加字符串可输出至控制台，即：<code>input(&quot;请输入字符： &quot;)</code>，由于<code>input()</code>函数默认读取的是字符型，如果需要整型需要进行转码即：<code>int(input())</code>,例：</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>s = int(input(<span class="string">"请输入数字："</span>))</span><br><span class="line">请输入字符：<span class="number">2</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>s</span><br><span class="line"><span class="number">2</span></span><br></pre></td></tr></table></figure>
-<h5 id="2-华氏温度到摄氏温度转换程序"><a href="#2-华氏温度到摄氏温度转换程序" class="headerlink" title="2.华氏温度到摄氏温度转换程序"></a>2.华氏温度到摄氏温度转换程序</h5><div class="note info no-icon"><p>使用公式 C = (F - 32) / 1.8 将华氏温度转为摄氏温度。</p></div>
-<ul>
-<li>代码：</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Enter a Fahrenheit temperature F and convert it to Celsius C. The formula is: C = (F-32) / 1.8</span></span><br><span class="line">fahrenheit = int(input(<span class="string">"Please enter the fahrenheit: "</span>))</span><br><span class="line">celsius = (fahrenheit - <span class="number">32</span>) / <span class="number">1.8</span></span><br><span class="line">print(<span class="string">"The "</span>, fahrenheit, <span class="string">"°F is "</span>, <span class="string">"&#123;:.2f&#125;"</span>.format(celsius), <span class="string">"°C"</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="二、知识要点"><a href="#二、知识要点" class="headerlink" title="二、知识要点"></a>二、知识要点</h3><h5 id="1-解释器"><a href="#1-解释器" class="headerlink" title="1.解释器"></a>1.解释器</h5><p>在<code>实验1</code>中我们解释了在<code>linux</code>系统下解释器的使用，在本文中我想通过学习<code>Win32</code>系统中解释器来进行复习。Python的编程模式分为两种：<code>交互式</code>,<code>脚本式</code>，我们可以通过<code>Win+R</code>在运行框中输入<code>cmd</code>来启动命令提示符，当我们配置好Python环境时在命令提示符中输入<code>python</code>并按下<code>enter</code>此时即可启动Python的解释器，如图所示：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/10646648-b29e28c9c0e3bc07.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="交互式编程"></p>
+<p>在这个窗口中输入python语句就可以直接得到运行的结果，这就是交互式编程。而我们通过记事本或者其他文本编辑器事先在文档中输入Python语句并保存为<code>.py</code>文件，通过命令提示符调用该文件模式成为脚本式，例如，我在路径：<code>D:\\python</code>中保存了一个名为<code>hello.py</code>的脚本文件，通过：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/10646648-a371242cd1146cd0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="脚本式编程"></p>
+<p>可以发现Python解释器输出了脚本的内容。</p>
+<h4 id="2-模块"><a href="#2-模块" class="headerlink" title="2.模块"></a>2.模块</h4><p>当我们退出解释器再进入时，我们定义的所有方法和变量就全部消失了，为此Python提供了一个方法，把这些定义存放在文件中，为一些脚本或者交互式的解释器实例使用，这个文件就称之为<code>模块</code>。<br><div class="note info no-icon"><p>模块是一个包含了所有我们定义的函数和变量的文件，其后缀名为<code>.py</code>。模块可以被别的程序引入，以使用该模块中的函数等功能，这也是使用Python标准库的方法。</p></div><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line">print(<span class="string">'命令行参数如下：'</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> sys.argv:</span><br><span class="line">    print(i)</span><br><span class="line"></span><br><span class="line">print(<span class="string">'\n\nPython路径为：'</span>, sys.path, <span class="string">'\n'</span>)</span><br></pre></td></tr></table></figure><br>我们通过命令提示符输入：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python module.py <span class="number">1</span> <span class="number">2</span></span><br></pre></td></tr></table></figure><br>输出为：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">命令行参数如下：</span><br><span class="line">module.py</span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Python路径为： [<span class="string">'F:\\Python\\12'</span>, <span class="string">'C:\\Users\\zzzzh\\AppData\\Local\\Programs\\Python\\Python38\\python38.zip'</span>, <span class="string">'C:\\Users\\zzzzh\\AppDa</span></span><br><span class="line"><span class="string">ta\\Local\\Programs\\Python\\Python38\\DLLs'</span>, <span class="string">'C:\\Users\\zzzzh\\AppData\\Local\\Programs\\Python\\Python38\\lib'</span>, <span class="string">'C:\\Users\\zzzzh\\Ap</span></span><br><span class="line"><span class="string">pData\\Local\\Programs\\Python\\Python38'</span>, <span class="string">'F:\\Python\\venv'</span>, <span class="string">'F:\\Python\\venv\\lib\\site-packages'</span>, <span class="string">'F:\\Python\\venv\\lib\\site-pack</span></span><br><span class="line"><span class="string">ages\\setuptools-40.8.0-py3.8.egg'</span>, <span class="string">'F:\\Python\\venv\\lib\\site-packages\\pip-19.0.3-py3.8.egg'</span>]</span><br></pre></td></tr></table></figure><br>其中:<br><div class="note warning no-icon"><ul>
+<li><code>import sys</code> 引入 python 标准库中的<code>sys.py</code>模块；这是引入某一模块的方法。</li>
+<li><code>sys.argv</code> 是一个包含命令行参数的列表。</li>
+<li><code>sys.path</code> 包含了一个 Python 解释器自动查找所需模块的路径的列表。</li>
+</ul></div></p>
+<h5 id="3-import"><a href="#3-import" class="headerlink" title="3.import"></a>3.<code>import</code></h5><p>想使用 Python 源文件，只需在另一个源文件里执行 import 语句，语法如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> module1[, module2[,... moduleN]</span><br></pre></td></tr></table></figure><br>当解释器遇到 import 语句，如果模块在当前的搜索路径就会被导入。搜索路径是一个解释器会先进行搜索的所有目录的列表。例如我们创建一个<code>print_f</code>模块：<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line"></span><br><span class="line"><span class="comment">### 三、实验内容</span></span><br><span class="line"><span class="comment">##### 1.分隔符</span></span><br><span class="line">&#123;%<span class="built_in"> note </span><span class="builtin-name">info</span> no-icon %&#125;</span><br><span class="line">写一个模块用于输出至少三种分隔符，调用包中的函数，参数输入数字，打印该数量的分割符，分隔符可以包括`*`,`-`,`+`</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">+ 代码:</span><br><span class="line"></span><br><span class="line">​```python</span><br><span class="line"><span class="comment"># ""</span></span><br><span class="line"><span class="comment"># Delimiter Modules</span></span><br><span class="line"><span class="comment"># ============</span></span><br><span class="line"><span class="comment"># ""</span></span><br><span class="line"></span><br><span class="line">def plus_d(num):</span><br><span class="line">    <span class="builtin-name">print</span>(<span class="string">"+"</span>*num)</span><br><span class="line"></span><br><span class="line">def Less_d(num):</span><br><span class="line">    <span class="builtin-name">print</span>(<span class="string">"-"</span>*num)</span><br><span class="line"></span><br><span class="line">def mult_d(num):</span><br><span class="line">    <span class="builtin-name">print</span>(<span class="string">"*"</span>*num)</span><br></pre></td></tr></table></figure></p>
 <ul>
 <li>结果：</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Please enter the fahrenheit: <span class="number">25</span></span><br><span class="line">The  <span class="number">25</span> °F <span class="keyword">is</span>  <span class="number">-3.89</span> °C</span><br></pre></td></tr></table></figure>
-<ul>
-<li>函数说明:</li>
-</ul>
-<blockquote>
-<p><strong>format()</strong>函数<br>通常使用规范为<code>&quot;文本{变量}&quot;.format(变量限制)</code>，例如下面几个例子</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">"&#123;1&#125; &#123;0&#125; &#123;1&#125;"</span>.format(<span class="string">"hello"</span>, <span class="string">"world"</span>)  <span class="comment"># 设置指定位置</span></span><br><span class="line"><span class="string">'world hello world'</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(<span class="string">"&#123;:.2f&#125;"</span>.format(<span class="number">3.1415926</span>));</span><br><span class="line"><span class="number">3.14</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>其他说明</li>
-</ul>
-<blockquote>
-<p>对于format()函数中格式化数字的部分详见链接：<a href="http://vxiaozhe1998.cn/2020/02/29/format-函数格式化数字/" target="_blank" rel="noopener">format()函数格式化数字</a></p>
-</blockquote>
-<hr>
-<p>上一篇：<a href="http://vxiaozhe1998.cn/2020/02/28/1.开始Python之旅/" target="_blank" rel="noopener">1.开始Python之旅</a><br>目    录：<a href="http://vxiaozhe1998.cn/2020/02/28/Python学习/" target="_blank" rel="noopener">Python学习</a></p>
-
+<p>我们通过在解释器或者其他脚本中输入：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Delimiter</span><br><span class="line"></span><br><span class="line">Delimiter.plus_d(<span class="number">10</span>)</span><br><span class="line">Delimiter.Less_d(<span class="number">10</span>)</span><br><span class="line">Delimiter.mult_d(<span class="number">10</span>)</span><br></pre></td></tr></table></figure><br>输出为：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">++++++++++</span><br><span class="line">----------</span><br><span class="line">**********</span><br></pre></td></tr></table></figure></p>
+<h3 id="四、实验结果"><a href="#四、实验结果" class="headerlink" title="四、实验结果"></a>四、实验结果</h3>
       
     </div>
     
@@ -540,12 +496,12 @@
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/2020/02/29/2-%E5%8F%98%E9%87%8F%E5%92%8C%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">2.变量和数据类型   <i class="fa fa-arrow-up"></i></a></p>
+  <p><span>本文标题:</span><a href="/2020/03/14/12-%E6%A8%A1%E5%9D%97/">12.模块   <i class="fa fa-arrow-up"></i></a></p>
   <p><span>文章作者:</span><a href="/" title="访问 小哲 的个人博客">小哲    <i class="fa fa-user"></i></a></p>
-  <p><span>发布时间:</span>2020年02月29日 - 16:46</p>
-  <p><span>最后更新:</span>2020年03月06日 - 15:05</p>
-  <p style="display:inline-flex;"><span>原始链接:</span><a class="link" href="https://ame1314.github.io/2020/02/29/2-%E5%8F%98%E9%87%8F%E5%92%8C%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" title="2.变量和数据类型">https://ame1314.github.io/2020/02/29/2-%E5%8F%98%E9%87%8F%E5%92%8C%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://ame1314.github.io/2020/02/29/2-%E5%8F%98%E9%87%8F%E5%92%8C%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/"  aria-label="复制成功！"> 复制</i></span>
+  <p><span>发布时间:</span>2020年03月14日 - 09:57</p>
+  <p><span>最后更新:</span>2020年03月14日 - 16:59</p>
+  <p style="display:inline-flex;"><span>原始链接:</span><a class="link" href="https://ame1314.github.io/2020/03/14/12-%E6%A8%A1%E5%9D%97/" title="12.模块">https://ame1314.github.io/2020/03/14/12-%E6%A8%A1%E5%9D%97/</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://ame1314.github.io/2020/03/14/12-%E6%A8%A1%E5%9D%97/"  aria-label="复制成功！"> 复制</i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
 </div>
@@ -614,8 +570,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/02/29/Python%E4%BF%9D%E7%95%99%E5%AD%97/" rel="next" title="Python保留字">
-                <i class="fa fa-chevron-left"></i> Python保留字
+              <a href="/2020/03/13/11-%E7%B1%BB/" rel="next" title="11.面向对象">
+                <i class="fa fa-chevron-left"></i> 11.面向对象
               </a>
             
           </div>
@@ -623,10 +579,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/02/29/format-%E5%87%BD%E6%95%B0%E6%A0%BC%E5%BC%8F%E5%8C%96%E6%95%B0%E5%AD%97/" rel="prev" title="format()函数格式化数字">
-                format()函数格式化数字 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -868,7 +820,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、实验目的"><span class="nav-text">一、实验目的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、知识要点"><span class="nav-text">二、知识要点</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-Python常用的关键词可通过在Python控制台中依次输入help-gt-keywords来获取"><span class="nav-text">1. Python常用的关键词可通过在Python控制台中依次输入help()-&gt;keywords来获取</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-Python中的变量"><span class="nav-text">2.Python中的变量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-Python中的单行多元素赋值"><span class="nav-text">3.Python中的单行多元素赋值</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、实验内容"><span class="nav-text">三、实验内容</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-使用Pycharm获取关键字"><span class="nav-text">1.使用Pycharm获取关键字</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四、实验结果"><span class="nav-text">四、实验结果</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-求-N-个数字的平均值"><span class="nav-text">1.求 N 个数字的平均值</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-华氏温度到摄氏温度转换程序"><span class="nav-text">2.华氏温度到摄氏温度转换程序</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、实验目的"><span class="nav-text">一、实验目的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、知识要点"><span class="nav-text">二、知识要点</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-解释器"><span class="nav-text">1.解释器</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-模块"><span class="nav-text">2.模块</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#3-import"><span class="nav-text">3.import</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、实验结果"><span class="nav-text">四、实验结果</span></a></li></ol></div>
             
 
           </div>
