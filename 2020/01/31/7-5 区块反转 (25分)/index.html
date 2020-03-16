@@ -20,7 +20,7 @@
     
     
   <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
-  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+  <link href="/lib/pace/pace-theme-center-atom.min.css?v=1.0.2" rel="stylesheet">
 
 
 
@@ -112,7 +112,7 @@
     root: '/',
     scheme: 'Mist',
     version: '5.1.4',
-    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -306,6 +306,7 @@
             
 
   <div id="posts" class="posts-expand">
+    <div class="reading-progress-bar"></div>
     
 
   
@@ -559,8 +560,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/01/30/%E5%88%9D%E6%AC%A1%E9%83%A8%E7%BD%B2HEXO+NEXT%E5%8D%9A%E5%AE%A2/" rel="next" title="初次部署HEXO+NEXT博客">
-                <i class="fa fa-chevron-left"></i> 初次部署HEXO+NEXT博客
+              <a href="/2020/01/31/7-4%20%E6%93%85%E9%95%BFC%20(20%E5%88%86)/" rel="next" title="7-4 擅长C (20分)">
+                <i class="fa fa-chevron-left"></i> 7-4 擅长C (20分)
               </a>
             
           </div>
@@ -569,8 +570,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/01/31/7-4%20%E6%93%85%E9%95%BFC%20(20%E5%88%86)/" rel="prev" title="7-4 擅长C (20分)">
-                7-4 擅长C (20分) <i class="fa fa-chevron-right"></i>
+              <a href="/2020/01/31/7-3%20String%E5%A4%8D%E8%AF%BB%E6%9C%BA%20(20%E5%88%86)/" rel="prev" title="7-3 String复读机 (20分)">
+                7-3 String复读机 (20分) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -689,7 +690,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-count">45</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -888,8 +889,6 @@
       <div class="back-to-top">
         <i class="fa fa-arrow-up"></i>
         
-          <span id="scrollpercent"><span>0</span>%</span>
-        
       </div>
     
 
@@ -914,6 +913,8 @@
 
 
   
+
+
 
 
 
@@ -954,6 +955,11 @@
   
   
     <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/reading_progress/reading_progress.js"></script>
   
 
 
