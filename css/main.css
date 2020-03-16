@@ -1757,15 +1757,15 @@ pre .javascript .function {
   font-family: UKIJ Ekran;
 }
 .my_post_copyright {
-  width: 85%;
   max-width: 45em;
   margin: 2.8em auto 0;
   padding: 0.5em 1em;
-  border-left: 2px solid #f56223;
+  border-radius: 10px;
+  background: #ecedf0;
+  box-shadow: 5px 5px 8px #babbbe, -5px -5px 8px #fff;
   font-size: 0.93rem;
   line-height: 1.6em;
   word-break: break-all;
-  background: rgba(245,98,35,0.1);
 }
 .my_post_copyright p {
   margin: 0;
@@ -1774,7 +1774,7 @@ pre .javascript .function {
 .my_post_copyright span {
   display: inline-block;
   width: 5.2em;
-  color: #f56223;
+  color: #000;
   font-weight: bold;
 }
 .my_post_copyright .raw {
@@ -1786,7 +1786,7 @@ pre .javascript .function {
   border-bottom: 0;
 }
 .my_post_copyright a:hover {
-  color: #a322f8;
+  color: #ff7675;
   text-decoration: underline;
 }
 .my_post_copyright .post-url:hover {
@@ -1801,7 +1801,7 @@ pre .javascript .function {
   }
 }
 .my_post_copyright .copy-path:hover {
-  color: #a322f8;
+  color: #ff7675;
   cursor: pointer;
 }
 .link {
@@ -1975,7 +1975,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ffff9a;
+  background: #e028f9;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3295,11 +3295,35 @@ hr {
 .note:hover .note-copy {
   opacity: 1;
 }
+a.btnc_d {
+  border-bottom: none;
+}
+div.btnc_d {
+  text-align: left;
+  margin-bottom: 20px;
+}
+.reading-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  display: block;
+  height: 5px;
+  background: #ffff46;
+  border-radius: 0 5px 5px 0;
+}
+pre.mermaid,
+div.flow-chart {
+  border-radius: 5px;
+  background: #ecedf0;
+  box-shadow: 5px 5px 8px #babbbe, -5px -5px 8px #fff;
+  text-align: center;
+}
 .btnc {
   border: none;
-  border-radius: 8px;
-  background: #f9f9f9;
-  box-shadow: 2px 2px 5px #cfcfcf, -2px -2px 5px #fff;
+  border-radius: 7px;
+  background: #ecedf0;
+  box-shadow: 2px 2px 3px #c6c7ca, -2px -2px 3px #fff;
   position: relative;
   color: #000;
   font-weight: 600;
@@ -3315,9 +3339,9 @@ hr {
   margin: 3px;
 }
 .btnc:hover {
-  border-radius: 8px;
-  background: #f9f9f9;
-  box-shadow: inset 2px 2px 4px #e3e3e3, inset -2px -2px 4px #fff;
+  border-radius: 7px;
+  background: #ecedf0;
+  box-shadow: inset 2px 2px 3px #c6c7ca, inset -2px -2px 3px #fff;
   border: none;
   position: relative;
   color: #000;
@@ -3331,26 +3355,96 @@ hr {
   outline: none;
   margin: 3px;
 }
-a.btnc_d {
-  border-bottom: none;
+.page-post-detail {
+  background: #ecedf0;
 }
-div.btnc_d {
-  text-align: left;
-  margin-bottom: 20px;
-}
-pre.mermaid,
-div.flow-chart {
-  border-radius: 10px;
+.header {
   background: #fff;
-  box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #fff;
-  text-align: center;
 }
-.reading-progress-bar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 9999;
-  display: block;
-  height: 2px;
-  background: #f87d8b;
+.footer {
+  background: #ecedf0;
+  padding-top: 15px;
+  border-top: 3px dotted #ff7675;
+}
+hr {
+  background-image: repeating-linear-gradient(-45deg, #ff7675, #ff7675 4px, transparent 4px, transparent 8px);
+  background-color: #ecedf0;
+}
+img {
+  margin: 25px auto 25px !important;
+  padding: 0px !important;
+  border-radius: 5px;
+  box-shadow: 5px 5px 8px #babbbe, -5px -5px 8px #fff;
+}
+.note {
+  background: #fff;
+}
+.table-container {
+  border-radius: 5px;
+  border: none;
+  box-shadow: 5px 5px 8px #babbbe, -5px -5px 8px #fff;
+}
+table,
+th {
+  border: none !important;
+}
+th,
+td {
+  border: none !important;
+}
+table.cal {
+  box-shadow: none;
+}
+.vwrap {
+  border: none;
+  box-shadow: 5px 5px 8px #babbbe, -5px -5px 8px #fff;
+}
+.comments {
+  overflow: initial !important;
+  margin: 60px 0 0 0 !important;
+}
+.v .vlist .vcard .vquote {
+  border-left: 1px dotted #1cbba6 !important;
+}
+.v .vlist .vcard .vh {
+  border-bottom: none !important;
+}
+.highlight {
+  background-color: #ecedf0;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 5px 5px 8px #babbbe, -5px -5px 8px #fff;
+}
+code {
+  color: #ff7675;
+  font-weight: 900;
+  background: #fff;
+}
+.highlight .gutter pre {
+  background-color: #f9f9f9;
+  color: #ff7675;
+  font-weight: 900;
+}
+.highlight .code pre {
+  background-color: #ecedf0;
+  font-weight: 600;
+}
+::-webkit-scrollbar {
+  width: 10px;
+  height: 5px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #555;
+}
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: transparent;
+}
+::-webkit-scrollbar-track:vertical {
+  border-radius: 10px;
+  background-color: #ecedf0;
+}
+::-webkit-scrollbar-track-piece:start {
+  background-color: #555;
 }
