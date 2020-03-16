@@ -1975,7 +1975,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #c4e8bb;
+  background: #0d7cff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3171,33 +3171,33 @@ hr {
   }
 }
 @media (min-width: 768px) and (max-width: 991px) {
-  .sidebar-toggle {
-    display: block !important;
-  }
-}
-@media (max-width: 767px) {
-  .sidebar-toggle {
-    display: block !important;
-  }
-}
-@media (min-width: 768px) and (max-width: 991px) {
-  .back-to-top {
-    display: block !important;
-  }
-}
-@media (max-width: 767px) {
-  .back-to-top {
-    display: block !important;
-  }
-}
-@media (min-width: 768px) and (max-width: 991px) {
   .sidebar {
     display: block !important;
+  }
+  .back-to-top {
+    display: block !important;
+  }
+  .sidebar-toggle {
+    display: block !important;
+  }
+  .comments {
+    overflow: initial !important;
+    margin: 60px 0 0 0 !important;
   }
 }
 @media (max-width: 767px) {
   .sidebar {
     display: block !important;
+  }
+  .back-to-top {
+    display: block !important;
+  }
+  .sidebar-toggle {
+    display: block !important;
+  }
+  .comments {
+    overflow: initial !important;
+    margin: 60px 20px 0 !important;
   }
 }
 .my-love {
@@ -3309,7 +3309,7 @@ div.btnc_d {
   z-index: 9999;
   display: block;
   height: 5px;
-  background: #17ffd2;
+  background: #44ecd0;
   border-radius: 0 5px 5px 0;
 }
 pre.mermaid,
@@ -3403,10 +3403,6 @@ table.cal {
 .vwrap {
   border: none;
   box-shadow: 5px 5px 8px #babbbe, -5px -5px 8px #fff;
-}
-.comments {
-  overflow: initial !important;
-  margin: 60px 0 0 0 !important;
 }
 .v .vlist .vcard .vquote {
   border-left: 1px dotted #1cbba6 !important;
