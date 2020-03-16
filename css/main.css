@@ -1975,7 +1975,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #c9deff;
+  background: #c4e8bb;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3309,7 +3309,7 @@ div.btnc_d {
   z-index: 9999;
   display: block;
   height: 5px;
-  background: #ff82bb;
+  background: #17ffd2;
   border-radius: 0 5px 5px 0;
 }
 pre.mermaid,
@@ -3318,6 +3318,7 @@ div.flow-chart {
   background: #ecedf0;
   box-shadow: 5px 5px 8px #babbbe, -5px -5px 8px #fff;
   text-align: center;
+  overflow: auto;
 }
 .btnc {
   border: none;
