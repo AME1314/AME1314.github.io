@@ -1975,7 +1975,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #e028f9;
+  background: #c9deff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3309,7 +3309,7 @@ div.btnc_d {
   z-index: 9999;
   display: block;
   height: 5px;
-  background: #ffff46;
+  background: #ff82bb;
   border-radius: 0 5px 5px 0;
 }
 pre.mermaid,
@@ -3375,6 +3375,10 @@ img {
   padding: 0px !important;
   border-radius: 5px;
   box-shadow: 5px 5px 8px #babbbe, -5px -5px 8px #fff;
+}
+img.vimg {
+  margin: 0 10px 0 0 !important;
+  box-shadow: 2px 2px 3px #babbbe, -2px -2px 3px #fff;
 }
 .note {
   background: #fff;
@@ -3445,6 +3449,10 @@ code {
   border-radius: 10px;
   background-color: #ecedf0;
 }
-::-webkit-scrollbar-track-piece:start {
+::-webkit-scrollbar-track-piece:vertical:start {
   background-color: #555;
+}
+::-webkit-scrollbar-track-piece:horizontal:start {
+  background-color: #555;
+  border-radius: 10px 0 0 10px;
 }
