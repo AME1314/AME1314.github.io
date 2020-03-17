@@ -1973,7 +1973,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #614100;
+  background: #ff622a;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3336,7 +3336,7 @@ div.btnc_d {
   z-index: 9999;
   display: block;
   height: 5px;
-  background: #142420;
+  background: #394b62;
   border-radius: 0 5px 5px 0;
 }
 pre.mermaid,
@@ -3529,29 +3529,6 @@ code {
   background-color: #ecedf0;
   font-weight: 600;
 }
-::-webkit-scrollbar {
-  width: 10px;
-  height: 5px;
-}
-::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  background-color: #555;
-}
-::-webkit-scrollbar-track {
-  border-radius: 10px;
-  background-color: transparent;
-}
-::-webkit-scrollbar-track:vertical {
-  border-radius: 10px;
-  background-color: #ecedf0;
-}
-::-webkit-scrollbar-track-piece:vertical:start {
-  background-color: #555;
-}
-::-webkit-scrollbar-track-piece:horizontal:start {
-  background-color: #555;
-  border-radius: 10px 0 0 10px;
-}
 #needsharebutton-float {
   top: 15em;
 }
@@ -3588,4 +3565,27 @@ code {
 .need-share-button_douban,
 .need-share-button_qqzone {
   color: #fff !important;
+}
+::-webkit-scrollbar {
+  width: 10px;
+  height: 5px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #555;
+}
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: transparent;
+}
+::-webkit-scrollbar-track:vertical {
+  border-radius: 10px;
+  background-color: #ecedf0;
+}
+::-webkit-scrollbar-track-piece:vertical:start {
+  background-color: #555;
+}
+::-webkit-scrollbar-track-piece:horizontal:start {
+  background-color: #555;
+  border-radius: 10px 0 0 10px;
 }
