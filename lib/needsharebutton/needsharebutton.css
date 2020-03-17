@@ -27,7 +27,7 @@
   overflow: hidden;
   width: 266px;
   font-size: 16px;
-  margin-top: -2px !important;
+  margin-top: 0 !important;
   -ms-transition: .3s;
   -webkit-transition: .3s;
   -o-transition: .3s;
