@@ -208,8 +208,11 @@
 }
 /* Network buttons
 ***********************************************/
-.need-share-button_wechat {
-  color: #a2dc30;
+.need-share-button_wechat:hover {
+  color: #aaff00;
+}
+.need-share-button_wechat{
+  color: #7f7f7f;
 }
 .need-share-button_wechat.need-share-button_link-box {
   color: #fff;
@@ -220,9 +223,11 @@
 /* .need-share-button_weibo {
   color: #d52b2b;
 } */
-
-.need-share-button_weibo {
-  color: #ff8b8b;
+.need-share-button_weibo{
+  color: #7f7f7f;
+}
+.need-share-button_weibo:hover {
+  color: #ff0000;
 }
 
 .need-share-button_weibo.need-share-button_link-box {
@@ -233,11 +238,11 @@
 .need-share-button_douban {
   color: white;
 }
-.need-share-button_douban {
-  color: #072;
+.need-share-button_douban:hover {
+  color: rgb(0, 255, 72);
 }
-.need-share-button_douban {
-  color: #072;
+.need-share-button_douban{
+  color: #7f7f7f;
 }
 .need-share-button_douban.need-share-button_link-box {
   color: #fff;
@@ -248,26 +253,33 @@
 /* .need-share-button_qqzone {
   color: #ffce00;
 } */
-.need-share-button_qqzone {
-  color: #ffce00;
+.need-share-button_qqzone:hover {
+  color: #ffd000;
 }
-
+.need-share-button_qqzone{
+  color: #7f7f7f;
+}
 .need-share-button_qqzone.need-share-button_link-box {
   color: #fff;
 
   background: #ffce00;
 }
-.need-share-button_qq {
-  color: #65baff;
+.need-share-button_qq:hover {
+  color: #008cff;
 }
-
+.need-share-button_qq{
+  color: #7f7f7f;
+}
 .need-share-button_qqzone.need-share-button_link-box {
   color: #fff;
 
-  background: #65baff;
+  background: #659bff;
 }
-.need-share-button_renren {
-  color: #cf3cc8;
+.need-share-button_renren:hover {
+  color: #ff00f2;
+}
+.need-share-button_renren{
+  color: #7f7f7f;
 }
 .need-share-button_renren.need-share-button_link-box {
   color: #fff;
@@ -338,8 +350,11 @@
 
   background: #f04e23;
 }
-.need-share-button_linkedin {
+.need-share-button_linkedin:hover {
   color: #0085af;
+}
+.need-share-button_linkedin{
+  color: #7f7f7f;
 }
 .need-share-button_linkedin.need-share-button_link-box {
   color: #fff;
