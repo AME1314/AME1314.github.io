@@ -104,7 +104,7 @@
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/10646648-b906406227323ced.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/10646648-584fe970ade7443f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="article:published_time" content="2020-03-15T02:21:33.000Z">
-<meta property="article:modified_time" content="2020-03-15T04:39:01.100Z">
+<meta property="article:modified_time" content="2020-03-17T14:14:50.891Z">
 <meta property="article:author" content="小哲">
 <meta property="article:tag" content="Python">
 <meta name="twitter:card" content="summary">
@@ -543,8 +543,9 @@
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Yes: dct[<span class="string">'key'</span>] = lst[index]</span><br><span class="line">No:  dct [<span class="string">'key'</span>] = lst [index]</span><br></pre></td></tr></table></figure>
 <ul>
-<li>在赋值操作符（或其它）的两侧保持多余一个的空格：<br><img src="https://upload-images.jianshu.io/upload_images/10646648-b906406227323ced.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="赋值操作符"></li>
+<li>在赋值操作符（或其它）的两侧保持多余一个的空格：</li>
 </ul>
+<p><img src="https://upload-images.jianshu.io/upload_images/10646648-b906406227323ced.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="赋值操作符"></p>
 <div class="note primary no-icon"><p>其他建议：</p>
 <ul>
 <li>总是在这些二元操作符的两侧加入一个空格：赋值(=)，增量赋值(+=, -= etc.)，比较(==, &lt;, &gt;, !=, &lt;&gt;, &lt;=, &gt;=, in, not in, is, is not)，布尔运算(and, or, not)。</li>
@@ -604,8 +605,10 @@
 <li>_single_leading_underscore ：仅内部使用的标识，如<code>from M import *</code>不会导入像这样一下划线开头的对象。</li>
 <li>single<em>trailing_underscore</em> : 通常是为了避免与 Python 规定的关键字冲突，如<code>Tkinter.Toplevel(master, class_=&#39;ClassName&#39;)</code>。</li>
 <li>double_leading_underscore : 命名一个类属性，调用的时候名字会改变（在类<code>FooBar</code>中，<code>boo变成了_FooBar__boo</code>；见下）。</li>
-<li>double<em>leading<em>and<em>trailing<em>underscore ：”魔术”对象或属性，活在用户控制的命名空间里。例如，<code>__init__</code>，`__import</em></em><code>和</code>__file</em></em>`。永远不要像这种方式命名；只把它们作为记录。</li>
+<li>double_leading_and_trailing_underscore ：”魔术”对象或属性，活在用户控制的命名空间里。例如:</li>
 </ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">__init__</span><br><span class="line">__import__</span><br><span class="line">__file__</span><br></pre></td></tr></table></figure>
+<p>永远不要像这种方式命名；只把它们作为记录。</p>
 <h5 id="6-3-规定：命名约定"><a href="#6-3-规定：命名约定" class="headerlink" title="6.3 规定：命名约定"></a>6.3 规定：命名约定</h5><p><strong>6.3.1 应该避免的名字</strong><br>永远不要使用单个字符<code>l</code>(小写字母 el)，<code>O</code>(大写字母 oh)，或I(大写字母 eye)作为变量名。在一些字体中，这些字符是无法和数字<code>1</code>和<code>0</code>区分开的。试图使用l时用L代替。</p>
 <p><strong>6.3.2 包和模块名</strong><br>模块名应该短，且全小写。如果能改善可读性，可以使用下划线。Python 的包名也应该短，全部小写，但是不推荐使用下划线。因为模块名就是文件名，而一些文件系统是大小写不敏感的，并且自动截断长文件名，所以给模块名取一个短小的名字是非常重要的 – 在 Unix 上这不是问题，但是把代码放到老版本的 Mac， Windows，或者 DOS 上就可能变成一个问题了。用 C/C++ 给 Python 写一个高性能的扩展(e.g. more object oriented)接口的时候，C/C++ 模块名应该有一个前导下划线。</p>
 <p><strong>6.3.2 类名</strong><br>类名通常使用 CapWords 约定。<br>The naming convention for functions may be used instead in cases where the interface is documented and used primarily as a callable.<br>注意和内建名称的区分开：大多数内建名称是一个单独的单词（或两个单词一起），CapWords 约定只被用在异常名和内建常量上。</p>
