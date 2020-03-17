@@ -1973,7 +1973,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #655b08;
+  background: #7d44d1;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2505,6 +2505,29 @@ pre .javascript .function {
 .site-pv .busuanzi-value,
 .page-pv .busuanzi-value {
   margin: 0 5px;
+}
+#needsharebutton-postbottom {
+  position: relative;
+  cursor: pointer;
+  height: 26px;
+}
+#needsharebutton-postbottom .btn {
+  display: initial;
+  padding: 1px 4px;
+  border: 1px solid #222;
+  border-radius: 3px;
+}
+#needsharebutton-float {
+  position: fixed;
+  bottom: 38px;
+  left: -8px;
+  z-index: 9999;
+  cursor: pointer;
+}
+#needsharebutton-float .btn {
+  padding: 0 10px 0 14px;
+  border: 1px solid #222;
+  border-radius: 4px;
 }
 #CloudCalendar {
 /*全句背景色*/
@@ -3313,7 +3336,7 @@ div.btnc_d {
   z-index: 9999;
   display: block;
   height: 5px;
-  background: #5bffb3;
+  background: #eaffe4;
   border-radius: 0 5px 5px 0;
 }
 pre.mermaid,
@@ -3476,6 +3499,9 @@ table.cal {
 .v hr {
   border: 1px solid #1cbba6 !important;
 }
+.v blockquote {
+  border-left: 4px solid #1cbba6 !important;
+}
 .v .vlist .vcard .vcontent.expand:before {
   background: linear-gradient(180deg, rgba(255,255,255,0), #ebecef) !important;
 }
@@ -3525,4 +3551,41 @@ code {
 ::-webkit-scrollbar-track-piece:horizontal:start {
   background-color: #555;
   border-radius: 10px 0 0 10px;
+}
+#needsharebutton-float {
+  top: 15em;
+}
+#needsharebutton-float .btn {
+  border: none !important;
+  background: #222;
+  color: #fff;
+}
+.need-share-button_dropdown-middle-right {
+  top: 6em !important;
+  left: 0px !important;
+  margin-left: 0 !important;
+}
+.need-share-button_dropdown {
+  width: 35px !important;
+}
+.need-share-button-opened .need-share-button_dropdown {
+  padding-left: 2px;
+}
+.need-share-button_dropdown [class^="icon-"]:before,
+.need-share-button_dropdown [class*=" icon-"]:before {
+  margin-right: 0px !important;
+}
+.need-share-button_link {
+  width: auto !important;
+  height: 0 !important;
+  line-height: 0 !important;
+}
+.need-share-button_dropdown {
+  background-color: #222 !important;
+}
+.need-share-button_weibo,
+.need-share-button_wechat,
+.need-share-button_douban,
+.need-share-button_qqzone {
+  color: #fff !important;
 }
