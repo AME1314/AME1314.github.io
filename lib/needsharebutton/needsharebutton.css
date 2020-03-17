@@ -27,7 +27,6 @@
   overflow: hidden;
   width: 266px;
   font-size: 16px;
-  margin-top: 0 !important;
   -ms-transition: .3s;
   -webkit-transition: .3s;
   -o-transition: .3s;
@@ -147,16 +146,14 @@
 
   margin-bottom: 10px;
 }
-/*旧样式*/
-/* .need-share-button_dropdown-middle-left {
+
+.need-share-button_dropdown-middle-left {
   top: 50%;
   right: 100%;
 
   margin-right: 10px;
-} */
-.need-share-button_dropdown-middle-left {
-  right: 100%;
 }
+
 .need-share-button_dropdown-middle-right {
   top: 50%;
   left: 100%;
