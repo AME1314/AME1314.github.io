@@ -1973,7 +1973,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #2ee299;
+  background: #17afff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3339,7 +3339,7 @@ div.btnc_d {
   z-index: 9999;
   display: block;
   height: 5px;
-  background: #7b4fc3;
+  background: #fff;
   border-radius: 0 5px 5px 0;
 }
 pre.mermaid,
@@ -3500,7 +3500,8 @@ table.cal {
   box-shadow: none;
 }
 .v hr {
-  border: 1px solid #1cbba6 !important;
+  background-image: none !important;
+  border: 2px solid #1cbba6 !important;
 }
 .v blockquote {
   border-left: 4px solid #1cbba6 !important;
