@@ -1973,7 +1973,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ffff45;
+  background: #b349ff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3340,7 +3340,7 @@ div.btnc_d {
   z-index: 9999;
   display: block;
   height: 5px;
-  background: #121fd0;
+  background: #ff7fd5;
   border-radius: 0 5px 5px 0;
 }
 pre.mermaid,
@@ -3535,6 +3535,9 @@ code {
 }
 .sidebar-toggle {
   background-color: rgba(0,0,0,0) !important;
+}
+.sidebar-toggle-line {
+  background: #1abc9c !important;
 }
 .page-post-detail .sidebar-toggle-line {
   background: #1abc9c !important;
