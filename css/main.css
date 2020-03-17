@@ -1973,7 +1973,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #13ffc7;
+  background: #ff4fd6;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3313,7 +3313,7 @@ div.btnc_d {
   z-index: 9999;
   display: block;
   height: 5px;
-  background: #325753;
+  background: #f3fc93;
   border-radius: 0 5px 5px 0;
 }
 pre.mermaid,
@@ -3397,7 +3397,7 @@ img {
   margin: 25px auto 25px !important;
   padding: 0px !important;
   border-radius: 5px;
-  box-shadow: 3px 3px 5px #babbbe;
+  box-shadow: 3px 3px 5px #babbbe, -2px -2px 3px #fff;
 }
 img.vimg {
   margin: 0 10px 0 0 !important;
