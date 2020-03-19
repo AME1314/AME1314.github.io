@@ -90,12 +90,14 @@
 
 
 
+<meta name="description" content="本文将解释迭代器生成器与装饰器">
 <meta property="og:type" content="article">
 <meta property="og:title" content="15.迭代器、生成器、装饰器">
 <meta property="og:url" content="https://ame1314.github.io/2020/03/15/15-%E8%BF%AD%E4%BB%A3%E5%99%A8%E3%80%81%E7%94%9F%E6%88%90%E5%99%A8%E3%80%81%E8%A3%85%E9%A5%B0%E5%99%A8/index.html">
 <meta property="og:site_name" content="小哲の博客">
+<meta property="og:description" content="本文将解释迭代器生成器与装饰器">
 <meta property="article:published_time" content="2020-03-15T09:41:37.000Z">
-<meta property="article:modified_time" content="2020-03-15T14:13:56.517Z">
+<meta property="article:modified_time" content="2020-03-19T14:13:03.670Z">
 <meta property="article:author" content="小哲">
 <meta property="article:tag" content="Python">
 <meta name="twitter:card" content="summary">
@@ -422,7 +424,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  158
+                  635
                 </span>
               
 
@@ -438,7 +440,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -459,7 +461,7 @@
       
 
       
-        <div class="note info no-icon"></div>
+        <div class="note info no-icon"><p>本文将解释迭代器生成器与装饰器</p></div>
 <a id="more"></a>
 <h4 id="一、实验目的"><a href="#一、实验目的" class="headerlink" title="一、实验目的"></a>一、实验目的</h4><ul>
 <li>迭代器</li>
@@ -468,8 +470,30 @@
 <li>闭包</li>
 <li>装饰器</li>
 </ul>
-<h4 id="二、知识要点"><a href="#二、知识要点" class="headerlink" title="二、知识要点"></a>二、知识要点</h4><h5 id="1-迭代器"><a href="#1-迭代器" class="headerlink" title="1.迭代器"></a>1.迭代器</h5><p>迭代是Python最强大的功能之一，是访问集合元素的一种方式。迭代器是一个可以记住遍历的位置的对象。迭代器对象从集合的第一个元素开始访问，直到所有的元素被访问完结束。迭代器只能往前不会后退。<br>迭代器有两个基本的方法：<code>iter()</code>和 <code>next()</code>。<br>字符串，列表或元组对象都可用于创建迭代器：</p>
-<h4 id="三、实验内容"><a href="#三、实验内容" class="headerlink" title="三、实验内容"></a>三、实验内容</h4><h4 id="四、实验结果"><a href="#四、实验结果" class="headerlink" title="四、实验结果"></a>四、实验结果</h4>
+<h4 id="二、知识要点"><a href="#二、知识要点" class="headerlink" title="二、知识要点"></a>二、知识要点</h4><h5 id="1-迭代器"><a href="#1-迭代器" class="headerlink" title="1.迭代器"></a>1.迭代器</h5><p>迭代是Python最强大的功能之一，是访问集合元素的一种方式。迭代器是一个可以记住遍历的位置的对象。迭代器对象从集合的第一个元素开始访问，直到所有的元素被访问完结束。迭代器只能往前不会后退。<br>迭代器有两个基本的方法：<code>iter()</code>和 <code>next()</code>。<br>字符串，列表或元组对象都可用于创建迭代器，例如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">list = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]</span><br><span class="line">it = iter(list)</span><br><span class="line">print(<span class="string">"输出1："</span>, next(it))</span><br><span class="line">print(<span class="string">"输出2："</span>, next(it))</span><br></pre></td></tr></table></figure>
+<p>输出为:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输出<span class="number">1</span>： <span class="number">1</span></span><br><span class="line">输出<span class="number">2</span>： <span class="number">2</span></span><br></pre></td></tr></table></figure><br>迭代器对象也可以用常规的<code>for</code>循环语句进行遍历，例如我们在上面的代码后添加：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> it:</span><br><span class="line">    print(x, end=<span class="string">" "</span>)</span><br></pre></td></tr></table></figure><br>最终会输出：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输出<span class="number">1</span>： <span class="number">1</span></span><br><span class="line">输出<span class="number">2</span>： <span class="number">2</span></span><br><span class="line"><span class="number">3</span> <span class="number">4</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>1.1 把一个类作为一个迭代器</strong><br>把一个类作为一个迭代器需要在类中实现两个方法<code>__iter__()</code>与<code>__next__()</code></p>
+<div class="note primary no-icon"><ul>
+<li><code>__iter__()</code>方法：该方法返回一个特殊的迭代器对象，，这个迭代器实现了<code>__next__()</code>方法并通过<code>Stoplteration</code>异常标识迭代的完成。</li>
+<li><code>__next__()</code>方法：返回下一个迭代器对象</li>
+</ul></div>
+<p><strong>1.2 <code>StopIteration</code>异常</strong><br><code>StopIteration</code>异常用于标识迭代的完成，防止出现无限循环的情况，在<code>__next__()</code>方法中我们可以设置在完成指定循环次数后出发<code>StopIteration</code>异常来结束迭代。</p>
+<h5 id="2-生成器"><a href="#2-生成器" class="headerlink" title="2.生成器"></a>2.生成器</h5><p>生成器是一个返回迭代器的函数，只能用于迭代操作，即<strong>生成器本质就是一个迭代器</strong>，生成器自动创建了<code>__iter__()</code>和<code>__next__()</code>方法且当发生器终结时会自动抛出<code>StopIteration</code>异常。<br>例如：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">#### 三、实验内容</span></span><br><span class="line"><span class="comment">##### 1.迭代器</span></span><br><span class="line">&#123;% note info no-icon %&#125;</span><br><span class="line">创建一个返回数字的迭代器，初始值为<span class="number">1</span>，逐步递增<span class="number">1</span></span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">+ 代码：</span><br><span class="line"></span><br><span class="line">```python</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">My_num</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__iter__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.a = <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> self</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__next__</span><span class="params">(self)</span>:</span></span><br><span class="line">        x = self.a</span><br><span class="line">        self.a += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">my_num = My_num()</span><br><span class="line">myiter = iter(my_num)</span><br><span class="line"></span><br><span class="line">print(next(my_num))</span><br><span class="line">print(next(my_num))</span><br><span class="line">print(next(my_num))</span><br><span class="line">print(next(my_num))</span><br><span class="line">print(next(my_num))</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>结果：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="number">5</span></span><br></pre></td></tr></table></figure>
+<h5 id="2-StopIteration"><a href="#2-StopIteration" class="headerlink" title="2.StopIteration"></a>2.<code>StopIteration</code></h5><div class="note info no-icon"><p>在20次迭代后停止执行。</p></div>
+<ul>
+<li>代码：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">My_stop</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__iter__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.a = <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> self</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__next__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> self.a &lt;= <span class="number">20</span>:</span><br><span class="line">            x = self.a</span><br><span class="line">            self.a += <span class="number">1</span></span><br><span class="line">            <span class="keyword">return</span> x</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">raise</span> StopIteration</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">my_stop = My_stop()</span><br><span class="line">myiter = iter(my_stop)</span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> myiter:</span><br><span class="line">    print(x, end=<span class="string">" "</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>结果：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span> <span class="number">7</span> <span class="number">8</span> <span class="number">9</span> <span class="number">10</span> <span class="number">11</span> <span class="number">12</span> <span class="number">13</span> <span class="number">14</span> <span class="number">15</span> <span class="number">16</span> <span class="number">17</span> <span class="number">18</span> <span class="number">19</span> <span class="number">20</span></span><br></pre></td></tr></table></figure>
+<h4 id="四、实验结果"><a href="#四、实验结果" class="headerlink" title="四、实验结果"></a>四、实验结果</h4>
       
     </div>
     
@@ -490,7 +514,7 @@
   <p><span>本文标题:</span><a href="/2020/03/15/15-%E8%BF%AD%E4%BB%A3%E5%99%A8%E3%80%81%E7%94%9F%E6%88%90%E5%99%A8%E3%80%81%E8%A3%85%E9%A5%B0%E5%99%A8/">15.迭代器、生成器、装饰器   <i class="fa fa-arrow-up"></i></a></p>
   <p><span>文章作者:</span><a href="/" title="访问 小哲 的个人博客">小哲    <i class="fa fa-user"></i></a></p>
   <p><span>发布时间:</span>2020年03月15日 - 17:41</p>
-  <p><span>最后更新:</span>2020年03月15日 - 22:13</p>
+  <p><span>最后更新:</span>2020年03月19日 - 22:13</p>
   <p><span>原始链接:</span><i class="fa fa-clipboard" data-clipboard-text="https://ame1314.github.io/2020/03/15/15-%E8%BF%AD%E4%BB%A3%E5%99%A8%E3%80%81%E7%94%9F%E6%88%90%E5%99%A8%E3%80%81%E8%A3%85%E9%A5%B0%E5%99%A8/"  aria-label="复制成功！">&nbsp;点击复制原始链接</i></p>
   <!--<a class="link" href="https://ame1314.github.io/2020/03/15/15-%E8%BF%AD%E4%BB%A3%E5%99%A8%E3%80%81%E7%94%9F%E6%88%90%E5%99%A8%E3%80%81%E8%A3%85%E9%A5%B0%E5%99%A8/" title="15.迭代器、生成器、装饰器">https://ame1314.github.io/2020/03/15/15-%E8%BF%AD%E4%BB%A3%E5%99%A8%E3%80%81%E7%94%9F%E6%88%90%E5%99%A8%E3%80%81%E8%A3%85%E9%A5%B0%E5%99%A8/</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">协议</a>-转载请保留原文链接及<a href="https://ame1314.github.io/about/" target="_blank">作者</a></p>  
@@ -726,7 +750,7 @@
               <ul class="links-of-blogroll-list">
                 
                   <li class="links-of-blogroll-item">
-                    <a href="http://me1314521.gitee.io/ourstory/" title="致我亲爱的她" target="_blank">致我亲爱的她</a>
+                    <a href="http://vxiaozhe1998.gitee.io/ourstory" title="致我亲爱的她" target="_blank">致我亲爱的她</a>
                   </li>
                 
               </ul>
@@ -752,7 +776,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、实验目的"><span class="nav-text">一、实验目的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、知识要点"><span class="nav-text">二、知识要点</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-迭代器"><span class="nav-text">1.迭代器</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、实验内容"><span class="nav-text">三、实验内容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四、实验结果"><span class="nav-text">四、实验结果</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、实验目的"><span class="nav-text">一、实验目的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、知识要点"><span class="nav-text">二、知识要点</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-迭代器"><span class="nav-text">1.迭代器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-生成器"><span class="nav-text">2.生成器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-StopIteration"><span class="nav-text">2.StopIteration</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四、实验结果"><span class="nav-text">四、实验结果</span></a></li></ol></div>
             
 
           </div>
@@ -772,7 +796,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-          <div class="theme-info" style="color:rgb(255, 118, 117)"><a class="my-love" target="_blank" href="http://me1314521.gitee.io/ourstory/"><i class="fa fa-heartbeat" aria-hidden="true"></i>&nbsp;&nbsp;致我最亲爱的她&nbsp;&nbsp;</a></div>
+          <div class="theme-info" style="color:rgb(255, 118, 117)"><a class="my-love" target="_blank" href="http://vxiaozhe1998.gitee.io/ourstory"><i class="fa fa-heartbeat" aria-hidden="true"></i>&nbsp;&nbsp;致我最亲爱的她&nbsp;&nbsp;</a></div>
 
 <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
 &nbsp;|&nbsp;<span class="with-love">
@@ -782,7 +806,7 @@
 
   
  &nbsp;|&nbsp;
-<i class="fa fa-pencil"></i> &nbsp;<span class="post-count">博客全站共61.1k字</span>
+<i class="fa fa-pencil"></i> &nbsp;<span class="post-count">博客全站共61.6k字</span>
 </div>
 <span class="post-count">备案号：</span>
 
