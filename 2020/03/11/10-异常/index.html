@@ -518,13 +518,10 @@
 <div class="note primary"><p>有关<code>sys.argv[]</code>的解释</p></div>
 <div class="note primary no-icon"><p>在<code>sys.argv[value]</code>中对于输入的内容实际上保存为了一个列表，列表的第一个元素即为脚本，例如我们写一个输出脚本<code>print_f.py</code>，脚本中的代码如下：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line">a = sys.argv[<span class="number">0</span>]</span><br><span class="line">print(a)</span><br></pre></td></tr></table></figure>
-
 <p>我们通过控制台在根目录运行，输入：<code>python print_f</code>，敲击回车，会输出<code>print_f</code><br>此时我们更改一下脚本中的代码为：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line">a = sys.argv[<span class="number">1</span>]</span><br><span class="line">print(a)</span><br></pre></td></tr></table></figure>
-
 <p>我们再通过控制台在根目录输入：<code>python print_f hello</code>敲击回车会输出<code>hello</code><br>我们再更改一次代码：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line">a = sys.argv[<span class="number">2</span>:]</span><br><span class="line">print(a)</span><br></pre></td></tr></table></figure>
-
 <p>在控制台中输入：<code>python print_f a b c d e</code>敲击回车输出的为：<code>[&#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;]</code>。<br>通过上面的例子我们容易理解<code>sys.argv</code>的用法。</p></div>
 <h4 id="四、实验结果"><a href="#四、实验结果" class="headerlink" title="四、实验结果"></a>四、实验结果</h4><p>无</p>
 
@@ -710,7 +707,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">46</span>
+                  <span class="site-state-item-count">47</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -840,7 +837,7 @@
 
   
  &nbsp;|&nbsp;
-<i class="fa fa-pencil"></i> &nbsp;<span class="post-count">博客全站共61.6k字</span>
+<i class="fa fa-pencil"></i> &nbsp;<span class="post-count">博客全站共67.4k字</span>
 </div>
 <span class="post-count">备案号：</span>
 

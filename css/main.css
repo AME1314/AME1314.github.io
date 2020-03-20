@@ -1973,7 +1973,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #7effb4;
+  background: #ff88d1;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3268,7 +3268,7 @@ hr {
 .btn-copy {
   display: inline-block;
   cursor: pointer;
-  background-color: transparent;
+  background-color: #ecedf0;
   border: none;
   border-radius: 3px;
   -webkit-user-select: none;
@@ -3339,7 +3339,7 @@ div.btnc_d {
   z-index: 9999;
   display: block;
   height: 5px;
-  background: #578852;
+  background: #ff0a37;
   border-radius: 0 5px 5px 0;
 }
 pre.mermaid,
@@ -3578,4 +3578,25 @@ code {
 ::-webkit-scrollbar-track-piece:horizontal:start {
   background-color: #555;
   border-radius: 10px 0 0 10px;
+}
+.need-share-button-opened img.need-share-wechat-code-image {
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  margin: 0px 0px 20px 45px !important;
+  border: 2px solid #fff;
+}
+.hider_title {
+  font-family: "Microsoft Yahei";
+  cursor: pointer;
+  background-color: #ecedf0;
+  text-align: center;
+  border-radius: 20px;
+  border: none;
+  box-shadow: 3px 3px 5px #babbbe, -2px -2px 5px #fff;
+}
+.close:after {
+  content: "▼";
+}
+.open:after {
+  content: "▲";
 }
