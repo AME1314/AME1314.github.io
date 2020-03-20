@@ -4767,6 +4767,26 @@ op->e</textarea><textarea id="flowchart-0-options" style="display: none">{"scale
       </tags>
   </entry>
   <entry>
+    <title>7-2 老鼠爱大米 (20分)</title>
+    <url>/2020/01/31/7-2%20%E8%80%81%E9%BC%A0%E7%88%B1%E5%A4%A7%E7%B1%B3%20(20%E5%88%86)/</url>
+    <content><![CDATA[<p>翁恺老师曾经设计过一款 Java 挑战游戏，叫“老鼠爱大米”（或许因为他的外号叫“胖胖鼠”）。每个玩家用 Java 代码控制一只鼠，目标是抢吃尽可能多的大米让自己变成胖胖鼠，最胖的那只就是冠军。<br><a id="more"></a>因为游戏时间不能太长，我们把玩家分成 <em>N</em> 组，每组 <em>M</em> 只老鼠同场竞技，然后从 <em>N</em> 个分组冠军中直接选出最胖的冠军胖胖鼠。现在就请你写个程序来得到冠军的体重。</p>
+<blockquote>
+<p><strong>输入格式：</strong><br>输入在第一行中给出 2 个正整数：<em>N</em>（≤100）为组数，<em>M</em>（≤10）为每组玩家个数。随后 <em>N</em> 行，每行给出一组玩家控制的 <em>M</em> 只老鼠最后的体重，均为不超过 104 的非负整数。数字间以空格分隔。</p>
+<p><strong>输出格式：</strong><br>首先在第一行顺次输出各组冠军的体重，数字间以 1 个空格分隔，行首尾不得有多余空格。随后在第二行输出冠军胖胖鼠的体重。</p>
+<p>输入：<br><div class="note default no-icon"><p>3 5<br>62 53 88 72 81<br>12 31 9 0 2<br>91 42 39 6 48</p></div></p>
+<p>输出：<br><div class="note default no-icon"><p>88 31 91<br>91</p></div></p>
+</blockquote>
+<div class="note default no-icon"><p>作者: 陈越<br>单位: 浙江大学<br>时间限制: 400 ms<br>内存限制: 64 MB<br>代码长度限制: 16 KB</p></div>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><h3 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>PAT（乙级）（2019年冬季考试）</category>
+      </categories>
+      <tags>
+        <tag>编程</tag>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>7-1 2019数列 (15分)</title>
     <url>/2020/01/31/7-1%202019%E6%95%B0%E5%88%97%20(15%E5%88%86)/</url>
     <content><![CDATA[<p>把 2019 各个数位上的数字 2、0、1、9 作为一个数列的前 4 项，用它们去构造一个无穷数列，其中第 <em>n</em>（&gt;4）项是它前 4 项之和的个位数字。例如第 5 项为 2， 因为 2+0+1+9=12，个位数是 2。<a id="more"></a><br>本题就请你编写程序，列出这个序列的前 <em>n</em> 项。</p>
@@ -4790,14 +4810,15 @@ op->e</textarea><textarea id="flowchart-0-options" style="display: none">{"scale
       </tags>
   </entry>
   <entry>
-    <title>7-2 老鼠爱大米 (20分)</title>
-    <url>/2020/01/31/7-2%20%E8%80%81%E9%BC%A0%E7%88%B1%E5%A4%A7%E7%B1%B3%20(20%E5%88%86)/</url>
-    <content><![CDATA[<p>翁恺老师曾经设计过一款 Java 挑战游戏，叫“老鼠爱大米”（或许因为他的外号叫“胖胖鼠”）。每个玩家用 Java 代码控制一只鼠，目标是抢吃尽可能多的大米让自己变成胖胖鼠，最胖的那只就是冠军。<br><a id="more"></a>因为游戏时间不能太长，我们把玩家分成 <em>N</em> 组，每组 <em>M</em> 只老鼠同场竞技，然后从 <em>N</em> 个分组冠军中直接选出最胖的冠军胖胖鼠。现在就请你写个程序来得到冠军的体重。</p>
+    <title>7-4 擅长C (20分)</title>
+    <url>/2020/01/31/7-4%20%E6%93%85%E9%95%BFC%20(20%E5%88%86)/</url>
+    <content><![CDATA[<p>当你被面试官要求用 C 写一个“Hello World”时，有本事像下图显示的那样写一个出来吗？<a id="more"></a><br><img src="https://images.ptausercontent.com/ba3b8678-061d-4fc6-a87e-ce08e1434410.jpg" alt="HWC.jpg"></p>
 <blockquote>
-<p><strong>输入格式：</strong><br>输入在第一行中给出 2 个正整数：<em>N</em>（≤100）为组数，<em>M</em>（≤10）为每组玩家个数。随后 <em>N</em> 行，每行给出一组玩家控制的 <em>M</em> 只老鼠最后的体重，均为不超过 104 的非负整数。数字间以空格分隔。</p>
-<p><strong>输出格式：</strong><br>首先在第一行顺次输出各组冠军的体重，数字间以 1 个空格分隔，行首尾不得有多余空格。随后在第二行输出冠军胖胖鼠的体重。</p>
-<p>输入：<br><div class="note default no-icon"><p>3 5<br>62 53 88 72 81<br>12 31 9 0 2<br>91 42 39 6 48</p></div></p>
-<p>输出：<br><div class="note default no-icon"><p>88 31 91<br>91</p></div></p>
+<p><strong>输入格式：</strong><br>输入首先给出 26 个英文大写字母 A-Z，每个字母用一个 7×5 的、由 <code>C</code> 和 <code>.</code> 组成的矩阵构成。最后在一行中给出一个句子，以回车结束。句子是由若干个单词（每个包含不超过 10 个连续的大写英文字母）组成的，单词间以任何非大写英文字母分隔。<br>题目保证至少给出一个单词。</p>
+<p><strong>输出格式：</strong><br>对每个单词，将其每个字母用矩阵形式在一行中输出，字母间有一列空格分隔。单词的首尾不得有多余空格。<br>相邻的两个单词间必须有一空行分隔。输出的首尾不得有多余空行。</p>
+<p>输入：<br><div class="note default no-icon"><p>..C..<br>.C.C.<br>C…C<br>CCCCC<br>C…C<br>C…C<br>C…C<br>CCCC.<br>C…C<br>C…C<br>CCCC.<br>C…C<br>C…C<br>CCCC.<br>.CCC.<br>C…C<br>C….<br>C….<br>C….<br>C…C<br>.CCC.<br>CCCC.<br>C…C<br>C…C<br>C…C<br>C…C<br>C…C<br>CCCC.<br>CCCCC<br>C….<br>C….<br>CCCC.<br>C….<br>C….<br>CCCCC<br>CCCCC<br>C….<br>C….<br>CCCC.<br>C….<br>C….<br>C….<br>CCCC.<br>C…C<br>C….<br>C.CCC<br>C…C<br>C…C<br>CCCC.<br>C…C<br>C…C<br>C…C<br>CCCCC<br>C…C<br>C…C<br>C…C<br>CCCCC<br>..C..<br>..C..<br>..C..<br>..C..<br>..C..<br>CCCCC<br>CCCCC<br>….C<br>….C<br>….C<br>….C<br>C…C<br>.CCC.<br>C…C<br>C..C.<br>C.C..<br>CC…<br>C.C..<br>C..C.<br>C…C<br>C….<br>C….<br>C….<br>C….<br>C….<br>C….<br>CCCCC<br>C…C<br>C…C<br>CC.CC<br>C.C.C<br>C…C<br>C…C<br>C…C<br>C…C<br>C…C<br>CC..C<br>C.C.C<br>C..CC<br>C…C<br>C…C<br>.CCC.<br>C…C<br>C…C<br>C…C<br>C…C<br>C…C<br>.CCC.<br>CCCC.<br>C…C<br>C…C<br>CCCC.<br>C….<br>C….<br>C….<br>.CCC.<br>C…C<br>C…C<br>C…C<br>C.C.C<br>C..CC<br>.CCC.<br>CCCC.<br>C…C<br>CCCC.<br>CC…<br>C.C..<br>C..C.<br>C…C<br>.CCC.<br>C…C<br>C….<br>.CCC.<br>….C<br>C…C<br>.CCC.<br>CCCCC<br>..C..<br>..C..<br>..C..<br>..C..<br>..C..<br>..C..<br>C…C<br>C…C<br>C…C<br>C…C<br>C…C<br>C…C<br>.CCC.<br>C…C<br>C…C<br>C…C<br>C…C<br>C…C<br>.C.C.<br>..C..<br>C…C<br>C…C<br>C…C<br>C.C.C<br>CC.CC<br>C…C<br>C…C<br>C…C<br>C…C<br>.C.C.<br>..C..<br>.C.C.<br>C…C<br>C…C<br>C…C<br>C…C<br>.C.C.<br>..C..<br>..C..<br>..C..<br>..C..<br>CCCCC<br>….C<br>…C.<br>..C..<br>.C…<br>C….<br>CCCCC<br>HELLO~WORLD!</p></div></p>
+<p>输出：<br><div class="note default no-icon"><p>C…C CCCCC C…. C…. .CCC.<br>C…C C…. C…. C…. C…C<br>C…C C…. C…. C…. C…C<br>CCCCC CCCC. C…. C…. C…C<br>C…C C…. C…. C…. C…C<br>C…C C…. C…. C…. C…C<br>C…C CCCCC CCCCC CCCCC .CCC.</p>
+<p>C…C .CCC. CCCC. C…. CCCC.<br>C…C C…C C…C C…. C…C<br>C…C C…C CCCC. C…. C…C<br>C.C.C C…C CC… C…. C…C<br>CC.CC C…C C.C.. C…. C…C<br>C…C C…C C..C. C…. C…C<br>C…C .CCC. C…C CCCCC CCCC.</p></div></p>
 </blockquote>
 <div class="note default no-icon"><p>作者: 陈越<br>单位: 浙江大学<br>时间限制: 400 ms<br>内存限制: 64 MB<br>代码长度限制: 16 KB</p></div>
 <h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><h3 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
@@ -4818,27 +4839,6 @@ op->e</textarea><textarea id="flowchart-0-options" style="display: none">{"scale
 <p><strong>输出格式：</strong><br>在一行中按题目要求输出排序后的字符串。题目保证输出非空。</p>
 <p>输入：<br><div class="note default no-icon"><p>sTRidlinSayBingStrropriiSHSiRiagIgtSSr</p></div></p>
 <p>输出：<br><div class="note default no-icon"><p>StringStringSrigSriSiSii</p></div></p>
-</blockquote>
-<div class="note default no-icon"><p>作者: 陈越<br>单位: 浙江大学<br>时间限制: 400 ms<br>内存限制: 64 MB<br>代码长度限制: 16 KB</p></div>
-<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><h3 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>PAT（乙级）（2019年冬季考试）</category>
-      </categories>
-      <tags>
-        <tag>编程</tag>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>7-4 擅长C (20分)</title>
-    <url>/2020/01/31/7-4%20%E6%93%85%E9%95%BFC%20(20%E5%88%86)/</url>
-    <content><![CDATA[<p>当你被面试官要求用 C 写一个“Hello World”时，有本事像下图显示的那样写一个出来吗？<a id="more"></a><br><img src="https://images.ptausercontent.com/ba3b8678-061d-4fc6-a87e-ce08e1434410.jpg" alt="HWC.jpg"></p>
-<blockquote>
-<p><strong>输入格式：</strong><br>输入首先给出 26 个英文大写字母 A-Z，每个字母用一个 7×5 的、由 <code>C</code> 和 <code>.</code> 组成的矩阵构成。最后在一行中给出一个句子，以回车结束。句子是由若干个单词（每个包含不超过 10 个连续的大写英文字母）组成的，单词间以任何非大写英文字母分隔。<br>题目保证至少给出一个单词。</p>
-<p><strong>输出格式：</strong><br>对每个单词，将其每个字母用矩阵形式在一行中输出，字母间有一列空格分隔。单词的首尾不得有多余空格。<br>相邻的两个单词间必须有一空行分隔。输出的首尾不得有多余空行。</p>
-<p>输入：<br><div class="note default no-icon"><p>..C..<br>.C.C.<br>C…C<br>CCCCC<br>C…C<br>C…C<br>C…C<br>CCCC.<br>C…C<br>C…C<br>CCCC.<br>C…C<br>C…C<br>CCCC.<br>.CCC.<br>C…C<br>C….<br>C….<br>C….<br>C…C<br>.CCC.<br>CCCC.<br>C…C<br>C…C<br>C…C<br>C…C<br>C…C<br>CCCC.<br>CCCCC<br>C….<br>C….<br>CCCC.<br>C….<br>C….<br>CCCCC<br>CCCCC<br>C….<br>C….<br>CCCC.<br>C….<br>C….<br>C….<br>CCCC.<br>C…C<br>C….<br>C.CCC<br>C…C<br>C…C<br>CCCC.<br>C…C<br>C…C<br>C…C<br>CCCCC<br>C…C<br>C…C<br>C…C<br>CCCCC<br>..C..<br>..C..<br>..C..<br>..C..<br>..C..<br>CCCCC<br>CCCCC<br>….C<br>….C<br>….C<br>….C<br>C…C<br>.CCC.<br>C…C<br>C..C.<br>C.C..<br>CC…<br>C.C..<br>C..C.<br>C…C<br>C….<br>C….<br>C….<br>C….<br>C….<br>C….<br>CCCCC<br>C…C<br>C…C<br>CC.CC<br>C.C.C<br>C…C<br>C…C<br>C…C<br>C…C<br>C…C<br>CC..C<br>C.C.C<br>C..CC<br>C…C<br>C…C<br>.CCC.<br>C…C<br>C…C<br>C…C<br>C…C<br>C…C<br>.CCC.<br>CCCC.<br>C…C<br>C…C<br>CCCC.<br>C….<br>C….<br>C….<br>.CCC.<br>C…C<br>C…C<br>C…C<br>C.C.C<br>C..CC<br>.CCC.<br>CCCC.<br>C…C<br>CCCC.<br>CC…<br>C.C..<br>C..C.<br>C…C<br>.CCC.<br>C…C<br>C….<br>.CCC.<br>….C<br>C…C<br>.CCC.<br>CCCCC<br>..C..<br>..C..<br>..C..<br>..C..<br>..C..<br>..C..<br>C…C<br>C…C<br>C…C<br>C…C<br>C…C<br>C…C<br>.CCC.<br>C…C<br>C…C<br>C…C<br>C…C<br>C…C<br>.C.C.<br>..C..<br>C…C<br>C…C<br>C…C<br>C.C.C<br>CC.CC<br>C…C<br>C…C<br>C…C<br>C…C<br>.C.C.<br>..C..<br>.C.C.<br>C…C<br>C…C<br>C…C<br>C…C<br>.C.C.<br>..C..<br>..C..<br>..C..<br>..C..<br>CCCCC<br>….C<br>…C.<br>..C..<br>.C…<br>C….<br>CCCCC<br>HELLO~WORLD!</p></div></p>
-<p>输出：<br><div class="note default no-icon"><p>C…C CCCCC C…. C…. .CCC.<br>C…C C…. C…. C…. C…C<br>C…C C…. C…. C…. C…C<br>CCCCC CCCC. C…. C…. C…C<br>C…C C…. C…. C…. C…C<br>C…C C…. C…. C…. C…C<br>C…C CCCCC CCCCC CCCCC .CCC.</p>
-<p>C…C .CCC. CCCC. C…. CCCC.<br>C…C C…C C…C C…. C…C<br>C…C C…C CCCC. C…. C…C<br>C.C.C C…C CC… C…. C…C<br>CC.CC C…C C.C.. C…. C…C<br>C…C C…C C..C. C…. C…C<br>C…C .CCC. C…C CCCCC CCCC.</p></div></p>
 </blockquote>
 <div class="note default no-icon"><p>作者: 陈越<br>单位: 浙江大学<br>时间限制: 400 ms<br>内存限制: 64 MB<br>代码长度限制: 16 KB</p></div>
 <h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><h3 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
