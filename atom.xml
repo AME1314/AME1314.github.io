@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://ame1314.github.io/"/>
-  <updated>2020-03-20T04:36:55.345Z</updated>
+  <updated>2020-03-21T07:55:28.239Z</updated>
   <id>https://ame1314.github.io/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>博客的国内节点</title>
+    <link href="https://ame1314.github.io/2020/03/21/%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%9B%BD%E5%86%85%E8%8A%82%E7%82%B9/"/>
+    <id>https://ame1314.github.io/2020/03/21/%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%9B%BD%E5%86%85%E8%8A%82%E7%82%B9/</id>
+    <published>2020-03-21T07:45:48.000Z</published>
+    <updated>2020-03-21T07:55:28.239Z</updated>
+    
+    <content type="html"><![CDATA[<div class="note danger no-icon"><h3 id="由于github网站访问较慢，特在gitee处添加新镜像，在gitee中将使用全新的NEXT-7-0-主题，后期将不断完善。"><a href="#由于github网站访问较慢，特在gitee处添加新镜像，在gitee中将使用全新的NEXT-7-0-主题，后期将不断完善。" class="headerlink" title="由于github网站访问较慢，特在gitee处添加新镜像，在gitee中将使用全新的NEXT 7.0 主题，后期将不断完善。"></a>由于github网站访问较慢，特在gitee处添加新镜像，在gitee中将使用全新的NEXT 7.0 主题，后期将不断完善。</h3><p>地址：<a href="http://vxiaozhe1998.gitee.io/blog" target="_blank" rel="noopener">http://vxiaozhe1998.gitee.io/blog</a></p></div><a id="more"></a><p><a style="color:#42b983;font-size:25px;font-weight:800; text-decoration:none">工作计划：</a></p><ul><li>[x] HEXO+NEXT下载</li><li>[x] 创建gitee仓库</li><li>[x] <a href="https://blog.csdn.net/weixin_43337147/article/details/96286086?depth_1-utm_source=distribute.pc_relevant.none-task&amp;utm_source=distribute.pc_relevant.none-task" target="_blank" rel="noopener">同一台电脑配置两个博客</a></li><li>[ ] 未完待续 </li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;div class=&quot;note danger no-icon&quot;&gt;&lt;h3 id=&quot;由于github网站访问较慢，特在gitee处添加新镜像，在gitee中将使用全新的NEXT-7-0-主题，后期将不断完善。&quot;&gt;&lt;a href=&quot;#由于github网站访问较慢，特在gitee处添加新镜像，在gitee中将使用全新的NEXT-7-0-主题，后期将不断完善。&quot; class=&quot;headerlink&quot; title=&quot;由于github网站访问较慢，特在gitee处添加新镜像，在gitee中将使用全新的NEXT 7.0 主题，后期将不断完善。&quot;&gt;&lt;/a&gt;由于github网站访问较慢，特在gitee处添加新镜像，在gitee中将使用全新的NEXT 7.0 主题，后期将不断完善。&lt;/h3&gt;&lt;p&gt;地址：&lt;a href=&quot;http://vxiaozhe1998.gitee.io/blog&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://vxiaozhe1998.gitee.io/blog&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>NEXT主题优化分享样式</title>
@@ -456,31 +475,6 @@
     
     
       <category term="Python" scheme="https://ame1314.github.io/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>在HEXO中部署流程图以及常用的流程图语法</title>
-    <link href="https://ame1314.github.io/2020/03/07/%E5%9C%A8HEXO%E4%B8%AD%E9%83%A8%E7%BD%B2%E6%B5%81%E7%A8%8B%E5%9B%BE%E4%BB%A5%E5%8F%8A%E5%B8%B8%E7%94%A8%E7%9A%84%E6%B5%81%E7%A8%8B%E5%9B%BE%E8%AF%AD%E6%B3%95/"/>
-    <id>https://ame1314.github.io/2020/03/07/%E5%9C%A8HEXO%E4%B8%AD%E9%83%A8%E7%BD%B2%E6%B5%81%E7%A8%8B%E5%9B%BE%E4%BB%A5%E5%8F%8A%E5%B8%B8%E7%94%A8%E7%9A%84%E6%B5%81%E7%A8%8B%E5%9B%BE%E8%AF%AD%E6%B3%95/</id>
-    <published>2020-03-07T03:55:32.000Z</published>
-    <updated>2020-03-15T13:19:35.125Z</updated>
-    
-    <content type="html"><![CDATA[<div class="note info no-icon"><p>本文中将给出<code>mermaid</code>和<code>flowchart</code>在hexo上的配置以及基础语法<br>插件地址：<a href="https://github.com/mermaid-js/mermaid" target="_blank" rel="noopener">mermaid</a><br>参考文章：<br><a href="https://blog.csdn.net/qq_36347375/article/details/90478335" target="_blank" rel="noopener">Hexo引入Mermaid流程图和MathJax数学公式</a><br><a href="https://yelog.org/2019/11/12/3-hexo-support-mermaid/" target="_blank" rel="noopener">hexo支持mermaid图表</a><br><a href="https://blog.csdn.net/wzh0709zml/article/details/103310405" target="_blank" rel="noopener">hexo优化：Markdown语法引入Flowchart和Mermaid流程图</a><br>官方使用文档：<a href="http://mermaid-js.github.io/mermaid/#/flowchart" target="_blank" rel="noopener">使用文档</a></p></div><a id="more"></a><div id="flowchart-0" class="flow-chart"></div><pre class="mermaid">graph TDA[Hard] -->|Text| B(Round)B --> C{Decision}C -->|One| D[Result 1]C -->|Two| E[Result 2]</pre><pre class="mermaid">pie    title Key elements in Product X    "Calcium" : 42.96    "Potassium" : 50.05    "Magnesium" : 10.01    "Iron" :  5</pre><pre class="mermaid">ganttsection SectionCompleted :done,    des1, 2014-01-06,2014-01-08Active        :active,  des2, 2014-01-07, 3dParallel 1   :         des3, after des1, 1dParallel 2   :         des4, after des1, 1dParallel 3   :         des5, after des3, 1dParallel 4   :         des6, after des4, 1d</pre><pre class="mermaid">graph LR    A-->B    B-->C    C-->D    D-->E    E-->F    F-->M    M-->AD    AD-->Q    Q-->T    T-->R    R-->S    S-->Z</pre><pre class="mermaid">stateDiagram[*] --> StillStill --> [*]Still --> MovingMoving --> StillMoving --> CrashCrash --> [*]</pre><pre class="mermaid">pie"Dogs" : 386"Cats" : 85"Rats" : 15</pre><p><script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script><textarea id="flowchart-0-code" style="display: none">st=>start: Start|past:>http://www.google.com[blank]e=>end: End:>http://www.google.comop1=>operation: My Operation|pastop2=>operation: Stuff|currentsub1=>subroutine: My Subroutine|invalidcond=>condition: Yesor No?|approved:>http://www.google.comc2=>condition: Good idea|rejectedio=>inputoutput: catch something...|requestst->op1(right)->condcond(yes, right)->c2cond(no)->sub1(left)->op1c2(yes)->io->ec2(no)->op2->e</textarea><textarea id="flowchart-0-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-0", options);</script></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;div class=&quot;note info no-icon&quot;&gt;&lt;p&gt;本文中将给出&lt;code&gt;mermaid&lt;/code&gt;和&lt;code&gt;flowchart&lt;/code&gt;在hexo上的配置以及基础语法&lt;br&gt;插件地址：&lt;a href=&quot;https://github.com/mermaid-js/mermaid&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;mermaid&lt;/a&gt;&lt;br&gt;参考文章：&lt;br&gt;&lt;a href=&quot;https://blog.csdn.net/qq_36347375/article/details/90478335&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo引入Mermaid流程图和MathJax数学公式&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://yelog.org/2019/11/12/3-hexo-support-mermaid/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;hexo支持mermaid图表&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://blog.csdn.net/wzh0709zml/article/details/103310405&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;hexo优化：Markdown语法引入Flowchart和Mermaid流程图&lt;/a&gt;&lt;br&gt;官方使用文档：&lt;a href=&quot;http://mermaid-js.github.io/mermaid/#/flowchart&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;使用文档&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;
-    
-    </summary>
-    
-    
-      <category term="博客" scheme="https://ame1314.github.io/categories/%E5%8D%9A%E5%AE%A2/"/>
-    
-    
-      <category term="HEXO" scheme="https://ame1314.github.io/tags/HEXO/"/>
-    
-      <category term="Markdown" scheme="https://ame1314.github.io/tags/Markdown/"/>
     
   </entry>
   
