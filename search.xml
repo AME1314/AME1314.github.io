@@ -5,13 +5,12 @@
     <url>/2020/03/21/%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%9B%BD%E5%86%85%E8%8A%82%E7%82%B9/</url>
     <content><![CDATA[<div class="note danger no-icon"><h3 id="由于github网站访问较慢，特在gitee处添加新镜像，在gitee中将使用全新的NEXT-7-0-主题，后期将不断完善。"><a href="#由于github网站访问较慢，特在gitee处添加新镜像，在gitee中将使用全新的NEXT-7-0-主题，后期将不断完善。" class="headerlink" title="由于github网站访问较慢，特在gitee处添加新镜像，在gitee中将使用全新的NEXT 7.0 主题，后期将不断完善。"></a>由于github网站访问较慢，特在gitee处添加新镜像，在gitee中将使用全新的NEXT 7.0 主题，后期将不断完善。</h3><p>地址：<a href="http://vxiaozhe1998.gitee.io/blog" target="_blank" rel="noopener">http://vxiaozhe1998.gitee.io/blog</a></p></div>
 <a id="more"></a>
-<p><a style="color:#42b983;font-size:25px;font-weight:800; text-decoration:none">工作计划：</a></p>
-<ul>
-<li>[x] HEXO+NEXT下载</li>
-<li>[x] 创建gitee仓库</li>
-<li>[x] <a href="https://blog.csdn.net/weixin_43337147/article/details/96286086?depth_1-utm_source=distribute.pc_relevant.none-task&amp;utm_source=distribute.pc_relevant.none-task" target="_blank" rel="noopener">同一台电脑配置两个博客</a></li>
-<li>[ ] 未完待续 </li>
-</ul>
+<p><p style="color:#42b983;font-size:25px;font-weight:800; text-decoration:none">工作计划：</p></p>
+<label style="display: block;"><input type="checkbox" checked/>HEXO+NEXT下载</label>
+<label style="display: block;"><input type="checkbox" checked/>创建gitee仓库</label>
+<label style="display: block;"><input type="checkbox" checked/><a href="https://blog.csdn.net/weixin_43337147/article/details/96286086?depth_1-utm_source=distribute.pc_relevant.none-task&utm_source=distribute.pc_relevant.none-task" target="_blank" rel="noopener">同一台电脑配置两个博客</a></label>
+<label style="display: block;"><input type="checkbox"/>未完待续  </label>
+
 ]]></content>
       <categories>
         <category>博客</category>
