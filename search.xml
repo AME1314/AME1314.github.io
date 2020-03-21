@@ -4422,7 +4422,11 @@ op->e</textarea><textarea id="flowchart-0-options" style="display: none">{"scale
 <h3 id="实例-2"><a href="#实例-2" class="headerlink" title="实例"></a>实例</h3><span class="label default">行内标签</span>其实就是用各种<span class="label primary">不同的颜色</span>来标记文本，例如这是<span class="label primary">primary标签</span>，这是<span class="label default">default标签</span>，这是<span class="label success">success标签</span>，这是<span class="label info">info标签</span>，这是<span class="label warning">warning标签</span>,这是<span class="label danger">danger标签</span>,文本上可以加空格。这是<span class="label success">不加空格的</span>，这是<span class="label success">加了 空格的</span>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% label @行内标签 %&#125;其实就是用各种&#123;% label primary@不同的颜色 %&#125;来标记文本，例如这是&#123;% label primary@primary标签 %&#125;，这是&#123;% label default@default标签 %&#125;，这是&#123;% label success@success标签 %&#125;，这是&#123;% label info@info标签 %&#125;，这是&#123;% label warning@warning标签 %&#125;,这是&#123;% label danger@danger标签 %&#125;,文本上可以加空格。这是&#123;% label success@不加空格的 %&#125;，这是&#123;% label success@加了    空格的 %&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="按钮"><a href="#按钮" class="headerlink" title="按钮"></a>按钮</h2><p><a class="btnc">这是自定义的按钮</a><br><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"btnc"</span>&gt;</span>这是自定义的按钮<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-]]></content>
+<h2 id="分类标签"><a href="#分类标签" class="headerlink" title="分类标签"></a>分类标签</h2><div class="tabs" id="first-unique-name"><ul class="nav-tabs"><li class="tab active"><a href="#first-unique-name-1">First unique name 1</a></li><li class="tab"><a href="#first-unique-name-2">First unique name 2</a></li><li class="tab"><a href="#first-unique-name-3">First unique name 3</a></li></ul><div class="tab-content"><div class="tab-pane active" id="first-unique-name-1"><p><strong>This is Tab 1.</strong></p>
+</div><div class="tab-pane" id="first-unique-name-2"><p><strong>This is Tab 2.</strong></p>
+</div><div class="tab-pane" id="first-unique-name-3"><p><strong>This is Tab 3.</strong></p>
+</div></div></div>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% tabs First unique name %&#125;</span><br><span class="line"><span class="comment">&lt;!-- tab --&gt;</span></span><br><span class="line">**This is Tab 1.**</span><br><span class="line"><span class="comment">&lt;!-- endtab --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- tab --&gt;</span></span><br><span class="line">**This is Tab 2.**</span><br><span class="line"><span class="comment">&lt;!-- endtab --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- tab --&gt;</span></span><br><span class="line">**This is Tab 3.**</span><br><span class="line"><span class="comment">&lt;!-- endtab --&gt;</span></span><br><span class="line">&#123;% endtabs %&#125;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>博客</category>
       </categories>
@@ -4767,29 +4771,6 @@ op->e</textarea><textarea id="flowchart-0-options" style="display: none">{"scale
       </tags>
   </entry>
   <entry>
-    <title>7-1 2019数列 (15分)</title>
-    <url>/2020/01/31/7-1%202019%E6%95%B0%E5%88%97%20(15%E5%88%86)/</url>
-    <content><![CDATA[<p>把 2019 各个数位上的数字 2、0、1、9 作为一个数列的前 4 项，用它们去构造一个无穷数列，其中第 <em>n</em>（&gt;4）项是它前 4 项之和的个位数字。例如第 5 项为 2， 因为 2+0+1+9=12，个位数是 2。<a id="more"></a><br>本题就请你编写程序，列出这个序列的前 <em>n</em> 项。</p>
-<blockquote>
-<p><strong>输入格式：</strong><br>输入给出正整数 <em>n</em>（≤1000）。</p>
-<p><strong>输出格式：</strong><br>在一行中输出数列的前 <em>n</em> 项，数字间不要有空格。</p>
-<p>输入：<br><div class="note default no-icon"><p>10</p></div>
-
-> 输出：
-<div class="note default no-icon"><p>2019224758</p></div></p>
-</blockquote>
-<div class="note default no-icon"><p>作者: 陈越<br>单位: 浙江大学<br>时间限制: 400 ms<br>内存限制: 64 MB<br>代码长度限制: 16 KB</p></div>
-<p><strong>题外话：</strong>这个数列中永远不会出现 <code>2018</code>，你能证明吗？</p>
-<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><h3 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>PAT（乙级）（2019年冬季考试）</category>
-      </categories>
-      <tags>
-        <tag>编程</tag>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>7-2 老鼠爱大米 (20分)</title>
     <url>/2020/01/31/7-2%20%E8%80%81%E9%BC%A0%E7%88%B1%E5%A4%A7%E7%B1%B3%20(20%E5%88%86)/</url>
     <content><![CDATA[<p>翁恺老师曾经设计过一款 Java 挑战游戏，叫“老鼠爱大米”（或许因为他的外号叫“胖胖鼠”）。每个玩家用 Java 代码控制一只鼠，目标是抢吃尽可能多的大米让自己变成胖胖鼠，最胖的那只就是冠军。<br><a id="more"></a>因为游戏时间不能太长，我们把玩家分成 <em>N</em> 组，每组 <em>M</em> 只老鼠同场竞技，然后从 <em>N</em> 个分组冠军中直接选出最胖的冠军胖胖鼠。现在就请你写个程序来得到冠军的体重。</p>
@@ -4810,16 +4791,19 @@ op->e</textarea><textarea id="flowchart-0-options" style="display: none">{"scale
       </tags>
   </entry>
   <entry>
-    <title>7-3 String复读机 (20分)</title>
-    <url>/2020/01/31/7-3%20String%E5%A4%8D%E8%AF%BB%E6%9C%BA%20(20%E5%88%86)/</url>
-    <content><![CDATA[<p>给定一个长度不超过10<sup>4</sup>的、仅由英文字母构成的字符串。请将字符重新调整顺序，按 <code>StringString....</code> （注意区分大小写）这样的顺序输出，并忽略其它字符。当然，六种字符的个数不一定是一样多的，若某种字符已经输出完，则余下的字符仍按 <code>String</code> 的顺序打印，直到所有字符都被输出。例如 <code>gnirtSSs</code> 要调整成 <code>StringS</code> 输出，其中 <code>s</code> 是多余字符被忽略。<a id="more"></a></p>
+    <title>7-1 2019数列 (15分)</title>
+    <url>/2020/01/31/7-1%202019%E6%95%B0%E5%88%97%20(15%E5%88%86)/</url>
+    <content><![CDATA[<p>把 2019 各个数位上的数字 2、0、1、9 作为一个数列的前 4 项，用它们去构造一个无穷数列，其中第 <em>n</em>（&gt;4）项是它前 4 项之和的个位数字。例如第 5 项为 2， 因为 2+0+1+9=12，个位数是 2。<a id="more"></a><br>本题就请你编写程序，列出这个序列的前 <em>n</em> 项。</p>
 <blockquote>
-<p><strong>输入格式：</strong><br>输入在一行中给出一个长度不超过 104 的、仅由英文字母构成的非空字符串。</p>
-<p><strong>输出格式：</strong><br>在一行中按题目要求输出排序后的字符串。题目保证输出非空。</p>
-<p>输入：<br><div class="note default no-icon"><p>sTRidlinSayBingStrropriiSHSiRiagIgtSSr</p></div></p>
-<p>输出：<br><div class="note default no-icon"><p>StringStringSrigSriSiSii</p></div></p>
+<p><strong>输入格式：</strong><br>输入给出正整数 <em>n</em>（≤1000）。</p>
+<p><strong>输出格式：</strong><br>在一行中输出数列的前 <em>n</em> 项，数字间不要有空格。</p>
+<p>输入：<br><div class="note default no-icon"><p>10</p></div>
+
+> 输出：
+<div class="note default no-icon"><p>2019224758</p></div></p>
 </blockquote>
 <div class="note default no-icon"><p>作者: 陈越<br>单位: 浙江大学<br>时间限制: 400 ms<br>内存限制: 64 MB<br>代码长度限制: 16 KB</p></div>
+<p><strong>题外话：</strong>这个数列中永远不会出现 <code>2018</code>，你能证明吗？</p>
 <h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><h3 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>PAT（乙级）（2019年冬季考试）</category>
@@ -4876,6 +4860,26 @@ op->e</textarea><textarea id="flowchart-0-options" style="display: none">{"scale
       </tags>
   </entry>
   <entry>
+    <title>7-3 String复读机 (20分)</title>
+    <url>/2020/01/31/7-3%20String%E5%A4%8D%E8%AF%BB%E6%9C%BA%20(20%E5%88%86)/</url>
+    <content><![CDATA[<p>给定一个长度不超过10<sup>4</sup>的、仅由英文字母构成的字符串。请将字符重新调整顺序，按 <code>StringString....</code> （注意区分大小写）这样的顺序输出，并忽略其它字符。当然，六种字符的个数不一定是一样多的，若某种字符已经输出完，则余下的字符仍按 <code>String</code> 的顺序打印，直到所有字符都被输出。例如 <code>gnirtSSs</code> 要调整成 <code>StringS</code> 输出，其中 <code>s</code> 是多余字符被忽略。<a id="more"></a></p>
+<blockquote>
+<p><strong>输入格式：</strong><br>输入在一行中给出一个长度不超过 104 的、仅由英文字母构成的非空字符串。</p>
+<p><strong>输出格式：</strong><br>在一行中按题目要求输出排序后的字符串。题目保证输出非空。</p>
+<p>输入：<br><div class="note default no-icon"><p>sTRidlinSayBingStrropriiSHSiRiagIgtSSr</p></div></p>
+<p>输出：<br><div class="note default no-icon"><p>StringStringSrigSriSiSii</p></div></p>
+</blockquote>
+<div class="note default no-icon"><p>作者: 陈越<br>单位: 浙江大学<br>时间限制: 400 ms<br>内存限制: 64 MB<br>代码长度限制: 16 KB</p></div>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><h3 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>PAT（乙级）（2019年冬季考试）</category>
+      </categories>
+      <tags>
+        <tag>编程</tag>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>初次部署HEXO+NEXT博客</title>
     <url>/2020/01/30/%E5%88%9D%E6%AC%A1%E9%83%A8%E7%BD%B2HEXO+NEXT%E5%8D%9A%E5%AE%A2/</url>
     <content><![CDATA[<div class="note info no-icon"><p>常用指令以及部署参考</p></div>
@@ -4920,10 +4924,14 @@ op->e</textarea><textarea id="flowchart-0-options" style="display: none">{"scale
 <div class="note info no-icon"><p>之后可能会用到的</p></div>
 <p><a class="btnc_d" href="https://blog.pangao.vip/Hexo%E5%8D%9A%E5%AE%A2NexT%E4%B8%BB%E9%A2%98%E7%BE%8E%E5%8C%96%E4%B9%8B%E9%A1%B6%E9%83%A8%E5%8A%A0%E8%BD%BD%E8%BF%9B%E5%BA%A6%E6%9D%A1/" target="_blank" rel="noopener"><button class="btnc">顶部加载条</button></a></p>
 <div class="note info no-icon"><p>一些标签的使用</p></div>
-<div class="tabs" id="first-unique-name"><ul class="nav-tabs"><li class="tab active"><a href="#first-unique-name-1">First unique name 1</a></li><li class="tab"><a href="#first-unique-name-2">First unique name 2</a></li><li class="tab"><a href="#first-unique-name-3">First unique name 3</a></li></ul><div class="tab-content"><div class="tab-pane active" id="first-unique-name-1"><p><strong>This is Tab 1.</strong></p>
+<p>1.代码收缩：在我们需要折叠的地方前后添加便签<br><div><div class="fold_hider"><div class="close hider_title">点击显/隐内容</div></div><div class="fold">
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;% fold 点击显&#x2F;隐内容 %&#125;</span><br><span class="line">something you want to fold, include code block.</span><br><span class="line">&#123;% endfold %&#125;</span><br></pre></td></tr></table></figure>
+</div></div></p>
+<p>2.标签<br><div class="tabs" id="first-unique-name"><ul class="nav-tabs"><li class="tab active"><a href="#first-unique-name-1">First unique name 1</a></li><li class="tab"><a href="#first-unique-name-2">First unique name 2</a></li><li class="tab"><a href="#first-unique-name-3">First unique name 3</a></li></ul><div class="tab-content"><div class="tab-pane active" id="first-unique-name-1"><p><strong>This is Tab 1.</strong></p>
 </div><div class="tab-pane" id="first-unique-name-2"><p><strong>This is Tab 2.</strong></p>
 </div><div class="tab-pane" id="first-unique-name-3"><p><strong>This is Tab 3.</strong></p>
-</div></div></div>]]></content>
+</div></div></div><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;% tabs First unique name %&#125;</span><br><span class="line">&lt;!-- tab --&gt;</span><br><span class="line">**This is Tab 1.**</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- tab --&gt;</span><br><span class="line">**This is Tab 2.**</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- tab --&gt;</span><br><span class="line">**This is Tab 3.**</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line">&#123;% endtabs %&#125;</span><br></pre></td></tr></table></figure></p>
+]]></content>
       <categories>
         <category>博客</category>
       </categories>
