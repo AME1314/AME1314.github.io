@@ -9,8 +9,8 @@
 <label style="display: block;"><input type="checkbox" checked/>HEXO+NEXT下载</label>
 <label style="display: block;"><input type="checkbox" checked/>创建gitee仓库</label>
 <label style="display: block;"><input type="checkbox" checked/><a href="https://blog.csdn.net/weixin_43337147/article/details/96286086?depth_1-utm_source=distribute.pc_relevant.none-task&utm_source=distribute.pc_relevant.none-task" target="_blank" rel="noopener">同一台电脑配置两个博客</a></label>
+<label style="display: block;"><input type="checkbox" chrcked/>未完待续  </label>
 <label style="display: block;"><input type="checkbox"/>未完待续  </label>
-
 ]]></content>
       <categories>
         <category>博客</category>
