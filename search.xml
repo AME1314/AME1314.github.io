@@ -1966,29 +1966,23 @@ Programmer --> Me</pre>
 <table>
 <thead>
 <tr>
-<th style="text-align:left">序号</th>
 <th style="text-align:left">方法及描述</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left">1</td>
 <td style="text-align:left"><a href="https://www.runoob.com/python/att-tuple-cmp.html" target="_blank" rel="noopener">cmp(tuple1, tuple2)</a> 比较两个元组元素。</td>
 </tr>
 <tr>
-<td style="text-align:left">2</td>
 <td style="text-align:left"><a href="https://www.runoob.com/python/att-tuple-len.html" target="_blank" rel="noopener">len(tuple)</a> 计算元组元素个数。</td>
 </tr>
 <tr>
-<td style="text-align:left">3</td>
 <td style="text-align:left"><a href="https://www.runoob.com/python/att-tuple-max.html" target="_blank" rel="noopener">max(tuple)</a> 返回元组中元素最大值。</td>
 </tr>
 <tr>
-<td style="text-align:left">4</td>
 <td style="text-align:left"><a href="https://www.runoob.com/python/att-tuple-min.html" target="_blank" rel="noopener">min(tuple)</a> 返回元组中元素最小值。</td>
 </tr>
 <tr>
-<td style="text-align:left">5</td>
 <td style="text-align:left"><a href="https://www.runoob.com/python/att-tuple-tuple.html" target="_blank" rel="noopener">tuple(seq)</a> 将列表转换为元组。</td>
 </tr>
 </tbody>
@@ -2018,73 +2012,56 @@ Programmer --> Me</pre>
 <table>
 <thead>
 <tr>
-<th style="text-align:left">序号</th>
 <th style="text-align:left">函数及描述</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left">1</td>
 <td style="text-align:left"><a href="https://www.runoob.com/python/att-dictionary-cmp.html" target="_blank" rel="noopener">cmp(dict1, dict2)</a> 比较两个字典元素。</td>
 </tr>
 <tr>
-<td style="text-align:left">2</td>
 <td style="text-align:left"><a href="https://www.runoob.com/python/att-dictionary-len.html" target="_blank" rel="noopener">len(dict)</a> 计算字典元素个数，即键的总数。</td>
 </tr>
 <tr>
-<td style="text-align:left">3</td>
 <td style="text-align:left"><a href="https://www.runoob.com/python/att-dictionary-str.html" target="_blank" rel="noopener">str(dict)</a> 输出字典可打印的字符串表示。</td>
 </tr>
 <tr>
-<td style="text-align:left">4</td>
 <td style="text-align:left"><a href="https://www.runoob.com/python/att-dictionary-type.html" target="_blank" rel="noopener">type(variable)</a> 返回输入的变量类型，如果变量是字典就返回字典类型。</td>
 </tr>
 <tr>
-<td style="text-align:left">5</td>
 <td style="text-align:left"><a href="https://www.runoob.com/python/att-dictionary-clear.html" target="_blank" rel="noopener">dict.clear()</a> 删除字典内所有元素</td>
 </tr>
 <tr>
-<td style="text-align:left">6</td>
 <td style="text-align:left"><a href="https://www.runoob.com/python/att-dictionary-copy.html" target="_blank" rel="noopener">dict.copy()</a> 返回一个字典的浅复制</td>
 </tr>
 <tr>
-<td style="text-align:left">7</td>
 <td style="text-align:left"><a href="https://www.runoob.com/python/att-dictionary-fromkeys.html" target="_blank" rel="noopener">dict.fromkeys(seq[, val])</a> 创建一个新字典，以序列 seq 中元素做字典的键，val 为字典所有键对应的初始值</td>
 </tr>
 <tr>
-<td style="text-align:left">8</td>
 <td style="text-align:left"><a href="https://www.runoob.com/python/att-dictionary-get.html" target="_blank" rel="noopener">dict.get(key, default=None)</a> 返回指定键的值，如果值不在字典中返回default值</td>
 </tr>
 <tr>
-<td style="text-align:left">9</td>
 <td style="text-align:left"><a href="https://www.runoob.com/python/att-dictionary-has_key.html" target="_blank" rel="noopener">dict.has_key(key)</a> 如果键在字典dict里返回true，否则返回false</td>
 </tr>
 <tr>
-<td style="text-align:left">10</td>
 <td style="text-align:left"><a href="https://www.runoob.com/python/att-dictionary-items.html" target="_blank" rel="noopener">dict.items()</a> 以列表返回可遍历的(键, 值) 元组数组</td>
 </tr>
 <tr>
-<td style="text-align:left">11</td>
 <td style="text-align:left"><a href="https://www.runoob.com/python/att-dictionary-keys.html" target="_blank" rel="noopener">dict.keys()</a> 以列表返回一个字典所有的键</td>
 </tr>
 <tr>
-<td style="text-align:left">12</td>
 <td style="text-align:left"><a href="https://www.runoob.com/python/att-dictionary-setdefault.html" target="_blank" rel="noopener">dict.setdefault(key, default=None)</a> 和get()类似, 但如果键不存在于字典中，将会添加键并将值设为default</td>
 </tr>
 <tr>
-<td style="text-align:left">13</td>
 <td style="text-align:left"><a href="https://www.runoob.com/python/att-dictionary-update.html" target="_blank" rel="noopener">dict.update(dict2)</a> 把字典dict2的键/值对更新到dict里</td>
 </tr>
 <tr>
-<td style="text-align:left">14</td>
 <td style="text-align:left"><a href="https://www.runoob.com/python/att-dictionary-values.html" target="_blank" rel="noopener">dict.values()</a> 以列表返回字典中的所有值</td>
 </tr>
 <tr>
-<td style="text-align:left">15</td>
 <td style="text-align:left"><a href="https://www.runoob.com/python/python-att-dictionary-pop.html" target="_blank" rel="noopener">pop(key[,default])</a> 删除字典给定键 key 所对应的值，返回值为被删除的值。key值必须给出。 否则，返回default值。</td>
 </tr>
 <tr>
-<td style="text-align:left">16</td>
 <td style="text-align:left"><a href="https://www.runoob.com/python/python-att-dictionary-popitem.html" target="_blank" rel="noopener">popitem()</a> 返回并删除字典中的最后一对键和值。</td>
 </tr>
 </tbody>
@@ -2117,11 +2094,11 @@ Programmer --> Me</pre>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">car = &#123;<span class="string">'name'</span>: <span class="string">'byd'</span>, <span class="string">'light'</span>: <span class="number">2</span>, <span class="string">'wheel'</span>: <span class="number">4</span>&#125;</span><br><span class="line"><span class="keyword">del</span> car[<span class="string">'name'</span>]  <span class="comment">#删除键是name的条目</span></span><br><span class="line">print(car)</span><br><span class="line">car.clear() <span class="comment">#清空字典所有条目</span></span><br><span class="line">print(car)</span><br><span class="line"><span class="keyword">del</span> car  <span class="comment">#删除字典</span></span><br><span class="line">print(car)</span><br></pre></td></tr></table></figure>
 <p>输出报错：<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"F:/Python/6/eg 6-6.py"</span>, line <span class="number">11</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    print(car)</span><br><span class="line">NameError: name <span class="string">'car'</span> <span class="keyword">is</span> <span class="keyword">not</span> defined</span><br><span class="line">&#123;<span class="string">'light'</span>: <span class="number">2</span>, <span class="string">'wheel'</span>: <span class="number">4</span>&#125;</span><br><span class="line">&#123;&#125;</span><br></pre></td></tr></table></figure></p>
 <ul>
-<li><p>查看某元素是否在字典中</p>
+<li>查看某元素是否在字典中</li>
+</ul>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">car = &#123;<span class="string">'name'</span>: <span class="string">'byd'</span>, <span class="string">'light'</span>: <span class="number">2</span>, <span class="string">'wheel'</span>: <span class="number">4</span>&#125;</span><br><span class="line">print(<span class="string">'bmw'</span> <span class="keyword">in</span> car)</span><br><span class="line"></span><br><span class="line">&gt;&gt;false</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>dict()</code>从包含键值对的元组中创建字典</p>
-</li>
+<ul>
+<li><code>dict()</code>从包含键值对的元组中创建字典</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(dict(((<span class="string">'Indian'</span>, <span class="string">'Delhi'</span>), (<span class="string">'Bangladesh'</span>, <span class="string">'Dhaka'</span>))))</span><br><span class="line"></span><br><span class="line">&gt;&gt;&#123;<span class="string">'Indian'</span>: <span class="string">'Delhi'</span>, <span class="string">'Bangladesh'</span>: <span class="string">'Dhaka'</span>&#125;</span><br></pre></td></tr></table></figure>
 <ul>
@@ -2309,45 +2286,35 @@ Programmer --> Me</pre>
 <table>
 <thead>
 <tr>
-<th style="text-align:left">序号</th>
 <th style="text-align:left">方法</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left">1</td>
 <td style="text-align:left"><a href="https://www.runoob.com/python/att-list-append.html" target="_blank" rel="noopener">list.append(obj)</a> 在列表末尾添加新的对象</td>
 </tr>
 <tr>
-<td style="text-align:left">2</td>
 <td style="text-align:left"><a href="https://www.runoob.com/python/att-list-count.html" target="_blank" rel="noopener">list.count(obj)</a> 统计某个元素在列表中出现的次数</td>
 </tr>
 <tr>
-<td style="text-align:left">3</td>
 <td style="text-align:left"><a href="https://www.runoob.com/python/att-list-extend.html" target="_blank" rel="noopener">list.extend(seq)</a> 在列表末尾一次性追加另一个序列中的多个值（用新列表扩展原来的列表）</td>
 </tr>
 <tr>
-<td style="text-align:left">4</td>
 <td style="text-align:left"><a href="https://www.runoob.com/python/att-list-index.html" target="_blank" rel="noopener">list.index(obj)</a> 从列表中找出某个值第一个匹配项的索引位置</td>
 </tr>
 <tr>
-<td style="text-align:left">5</td>
 <td style="text-align:left"><a href="https://www.runoob.com/python/att-list-insert.html" target="_blank" rel="noopener">list.insert(index, obj)</a> 将对象插入列表</td>
 </tr>
 <tr>
-<td style="text-align:left">6</td>
 <td style="text-align:left"><a href="https://www.runoob.com/python/att-list-pop.html" target="_blank" rel="noopener">list.pop([index=-1])</a> 移除列表中的一个元素（默认最后一个元素），并且返回该元素的值</td>
 </tr>
 <tr>
-<td style="text-align:left">7</td>
 <td style="text-align:left"><a href="https://www.runoob.com/python/att-list-remove.html" target="_blank" rel="noopener">list.remove(obj)</a> 移除列表中某个值的第一个匹配项</td>
 </tr>
 <tr>
-<td style="text-align:left">8</td>
 <td style="text-align:left"><a href="https://www.runoob.com/python/att-list-reverse.html" target="_blank" rel="noopener">list.reverse()</a> 反向列表中元素</td>
 </tr>
 <tr>
-<td style="text-align:left">9</td>
 <td style="text-align:left"><a href="https://www.runoob.com/python/att-list-sort.html" target="_blank" rel="noopener">list.sort(cmp=None, key=None, reverse=False)</a> 对原列表进行排序</td>
 </tr>
 </tbody>
@@ -2397,29 +2364,23 @@ Programmer --> Me</pre>
 <table>
 <thead>
 <tr>
-<th style="text-align:left">序号</th>
 <th style="text-align:left">函数</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left">1</td>
 <td style="text-align:left"><a href="https://www.runoob.com/python/att-list-cmp.html" target="_blank" rel="noopener">cmp(list1, list2)</a> 比较两个列表的元素</td>
 </tr>
 <tr>
-<td style="text-align:left">2</td>
 <td style="text-align:left"><a href="https://www.runoob.com/python/att-list-len.html" target="_blank" rel="noopener">len(list)</a> 列表元素个数</td>
 </tr>
 <tr>
-<td style="text-align:left">3</td>
 <td style="text-align:left"><a href="https://www.runoob.com/python/att-list-max.html" target="_blank" rel="noopener">max(list)</a> 返回列表元素最大值</td>
 </tr>
 <tr>
-<td style="text-align:left">4</td>
 <td style="text-align:left"><a href="https://www.runoob.com/python/att-list-min.html" target="_blank" rel="noopener">min(list)</a> 返回列表元素最小值</td>
 </tr>
 <tr>
-<td style="text-align:left">5</td>
 <td style="text-align:left"><a href="https://www.runoob.com/python/att-list-list.html" target="_blank" rel="noopener">list(seq)</a> 将元组转换为列表</td>
 </tr>
 </tbody>
@@ -2482,7 +2443,7 @@ e^{x}=1+x+\frac{x^{2}}{2!}+\frac{x^{3}}{3!}+…+\frac{x^{n}}{n!}(0<n<1)</script>
 <li>结果：</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">    <span class="number">1</span>     <span class="number">2</span>     <span class="number">3</span>     <span class="number">4</span>     <span class="number">5</span>     <span class="number">6</span>     <span class="number">7</span>     <span class="number">8</span>     <span class="number">9</span>    <span class="number">10</span> </span><br><span class="line">    <span class="number">2</span>     <span class="number">4</span>     <span class="number">6</span>     <span class="number">8</span>    <span class="number">10</span>    <span class="number">12</span>    <span class="number">14</span>    <span class="number">16</span>    <span class="number">18</span>    <span class="number">20</span> </span><br><span class="line">    <span class="number">3</span>     <span class="number">6</span>     <span class="number">9</span>    <span class="number">12</span>    <span class="number">15</span>    <span class="number">18</span>    <span class="number">21</span>    <span class="number">24</span>    <span class="number">27</span>    <span class="number">30</span> </span><br><span class="line">    <span class="number">4</span>     <span class="number">8</span>    <span class="number">12</span>    <span class="number">16</span>    <span class="number">20</span>    <span class="number">24</span>    <span class="number">28</span>    <span class="number">32</span>    <span class="number">36</span>    <span class="number">40</span> </span><br><span class="line">    <span class="number">5</span>    <span class="number">10</span>    <span class="number">15</span>    <span class="number">20</span>    <span class="number">25</span>    <span class="number">30</span>    <span class="number">35</span>    <span class="number">40</span>    <span class="number">45</span>    <span class="number">50</span> </span><br><span class="line">    <span class="number">6</span>    <span class="number">12</span>    <span class="number">18</span>    <span class="number">24</span>    <span class="number">30</span>    <span class="number">36</span>    <span class="number">42</span>    <span class="number">48</span>    <span class="number">54</span>    <span class="number">60</span> </span><br><span class="line">    <span class="number">7</span>    <span class="number">14</span>    <span class="number">21</span>    <span class="number">28</span>    <span class="number">35</span>    <span class="number">42</span>    <span class="number">49</span>    <span class="number">56</span>    <span class="number">63</span>    <span class="number">70</span> </span><br><span class="line">    <span class="number">8</span>    <span class="number">16</span>    <span class="number">24</span>    <span class="number">32</span>    <span class="number">40</span>    <span class="number">48</span>    <span class="number">56</span>    <span class="number">64</span>    <span class="number">72</span>    <span class="number">80</span> </span><br><span class="line">    <span class="number">9</span>    <span class="number">18</span>    <span class="number">27</span>    <span class="number">36</span>    <span class="number">45</span>    <span class="number">54</span>    <span class="number">63</span>    <span class="number">72</span>    <span class="number">81</span>    <span class="number">90</span> </span><br><span class="line">   <span class="number">10</span>    <span class="number">20</span>    <span class="number">30</span>    <span class="number">40</span>    <span class="number">50</span>    <span class="number">60</span>    <span class="number">70</span>    <span class="number">80</span>    <span class="number">90</span>   <span class="number">100</span> </span><br><span class="line">*****************************************************************</span><br><span class="line">    <span class="number">1</span>     <span class="number">2</span>     <span class="number">3</span>     <span class="number">4</span>     <span class="number">5</span>     <span class="number">6</span>     <span class="number">7</span>     <span class="number">8</span>     <span class="number">9</span>    <span class="number">10</span> </span><br><span class="line">    <span class="number">2</span>     <span class="number">4</span>     <span class="number">6</span>     <span class="number">8</span>    <span class="number">10</span>    <span class="number">12</span>    <span class="number">14</span>    <span class="number">16</span>    <span class="number">18</span>    <span class="number">20</span> </span><br><span class="line">    <span class="number">3</span>     <span class="number">6</span>     <span class="number">9</span>    <span class="number">12</span>    <span class="number">15</span>    <span class="number">18</span>    <span class="number">21</span>    <span class="number">24</span>    <span class="number">27</span>    <span class="number">30</span> </span><br><span class="line">    <span class="number">4</span>     <span class="number">8</span>    <span class="number">12</span>    <span class="number">16</span>    <span class="number">20</span>    <span class="number">24</span>    <span class="number">28</span>    <span class="number">32</span>    <span class="number">36</span>    <span class="number">40</span> </span><br><span class="line">    <span class="number">5</span>    <span class="number">10</span>    <span class="number">15</span>    <span class="number">20</span>    <span class="number">25</span>    <span class="number">30</span>    <span class="number">35</span>    <span class="number">40</span>    <span class="number">45</span>    <span class="number">50</span> </span><br><span class="line">    <span class="number">6</span>    <span class="number">12</span>    <span class="number">18</span>    <span class="number">24</span>    <span class="number">30</span>    <span class="number">36</span>    <span class="number">42</span>    <span class="number">48</span>    <span class="number">54</span>    <span class="number">60</span> </span><br><span class="line">    <span class="number">7</span>    <span class="number">14</span>    <span class="number">21</span>    <span class="number">28</span>    <span class="number">35</span>    <span class="number">42</span>    <span class="number">49</span>    <span class="number">56</span>    <span class="number">63</span>    <span class="number">70</span> </span><br><span class="line">    <span class="number">8</span>    <span class="number">16</span>    <span class="number">24</span>    <span class="number">32</span>    <span class="number">40</span>    <span class="number">48</span>    <span class="number">56</span>    <span class="number">64</span>    <span class="number">72</span>    <span class="number">80</span> </span><br><span class="line">    <span class="number">9</span>    <span class="number">18</span>    <span class="number">27</span>    <span class="number">36</span>    <span class="number">45</span>    <span class="number">54</span>    <span class="number">63</span>    <span class="number">72</span>    <span class="number">81</span>    <span class="number">90</span> </span><br><span class="line">   <span class="number">10</span>    <span class="number">20</span>    <span class="number">30</span>    <span class="number">40</span>    <span class="number">50</span>    <span class="number">60</span>    <span class="number">70</span>    <span class="number">80</span>    <span class="number">90</span>   <span class="number">100</span></span><br></pre></td></tr></table></figure>
-<h4 id="4-斐波那契（Fibonacci）数列"><a href="#4-斐波那契（Fibonacci）数列" class="headerlink" title="4.斐波那契（Fibonacci）数列"></a>4.斐波那契（Fibonacci）数列</h4><div class="note info no-icon"><p>输入一个整数n,接下来输出斐波那契亚数列的前n项。<br><strong>注：斐波那契亚数列前两项都为1，第三项往后均为该项前两项之和。</strong></p></div>
+<h5 id="4-斐波那契（Fibonacci）数列"><a href="#4-斐波那契（Fibonacci）数列" class="headerlink" title="4.斐波那契（Fibonacci）数列"></a>4.斐波那契（Fibonacci）数列</h5><div class="note info no-icon"><p>输入一个整数n,接下来输出斐波那契亚数列的前n项。<br><strong>注：斐波那契亚数列前两项都为1，第三项往后均为该项前两项之和。</strong></p></div>
 <ul>
 <li>代码：</li>
 </ul>
@@ -2491,7 +2452,7 @@ e^{x}=1+x+\frac{x^{2}}{2!}+\frac{x^{3}}{3!}+…+\frac{x^{n}}{n!}(0<n<1)</script>
 <li>结果</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">请输入一个整数:<span class="number">10</span></span><br><span class="line">斐波那契亚数列第 <span class="number">1</span> 项是: <span class="number">1</span></span><br><span class="line">斐波那契亚数列第 <span class="number">2</span> 项是: <span class="number">1</span></span><br><span class="line">斐波那契亚数列第 <span class="number">3</span> 项是: <span class="number">2</span></span><br><span class="line">斐波那契亚数列第 <span class="number">4</span> 项是: <span class="number">3</span></span><br><span class="line">斐波那契亚数列第 <span class="number">5</span> 项是: <span class="number">5</span></span><br><span class="line">斐波那契亚数列第 <span class="number">6</span> 项是: <span class="number">8</span></span><br><span class="line">斐波那契亚数列第 <span class="number">7</span> 项是: <span class="number">13</span></span><br><span class="line">斐波那契亚数列第 <span class="number">8</span> 项是: <span class="number">21</span></span><br><span class="line">斐波那契亚数列第 <span class="number">9</span> 项是: <span class="number">34</span></span><br><span class="line">斐波那契亚数列第 <span class="number">10</span> 项是: <span class="number">55</span></span><br></pre></td></tr></table></figure>
-<h4 id="5-棍子游戏"><a href="#5-棍子游戏" class="headerlink" title="5.棍子游戏"></a>5.棍子游戏</h4><div class="note info no-icon"><p>这是一个非常简单的游戏。这里有 21 根棍子，首先用户选 1 到 4 根棍子，然后电脑选 1到 4 根棍子。谁选到最后一根棍子谁就输。判断一下用户有赢的机会吗？如果没有的话，如何修改游戏规则可以使用户有赢的机会呢？特别说明：用户和电脑一次选的棍子总数只能是5。</p></div>
+<h5 id="5-棍子游戏"><a href="#5-棍子游戏" class="headerlink" title="5.棍子游戏"></a>5.棍子游戏</h5><div class="note info no-icon"><p>这是一个非常简单的游戏。这里有 21 根棍子，首先用户选 1 到 4 根棍子，然后电脑选 1到 4 根棍子。谁选到最后一根棍子谁就输。判断一下用户有赢的机会吗？如果没有的话，如何修改游戏规则可以使用户有赢的机会呢？特别说明：用户和电脑一次选的棍子总数只能是5。</p></div>
 <ul>
 <li>代码：</li>
 </ul>
@@ -4976,26 +4937,6 @@ op->e</textarea><textarea id="flowchart-0-options" style="display: none">{"scale
       </tags>
   </entry>
   <entry>
-    <title>1002 写出这个数 (20分)</title>
-    <url>/2020/01/29/1002%20%E5%86%99%E5%87%BA%E8%BF%99%E4%B8%AA%E6%95%B0%20(20%E5%88%86)/</url>
-    <content><![CDATA[<p>读入一个正整数 <em>n</em>，计算其各位数字之和，用汉语拼音写出和的每一位数字。<a id="more"></a></p>
-<blockquote>
-<p><strong>输入格式：</strong><br>每个测试输入包含 1 个测试用例，即给出自然数 <em>n</em> 的值。这里保证 <em>n</em> 小于10<sup>100</sup>。</p>
-<p><strong>输出格式：</strong><br>在一行内输出 <em>n</em> 的各位数字之和的每一位，拼音数字间有 1 空格，但一行中最后一个拼音数字后没有空格。</p>
-<p>输入：<br><div class="note default no-icon"><p>1234567890987654321123456789</p></div></p>
-<p>输出：<br><div class="note default no-icon"><p>yi san wu</p></div></p>
-</blockquote>
-<div class="note default no-icon"><p>作者: CHEN, Yue<br>单位: 浙江大学<br>时间限制: 400 ms<br>内存限制: 64 MB<br>代码长度限制: 16 KB</p></div>
-<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><h3 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> N 10000</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> M 5 </span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">char</span> number[<span class="number">10</span>][<span class="number">5</span>]=&#123;<span class="string">"ling"</span>,<span class="string">"yi"</span>,<span class="string">"er"</span>,<span class="string">"san"</span>,<span class="string">"si"</span>,<span class="string">"wu"</span>,<span class="string">"liu"</span>,<span class="string">"qi"</span>,<span class="string">"ba"</span>,<span class="string">"jiu"</span>&#125;;</span><br><span class="line">	<span class="comment">//定义字符串 </span></span><br><span class="line">	<span class="keyword">char</span> <span class="built_in">array</span>[N];</span><br><span class="line">	<span class="comment">//记录和每位的数字 </span></span><br><span class="line">	<span class="keyword">int</span> <span class="built_in">log</span>[M];</span><br><span class="line">	<span class="comment">// 记录和 </span></span><br><span class="line">	<span class="keyword">int</span> sum=<span class="number">0</span>,i=<span class="number">0</span>;</span><br><span class="line">	<span class="comment">//将每一位置为-1 </span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;M;j++)&#123;</span><br><span class="line">		<span class="built_in">log</span>[j]=<span class="number">-1</span>;</span><br><span class="line">	&#125; </span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;<span class="built_in">array</span>;</span><br><span class="line">	<span class="keyword">while</span>(<span class="built_in">array</span>[i]!=<span class="string">'\0'</span>)&#123;</span><br><span class="line">		sum+=<span class="built_in">array</span>[i]-<span class="string">'0'</span>;</span><br><span class="line">		i++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> j=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(sum&gt;<span class="number">0</span>)&#123;</span><br><span class="line">		<span class="built_in">log</span>[j]=sum%<span class="number">10</span>;</span><br><span class="line">		sum=sum/<span class="number">10</span>;</span><br><span class="line">		j++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(i=M<span class="number">-1</span>;i&gt;=<span class="number">0</span>;i--)&#123;</span><br><span class="line">		<span class="keyword">if</span>(<span class="built_in">log</span>[i]!=<span class="number">-1</span>)&#123;</span><br><span class="line">			<span class="keyword">if</span>(i==<span class="number">0</span>)&#123;</span><br><span class="line">			<span class="built_in">cout</span>&lt;&lt;number[<span class="built_in">log</span>[i]];	</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span>&#123;</span><br><span class="line">				<span class="built_in">cout</span>&lt;&lt;number[<span class="built_in">log</span>[i]]&lt;&lt;<span class="string">' '</span>; </span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>PAT（乙级）</category>
-      </categories>
-      <tags>
-        <tag>编程</tag>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>1001 害死人不偿命的(3n+1)猜想 (15分)</title>
     <url>/2020/01/29/1001%20%E5%AE%B3%E6%AD%BB%E4%BA%BA%E4%B8%8D%E5%81%BF%E5%91%BD%E7%9A%84(3n+1)%E7%8C%9C%E6%83%B3/</url>
     <content><![CDATA[<p><strong>对任何一个正整数 <em>n</em>，如果它是偶数，那么把它砍掉一半；如果它是奇数，那么把 (3<em>n</em>+1) 砍掉一半。这样一直反复砍下去，最后一定在某一步得到 <em>n</em>=1。<a id="more"></a></strong>卡拉兹在 1950 年的世界数学家大会上公布了这个猜想，传说当时耶鲁大学师生齐动员，拼命想证明这个貌似很傻很天真的命题，结果闹得学生们无心学业，一心只证 (3<em>n</em>+1)，以至于有人说这是一个阴谋，卡拉兹是在蓄意延缓美国数学界教学与科研的进展……我们今天的题目不是证明卡拉兹猜想，而是对给定的任一不超过 1000 的正整数 <em>n</em>，简单地数一下，需要多少步（砍几下）才能得到 <em>n</em>=1？</p>
@@ -5007,6 +4948,26 @@ op->e</textarea><textarea id="flowchart-0-options" style="display: none">{"scale
 </blockquote>
 <div class="note default no-icon"><p>作者: CHEN, Yue<br>单位: 浙江大学<br>时间限制: 400 ms<br>内存限制: 64 MB<br>代码长度限制: 16 KB</p></div>
 <h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><h3 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="comment">//定义奇数处理函数 </span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">odd</span><span class="params">(<span class="keyword">int</span> a)</span></span>;</span><br><span class="line"><span class="comment">//定义偶数处理函数 </span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">oval</span><span class="params">(<span class="keyword">int</span> b)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="keyword">int</span> count=<span class="number">0</span>;</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">	<span class="keyword">while</span>(n!=<span class="number">1</span>)&#123;</span><br><span class="line">		<span class="keyword">if</span>(n%<span class="number">2</span>==<span class="number">0</span>)&#123;</span><br><span class="line">			n=oval(n);</span><br><span class="line">			count++;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span>&#123;</span><br><span class="line">			n=odd(n);</span><br><span class="line">			count++;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;count;</span><br><span class="line">&#125; </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">odd</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> (<span class="number">3</span>*n+<span class="number">1</span>)/<span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">oval</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> n/<span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>PAT（乙级）</category>
+      </categories>
+      <tags>
+        <tag>编程</tag>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>1002 写出这个数 (20分)</title>
+    <url>/2020/01/29/1002%20%E5%86%99%E5%87%BA%E8%BF%99%E4%B8%AA%E6%95%B0%20(20%E5%88%86)/</url>
+    <content><![CDATA[<p>读入一个正整数 <em>n</em>，计算其各位数字之和，用汉语拼音写出和的每一位数字。<a id="more"></a></p>
+<blockquote>
+<p><strong>输入格式：</strong><br>每个测试输入包含 1 个测试用例，即给出自然数 <em>n</em> 的值。这里保证 <em>n</em> 小于10<sup>100</sup>。</p>
+<p><strong>输出格式：</strong><br>在一行内输出 <em>n</em> 的各位数字之和的每一位，拼音数字间有 1 空格，但一行中最后一个拼音数字后没有空格。</p>
+<p>输入：<br><div class="note default no-icon"><p>1234567890987654321123456789</p></div></p>
+<p>输出：<br><div class="note default no-icon"><p>yi san wu</p></div></p>
+</blockquote>
+<div class="note default no-icon"><p>作者: CHEN, Yue<br>单位: 浙江大学<br>时间限制: 400 ms<br>内存限制: 64 MB<br>代码长度限制: 16 KB</p></div>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><h3 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> N 10000</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> M 5 </span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">char</span> number[<span class="number">10</span>][<span class="number">5</span>]=&#123;<span class="string">"ling"</span>,<span class="string">"yi"</span>,<span class="string">"er"</span>,<span class="string">"san"</span>,<span class="string">"si"</span>,<span class="string">"wu"</span>,<span class="string">"liu"</span>,<span class="string">"qi"</span>,<span class="string">"ba"</span>,<span class="string">"jiu"</span>&#125;;</span><br><span class="line">	<span class="comment">//定义字符串 </span></span><br><span class="line">	<span class="keyword">char</span> <span class="built_in">array</span>[N];</span><br><span class="line">	<span class="comment">//记录和每位的数字 </span></span><br><span class="line">	<span class="keyword">int</span> <span class="built_in">log</span>[M];</span><br><span class="line">	<span class="comment">// 记录和 </span></span><br><span class="line">	<span class="keyword">int</span> sum=<span class="number">0</span>,i=<span class="number">0</span>;</span><br><span class="line">	<span class="comment">//将每一位置为-1 </span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;M;j++)&#123;</span><br><span class="line">		<span class="built_in">log</span>[j]=<span class="number">-1</span>;</span><br><span class="line">	&#125; </span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;<span class="built_in">array</span>;</span><br><span class="line">	<span class="keyword">while</span>(<span class="built_in">array</span>[i]!=<span class="string">'\0'</span>)&#123;</span><br><span class="line">		sum+=<span class="built_in">array</span>[i]-<span class="string">'0'</span>;</span><br><span class="line">		i++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> j=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(sum&gt;<span class="number">0</span>)&#123;</span><br><span class="line">		<span class="built_in">log</span>[j]=sum%<span class="number">10</span>;</span><br><span class="line">		sum=sum/<span class="number">10</span>;</span><br><span class="line">		j++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(i=M<span class="number">-1</span>;i&gt;=<span class="number">0</span>;i--)&#123;</span><br><span class="line">		<span class="keyword">if</span>(<span class="built_in">log</span>[i]!=<span class="number">-1</span>)&#123;</span><br><span class="line">			<span class="keyword">if</span>(i==<span class="number">0</span>)&#123;</span><br><span class="line">			<span class="built_in">cout</span>&lt;&lt;number[<span class="built_in">log</span>[i]];	</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span>&#123;</span><br><span class="line">				<span class="built_in">cout</span>&lt;&lt;number[<span class="built_in">log</span>[i]]&lt;&lt;<span class="string">' '</span>; </span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>PAT（乙级）</category>
       </categories>
