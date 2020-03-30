@@ -167,6 +167,8 @@
 </ul>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="number">0</span> <span class="number">1</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">5</span> <span class="number">8</span> <span class="number">13</span> <span class="number">21</span> <span class="number">34</span> <span class="number">55</span></span><br></pre></td></tr></table></figure>
 <h4 id="四、实验结果"><a href="#四、实验结果" class="headerlink" title="四、实验结果"></a>四、实验结果</h4><p>无</p>
+<hr>
+<p>上一篇：<a href="https://vxiaozhe1998.cn/2020/03/15/14-PEP8代码风格指南/" target="_blank" rel="noopener">14.PEP8代码风格指南</a><br>目    录：<a href="http://vxiaozhe1998.cn/2020/02/28/Python学习/" target="_blank" rel="noopener">Python学习</a></p>
 ]]></content>
       <categories>
         <category>编程</category>
@@ -418,7 +420,10 @@
 </li>
 </ul>
 <div class="note success no-icon"><p>参考文献<br>[1]：PEP 7 , Style Guide for C Code, van Rossum<br>[2]：Barry’s GNU Mailman style guide <a href="http://barry.warsaw.us/software/STYLEGUIDE.txt" target="_blank" rel="noopener">http://barry.warsaw.us/software/STYLEGUIDE.txt</a><br>[3]：<a href="http://www.wikipedia.com/wiki/CamelCase" target="_blank" rel="noopener">http://www.wikipedia.com/wiki/CamelCase</a></p>
-<p>版权说明<br>This document has been placed in the public domain.<br>Source: <a href="https://hg.python.org/peps/file/tip/pep-0008.txt" target="_blank" rel="noopener">https://hg.python.org/peps/file/tip/pep-0008.txt</a></p></div>]]></content>
+<p>版权说明<br>This document has been placed in the public domain.<br>Source: <a href="https://hg.python.org/peps/file/tip/pep-0008.txt" target="_blank" rel="noopener">https://hg.python.org/peps/file/tip/pep-0008.txt</a></p></div>
+<hr>
+<p>下一篇：<a href="https://vxiaozhe1998.cn/2020/03/15/15-迭代器、生成器、装饰器/" target="_blank" rel="noopener">15.迭代器、生成器、装饰器</a><br>上一篇：<a href="https://vxiaozhe1998.cn/2020/03/15/13-Collections模块/" target="_blank" rel="noopener">13.Collections模块</a><br>目    录：<a href="http://vxiaozhe1998.cn/2020/02/28/Python学习/" target="_blank" rel="noopener">Python学习</a></p>
+]]></content>
       <categories>
         <category>编程</category>
       </categories>
@@ -510,7 +515,10 @@
 <ul>
 <li>结果：</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">(venv) F:\NewPython\<span class="number">13</span>&gt;python teacher_grade.py teacher ABCCBABAAD</span><br><span class="line">A:<span class="number">4</span>, B:<span class="number">3</span>, C:<span class="number">2</span>, D:<span class="number">1</span></span><br><span class="line"></span><br><span class="line">(venv) F:\NewPython\<span class="number">13</span>&gt;python teacher_grade.py student ABBDDCBADA</span><br><span class="line"><span class="keyword">pass</span>: <span class="number">7</span>, Fail: <span class="number">3</span></span><br></pre></td></tr></table></figure>]]></content>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">(venv) F:\NewPython\<span class="number">13</span>&gt;python teacher_grade.py teacher ABCCBABAAD</span><br><span class="line">A:<span class="number">4</span>, B:<span class="number">3</span>, C:<span class="number">2</span>, D:<span class="number">1</span></span><br><span class="line"></span><br><span class="line">(venv) F:\NewPython\<span class="number">13</span>&gt;python teacher_grade.py student ABBDDCBADA</span><br><span class="line"><span class="keyword">pass</span>: <span class="number">7</span>, Fail: <span class="number">3</span></span><br></pre></td></tr></table></figure>
+<hr>
+<p>下一篇：<a href="https://vxiaozhe1998.cn/2020/03/15/14-PEP8代码风格指南/" target="_blank" rel="noopener">14.PEP8代码风格指南</a><br>上一篇：<a href="https://vxiaozhe1998.cn/2020/03/14/12-模块/" target="_blank" rel="noopener">12.模块</a><br>目    录：<a href="http://vxiaozhe1998.cn/2020/02/28/Python学习/" target="_blank" rel="noopener">Python学习</a></p>
+]]></content>
       <categories>
         <category>编程</category>
       </categories>
@@ -574,7 +582,7 @@
 <p>在这个窗口中输入python语句就可以直接得到运行的结果，这就是交互式编程。而我们通过记事本或者其他文本编辑器事先在文档中输入Python语句并保存为<code>.py</code>文件，通过命令提示符调用该文件模式成为脚本式，例如，我在路径：<code>D:\\python</code>中保存了一个名为<code>hello.py</code>的脚本文件，通过：</p>
 <p><img src="https://upload-images.jianshu.io/upload_images/10646648-a371242cd1146cd0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="脚本式编程"></p>
 <p>可以发现Python解释器输出了脚本的内容。</p>
-<h4 id="2-模块"><a href="#2-模块" class="headerlink" title="2.模块"></a>2.模块</h4><p>当我们退出解释器再进入时，我们定义的所有方法和变量就全部消失了，为此Python提供了一个方法，把这些定义存放在文件中，为一些脚本或者交互式的解释器实例使用，这个文件就称之为<code>模块</code>。<br><div class="note info no-icon"><p>模块是一个包含了所有我们定义的函数和变量的文件，其后缀名为<code>.py</code>。模块可以被别的程序引入，以使用该模块中的函数等功能，这也是使用Python标准库的方法。</p></div><br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line">print(<span class="string">'命令行参数如下：'</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> sys.argv:</span><br><span class="line">    print(i)</span><br><span class="line"></span><br><span class="line">print(<span class="string">'\n\nPython路径为：'</span>, sys.path, <span class="string">'\n'</span>)</span><br></pre></td></tr></table></figure><br>我们通过命令提示符输入：<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">python module.py <span class="number">1</span> <span class="number">2</span></span><br></pre></td></tr></table></figure><br>输出为：<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">命令行参数如下：</span><br><span class="line">module.py</span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Python路径为： [<span class="string">'F:\\Python\\12'</span>, <span class="string">'C:\\Users\\zzzzh\\AppData\\Local\\Programs\\Python\\Python38\\python38.zip'</span>, <span class="string">'C:\\Users\\zzzzh\\AppDa</span></span><br><span class="line"><span class="string">ta\\Local\\Programs\\Python\\Python38\\DLLs'</span>, <span class="string">'C:\\Users\\zzzzh\\AppData\\Local\\Programs\\Python\\Python38\\lib'</span>, <span class="string">'C:\\Users\\zzzzh\\Ap</span></span><br><span class="line"><span class="string">pData\\Local\\Programs\\Python\\Python38'</span>, <span class="string">'F:\\Python\\venv'</span>, <span class="string">'F:\\Python\\venv\\lib\\site-packages'</span>, <span class="string">'F:\\Python\\venv\\lib\\site-pack</span></span><br><span class="line"><span class="string">ages\\setuptools-40.8.0-py3.8.egg'</span>, <span class="string">'F:\\Python\\venv\\lib\\site-packages\\pip-19.0.3-py3.8.egg'</span>]</span><br></pre></td></tr></table></figure><br>其中:<br><div class="note warning no-icon"><ul>
+<h5 id="2-模块"><a href="#2-模块" class="headerlink" title="2.模块"></a>2.模块</h5><p>当我们退出解释器再进入时，我们定义的所有方法和变量就全部消失了，为此Python提供了一个方法，把这些定义存放在文件中，为一些脚本或者交互式的解释器实例使用，这个文件就称之为<code>模块</code>。<br><div class="note info no-icon"><p>模块是一个包含了所有我们定义的函数和变量的文件，其后缀名为<code>.py</code>。模块可以被别的程序引入，以使用该模块中的函数等功能，这也是使用Python标准库的方法。</p></div><br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line">print(<span class="string">'命令行参数如下：'</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> sys.argv:</span><br><span class="line">    print(i)</span><br><span class="line"></span><br><span class="line">print(<span class="string">'\n\nPython路径为：'</span>, sys.path, <span class="string">'\n'</span>)</span><br></pre></td></tr></table></figure><br>我们通过命令提示符输入：<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">python module.py <span class="number">1</span> <span class="number">2</span></span><br></pre></td></tr></table></figure><br>输出为：<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">命令行参数如下：</span><br><span class="line">module.py</span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Python路径为： [<span class="string">'F:\\Python\\12'</span>, <span class="string">'C:\\Users\\zzzzh\\AppData\\Local\\Programs\\Python\\Python38\\python38.zip'</span>, <span class="string">'C:\\Users\\zzzzh\\AppDa</span></span><br><span class="line"><span class="string">ta\\Local\\Programs\\Python\\Python38\\DLLs'</span>, <span class="string">'C:\\Users\\zzzzh\\AppData\\Local\\Programs\\Python\\Python38\\lib'</span>, <span class="string">'C:\\Users\\zzzzh\\Ap</span></span><br><span class="line"><span class="string">pData\\Local\\Programs\\Python\\Python38'</span>, <span class="string">'F:\\Python\\venv'</span>, <span class="string">'F:\\Python\\venv\\lib\\site-packages'</span>, <span class="string">'F:\\Python\\venv\\lib\\site-pack</span></span><br><span class="line"><span class="string">ages\\setuptools-40.8.0-py3.8.egg'</span>, <span class="string">'F:\\Python\\venv\\lib\\site-packages\\pip-19.0.3-py3.8.egg'</span>]</span><br></pre></td></tr></table></figure><br>其中:<br><div class="note warning no-icon"><ul>
 <li><code>import sys</code> 引入 python 标准库中的<code>sys.py</code>模块；这是引入某一模块的方法。</li>
 <li><code>sys.argv</code> 是一个包含命令行参数的列表。</li>
 <li><code>sys.path</code> 包含了一个 Python 解释器自动查找所需模块的路径的列表。</li>
@@ -585,7 +593,11 @@
 <p><strong>2.3 <code>__name__</code>属性</strong><br>一个模块被另一个程序第一次引入时，其主程序将运行，而如果我们想在模块被引入的时候模块中的某一程序块不执行，我们可以使用<code>__name__</code>属性来使该程序块仅在该模块自身运行时运行,例如我们在目录下创建<code>name.py</code>，在其中输入：<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    print(<span class="string">"我正在运行"</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">"我来自其他模块"</span>)</span><br></pre></td></tr></table></figure><br>我们执行该脚本，会输出<code>我正在运行</code>,如果我们在另一脚本中调用该模块：<code>import name</code>会输出<code>我来自其他模块</code></p>
 <p><strong>2.4 <code>dir()</code>函数</strong><br>内置的函数 dir() 可以找到模块内定义的所有名称。以一个字符串列表的形式返回:<br>例如我们在<code>test.py</code>中引入上文创建的所有脚本：<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> name</span><br><span class="line"><span class="keyword">import</span> module</span><br><span class="line"><span class="keyword">import</span> Tmodule</span><br><span class="line"><span class="keyword">import</span> Delimiter</span><br><span class="line"></span><br><span class="line">print(dir(name))</span><br><span class="line">print(dir(module))</span><br><span class="line">print(dir(Tmodule))</span><br><span class="line">print(dir(Delimiter))</span><br></pre></td></tr></table></figure><br>在运行的时候会输出：<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">*</span><br><span class="line">[<span class="string">'__builtins__'</span>, <span class="string">'__cached__'</span>, <span class="string">'__doc__'</span>, <span class="string">'__file__'</span>, <span class="string">'__loader__'</span>, <span class="string">'__name__'</span>, <span class="string">'__package__'</span>, <span class="string">'__spec__'</span>]</span><br><span class="line">[<span class="string">'__builtins__'</span>, <span class="string">'__cached__'</span>, <span class="string">'__doc__'</span>, <span class="string">'__file__'</span>, <span class="string">'__loader__'</span>, <span class="string">'__name__'</span>, <span class="string">'__package__'</span>, <span class="string">'__spec__'</span>, <span class="string">'i'</span>, <span class="string">'sys'</span>]</span><br><span class="line">[<span class="string">'__builtins__'</span>, <span class="string">'__cached__'</span>, <span class="string">'__doc__'</span>, <span class="string">'__file__'</span>, <span class="string">'__loader__'</span>, <span class="string">'__name__'</span>, <span class="string">'__package__'</span>, <span class="string">'__spec__'</span>, <span class="string">'module_1'</span>, <span class="string">'module_2'</span>]</span><br><span class="line">[<span class="string">'Less_d'</span>, <span class="string">'__builtins__'</span>, <span class="string">'__cached__'</span>, <span class="string">'__doc__'</span>, <span class="string">'__file__'</span>, <span class="string">'__loader__'</span>, <span class="string">'__name__'</span>, <span class="string">'__package__'</span>, <span class="string">'__spec__'</span>, <span class="string">'mult_d'</span>, <span class="string">'plus_d'</span>]</span><br></pre></td></tr></table></figure><br><div class="note warning no-icon"><p><code>*</code>的内容为调用模块执行的程序</p></div></p>
 <p><code>dir()</code>函数不仅仅能显示用户自定义模块中的名称，只要是一个模块，<code>dir()</code>函数都可显示。</p>
-<div class="note primary no-icon"><p><h5>拓展：标准模块</h5><br>Python本身带着一些标准的模块库，其中有些模块被直接构建在解析器里，这些虽然不是一些语言内置的功能，但是他却能很高效的使用，甚至是系统级调用也没问题。这些组件会根据不同的操作系统进行不同形式的配置，比如 winreg 这个模块就只会提供给 Windows 系统。应该注意到这有一个特别的模块 sys ，它内置在每一个 Python 解析器中。我们可以在Python的解释器中输入：<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>help()</span><br><span class="line"></span><br><span class="line">Welcome to Python <span class="number">3.8</span><span class="string">'s help utility!</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">If this is your first time using Python, you should definitely check out</span></span><br><span class="line"><span class="string">the tutorial on the Internet at https://docs.python.org/3.8/tutorial/.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Enter the name of any module, keyword, or topic to get help on writing</span></span><br><span class="line"><span class="string">Python programs and using Python modules.  To quit this help utility and</span></span><br><span class="line"><span class="string">return to the interpreter, just type "quit".</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">To get a list of available modules, keywords, symbols, or topics, type</span></span><br><span class="line"><span class="string">"modules", "keywords", "symbols", or "topics".  Each module also comes</span></span><br><span class="line"><span class="string">with a one-line summary of what it does; to list the modules whose name</span></span><br><span class="line"><span class="string">or summary contain a given string such as "spam", type "modules spam".</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">help&gt; modules</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Please wait a moment while I gather a list of all available modules...</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Delimiter           _tkinter            glob                searchpath</span></span><br><span class="line"><span class="string">Tmodule             _tracemalloc        gzip                secrets</span></span><br><span class="line"><span class="string">__future__          _warnings           hashlib             select</span></span><br><span class="line"><span class="string">_abc                _weakref            heapq               selectors</span></span><br><span class="line"><span class="string">_ast                _weakrefset         hmac                setuptools</span></span><br><span class="line"><span class="string">_asyncio            _winapi             html                shelve</span></span><br><span class="line"><span class="string">_bisect             _xxsubinterpreters  http                shlex</span></span><br><span class="line"><span class="string">_blake2             abc                 idlelib             shutil</span></span><br><span class="line"><span class="string">_bootlocale         aifc                imaplib             signal</span></span><br><span class="line"><span class="string">_bz2                antigravity         imghdr              site</span></span><br><span class="line"><span class="string">_codecs             argparse            imp                 smtpd</span></span><br><span class="line"><span class="string">_codecs_cn          array               importlib           smtplib</span></span><br><span class="line"><span class="string">_codecs_hk          ast                 inspect             sndhdr</span></span><br><span class="line"><span class="string">_codecs_iso2022     asynchat            io                  socket</span></span><br><span class="line"><span class="string">_codecs_jp          asyncio             ipaddress           socketserver</span></span><br><span class="line"><span class="string">_codecs_kr          asyncore            itertools           sqlite3</span></span><br><span class="line"><span class="string">_codecs_tw          atexit              json                sre_compile</span></span><br><span class="line"><span class="string">_collections        audioop             keyword             sre_constants</span></span><br><span class="line"><span class="string">_collections_abc    base64              lib2to3             sre_parse</span></span><br><span class="line"><span class="string">_compat_pickle      bdb                 linecache           ssl</span></span><br><span class="line"><span class="string">_compression        binascii            locale              stat</span></span><br><span class="line"><span class="string">_contextvars        binhex              logging             statistics</span></span><br><span class="line"><span class="string">_csv                bisect              lzma                string</span></span><br><span class="line"><span class="string">_ctypes             builtins            mailbox             stringprep</span></span><br><span class="line"><span class="string">_ctypes_test        bz2                 mailcap             struct</span></span><br><span class="line"><span class="string">_datetime           cProfile            marshal             subprocess</span></span><br><span class="line"><span class="string">_decimal            calendar            math                sunau</span></span><br><span class="line"><span class="string">_dummy_thread       cgi                 mimetypes           symbol</span></span><br><span class="line"><span class="string">_elementtree        cgitb               mmap                symtable</span></span><br><span class="line"><span class="string">_functools          chunk               module              sys</span></span><br><span class="line"><span class="string">_hashlib            cmath               modulefinder        sysconfig</span></span><br><span class="line"><span class="string">_heapq              cmd                 msilib              tabnanny</span></span><br><span class="line"><span class="string">_imp                code                msvcrt              tarfile</span></span><br><span class="line"><span class="string">_io                 codecs              multiprocessing     telnetlib</span></span><br><span class="line"><span class="string">_json               codeop              name                tempfile</span></span><br><span class="line"><span class="string">_locale             collections         netrc               test</span></span><br><span class="line"><span class="string">_lsprof             colorsys            nntplib             testmodule</span></span><br><span class="line"><span class="string">_lzma               compileall          nt                  textwrap</span></span><br><span class="line"><span class="string">_markupbase         concurrent          ntpath              this</span></span><br><span class="line"><span class="string">_md5                configparser        nturl2path          threading</span></span><br><span class="line"><span class="string">_msi                contextlib          numbers             time</span></span><br><span class="line"><span class="string">_multibytecodec     contextvars         opcode              timeit</span></span><br><span class="line"><span class="string">_multiprocessing    copy                operator            tkinter</span></span><br><span class="line"><span class="string">_opcode             copyreg             optparse            token</span></span><br><span class="line"><span class="string">_operator           crypt               os                  tokenize</span></span><br><span class="line"><span class="string">_osx_support        csv                 parser              trace</span></span><br><span class="line"><span class="string">_overlapped         ctypes              pathlib             traceback</span></span><br><span class="line"><span class="string">_pickle             curses              pdb                 tracemalloc</span></span><br><span class="line"><span class="string">_py_abc             dataclasses         pickle              tty</span></span><br><span class="line"><span class="string">_pydecimal          datetime            pickletools         turtle</span></span><br><span class="line"><span class="string">_pyio               dbm                 pip                 turtledemo</span></span><br><span class="line"><span class="string">_queue              decimal             pipes               types</span></span><br><span class="line"><span class="string">_random             difflib             pkg_resources       typing</span></span><br><span class="line"><span class="string">_sha1               dis                 pkgutil             unicodedata</span></span><br><span class="line"><span class="string">_sha256             distutils           platform            unittest</span></span><br><span class="line"><span class="string">_sha3               doctest             plistlib            urllib</span></span><br><span class="line"><span class="string">_sha512             dummy_threading     poplib              uu</span></span><br><span class="line"><span class="string">_signal             easy_install        posixpath           uuid</span></span><br><span class="line"><span class="string">_sitebuiltins       email               pprint              venv</span></span><br><span class="line"><span class="string">_socket             encodings           print_f             warnings</span></span><br><span class="line"><span class="string">_sqlite3            ensurepip           profile             wave</span></span><br><span class="line"><span class="string">_sre                enum                pstats              weakref</span></span><br><span class="line"><span class="string">_ssl                errno               pty                 webbrowser</span></span><br><span class="line"><span class="string">_stat               faulthandler        py_compile          winreg</span></span><br><span class="line"><span class="string">_statistics         filecmp             pyclbr              winsound</span></span><br><span class="line"><span class="string">_string             fileinput           pydoc               wsgiref</span></span><br><span class="line"><span class="string">_strptime           fnmatch             pydoc_data          xdrlib</span></span><br><span class="line"><span class="string">_struct             formatter           pyexpat             xml</span></span><br><span class="line"><span class="string">_symtable           fractions           queue               xmlrpc</span></span><br><span class="line"><span class="string">_testbuffer         ftplib              quopri              xxsubtype</span></span><br><span class="line"><span class="string">_testcapi           functools           random              zipapp</span></span><br><span class="line"><span class="string">_testconsole        gc                  re                  zipfile</span></span><br><span class="line"><span class="string">_testimportmultiple genericpath         reprlib             zipimport</span></span><br><span class="line"><span class="string">_testmultiphase     getopt              rlcompleter         zlib</span></span><br><span class="line"><span class="string">_thread             getpass             runpy</span></span><br><span class="line"><span class="string">_threading_local    gettext             sched</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Enter any module name to get more help.  Or, type "modules spam" to search</span></span><br><span class="line"><span class="string">for modules whose name or summary contain the string "spam".</span></span><br></pre></td></tr></table></figure><br>我们通过<code>help(str)</code>可以得到字符串所有可用方法，其他内容类似。较为常用的模块与第三方模块我将在其他文章中写入。</p></div>
+<div class="note primary no-icon"><p><h5>拓展：标准模块</h5><br>Python本身带着一些标准的模块库，其中有些模块被直接构建在解析器里，这些虽然不是一些语言内置的功能，但是他却能很高效的使用，甚至是系统级调用也没问题。这些组件会根据不同的操作系统进行不同形式的配置，比如 winreg 这个模块就只会提供给 Windows 系统。应该注意到这有一个特别的模块 sys ，它内置在每一个 Python 解析器中。我们可以在Python的解释器中输入：<br>（PS：我们通过<code>help(str)</code>可以得到字符串所有可用方法，其他内容类似。较为常用的模块与第三方模块我将在其他文章中写入。）</p>
+<div><div class="fold_hider"><div class="close hider_title">点击显/隐代码</div></div><div class="fold">
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>help()</span><br><span class="line"></span><br><span class="line">Welcome to Python <span class="number">3.8</span><span class="string">'s help utility!</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">If this is your first time using Python, you should definitely check out</span></span><br><span class="line"><span class="string">the tutorial on the Internet at https://docs.python.org/3.8/tutorial/.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Enter the name of any module, keyword, or topic to get help on writing</span></span><br><span class="line"><span class="string">Python programs and using Python modules.  To quit this help utility and</span></span><br><span class="line"><span class="string">return to the interpreter, just type "quit".</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">To get a list of available modules, keywords, symbols, or topics, type</span></span><br><span class="line"><span class="string">"modules", "keywords", "symbols", or "topics".  Each module also comes</span></span><br><span class="line"><span class="string">with a one-line summary of what it does; to list the modules whose name</span></span><br><span class="line"><span class="string">or summary contain a given string such as "spam", type "modules spam".</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">help&gt; modules</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Please wait a moment while I gather a list of all available modules...</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Delimiter           _tkinter            glob                searchpath</span></span><br><span class="line"><span class="string">Tmodule             _tracemalloc        gzip                secrets</span></span><br><span class="line"><span class="string">__future__          _warnings           hashlib             select</span></span><br><span class="line"><span class="string">_abc                _weakref            heapq               selectors</span></span><br><span class="line"><span class="string">_ast                _weakrefset         hmac                setuptools</span></span><br><span class="line"><span class="string">_asyncio            _winapi             html                shelve</span></span><br><span class="line"><span class="string">_bisect             _xxsubinterpreters  http                shlex</span></span><br><span class="line"><span class="string">_blake2             abc                 idlelib             shutil</span></span><br><span class="line"><span class="string">_bootlocale         aifc                imaplib             signal</span></span><br><span class="line"><span class="string">_bz2                antigravity         imghdr              site</span></span><br><span class="line"><span class="string">_codecs             argparse            imp                 smtpd</span></span><br><span class="line"><span class="string">_codecs_cn          array               importlib           smtplib</span></span><br><span class="line"><span class="string">_codecs_hk          ast                 inspect             sndhdr</span></span><br><span class="line"><span class="string">_codecs_iso2022     asynchat            io                  socket</span></span><br><span class="line"><span class="string">_codecs_jp          asyncio             ipaddress           socketserver</span></span><br><span class="line"><span class="string">_codecs_kr          asyncore            itertools           sqlite3</span></span><br><span class="line"><span class="string">_codecs_tw          atexit              json                sre_compile</span></span><br><span class="line"><span class="string">_collections        audioop             keyword             sre_constants</span></span><br><span class="line"><span class="string">_collections_abc    base64              lib2to3             sre_parse</span></span><br><span class="line"><span class="string">_compat_pickle      bdb                 linecache           ssl</span></span><br><span class="line"><span class="string">_compression        binascii            locale              stat</span></span><br><span class="line"><span class="string">_contextvars        binhex              logging             statistics</span></span><br><span class="line"><span class="string">_csv                bisect              lzma                string</span></span><br><span class="line"><span class="string">_ctypes             builtins            mailbox             stringprep</span></span><br><span class="line"><span class="string">_ctypes_test        bz2                 mailcap             struct</span></span><br><span class="line"><span class="string">_datetime           cProfile            marshal             subprocess</span></span><br><span class="line"><span class="string">_decimal            calendar            math                sunau</span></span><br><span class="line"><span class="string">_dummy_thread       cgi                 mimetypes           symbol</span></span><br><span class="line"><span class="string">_elementtree        cgitb               mmap                symtable</span></span><br><span class="line"><span class="string">_functools          chunk               module              sys</span></span><br><span class="line"><span class="string">_hashlib            cmath               modulefinder        sysconfig</span></span><br><span class="line"><span class="string">_heapq              cmd                 msilib              tabnanny</span></span><br><span class="line"><span class="string">_imp                code                msvcrt              tarfile</span></span><br><span class="line"><span class="string">_io                 codecs              multiprocessing     telnetlib</span></span><br><span class="line"><span class="string">_json               codeop              name                tempfile</span></span><br><span class="line"><span class="string">_locale             collections         netrc               test</span></span><br><span class="line"><span class="string">_lsprof             colorsys            nntplib             testmodule</span></span><br><span class="line"><span class="string">_lzma               compileall          nt                  textwrap</span></span><br><span class="line"><span class="string">_markupbase         concurrent          ntpath              this</span></span><br><span class="line"><span class="string">_md5                configparser        nturl2path          threading</span></span><br><span class="line"><span class="string">_msi                contextlib          numbers             time</span></span><br><span class="line"><span class="string">_multibytecodec     contextvars         opcode              timeit</span></span><br><span class="line"><span class="string">_multiprocessing    copy                operator            tkinter</span></span><br><span class="line"><span class="string">_opcode             copyreg             optparse            token</span></span><br><span class="line"><span class="string">_operator           crypt               os                  tokenize</span></span><br><span class="line"><span class="string">_osx_support        csv                 parser              trace</span></span><br><span class="line"><span class="string">_overlapped         ctypes              pathlib             traceback</span></span><br><span class="line"><span class="string">_pickle             curses              pdb                 tracemalloc</span></span><br><span class="line"><span class="string">_py_abc             dataclasses         pickle              tty</span></span><br><span class="line"><span class="string">_pydecimal          datetime            pickletools         turtle</span></span><br><span class="line"><span class="string">_pyio               dbm                 pip                 turtledemo</span></span><br><span class="line"><span class="string">_queue              decimal             pipes               types</span></span><br><span class="line"><span class="string">_random             difflib             pkg_resources       typing</span></span><br><span class="line"><span class="string">_sha1               dis                 pkgutil             unicodedata</span></span><br><span class="line"><span class="string">_sha256             distutils           platform            unittest</span></span><br><span class="line"><span class="string">_sha3               doctest             plistlib            urllib</span></span><br><span class="line"><span class="string">_sha512             dummy_threading     poplib              uu</span></span><br><span class="line"><span class="string">_signal             easy_install        posixpath           uuid</span></span><br><span class="line"><span class="string">_sitebuiltins       email               pprint              venv</span></span><br><span class="line"><span class="string">_socket             encodings           print_f             warnings</span></span><br><span class="line"><span class="string">_sqlite3            ensurepip           profile             wave</span></span><br><span class="line"><span class="string">_sre                enum                pstats              weakref</span></span><br><span class="line"><span class="string">_ssl                errno               pty                 webbrowser</span></span><br><span class="line"><span class="string">_stat               faulthandler        py_compile          winreg</span></span><br><span class="line"><span class="string">_statistics         filecmp             pyclbr              winsound</span></span><br><span class="line"><span class="string">_string             fileinput           pydoc               wsgiref</span></span><br><span class="line"><span class="string">_strptime           fnmatch             pydoc_data          xdrlib</span></span><br><span class="line"><span class="string">_struct             formatter           pyexpat             xml</span></span><br><span class="line"><span class="string">_symtable           fractions           queue               xmlrpc</span></span><br><span class="line"><span class="string">_testbuffer         ftplib              quopri              xxsubtype</span></span><br><span class="line"><span class="string">_testcapi           functools           random              zipapp</span></span><br><span class="line"><span class="string">_testconsole        gc                  re                  zipfile</span></span><br><span class="line"><span class="string">_testimportmultiple genericpath         reprlib             zipimport</span></span><br><span class="line"><span class="string">_testmultiphase     getopt              rlcompleter         zlib</span></span><br><span class="line"><span class="string">_thread             getpass             runpy</span></span><br><span class="line"><span class="string">_threading_local    gettext             sched</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Enter any module name to get more help.  Or, type "modules spam" to search</span></span><br><span class="line"><span class="string">for modules whose name or summary contain the string "spam".</span></span><br></pre></td></tr></table></figure>
+
+</div></div></div>
 <h5 id="3-包"><a href="#3-包" class="headerlink" title="3.包"></a>3.包</h5><p>包是一种管理 Python 模块命名空间的形式，采用”点模块名称”。他能有效的避免不同库之间的模块重名的情况，如下图的目录中：<br><img src="https://upload-images.jianshu.io/upload_images/10646648-4360cc3539dce1d2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="包"><br>目录只有包含一个叫做<code>__init__.py</code>的文件才会被认作是一个包，最简单的情况，放一个空的文件<code>__init__.py</code>就可以了。用户可以每次只导入一个包里面的特定模块，比如:<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> people.type.color</span><br></pre></td></tr></table></figure><br>这将会导入子模块:<code>people.type.color</code>。 他必须使用全名去访问:<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">people.type.color.eye(input, output)</span><br></pre></td></tr></table></figure><br>还有一种导入子模块的方法是:<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> people.type <span class="keyword">import</span> color</span><br></pre></td></tr></table></figure><br>这同样会导入子模块: <code>color</code>，并且他不需要那些冗长的前缀，所以他可以这样使用:<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">color.eye(input,output)</span><br></pre></td></tr></table></figure><br>还有一种变化就是直接导入一个函数或者变量:<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> people.type.color <span class="keyword">import</span> eye</span><br></pre></td></tr></table></figure><br>同样的，这种方法会导入子模块: <code>color</code>，并且可以直接使用他的 <code>eye()</code> 函数:<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">eye(input,output)</span><br></pre></td></tr></table></figure></p>
 <div class="note primary no-icon"><p>如果我们使用<code>from people.type import *</code>，Python 会进入文件系统，找到这个包里面所有的子模块，一个一个的把它们都导入进来。但是在Windows系统中这种方法可能会出现问题，因为Windows是一个不区分大小写的系统，因此，通常在目录中的<code>__init__.py</code>文件中会存在一个名为<code>__all__</code>的列表变量，比如在<code>people/type/__init__.py</code>文件中包含代码：<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">__all__ = [<span class="string">"color"</span>, <span class="string">"like"</span>]</span><br></pre></td></tr></table></figure><br>这表示当我们使用<code>from people.type import *</code>这种用法时，只会导入包里面的这两个子模块，如果<code>__all__</code>没有定义，则使用<code>from people.type import *</code>时不会导入包<code>people.type</code>中的任何子模块，他只是把包<code>people.type</code>和她里面定义的所有内容导入进来。并且他不会破坏掉我们在这句话之前导入的所有明确指定的模块。</p></div>
 <div class="note danger no-icon"><p>无论是隐式的还是显式的相对导入都是从当前模块开始的。主模块的名字永远是<code>&quot;__main__&quot;</code>，一个Python应用程序的主模块，应当总是使用绝对路径引用。包还提供一个额外的属性<code>__path__</code>。这是一个目录列表，里面每一个包含的目录都有为这个包服务的<code>__init__.py</code>，你得在其他<code>__init__.py</code>被执行前定义。可以修改这个变量，用来影响包含在包里面的模块和子包。这个功能并不常用，一般用来扩展包里面的模块。</p></div>
@@ -625,6 +637,8 @@
 </ul>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">Enter a URL: https://codeload.github.com/iissnan/hexo-theme-next/zip/v5<span class="number">.1</span><span class="number">.4</span></span><br></pre></td></tr></table></figure>
 <p>敲击回车文件开始下载。</p>
+<hr>
+<p>下一篇：<a href="https://vxiaozhe1998.cn/2020/03/15/13-Collections模块/" target="_blank" rel="noopener">13.Collections模块</a><br>上一篇：<a href="https://vxiaozhe1998.cn/2020/03/13/11-类/" target="_blank" rel="noopener">11.面向对象</a><br>目    录：<a href="http://vxiaozhe1998.cn/2020/02/28/Python学习/" target="_blank" rel="noopener">Python学习</a></p>
 ]]></content>
       <categories>
         <category>编程</category>
@@ -717,6 +731,8 @@ Programmer --> Me</pre>
 <li>doc — 属性描述信息</li>
 </ul>
 <p>返回值为新式属性，例如定义一个可控属性值x：<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self._x = <span class="literal">None</span></span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getx</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self._x</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">setx</span><span class="params">(self, value)</span>:</span></span><br><span class="line">        self._x = value</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">delx</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">del</span> self._x</span><br><span class="line"> </span><br><span class="line">    x = property(getx, setx, delx, <span class="string">"I'm the 'x' property."</span>)</span><br></pre></td></tr></table></figure><br>如果将类<code>C</code>实例化为<code>c</code>，则：<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">c = C()</span><br><span class="line">print(c.x)  <span class="comment"># 触发setter</span></span><br><span class="line">c.x = <span class="number">5</span>     <span class="comment"># 触发getter</span></span><br><span class="line"><span class="keyword">del</span> c.x     <span class="comment"># 触发deleter</span></span><br></pre></td></tr></table></figure><br>将property作装饰器<code>@property</code>可以更方便的创建只读属性，有关装饰器的知识将在实验15中提及。</p></div>
+<hr>
+<p>下一篇：<a href="https://vxiaozhe1998.cn/2020/03/14/12-模块/" target="_blank" rel="noopener">12.模块</a><br>上一篇：<a href="https://vxiaozhe1998.cn/2020/03/11/10-异常/" target="_blank" rel="noopener">10.异常</a><br>目    录：<a href="http://vxiaozhe1998.cn/2020/02/28/Python学习/" target="_blank" rel="noopener">Python学习</a></p>
 ]]></content>
       <categories>
         <category>编程</category>
@@ -800,6 +816,8 @@ Programmer --> Me</pre>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line">a = sys.argv[<span class="number">2</span>:]</span><br><span class="line">print(a)</span><br></pre></td></tr></table></figure>
 <p>在控制台中输入：<code>python print_f a b c d e</code>敲击回车输出的为：<code>[&#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;]</code>。<br>通过上面的例子我们容易理解<code>sys.argv</code>的用法。</p></div>
 <h4 id="四、实验结果"><a href="#四、实验结果" class="headerlink" title="四、实验结果"></a>四、实验结果</h4><p>无</p>
+<hr>
+<p>下一篇：<a href="https://vxiaozhe1998.cn/2020/03/13/11-类/" target="_blank" rel="noopener">11.面向对象</a><br>上一篇：<a href="https://vxiaozhe1998.cn/2020/03/10/9-文件处理/" target="_blank" rel="noopener">9.文件处理</a><br>目    录：<a href="http://vxiaozhe1998.cn/2020/02/28/Python学习/" target="_blank" rel="noopener">Python学习</a></p>
 ]]></content>
       <categories>
         <category>编程</category>
@@ -836,6 +854,7 @@ Programmer --> Me</pre>
 <li>buffering:如果buffering的值被设为0，就不会有寄存。如果buffering的值取1，访问文件时会寄存行。如果将buffering的值设为大于1的整数，表明了这就是的寄存区的缓冲大小。如果取负值，寄存区的缓冲大小则为系统默认。</li>
 </ul>
 <p>不同模式下打开文件的列表如下：</p>
+<div><div class="fold_hider"><div class="close hider_title">点击显/隐表格</div></div><div class="fold">
 <div class="table-container">
 <table>
 <thead>
@@ -916,6 +935,8 @@ Programmer --> Me</pre>
 </tbody>
 </table>
 </div>
+
+</div></div>
 <p>对于不同模式的可用操作如下表所示：</p>
 <div class="table-container">
 <table>
@@ -1094,6 +1115,8 @@ Programmer --> Me</pre>
 </ul>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">请输入文件名（包括扩展名）：sample.txt</span><br><span class="line"><span class="number">456461</span></span><br></pre></td></tr></table></figure>
 <p>注：sample.txt的内容为<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">hello world!</span><br><span class="line">Very good!</span><br><span class="line">das45			<span class="number">646</span></span><br><span class="line"><span class="number">1</span></span><br></pre></td></tr></table></figure></p>
+<hr>
+<p>下一篇：<a href="https://vxiaozhe1998.cn/2020/03/11/10-异常/" target="_blank" rel="noopener">10.异常</a><br>上一篇：<a href="https://vxiaozhe1998.cn/2020/03/08/8-函数/" target="_blank" rel="noopener">8.函数</a><br>目    录：<a href="http://vxiaozhe1998.cn/2020/02/28/Python学习/" target="_blank" rel="noopener">Python学习</a></p>
 ]]></content>
       <categories>
         <category>编程</category>
@@ -1289,6 +1312,8 @@ Programmer --> Me</pre>
 <li>filter函数的返回值是迭代器对象filter；</li>
 </ul>
 <h4 id="四、实验结果"><a href="#四、实验结果" class="headerlink" title="四、实验结果"></a>四、实验结果</h4><p>无</p>
+<hr>
+<p>下一篇：<a href="https://vxiaozhe1998.cn/2020/03/10/9-文件处理/" target="_blank" rel="noopener">9.文件处理</a><br>上一篇：<a href="https://vxiaozhe1998.cn/2020/03/08/7-字符串/" target="_blank" rel="noopener">7.字符串</a><br>目    录：<a href="http://vxiaozhe1998.cn/2020/02/28/Python学习/" target="_blank" rel="noopener">Python学习</a></p>
 ]]></content>
       <categories>
         <category>编程</category>
@@ -1312,6 +1337,7 @@ Programmer --> Me</pre>
 <blockquote>
 <p>在字符串中可以通过在一行的结尾输入<code>\</code>再换行达到多行文本最终输出一行的效果，而通过在字符串中输入<code>\n</code>可以达到换行的目的。转义字符如下表所示：</p>
 </blockquote>
+<div><div class="fold_hider"><div class="close hider_title">点击显/隐表格</div></div><div class="fold">
 <div class="table-container">
 <table>
 <thead>
@@ -1388,7 +1414,10 @@ Programmer --> Me</pre>
 </tbody>
 </table>
 </div>
-<h5 id="2-字符串方法"><a href="#2-字符串方法" class="headerlink" title="2.字符串方法"></a>2.字符串方法</h5><div class="table-container">
+
+</div></div>
+<h5 id="2-字符串方法"><a href="#2-字符串方法" class="headerlink" title="2.字符串方法"></a>2.字符串方法</h5><div><div class="fold_hider"><div class="close hider_title">点击显/隐表格</div></div><div class="fold">
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -1568,6 +1597,8 @@ Programmer --> Me</pre>
 </tbody>
 </table>
 </div>
+
+</div></div>
 <h5 id="3-字符串运算"><a href="#3-字符串运算" class="headerlink" title="3.字符串运算"></a>3.字符串运算</h5><div class="table-container">
 <table>
 <thead>
@@ -1611,7 +1642,7 @@ Programmer --> Me</pre>
 <tr>
 <td style="text-align:left">r/R</td>
 <td style="text-align:left">原始字符串 - 原始字符串：所有的字符串都是直接按照字面的意思来使用，没有转义特殊或不能打印的字符。 原始字符串除在字符串的第一个引号前加上字母”r”（可以大小写）以外，与普通字符串有着几乎完全相同的语法。</td>
-<td style="text-align:left">&gt;&gt;&gt;print r’\n’ \n &gt;&gt;&gt; print R’\n’ \n</td>
+<td style="text-align:left">&gt;&gt;&gt;print r’\n’ &lt;/br&gt; &gt;&gt;&gt; print R’\n’</td>
 </tr>
 <tr>
 <td style="text-align:left">%</td>
@@ -1789,9 +1820,9 @@ Programmer --> Me</pre>
 </ul>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">s = <span class="string">"My name is Zhang"</span></span><br><span class="line">print(s.swapcase())</span><br></pre></td></tr></table></figure>
 <ul>
-<li>结果<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">mY NAME IS zHANG</span><br></pre></td></tr></table></figure>
-</li>
+<li>结果</li>
 </ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">mY NAME IS zHANG</span><br></pre></td></tr></table></figure>
 <p><strong>1.6 <code>isalnum()</code></strong><br>检查所有字符是否只有字母和数字’</p>
 <ul>
 <li>代码</li>
@@ -1847,6 +1878,8 @@ Programmer --> Me</pre>
 <li>结果：</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">请输入一段句子（英文）:my name <span class="keyword">is</span> zhagn</span><br><span class="line">这段句子中有<span class="number">4</span>个单词</span><br></pre></td></tr></table></figure>
+<hr>
+<p>下一篇：<a href="https://vxiaozhe1998.cn/2020/03/08/8-函数/" target="_blank" rel="noopener">8.函数</a><br>上一篇：<a href="https://vxiaozhe1998.cn/2020/03/07/6-数据结构/" target="_blank" rel="noopener">6.数据结构</a><br>目    录：<a href="http://vxiaozhe1998.cn/2020/02/28/Python学习/" target="_blank" rel="noopener">Python学习</a></p>
 ]]></content>
       <categories>
         <category>编程</category>
@@ -2008,6 +2041,7 @@ Programmer --> Me</pre>
 <li>键必须不可变，所以可以用数字，字符串或元组充当，所以用列表就不行</li>
 </ul>
 <p><strong>7.2 字典内置函数和方法</strong></p>
+<div><div class="fold_hider"><div class="close hider_title">点击显/隐表格</div></div><div class="fold">
 <div class="table-container">
 <table>
 <thead>
@@ -2067,6 +2101,8 @@ Programmer --> Me</pre>
 </tbody>
 </table>
 </div>
+
+</div></div>
 <h4 id="三、实验内容"><a href="#三、实验内容" class="headerlink" title="三、实验内容"></a>三、实验内容</h4><h5 id="1-常用的元组操作"><a href="#1-常用的元组操作" class="headerlink" title="1.常用的元组操作"></a>1.常用的元组操作</h5><ul>
 <li>访问元组<br>元组可以使用下标索引来访问元组中的值，如下实例:</li>
 </ul>
@@ -2149,6 +2185,8 @@ Programmer --> Me</pre>
 <li>解释：</li>
 </ul>
 <p>这里我们使用了几次列表推导式。<code>[int(x) for x in input().split()]</code> 首先通过 <code>input()</code> 获得用户输入的字符串，再使用<code>split()</code>分割字符串得到一系列的数字字符串，然后用<code>int()</code> 从每个数字字符串创建对应的整数值。我们也使用了 <code>[a[i][j] * b[i][j] for j in range(n)]</code> 来得到矩阵乘积的每一行数据。</p>
+<hr>
+<p>下一篇：<a href="https://vxiaozhe1998.cn/2020/03/08/7-字符串/" target="_blank" rel="noopener">7.字符串</a><br>上一篇：<a href="https://vxiaozhe1998.cn/2020/03/07/5-循环/" target="_blank" rel="noopener">5.循环</a><br>目    录：<a href="http://vxiaozhe1998.cn/2020/02/28/Python学习/" target="_blank" rel="noopener">Python学习</a></p>
 ]]></content>
       <categories>
         <category>编程</category>
@@ -2458,7 +2496,10 @@ e^{x}=1+x+\frac{x^{2}}{2!}+\frac{x^{3}}{3!}+…+\frac{x^{n}}{n!}(0<n<1)</script>
 </ul>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">sticks = <span class="number">21</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">"There are 21 sticks, you can take 1-4 number of sticks at a time."</span>)</span><br><span class="line">print(<span class="string">"Whoever will take the last stick will loose"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    print(<span class="string">"Sticks left: "</span> , sticks)</span><br><span class="line">    <span class="keyword">if</span> sticks == <span class="number">1</span>:</span><br><span class="line">        print(<span class="string">"You took the last stick, you loose"</span>)</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    sticks_taken = int(input(<span class="string">"Take sticks(1-4):"</span>))</span><br><span class="line">    <span class="keyword">if</span> sticks_taken &gt;= <span class="number">5</span> <span class="keyword">or</span> sticks_taken &lt;= <span class="number">0</span>:</span><br><span class="line">        print(<span class="string">"Wrong choice"</span>)</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    print(<span class="string">"Computer took: "</span> , (<span class="number">5</span> - sticks_taken) , <span class="string">"\n"</span>)</span><br><span class="line">    sticks -= <span class="number">5</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li>分析：<br>本题目中在题目中的条件下，先手的人必输，因为后手的人只需凑够（21-1）的因数5即可，最后1根一定是先手的人拿到。<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script><textarea id="flowchart-0-code" style="display: none">st=>start: 开始语句
+<li>分析：<br>本题目中在题目中的条件下，先手的人必输，因为后手的人只需凑够（21-1）的因数5即可，最后1根一定是先手的人拿到。</li>
+</ul>
+<hr>
+<p>下一篇：<a href="https://vxiaozhe1998.cn/2020/03/06/4-控制流if-else/" target="_blank" rel="noopener">4.控制流if-else</a><br>上一篇：<a href="https://vxiaozhe1998.cn/2020/03/07/6-数据结构/" target="_blank" rel="noopener">6.数据结构</a><br>目    录：<a href="http://vxiaozhe1998.cn/2020/02/28/Python学习/" target="_blank" rel="noopener">Python学习</a><script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script><textarea id="flowchart-0-code" style="display: none">st=>start: 开始语句
 in=>inputoutput: 输入值
 e=>end: 下一程序块
 op=>operation: 条件代码
@@ -2467,8 +2508,7 @@ cond=>condition: 条件
 st->in->cond
 cond(yes)->op
 cond(no)->e
-op->in</textarea><textarea id="flowchart-0-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-0", options);</script></li>
-</ul>
+op->in</textarea><textarea id="flowchart-0-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-0", options);</script></p>
 ]]></content>
       <categories>
         <category>编程</category>
@@ -2656,6 +2696,8 @@ c2(no)->op2->e</textarea><textarea id="flowchart-0-options" style="display: none
 <li>结果：</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">Please input the profit:<span class="number">100000</span></span><br><span class="line">The awards <span class="keyword">is</span>: <span class="number">25000.00</span></span><br><span class="line"></span><br><span class="line">Please input the profit:<span class="number">12000</span></span><br><span class="line">The awards <span class="keyword">is</span>: <span class="number">6200.00</span></span><br><span class="line"></span><br><span class="line">Please input the profit:<span class="number">200</span></span><br><span class="line">The awards <span class="keyword">is</span>: <span class="number">5000.00</span></span><br></pre></td></tr></table></figure>
+<hr>
+<p>下一篇：<a href="https://vxiaozhe1998.cn/2020/02/29/3-%E8%BF%90%E7%AE%97%E7%AC%A6%E5%92%8C%E8%A1%A8%E8%BE%BE%E5%BC%8F/" target="_blank" rel="noopener">3.运算符和表达式</a><br>上一篇：<a href="https://vxiaozhe1998.cn/2020/03/07/5-%E5%BE%AA%E7%8E%AF/" target="_blank" rel="noopener">5.循环</a><br>目    录：<a href="http://vxiaozhe1998.cn/2020/02/28/Python学习/" target="_blank" rel="noopener">Python学习</a></p>
 <p><script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script><textarea id="flowchart-0-code" style="display: none">st=>start: 开始语句
 e=>end: 下一程序块
 op=>operation: 条件代码
@@ -2962,7 +3004,8 @@ op->e</textarea><textarea id="flowchart-0-options" style="display: none">{"scale
 </tbody>
 </table>
 </div>
-<h5 id="2-比较运算符"><a href="#2-比较运算符" class="headerlink" title="2.比较运算符"></a>2.比较运算符</h5><div class="table-container">
+<h5 id="2-比较运算符"><a href="#2-比较运算符" class="headerlink" title="2.比较运算符"></a>2.比较运算符</h5><div><div class="fold_hider"><div class="close hider_title">点击显/隐表格</div></div><div class="fold">
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -3005,7 +3048,10 @@ op->e</textarea><textarea id="flowchart-0-options" style="display: none">{"scale
 </tbody>
 </table>
 </div>
-<h5 id="3-赋值运算符"><a href="#3-赋值运算符" class="headerlink" title="3.赋值运算符"></a>3.赋值运算符</h5><div class="table-container">
+
+</div></div>
+<h5 id="3-赋值运算符"><a href="#3-赋值运算符" class="headerlink" title="3.赋值运算符"></a>3.赋值运算符</h5><div><div class="fold_hider"><div class="close hider_title">点击显/隐表格</div></div><div class="fold">
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -3058,7 +3104,10 @@ op->e</textarea><textarea id="flowchart-0-options" style="display: none">{"scale
 </tbody>
 </table>
 </div>
-<h5 id="4-位运算符"><a href="#4-位运算符" class="headerlink" title="4.位运算符"></a>4.位运算符</h5><div class="table-container">
+
+</div></div>
+<h5 id="4-位运算符"><a href="#4-位运算符" class="headerlink" title="4.位运算符"></a>4.位运算符</h5><div><div class="fold_hider"><div class="close hider_title">点击显/隐表格</div></div><div class="fold">
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -3094,6 +3143,8 @@ op->e</textarea><textarea id="flowchart-0-options" style="display: none">{"scale
 </tbody>
 </table>
 </div>
+
+</div></div>
 <ul>
 <li>例如：</li>
 </ul>
@@ -3193,13 +3244,14 @@ op->e</textarea><textarea id="flowchart-0-options" style="display: none">{"scale
 </ul>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">list1 = [<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">40</span>, <span class="number">50</span>]</span><br><span class="line">list2 = [<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">40</span>, <span class="number">50</span>]</span><br><span class="line">list3 = list1</span><br><span class="line"></span><br><span class="line">print(<span class="string">"Please judge the following proposition:"</span>)</span><br><span class="line">print(<span class="string">"list1 is list2 :"</span>, list2 <span class="keyword">is</span> list1)</span><br><span class="line">print(<span class="string">"list3 is list1 :"</span>, list3 <span class="keyword">is</span> list1)</span><br><span class="line">print(<span class="string">"list1 is not list2 :"</span>, list2 <span class="keyword">is</span> <span class="keyword">not</span> list1)</span><br><span class="line">print(<span class="string">"list3 is not list1 :"</span>, list3 <span class="keyword">is</span> <span class="keyword">not</span> list1)</span><br><span class="line">print(<span class="string">"list1 == list2 :"</span>, list2 == list1)</span><br><span class="line">print(<span class="string">"list3 == list1 :"</span>, list3 == list1)</span><br><span class="line">print(<span class="string">"list1 != list2 :"</span>, list2 != list1)</span><br><span class="line">print(<span class="string">"list3 != list1 :"</span>, list3 != list1)</span><br></pre></td></tr></table></figure>
 <ul>
-<li>结果是：<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">Please judge the following proposition:</span></span><br><span class="line"><span class="attr">list1 is list2 :</span> <span class="literal">False</span></span><br><span class="line"><span class="attr">list3 is list1 :</span> <span class="literal">True</span></span><br><span class="line"><span class="attr">list1 is not list2 :</span> <span class="literal">True</span></span><br><span class="line"><span class="attr">list3 is not list1 :</span> <span class="literal">False</span></span><br><span class="line"><span class="string">list1</span> <span class="string">==</span> <span class="attr">list2 :</span> <span class="literal">True</span></span><br><span class="line"><span class="string">list3</span> <span class="string">==</span> <span class="attr">list1 :</span> <span class="literal">True</span></span><br><span class="line"><span class="string">list1</span> <span class="string">!=</span> <span class="attr">list2 :</span> <span class="literal">False</span></span><br><span class="line"><span class="string">list3</span> <span class="string">!=</span> <span class="attr">list1 :</span> <span class="literal">False</span></span><br></pre></td></tr></table></figure>
-</li>
+<li>结果是：</li>
 </ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">Please judge the following proposition:</span><br><span class="line">list1 <span class="keyword">is</span> list2 : <span class="literal">False</span></span><br><span class="line">list3 <span class="keyword">is</span> list1 : <span class="literal">True</span></span><br><span class="line">list1 <span class="keyword">is</span> <span class="keyword">not</span> list2 : <span class="literal">True</span></span><br><span class="line">list3 <span class="keyword">is</span> <span class="keyword">not</span> list1 : <span class="literal">False</span></span><br><span class="line">list1 == list2 : <span class="literal">True</span></span><br><span class="line">list3 == list1 : <span class="literal">True</span></span><br><span class="line">list1 != list2 : <span class="literal">False</span></span><br><span class="line">list3 != list1 : <span class="literal">False</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p><strong>is 与 == 区别:</strong>is 用于判断两个变量引用对象是否为同一个(同一块内存空间)， == 用于判断引用变量的值是否相等。</p>
 </blockquote>
-<h5 id="8-运算符优先级"><a href="#8-运算符优先级" class="headerlink" title="8.运算符优先级"></a>8.运算符优先级</h5><div class="table-container">
+<h5 id="8-运算符优先级"><a href="#8-运算符优先级" class="headerlink" title="8.运算符优先级"></a>8.运算符优先级</h5><div><div class="fold_hider"><div class="close hider_title">点击显/隐表格</div></div><div class="fold">
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -3263,6 +3315,8 @@ op->e</textarea><textarea id="flowchart-0-options" style="display: none">{"scale
 </tbody>
 </table>
 </div>
+
+</div></div>
 <h4 id="三、实验内容"><a href="#三、实验内容" class="headerlink" title="三、实验内容"></a>三、实验内容</h4><h5 id="1-书写表达式"><a href="#1-书写表达式" class="headerlink" title="1.书写表达式"></a>1.书写表达式</h5><blockquote>
 <p>通常我们书写表达式的时候，会在每一个运算符左右都放一个空格，这样使代码更可读，如：</p>
 </blockquote>
@@ -3325,9 +3379,10 @@ op->e</textarea><textarea id="flowchart-0-options" style="display: none">{"scale
 <ul>
 <li><code>start:</code> 计数从 start 开始。默认是从 0 开始。例如range（5）等价于range（0， 5）;</li>
 <li><code>stop:</code>计数到 stop 结束，但不包括 stop。例如：range（0， 5） 是[0, 1, 2, 3, 4]没有5</li>
-<li><code>step：</code>步长，默认为1。例如：range（0， 5） 等价于 range(0, 5, 1)<br>拓展用法：<br><strong>list() 函数</strong>是对象迭代器，可以把range()返回的可迭代对象转为一个列表，返回的变量类型为列表。例如：<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = list(range(<span class="number">0</span>, <span class="number">30</span>, <span class="number">5</span>))</span><br><span class="line">print(a)</span><br></pre></td></tr></table></figure>
-输出结果为：[0, 5, 10, 15, 20, 25]</li>
+<li><code>step：</code>步长，默认为1。例如：range（0， 5） 等价于 range(0, 5, 1)<br>拓展用法：<br><strong>list() 函数</strong>是对象迭代器，可以把range()返回的可迭代对象转为一个列表，返回的变量类型为列表。例如：</li>
 </ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = list(range(<span class="number">0</span>, <span class="number">30</span>, <span class="number">5</span>))</span><br><span class="line">print(a)</span><br></pre></td></tr></table></figure>
+<p>输出结果为：[0, 5, 10, 15, 20, 25]</p>
 </blockquote>
 <h5 id="2-quadraticequation-py"><a href="#2-quadraticequation-py" class="headerlink" title="2.quadraticequation.py"></a>2.quadraticequation.py</h5><div class="note info no-icon"><p>用户输入<code>a</code>,<code>b</code>,<code>c</code>后输出二次方根<code>root1</code>,<code>root2</code></p></div>
 <ul>
@@ -3347,9 +3402,9 @@ op->e</textarea><textarea id="flowchart-0-options" style="display: none">{"scale
 </ul>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">count = int(input(<span class="string">"Please input the number of cameras:"</span>))</span><br><span class="line">price = float(input(<span class="string">"Please input the price of cameras:"</span>))</span><br><span class="line">print(<span class="string">"The salary is:"</span>, <span class="number">1500</span>+<span class="number">200</span>*count + <span class="number">0.02</span>*count*price)</span><br></pre></td></tr></table></figure>
 <ul>
-<li>结果：<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">Please input the number of cameras:<span class="number">5</span></span><br><span class="line">Please input the price of cameras:<span class="number">2000</span></span><br><span class="line">The salary <span class="keyword">is</span>: <span class="number">2700.0</span></span><br></pre></td></tr></table></figure>
-</li>
+<li>结果：</li>
 </ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">Please input the number of cameras:<span class="number">5</span></span><br><span class="line">Please input the price of cameras:<span class="number">2000</span></span><br><span class="line">The salary <span class="keyword">is</span>: <span class="number">2700.0</span></span><br></pre></td></tr></table></figure>
 <h5 id="4-areaofacircle-py"><a href="#4-areaofacircle-py" class="headerlink" title="4.areaofacircle.py"></a>4.areaofacircle.py</h5><div class="note info no-icon"><p>输入圆的半径R，输出圆的面积</p></div>
 <ul>
 <li>代码</li>
@@ -3358,7 +3413,10 @@ op->e</textarea><textarea id="flowchart-0-options" style="display: none">{"scale
 <ul>
 <li>结果</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">Please input the radius:<span class="number">2</span></span><br><span class="line">The area of the circle <span class="keyword">is</span>: <span class="number">12.5663706144</span></span><br></pre></td></tr></table></figure>]]></content>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">Please input the radius:<span class="number">2</span></span><br><span class="line">The area of the circle <span class="keyword">is</span>: <span class="number">12.5663706144</span></span><br></pre></td></tr></table></figure>
+<hr>
+<p>下一篇：<a href="https://vxiaozhe1998.cn/2020/03/06/4-%E6%8E%A7%E5%88%B6%E6%B5%81if-else/" target="_blank" rel="noopener">4.控制流if-else</a><br>上一篇：<a href="https://vxiaozhe1998.cn/2020/02/29/2-%E5%8F%98%E9%87%8F%E5%92%8C%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" target="_blank" rel="noopener">2.变量和数据类型</a><br>目    录：<a href="http://vxiaozhe1998.cn/2020/02/28/Python学习/" target="_blank" rel="noopener">Python学习</a></p>
+]]></content>
       <categories>
         <category>博客</category>
       </categories>
@@ -3583,7 +3641,7 @@ op->e</textarea><textarea id="flowchart-0-options" style="display: none">{"scale
 <p>对于format()函数中格式化数字的部分详见链接：<a href="http://vxiaozhe1998.cn/2020/02/29/format-函数格式化数字/" target="_blank" rel="noopener">format()函数格式化数字</a></p>
 </blockquote>
 <hr>
-<p>上一篇：<a href="http://vxiaozhe1998.cn/2020/02/28/1.开始Python之旅/" target="_blank" rel="noopener">1.开始Python之旅</a><br>目    录：<a href="http://vxiaozhe1998.cn/2020/02/28/Python学习/" target="_blank" rel="noopener">Python学习</a></p>
+<p>下一篇：<a href="https://vxiaozhe1998.cn/2020/02/29/3-%E8%BF%90%E7%AE%97%E7%AC%A6%E5%92%8C%E8%A1%A8%E8%BE%BE%E5%BC%8F/" target="_blank" rel="noopener">3.运算符和表达式</a><br>上一篇：<a href="http://vxiaozhe1998.cn/2020/02/28/1.开始Python之旅/" target="_blank" rel="noopener">1.开始Python之旅</a><br>目    录：<a href="http://vxiaozhe1998.cn/2020/02/28/Python学习/" target="_blank" rel="noopener">Python学习</a></p>
 ]]></content>
       <categories>
         <category>编程</category>
@@ -4036,7 +4094,48 @@ op->e</textarea><textarea id="flowchart-0-options" style="display: none">{"scale
 
 <p><a href="http://vxiaozhe1998.cn/2020/02/29/2-变量和数据类型/" target="_blank" rel="noopener">点击跳转</a></p></div>
 <p><strong>拓展：</strong><br><a href="http://vxiaozhe1998.cn/2020/02/29/Python保留字/" target="_blank" rel="noopener">Python保留字</a><br><a href="http://vxiaozhe1998.cn/2020/02/29/format-函数格式化数字/" target="_blank" rel="noopener">format()函数格式化数字</a></p>
-]]></content>
+<div class="note info no-icon"><h5>3.运算符和表达式</h5>
+
+<p><a href="https://vxiaozhe1998.cn/2020/02/29/3-%E8%BF%90%E7%AE%97%E7%AC%A6%E5%92%8C%E8%A1%A8%E8%BE%BE%E5%BC%8F/" target="_blank" rel="noopener">点击跳转</a></p></div>
+<p><strong>拓展：</strong><br><a href="https://vxiaozhe1998.cn/2020/03/06/Python%E4%B8%ADMath%E6%A8%A1%E5%9D%97%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/" target="_blank" rel="noopener">Python中Math模块常用函数</a></p>
+<div class="note info no-icon"><h5>4.控制流if-else</h5>
+
+<p><a href="https://vxiaozhe1998.cn/2020/03/06/4-%E6%8E%A7%E5%88%B6%E6%B5%81if-else/" target="_blank" rel="noopener">点击跳转</a></p></div>
+<div class="note info no-icon"><h5>5.循环</h5>
+
+<p><a href="https://vxiaozhe1998.cn/2020/03/07/5-%E5%BE%AA%E7%8E%AF/" target="_blank" rel="noopener">点击跳转</a></p></div>
+<p><strong>拓展：</strong><br><a href="https://vxiaozhe1998.cn/2020/03/07/Python的字符串切片/" target="_blank" rel="noopener">Python的字符串切片</a></p>
+<div class="note info no-icon"><h5>6.数据结构</h5>
+
+<p><a href="https://vxiaozhe1998.cn/2020/03/07/6-数据结构/" target="_blank" rel="noopener">点击跳转</a></p></div>
+<div class="note info no-icon"><h5>7.字符串</h5>
+
+<p><a href="https://vxiaozhe1998.cn/2020/03/08/7-字符串/" target="_blank" rel="noopener">点击跳转</a></p></div>
+<div class="note info no-icon"><h5>8.函数</h5>
+
+<p><a href="https://vxiaozhe1998.cn/2020/03/08/8-函数/" target="_blank" rel="noopener">点击跳转</a></p></div>
+<div class="note info no-icon"><h5>9.文件处理</h5>
+
+<p><a href="https://vxiaozhe1998.cn/2020/03/10/9-文件处理/" target="_blank" rel="noopener">点击跳转</a></p></div>
+<div class="note info no-icon"><h5>10.异常</h5>
+
+<p><a href="https://vxiaozhe1998.cn/2020/03/11/10-异常/" target="_blank" rel="noopener">点击跳转</a></p></div>
+<div class="note info no-icon"><h5>11.面向对象</h5>
+
+<p><a href="https://vxiaozhe1998.cn/2020/03/13/11-类/" target="_blank" rel="noopener">点击跳转</a></p></div>
+<div class="note info no-icon"><h5>12.模块</h5>
+
+<p><a href="https://vxiaozhe1998.cn/2020/03/14/12-模块/" target="_blank" rel="noopener">点击跳转</a></p></div>
+<p><strong>拓展：</strong><br><a href="https://vxiaozhe1998.cn/2020/03/15/Python中较为常用模块/" target="_blank" rel="noopener">Python中较为常用模块</a><br><a href="https://vxiaozhe1998.cn/2020/03/15/Python中的变量类型/" target="_blank" rel="noopener">Python中的变量类型 </a><br><a href="https://vxiaozhe1998.cn/2020/03/15/Python中跨目录调用模块/" target="_blank" rel="noopener">Python中跨目录调用模块</a></p>
+<div class="note info no-icon"><h5>13.Collections模块</h5>
+
+<p><a href="https://vxiaozhe1998.cn/2020/03/15/13-Collections模块/" target="_blank" rel="noopener">点击跳转</a></p></div>
+<div class="note info no-icon"><h5>14.PEP8代码风格指南</h5>
+
+<p><a href="https://vxiaozhe1998.cn/2020/03/15/14-PEP8代码风格指南/" target="_blank" rel="noopener">点击跳转</a></p></div>
+<div class="note info no-icon"><h5>15.迭代器、生成器、装饰器</h5>
+
+<p><a href="https://vxiaozhe1998.cn/2020/03/15/15-迭代器、生成器、装饰器/" target="_blank" rel="noopener">点击跳转</a></p></div>]]></content>
       <categories>
         <category>编程</category>
       </categories>
@@ -4768,26 +4867,6 @@ op->e</textarea><textarea id="flowchart-0-options" style="display: none">{"scale
       </tags>
   </entry>
   <entry>
-    <title>7-2 老鼠爱大米 (20分)</title>
-    <url>/2020/01/31/7-2%20%E8%80%81%E9%BC%A0%E7%88%B1%E5%A4%A7%E7%B1%B3%20(20%E5%88%86)/</url>
-    <content><![CDATA[<p>翁恺老师曾经设计过一款 Java 挑战游戏，叫“老鼠爱大米”（或许因为他的外号叫“胖胖鼠”）。每个玩家用 Java 代码控制一只鼠，目标是抢吃尽可能多的大米让自己变成胖胖鼠，最胖的那只就是冠军。<br><a id="more"></a>因为游戏时间不能太长，我们把玩家分成 <em>N</em> 组，每组 <em>M</em> 只老鼠同场竞技，然后从 <em>N</em> 个分组冠军中直接选出最胖的冠军胖胖鼠。现在就请你写个程序来得到冠军的体重。</p>
-<blockquote>
-<p><strong>输入格式：</strong><br>输入在第一行中给出 2 个正整数：<em>N</em>（≤100）为组数，<em>M</em>（≤10）为每组玩家个数。随后 <em>N</em> 行，每行给出一组玩家控制的 <em>M</em> 只老鼠最后的体重，均为不超过 104 的非负整数。数字间以空格分隔。</p>
-<p><strong>输出格式：</strong><br>首先在第一行顺次输出各组冠军的体重，数字间以 1 个空格分隔，行首尾不得有多余空格。随后在第二行输出冠军胖胖鼠的体重。</p>
-<p>输入：<br><div class="note default no-icon"><p>3 5<br>62 53 88 72 81<br>12 31 9 0 2<br>91 42 39 6 48</p></div></p>
-<p>输出：<br><div class="note default no-icon"><p>88 31 91<br>91</p></div></p>
-</blockquote>
-<div class="note default no-icon"><p>作者: 陈越<br>单位: 浙江大学<br>时间限制: 400 ms<br>内存限制: 64 MB<br>代码长度限制: 16 KB</p></div>
-<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><h3 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>PAT（乙级）（2019年冬季考试）</category>
-      </categories>
-      <tags>
-        <tag>编程</tag>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>7-1 2019数列 (15分)</title>
     <url>/2020/01/31/7-1%202019%E6%95%B0%E5%88%97%20(15%E5%88%86)/</url>
     <content><![CDATA[<p>把 2019 各个数位上的数字 2、0、1、9 作为一个数列的前 4 项，用它们去构造一个无穷数列，其中第 <em>n</em>（&gt;4）项是它前 4 项之和的个位数字。例如第 5 项为 2， 因为 2+0+1+9=12，个位数是 2。<a id="more"></a><br>本题就请你编写程序，列出这个序列的前 <em>n</em> 项。</p>
@@ -4831,27 +4910,6 @@ op->e</textarea><textarea id="flowchart-0-options" style="display: none">{"scale
       </tags>
   </entry>
   <entry>
-    <title>7-4 擅长C (20分)</title>
-    <url>/2020/01/31/7-4%20%E6%93%85%E9%95%BFC%20(20%E5%88%86)/</url>
-    <content><![CDATA[<p>当你被面试官要求用 C 写一个“Hello World”时，有本事像下图显示的那样写一个出来吗？<a id="more"></a><br><img src="https://images.ptausercontent.com/ba3b8678-061d-4fc6-a87e-ce08e1434410.jpg" alt="HWC.jpg"></p>
-<blockquote>
-<p><strong>输入格式：</strong><br>输入首先给出 26 个英文大写字母 A-Z，每个字母用一个 7×5 的、由 <code>C</code> 和 <code>.</code> 组成的矩阵构成。最后在一行中给出一个句子，以回车结束。句子是由若干个单词（每个包含不超过 10 个连续的大写英文字母）组成的，单词间以任何非大写英文字母分隔。<br>题目保证至少给出一个单词。</p>
-<p><strong>输出格式：</strong><br>对每个单词，将其每个字母用矩阵形式在一行中输出，字母间有一列空格分隔。单词的首尾不得有多余空格。<br>相邻的两个单词间必须有一空行分隔。输出的首尾不得有多余空行。</p>
-<p>输入：<br><div class="note default no-icon"><p>..C..<br>.C.C.<br>C…C<br>CCCCC<br>C…C<br>C…C<br>C…C<br>CCCC.<br>C…C<br>C…C<br>CCCC.<br>C…C<br>C…C<br>CCCC.<br>.CCC.<br>C…C<br>C….<br>C….<br>C….<br>C…C<br>.CCC.<br>CCCC.<br>C…C<br>C…C<br>C…C<br>C…C<br>C…C<br>CCCC.<br>CCCCC<br>C….<br>C….<br>CCCC.<br>C….<br>C….<br>CCCCC<br>CCCCC<br>C….<br>C….<br>CCCC.<br>C….<br>C….<br>C….<br>CCCC.<br>C…C<br>C….<br>C.CCC<br>C…C<br>C…C<br>CCCC.<br>C…C<br>C…C<br>C…C<br>CCCCC<br>C…C<br>C…C<br>C…C<br>CCCCC<br>..C..<br>..C..<br>..C..<br>..C..<br>..C..<br>CCCCC<br>CCCCC<br>….C<br>….C<br>….C<br>….C<br>C…C<br>.CCC.<br>C…C<br>C..C.<br>C.C..<br>CC…<br>C.C..<br>C..C.<br>C…C<br>C….<br>C….<br>C….<br>C….<br>C….<br>C….<br>CCCCC<br>C…C<br>C…C<br>CC.CC<br>C.C.C<br>C…C<br>C…C<br>C…C<br>C…C<br>C…C<br>CC..C<br>C.C.C<br>C..CC<br>C…C<br>C…C<br>.CCC.<br>C…C<br>C…C<br>C…C<br>C…C<br>C…C<br>.CCC.<br>CCCC.<br>C…C<br>C…C<br>CCCC.<br>C….<br>C….<br>C….<br>.CCC.<br>C…C<br>C…C<br>C…C<br>C.C.C<br>C..CC<br>.CCC.<br>CCCC.<br>C…C<br>CCCC.<br>CC…<br>C.C..<br>C..C.<br>C…C<br>.CCC.<br>C…C<br>C….<br>.CCC.<br>….C<br>C…C<br>.CCC.<br>CCCCC<br>..C..<br>..C..<br>..C..<br>..C..<br>..C..<br>..C..<br>C…C<br>C…C<br>C…C<br>C…C<br>C…C<br>C…C<br>.CCC.<br>C…C<br>C…C<br>C…C<br>C…C<br>C…C<br>.C.C.<br>..C..<br>C…C<br>C…C<br>C…C<br>C.C.C<br>CC.CC<br>C…C<br>C…C<br>C…C<br>C…C<br>.C.C.<br>..C..<br>.C.C.<br>C…C<br>C…C<br>C…C<br>C…C<br>.C.C.<br>..C..<br>..C..<br>..C..<br>..C..<br>CCCCC<br>….C<br>…C.<br>..C..<br>.C…<br>C….<br>CCCCC<br>HELLO~WORLD!</p></div></p>
-<p>输出：<br><div class="note default no-icon"><p>C…C CCCCC C…. C…. .CCC.<br>C…C C…. C…. C…. C…C<br>C…C C…. C…. C…. C…C<br>CCCCC CCCC. C…. C…. C…C<br>C…C C…. C…. C…. C…C<br>C…C C…. C…. C…. C…C<br>C…C CCCCC CCCCC CCCCC .CCC.</p>
-<p>C…C .CCC. CCCC. C…. CCCC.<br>C…C C…C C…C C…. C…C<br>C…C C…C CCCC. C…. C…C<br>C.C.C C…C CC… C…. C…C<br>CC.CC C…C C.C.. C…. C…C<br>C…C C…C C..C. C…. C…C<br>C…C .CCC. C…C CCCCC CCCC.</p></div></p>
-</blockquote>
-<div class="note default no-icon"><p>作者: 陈越<br>单位: 浙江大学<br>时间限制: 400 ms<br>内存限制: 64 MB<br>代码长度限制: 16 KB</p></div>
-<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><h3 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>PAT（乙级）（2019年冬季考试）</category>
-      </categories>
-      <tags>
-        <tag>编程</tag>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>7-5 区块反转 (25分)</title>
     <url>/2020/01/31/7-5%20%E5%8C%BA%E5%9D%97%E5%8F%8D%E8%BD%AC%20(25%E5%88%86)/</url>
     <content><![CDATA[<p>给定一个单链表 <em>L</em>，我们将每 <em>K</em> 个结点看成一个<strong>区块</strong>（链表最后若不足 <em>K</em> 个结点，也看成一个区块），请编写程序将 <em>L</em> 中所有区块的链接反转。例如：给定 <em>L</em> 为 1→2→3→4→5→6→7→8，<em>K</em> 为 3，则输出应该为 7→8→4→5→6→1→2→3。<a id="more"></a></p>
@@ -4865,6 +4923,47 @@ op->e</textarea><textarea id="flowchart-0-options" style="display: none">{"scale
 > 输入：
 <div class="note default no-icon"><p>00100 8 3<br>71120 7 88666<br>00000 4 99999<br>00100 1 12309<br>68237 6 71120<br>33218 3 00000<br>99999 5 68237<br>88666 8 -1<br>12309 2 33218</p></div></p>
 <p>输出：<br><div class="note default no-icon"><p>71120 7 88666<br>88666 8 00000<br>00000 4 99999<br>99999 5 68237<br>68237 6 00100<br>00100 1 12309<br>12309 2 33218<br>33218 3 -1</p></div></p>
+</blockquote>
+<div class="note default no-icon"><p>作者: 陈越<br>单位: 浙江大学<br>时间限制: 400 ms<br>内存限制: 64 MB<br>代码长度限制: 16 KB</p></div>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><h3 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>PAT（乙级）（2019年冬季考试）</category>
+      </categories>
+      <tags>
+        <tag>编程</tag>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>7-2 老鼠爱大米 (20分)</title>
+    <url>/2020/01/31/7-2%20%E8%80%81%E9%BC%A0%E7%88%B1%E5%A4%A7%E7%B1%B3%20(20%E5%88%86)/</url>
+    <content><![CDATA[<p>翁恺老师曾经设计过一款 Java 挑战游戏，叫“老鼠爱大米”（或许因为他的外号叫“胖胖鼠”）。每个玩家用 Java 代码控制一只鼠，目标是抢吃尽可能多的大米让自己变成胖胖鼠，最胖的那只就是冠军。<br><a id="more"></a>因为游戏时间不能太长，我们把玩家分成 <em>N</em> 组，每组 <em>M</em> 只老鼠同场竞技，然后从 <em>N</em> 个分组冠军中直接选出最胖的冠军胖胖鼠。现在就请你写个程序来得到冠军的体重。</p>
+<blockquote>
+<p><strong>输入格式：</strong><br>输入在第一行中给出 2 个正整数：<em>N</em>（≤100）为组数，<em>M</em>（≤10）为每组玩家个数。随后 <em>N</em> 行，每行给出一组玩家控制的 <em>M</em> 只老鼠最后的体重，均为不超过 104 的非负整数。数字间以空格分隔。</p>
+<p><strong>输出格式：</strong><br>首先在第一行顺次输出各组冠军的体重，数字间以 1 个空格分隔，行首尾不得有多余空格。随后在第二行输出冠军胖胖鼠的体重。</p>
+<p>输入：<br><div class="note default no-icon"><p>3 5<br>62 53 88 72 81<br>12 31 9 0 2<br>91 42 39 6 48</p></div></p>
+<p>输出：<br><div class="note default no-icon"><p>88 31 91<br>91</p></div></p>
+</blockquote>
+<div class="note default no-icon"><p>作者: 陈越<br>单位: 浙江大学<br>时间限制: 400 ms<br>内存限制: 64 MB<br>代码长度限制: 16 KB</p></div>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><h3 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>PAT（乙级）（2019年冬季考试）</category>
+      </categories>
+      <tags>
+        <tag>编程</tag>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>7-4 擅长C (20分)</title>
+    <url>/2020/01/31/7-4%20%E6%93%85%E9%95%BFC%20(20%E5%88%86)/</url>
+    <content><![CDATA[<p>当你被面试官要求用 C 写一个“Hello World”时，有本事像下图显示的那样写一个出来吗？<a id="more"></a><br><img src="https://images.ptausercontent.com/ba3b8678-061d-4fc6-a87e-ce08e1434410.jpg" alt="HWC.jpg"></p>
+<blockquote>
+<p><strong>输入格式：</strong><br>输入首先给出 26 个英文大写字母 A-Z，每个字母用一个 7×5 的、由 <code>C</code> 和 <code>.</code> 组成的矩阵构成。最后在一行中给出一个句子，以回车结束。句子是由若干个单词（每个包含不超过 10 个连续的大写英文字母）组成的，单词间以任何非大写英文字母分隔。<br>题目保证至少给出一个单词。</p>
+<p><strong>输出格式：</strong><br>对每个单词，将其每个字母用矩阵形式在一行中输出，字母间有一列空格分隔。单词的首尾不得有多余空格。<br>相邻的两个单词间必须有一空行分隔。输出的首尾不得有多余空行。</p>
+<p>输入：<br><div class="note default no-icon"><p>..C..<br>.C.C.<br>C…C<br>CCCCC<br>C…C<br>C…C<br>C…C<br>CCCC.<br>C…C<br>C…C<br>CCCC.<br>C…C<br>C…C<br>CCCC.<br>.CCC.<br>C…C<br>C….<br>C….<br>C….<br>C…C<br>.CCC.<br>CCCC.<br>C…C<br>C…C<br>C…C<br>C…C<br>C…C<br>CCCC.<br>CCCCC<br>C….<br>C….<br>CCCC.<br>C….<br>C….<br>CCCCC<br>CCCCC<br>C….<br>C….<br>CCCC.<br>C….<br>C….<br>C….<br>CCCC.<br>C…C<br>C….<br>C.CCC<br>C…C<br>C…C<br>CCCC.<br>C…C<br>C…C<br>C…C<br>CCCCC<br>C…C<br>C…C<br>C…C<br>CCCCC<br>..C..<br>..C..<br>..C..<br>..C..<br>..C..<br>CCCCC<br>CCCCC<br>….C<br>….C<br>….C<br>….C<br>C…C<br>.CCC.<br>C…C<br>C..C.<br>C.C..<br>CC…<br>C.C..<br>C..C.<br>C…C<br>C….<br>C….<br>C….<br>C….<br>C….<br>C….<br>CCCCC<br>C…C<br>C…C<br>CC.CC<br>C.C.C<br>C…C<br>C…C<br>C…C<br>C…C<br>C…C<br>CC..C<br>C.C.C<br>C..CC<br>C…C<br>C…C<br>.CCC.<br>C…C<br>C…C<br>C…C<br>C…C<br>C…C<br>.CCC.<br>CCCC.<br>C…C<br>C…C<br>CCCC.<br>C….<br>C….<br>C….<br>.CCC.<br>C…C<br>C…C<br>C…C<br>C.C.C<br>C..CC<br>.CCC.<br>CCCC.<br>C…C<br>CCCC.<br>CC…<br>C.C..<br>C..C.<br>C…C<br>.CCC.<br>C…C<br>C….<br>.CCC.<br>….C<br>C…C<br>.CCC.<br>CCCCC<br>..C..<br>..C..<br>..C..<br>..C..<br>..C..<br>..C..<br>C…C<br>C…C<br>C…C<br>C…C<br>C…C<br>C…C<br>.CCC.<br>C…C<br>C…C<br>C…C<br>C…C<br>C…C<br>.C.C.<br>..C..<br>C…C<br>C…C<br>C…C<br>C.C.C<br>CC.CC<br>C…C<br>C…C<br>C…C<br>C…C<br>.C.C.<br>..C..<br>.C.C.<br>C…C<br>C…C<br>C…C<br>C…C<br>.C.C.<br>..C..<br>..C..<br>..C..<br>..C..<br>CCCCC<br>….C<br>…C.<br>..C..<br>.C…<br>C….<br>CCCCC<br>HELLO~WORLD!</p></div></p>
+<p>输出：<br><div class="note default no-icon"><p>C…C CCCCC C…. C…. .CCC.<br>C…C C…. C…. C…. C…C<br>C…C C…. C…. C…. C…C<br>CCCCC CCCC. C…. C…. C…C<br>C…C C…. C…. C…. C…C<br>C…C C…. C…. C…. C…C<br>C…C CCCCC CCCCC CCCCC .CCC.</p>
+<p>C…C .CCC. CCCC. C…. CCCC.<br>C…C C…C C…C C…. C…C<br>C…C C…C CCCC. C…. C…C<br>C.C.C C…C CC… C…. C…C<br>CC.CC C…C C.C.. C…. C…C<br>C…C C…C C..C. C…. C…C<br>C…C .CCC. C…C CCCCC CCCC.</p></div></p>
 </blockquote>
 <div class="note default no-icon"><p>作者: 陈越<br>单位: 浙江大学<br>时间限制: 400 ms<br>内存限制: 64 MB<br>代码长度限制: 16 KB</p></div>
 <h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><h3 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
@@ -4937,26 +5036,6 @@ op->e</textarea><textarea id="flowchart-0-options" style="display: none">{"scale
       </tags>
   </entry>
   <entry>
-    <title>1001 害死人不偿命的(3n+1)猜想 (15分)</title>
-    <url>/2020/01/29/1001%20%E5%AE%B3%E6%AD%BB%E4%BA%BA%E4%B8%8D%E5%81%BF%E5%91%BD%E7%9A%84(3n+1)%E7%8C%9C%E6%83%B3/</url>
-    <content><![CDATA[<p><strong>对任何一个正整数 <em>n</em>，如果它是偶数，那么把它砍掉一半；如果它是奇数，那么把 (3<em>n</em>+1) 砍掉一半。这样一直反复砍下去，最后一定在某一步得到 <em>n</em>=1。<a id="more"></a></strong>卡拉兹在 1950 年的世界数学家大会上公布了这个猜想，传说当时耶鲁大学师生齐动员，拼命想证明这个貌似很傻很天真的命题，结果闹得学生们无心学业，一心只证 (3<em>n</em>+1)，以至于有人说这是一个阴谋，卡拉兹是在蓄意延缓美国数学界教学与科研的进展……我们今天的题目不是证明卡拉兹猜想，而是对给定的任一不超过 1000 的正整数 <em>n</em>，简单地数一下，需要多少步（砍几下）才能得到 <em>n</em>=1？</p>
-<blockquote>
-<p><strong>输入格式：</strong><br>每个测试输入包含 1 个测试用例，即给出正整数 <em>n</em> 的值。</p>
-<p><strong>输出格式：</strong><br>输出从 <em>n</em> 计算到 1 需要的步数。</p>
-<p>输入：<br><div class="note default no-icon"><p>3</p></div></p>
-<p>输出：<br><div class="note default no-icon"><p>5</p></div></p>
-</blockquote>
-<div class="note default no-icon"><p>作者: CHEN, Yue<br>单位: 浙江大学<br>时间限制: 400 ms<br>内存限制: 64 MB<br>代码长度限制: 16 KB</p></div>
-<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><h3 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="comment">//定义奇数处理函数 </span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">odd</span><span class="params">(<span class="keyword">int</span> a)</span></span>;</span><br><span class="line"><span class="comment">//定义偶数处理函数 </span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">oval</span><span class="params">(<span class="keyword">int</span> b)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="keyword">int</span> count=<span class="number">0</span>;</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">	<span class="keyword">while</span>(n!=<span class="number">1</span>)&#123;</span><br><span class="line">		<span class="keyword">if</span>(n%<span class="number">2</span>==<span class="number">0</span>)&#123;</span><br><span class="line">			n=oval(n);</span><br><span class="line">			count++;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span>&#123;</span><br><span class="line">			n=odd(n);</span><br><span class="line">			count++;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;count;</span><br><span class="line">&#125; </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">odd</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> (<span class="number">3</span>*n+<span class="number">1</span>)/<span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">oval</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> n/<span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>PAT（乙级）</category>
-      </categories>
-      <tags>
-        <tag>编程</tag>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>1002 写出这个数 (20分)</title>
     <url>/2020/01/29/1002%20%E5%86%99%E5%87%BA%E8%BF%99%E4%B8%AA%E6%95%B0%20(20%E5%88%86)/</url>
     <content><![CDATA[<p>读入一个正整数 <em>n</em>，计算其各位数字之和，用汉语拼音写出和的每一位数字。<a id="more"></a></p>
@@ -4968,6 +5047,26 @@ op->e</textarea><textarea id="flowchart-0-options" style="display: none">{"scale
 </blockquote>
 <div class="note default no-icon"><p>作者: CHEN, Yue<br>单位: 浙江大学<br>时间限制: 400 ms<br>内存限制: 64 MB<br>代码长度限制: 16 KB</p></div>
 <h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><h3 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> N 10000</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> M 5 </span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">char</span> number[<span class="number">10</span>][<span class="number">5</span>]=&#123;<span class="string">"ling"</span>,<span class="string">"yi"</span>,<span class="string">"er"</span>,<span class="string">"san"</span>,<span class="string">"si"</span>,<span class="string">"wu"</span>,<span class="string">"liu"</span>,<span class="string">"qi"</span>,<span class="string">"ba"</span>,<span class="string">"jiu"</span>&#125;;</span><br><span class="line">	<span class="comment">//定义字符串 </span></span><br><span class="line">	<span class="keyword">char</span> <span class="built_in">array</span>[N];</span><br><span class="line">	<span class="comment">//记录和每位的数字 </span></span><br><span class="line">	<span class="keyword">int</span> <span class="built_in">log</span>[M];</span><br><span class="line">	<span class="comment">// 记录和 </span></span><br><span class="line">	<span class="keyword">int</span> sum=<span class="number">0</span>,i=<span class="number">0</span>;</span><br><span class="line">	<span class="comment">//将每一位置为-1 </span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;M;j++)&#123;</span><br><span class="line">		<span class="built_in">log</span>[j]=<span class="number">-1</span>;</span><br><span class="line">	&#125; </span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;<span class="built_in">array</span>;</span><br><span class="line">	<span class="keyword">while</span>(<span class="built_in">array</span>[i]!=<span class="string">'\0'</span>)&#123;</span><br><span class="line">		sum+=<span class="built_in">array</span>[i]-<span class="string">'0'</span>;</span><br><span class="line">		i++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> j=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(sum&gt;<span class="number">0</span>)&#123;</span><br><span class="line">		<span class="built_in">log</span>[j]=sum%<span class="number">10</span>;</span><br><span class="line">		sum=sum/<span class="number">10</span>;</span><br><span class="line">		j++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(i=M<span class="number">-1</span>;i&gt;=<span class="number">0</span>;i--)&#123;</span><br><span class="line">		<span class="keyword">if</span>(<span class="built_in">log</span>[i]!=<span class="number">-1</span>)&#123;</span><br><span class="line">			<span class="keyword">if</span>(i==<span class="number">0</span>)&#123;</span><br><span class="line">			<span class="built_in">cout</span>&lt;&lt;number[<span class="built_in">log</span>[i]];	</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span>&#123;</span><br><span class="line">				<span class="built_in">cout</span>&lt;&lt;number[<span class="built_in">log</span>[i]]&lt;&lt;<span class="string">' '</span>; </span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>PAT（乙级）</category>
+      </categories>
+      <tags>
+        <tag>编程</tag>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>1001 害死人不偿命的(3n+1)猜想 (15分)</title>
+    <url>/2020/01/29/1001%20%E5%AE%B3%E6%AD%BB%E4%BA%BA%E4%B8%8D%E5%81%BF%E5%91%BD%E7%9A%84(3n+1)%E7%8C%9C%E6%83%B3/</url>
+    <content><![CDATA[<p><strong>对任何一个正整数 <em>n</em>，如果它是偶数，那么把它砍掉一半；如果它是奇数，那么把 (3<em>n</em>+1) 砍掉一半。这样一直反复砍下去，最后一定在某一步得到 <em>n</em>=1。<a id="more"></a></strong>卡拉兹在 1950 年的世界数学家大会上公布了这个猜想，传说当时耶鲁大学师生齐动员，拼命想证明这个貌似很傻很天真的命题，结果闹得学生们无心学业，一心只证 (3<em>n</em>+1)，以至于有人说这是一个阴谋，卡拉兹是在蓄意延缓美国数学界教学与科研的进展……我们今天的题目不是证明卡拉兹猜想，而是对给定的任一不超过 1000 的正整数 <em>n</em>，简单地数一下，需要多少步（砍几下）才能得到 <em>n</em>=1？</p>
+<blockquote>
+<p><strong>输入格式：</strong><br>每个测试输入包含 1 个测试用例，即给出正整数 <em>n</em> 的值。</p>
+<p><strong>输出格式：</strong><br>输出从 <em>n</em> 计算到 1 需要的步数。</p>
+<p>输入：<br><div class="note default no-icon"><p>3</p></div></p>
+<p>输出：<br><div class="note default no-icon"><p>5</p></div></p>
+</blockquote>
+<div class="note default no-icon"><p>作者: CHEN, Yue<br>单位: 浙江大学<br>时间限制: 400 ms<br>内存限制: 64 MB<br>代码长度限制: 16 KB</p></div>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><h3 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="comment">//定义奇数处理函数 </span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">odd</span><span class="params">(<span class="keyword">int</span> a)</span></span>;</span><br><span class="line"><span class="comment">//定义偶数处理函数 </span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">oval</span><span class="params">(<span class="keyword">int</span> b)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="keyword">int</span> count=<span class="number">0</span>;</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">	<span class="keyword">while</span>(n!=<span class="number">1</span>)&#123;</span><br><span class="line">		<span class="keyword">if</span>(n%<span class="number">2</span>==<span class="number">0</span>)&#123;</span><br><span class="line">			n=oval(n);</span><br><span class="line">			count++;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span>&#123;</span><br><span class="line">			n=odd(n);</span><br><span class="line">			count++;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;count;</span><br><span class="line">&#125; </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">odd</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> (<span class="number">3</span>*n+<span class="number">1</span>)/<span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">oval</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> n/<span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>PAT（乙级）</category>
       </categories>

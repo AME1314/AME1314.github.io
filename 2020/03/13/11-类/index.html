@@ -97,7 +97,7 @@
 <meta property="og:site_name" content="小哲の博客">
 <meta property="og:description" content="在本节将讲解有关Python3面向对象的有关知识">
 <meta property="article:published_time" content="2020-03-13T15:23:01.000Z">
-<meta property="article:modified_time" content="2020-03-14T10:32:59.346Z">
+<meta property="article:modified_time" content="2020-03-30T03:40:57.492Z">
 <meta property="article:author" content="小哲">
 <meta property="article:tag" content="Python">
 <meta name="twitter:card" content="summary">
@@ -414,7 +414,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2.9k
+                  3k
                 </span>
               
 
@@ -532,6 +532,8 @@ Programmer --> Me</pre>
 <li>doc — 属性描述信息</li>
 </ul>
 <p>返回值为新式属性，例如定义一个可控属性值x：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self._x = <span class="literal">None</span></span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getx</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self._x</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">setx</span><span class="params">(self, value)</span>:</span></span><br><span class="line">        self._x = value</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">delx</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">del</span> self._x</span><br><span class="line"> </span><br><span class="line">    x = property(getx, setx, delx, <span class="string">"I'm the 'x' property."</span>)</span><br></pre></td></tr></table></figure><br>如果将类<code>C</code>实例化为<code>c</code>，则：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">c = C()</span><br><span class="line">print(c.x)  <span class="comment"># 触发setter</span></span><br><span class="line">c.x = <span class="number">5</span>     <span class="comment"># 触发getter</span></span><br><span class="line"><span class="keyword">del</span> c.x     <span class="comment"># 触发deleter</span></span><br></pre></td></tr></table></figure><br>将property作装饰器<code>@property</code>可以更方便的创建只读属性，有关装饰器的知识将在实验15中提及。</p></div>
+<hr>
+<p>下一篇：<a href="https://vxiaozhe1998.cn/2020/03/14/12-模块/" target="_blank" rel="noopener">12.模块</a><br>上一篇：<a href="https://vxiaozhe1998.cn/2020/03/11/10-异常/" target="_blank" rel="noopener">10.异常</a><br>目    录：<a href="http://vxiaozhe1998.cn/2020/02/28/Python学习/" target="_blank" rel="noopener">Python学习</a></p>
 
       
     </div>
@@ -553,7 +555,7 @@ Programmer --> Me</pre>
   <p><span>本文标题:</span><a href="/2020/03/13/11-%E7%B1%BB/">11.面向对象   <i class="fa fa-arrow-up"></i></a></p>
   <p><span>文章作者:</span><a href="/" title="访问 小哲 的个人博客">小哲    <i class="fa fa-user"></i></a></p>
   <p><span>发布时间:</span>2020年03月13日 - 23:23</p>
-  <p><span>最后更新:</span>2020年03月14日 - 18:32</p>
+  <p><span>最后更新:</span>2020年03月30日 - 11:40</p>
   <p><span>原始链接:</span><i class="fa fa-clipboard" data-clipboard-text="https://ame1314.github.io/2020/03/13/11-%E7%B1%BB/"  aria-label="复制成功！">&nbsp;点击复制原始链接</i></p>
   <!--<a class="link" href="https://ame1314.github.io/2020/03/13/11-%E7%B1%BB/" title="11.面向对象">https://ame1314.github.io/2020/03/13/11-%E7%B1%BB/</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">协议</a>-转载请保留原文链接及<a href="https://ame1314.github.io/about/" target="_blank">作者</a></p>  
@@ -845,7 +847,7 @@ Programmer --> Me</pre>
 
   
  &nbsp;|&nbsp;
-<i class="fa fa-pencil"></i> &nbsp;<span class="post-count">博客全站共68.5k字</span>
+<i class="fa fa-pencil"></i> &nbsp;<span class="post-count">博客全站共69k字</span>
 </div>
 <span class="post-count">备案号：<a href="http://beian.miit.gov.cn" target="_blank" rel="noopener">鲁ICP备20010439号</a></span>
 
