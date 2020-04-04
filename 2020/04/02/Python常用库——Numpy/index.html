@@ -1,0 +1,2072 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+<meta name="referrer" content="no-referrer"/>
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-center-atom.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/my.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/my-32x32.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/my-16x16.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/my.png?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Python," />
+
+
+
+
+  
+
+
+  <link rel="alternate" href="/atom.xml" title="小哲の博客" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="在本文中将学习Numpy的使用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python常用库——Numpy">
+<meta property="og:url" content="https://ame1314.github.io/2020/04/02/Python%E5%B8%B8%E7%94%A8%E5%BA%93%E2%80%94%E2%80%94Numpy/index.html">
+<meta property="og:site_name" content="小哲の博客">
+<meta property="og:description" content="在本文中将学习Numpy的使用">
+<meta property="article:published_time" content="2020-04-02T02:20:47.000Z">
+<meta property="article:modified_time" content="2020-04-04T16:18:29.856Z">
+<meta property="article:author" content="小哲">
+<meta property="article:tag" content="Python">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://ame1314.github.io/2020/04/02/Python常用库——Numpy/"/>
+
+
+
+
+
+  <title>Python常用库——Numpy | 小哲の博客</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">小哲の博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">一个不像程序猿的设计狮</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-镜像">
+          <a href="http://vxiaozhe1998.gitee.io" target="_blank" rel="section noopener">
+            
+              <i class="menu-item-icon fa fa-fw fa-heart"></i> <br />
+            
+            镜像
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-link"></i> <br />
+            
+            友链
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    <div class="reading-progress-bar"></div>
+    
+
+  
+
+  
+  
+    
+  
+  
+
+  <article class="post post-type-normal true" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://ame1314.github.io/2020/04/02/Python%E5%B8%B8%E7%94%A8%E5%BA%93%E2%80%94%E2%80%94Numpy/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="小哲">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小哲の博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Python常用库——Numpy</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+          
+            <i class="fa fa-thumb-tack" style="color:#f87d8b"></i>
+            <font>置顶</font>
+            <span class="post-meta-divider">|</span>
+          
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-02T10:20:47+08:00">
+                2020-04-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%8D%9A%E5%AE%A2/" itemprop="url" rel="index">
+                    <span itemprop="name">博客</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/04/02/Python%E5%B8%B8%E7%94%A8%E5%BA%93%E2%80%94%E2%80%94Numpy/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/04/02/Python%E5%B8%B8%E7%94%A8%E5%BA%93%E2%80%94%E2%80%94Numpy/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  3.7k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  15
+                </span>
+              
+            </div>
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div class="note info no-icon"><p>在本文中将学习Numpy的使用</p></div>
+<a id="more"></a>
+<h3 id="0-NumPy的安装"><a href="#0-NumPy的安装" class="headerlink" title="0. NumPy的安装"></a>0. NumPy的安装</h3><ul>
+<li>使用<a href="https://www.anaconda.com/distribution/" target="_blank" rel="noopener">Anaconda</a></li>
+</ul>
+<blockquote>
+<p>访问 <a href="https://www.anaconda.com/distribution/" target="_blank" rel="noopener">https://www.anaconda.com/distribution/</a> ，根据电脑的系统下载对应的软件，安装完成在软件中选择<code>JupyterLab</code>即可使用。</p>
+</blockquote>
+<ul>
+<li>使用<code>pip</code>命令（保证您的Python环境已经配置完成）</li>
+</ul>
+<blockquote>
+<p>在CMD中输入<code>python -m pip install --user numpy scipy matplotlib ipython jupyter pandas sympy nose</code>等待安装完成即可。</p>
+</blockquote>
+<p><strong>附：安装验证</strong></p>
+<p>输入下列代码能得到结果即代表着安装成功:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> numpy <span class="keyword">import</span> *</span><br><span class="line">eye(<span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+<p><strong>输出：</strong><br><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">array</span>([[<span class="number">1.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>],</span><br><span class="line">       [<span class="number">0.</span>, <span class="number">1.</span>, <span class="number">0.</span>, <span class="number">0.</span>],</span><br><span class="line">       [<span class="number">0.</span>, <span class="number">0.</span>, <span class="number">1.</span>, <span class="number">0.</span>],</span><br><span class="line">       [<span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">1.</span>]])</span><br></pre></td></tr></table></figure></p>
+<h3 id="1-NumPy库简介"><a href="#1-NumPy库简介" class="headerlink" title="1. NumPy库简介"></a>1. NumPy库简介</h3><p>NumPy是一个科学计算基础库其中提供了许多向量和矩阵操作，能让用户轻松完成最优化、线性代数、积分、插值、特殊函数、傅里叶变换、信号处理和图像处理、常微分方程求解以及其他科学与工程中常用的计算，不仅方便易用而且效率更高。</p>
+<h3 id="2-NumPy"><a href="#2-NumPy" class="headerlink" title="2. NumPy"></a>2. NumPy</h3><p>NumPy数组的维数称为秩（rank），秩就是轴的数量，一位数组的秩为1，二维数组的秩为2，依次类推。在 NumPy中，每一个线性的数组称为是一个轴（axis），也就是维度（dimensions）。比如说，二维数组相当于是两个一维数组，其中第一个一维数组中每个元素又是一个一维数组。所以一维数组就是 NumPy 中的轴（axis），第一个轴相当于是底层数组，第二个轴是底层数组里的数组。而轴的数量——秩，就是数组的维数。很多时候可以声明 axis。axis=0，表示沿着第 0 轴进行操作，即对每一列进行操作；axis=1，表示沿着第1轴进行操作，即对每一行进行操作。</p>
+<h4 id="2-1-Ndarray"><a href="#2-1-Ndarray" class="headerlink" title="2.1 Ndarray"></a>2.1 Ndarray</h4><p><code>Ndarray</code>（N维数组）对象是NumPy最重要的一个特点，它是一系列同类型数据的集合，以0下标为开始进行集合中元素的索引。<code>ndarray</code>对象是用于存放<strong>同类型元素</strong>的多维数组，其中的每个元素在内存中都有相同存储大小的区域，该对象具有矢量算术能力和复杂的广播能力。可以执行一些科学运算，<code>ndarray</code>对象中定义了一些重要属性，如下表所示：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">属性</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">ndarray.ndim</td>
+<td style="text-align:left">秩，即轴的数量或维度的数量</td>
+</tr>
+<tr>
+<td style="text-align:left">ndarray.shape</td>
+<td style="text-align:left">数组的维度，对于矩阵，n 行 m 列</td>
+</tr>
+<tr>
+<td style="text-align:left">ndarray.size</td>
+<td style="text-align:left">数组元素的总个数，相当于 .shape 中 n*m 的值</td>
+</tr>
+<tr>
+<td style="text-align:left">ndarray.dtype</td>
+<td style="text-align:left">ndarray 对象的元素类型</td>
+</tr>
+<tr>
+<td style="text-align:left">ndarray.itemsize</td>
+<td style="text-align:left">ndarray 对象中每个元素的大小，以字节为单位</td>
+</tr>
+<tr>
+<td style="text-align:left">ndarray.flags</td>
+<td style="text-align:left">ndarray 对象的内存信息</td>
+</tr>
+<tr>
+<td style="text-align:left">ndarray.real</td>
+<td style="text-align:left">ndarray元素的实部</td>
+</tr>
+<tr>
+<td style="text-align:left">ndarray.imag</td>
+<td style="text-align:left">ndarray 元素的虚部</td>
+</tr>
+<tr>
+<td style="text-align:left">ndarray.data</td>
+<td style="text-align:left">包含实际数组元素的缓冲区，由于一般通过数组的索引获取元素，所以通常不需要使用这个属性。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>示例：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">data = np.arange(<span class="number">12</span>).reshape(<span class="number">3</span>, <span class="number">4</span>)</span><br><span class="line">print(<span class="string">"data="</span>, data)</span><br><span class="line">print(<span class="string">"type(data)="</span>, type(data))</span><br><span class="line">print(<span class="string">"data.ndim="</span>, data.ndim)</span><br><span class="line">print(<span class="string">"data.shape="</span>, data.shape)</span><br><span class="line">print(<span class="string">"data.size="</span>, data.size)</span><br><span class="line">print(<span class="string">"data.dtype="</span>, data.dtype)</span><br></pre></td></tr></table></figure>
+<p><strong>输出：</strong></p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">data= [[ <span class="number">0</span>  <span class="number">1</span>  <span class="number">2</span>  <span class="number">3</span>]</span><br><span class="line"> [ <span class="number">4</span>  <span class="number">5</span>  <span class="number">6</span>  <span class="number">7</span>]</span><br><span class="line"> [ <span class="number">8</span>  <span class="number">9</span> <span class="number">10</span> <span class="number">11</span>]]</span><br><span class="line">type(data)= &lt;class 'numpy.ndarray'&gt;</span><br><span class="line">data.ndim= <span class="number">2</span></span><br><span class="line">data.shape= (<span class="number">3</span>, <span class="number">4</span>)</span><br><span class="line">data.size= <span class="number">12</span></span><br><span class="line">data.dtype= int32</span><br></pre></td></tr></table></figure>
+<p><strong>解析：</strong></p>
+<p>在代码示例中，第一行将<code>numpy</code>库导入并将其取名为<code>np</code>，第二行初始化一个三行四列的递增数组<code>data</code>,第三行输出<code>data</code>,第四行输出<code>data</code>的类型，第五行输出了数组的维度个数，第六行输出了数组的维度，第七行输出了数组中元素的总个数，第八行输出了元素的类型。</p>
+<h5 id="2-1-1-常用属性"><a href="#2-1-1-常用属性" class="headerlink" title="2.1.1 常用属性"></a>2.1.1 常用属性</h5><ul>
+<li><strong><code>ndarray.shape</code>属性</strong></li>
+</ul>
+<p><code>ndarray.shape</code> 表示数组的维度，返回一个元组，这个元组的长度就是维度的数目，即 ndim 属性(秩)。比如，一个二维数组，其维度表示”行数”和”列数”。<code>ndarray.shape</code>也可以用于调整数组大小。</p>
+<p><strong>代码：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">data = np.arange(<span class="number">12</span>)</span><br><span class="line">print(<span class="string">"更改前的数组:"</span>, data)</span><br><span class="line">data.shape = (<span class="number">3</span>, <span class="number">4</span>)</span><br><span class="line">print(<span class="string">"更改后的数组:"</span>, data)</span><br></pre></td></tr></table></figure>
+<p><strong>输出：</strong></p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">更改前的数组: [ <span class="number">0</span>  <span class="number">1</span>  <span class="number">2</span>  <span class="number">3</span>  <span class="number">4</span>  <span class="number">5</span>  <span class="number">6</span>  <span class="number">7</span>  <span class="number">8</span> </span><br><span class="line"> <span class="number">9</span> <span class="number">10</span> <span class="number">11</span>]</span><br><span class="line">更改后的数组: [[ <span class="number">0</span>  <span class="number">1</span>  <span class="number">2</span>  <span class="number">3</span>]</span><br><span class="line"> [ <span class="number">4</span>  <span class="number">5</span>  <span class="number">6</span>  <span class="number">7</span>]</span><br><span class="line"> [ <span class="number">8</span>  <span class="number">9</span> <span class="number">10</span> <span class="number">11</span>]]</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong><code>reshape()</code>函数</strong></li>
+</ul>
+<p><code>reshape()</code>函数可用来调整数组大小，例如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">data = np.arange(<span class="number">12</span>)</span><br><span class="line">print(<span class="string">"更改前的数组:"</span>, data)</span><br><span class="line">data.shape = (<span class="number">3</span>, <span class="number">4</span>)</span><br><span class="line">print(<span class="string">"更改后的数组:"</span>, data)</span><br><span class="line">print(<span class="string">"reshape后数值:"</span>, data.reshape(<span class="number">2</span>,<span class="number">6</span>))</span><br></pre></td></tr></table></figure>
+<p><strong>输出：</strong></p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">更改前的数组: [ <span class="number">0</span>  <span class="number">1</span>  <span class="number">2</span>  <span class="number">3</span>  <span class="number">4</span>  <span class="number">5</span>  <span class="number">6</span>  <span class="number">7</span>  <span class="number">8</span> </span><br><span class="line"> <span class="number">9</span> <span class="number">10</span> <span class="number">11</span>]</span><br><span class="line">更改后的数组: [[ <span class="number">0</span>  <span class="number">1</span>  <span class="number">2</span>  <span class="number">3</span>]</span><br><span class="line"> [ <span class="number">4</span>  <span class="number">5</span>  <span class="number">6</span>  <span class="number">7</span>]</span><br><span class="line"> [ <span class="number">8</span>  <span class="number">9</span> <span class="number">10</span> <span class="number">11</span>]]</span><br><span class="line">reshape后数值: [[ <span class="number">0</span>  <span class="number">1</span>  <span class="number">2</span>  <span class="number">3</span>  <span class="number">4</span>  <span class="number">5</span>]       </span><br><span class="line"> [ <span class="number">6</span>  <span class="number">7</span>  <span class="number">8</span>  <span class="number">9</span> <span class="number">10</span> <span class="number">11</span>]]</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong><code>ndarray.flags</code>属性</strong></li>
+</ul>
+<p><code>ndarray.flags</code>返回 ndarray 对象的内存信息，包含以下属性：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">属性</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">C_CONTIGUOUS (C)</td>
+<td style="text-align:left">数据是在一个单一的C风格的连续段中</td>
+</tr>
+<tr>
+<td style="text-align:left">F_CONTIGUOUS (F)</td>
+<td style="text-align:left">数据是在一个单一的Fortran风格的连续段中</td>
+</tr>
+<tr>
+<td style="text-align:left">OWNDATA (O)</td>
+<td style="text-align:left">数组拥有它所使用的内存或从另一个对象中借用它</td>
+</tr>
+<tr>
+<td style="text-align:left">WRITEABLE (W)</td>
+<td style="text-align:left">数据区域可以被写入，将该值设置为 False，则数据为只读</td>
+</tr>
+<tr>
+<td style="text-align:left">ALIGNED (A)</td>
+<td style="text-align:left">数据和所有元素都适当地对齐到硬件上</td>
+</tr>
+<tr>
+<td style="text-align:left">UPDATEIFCOPY (U)</td>
+<td style="text-align:left">这个数组是其它数组的一个副本，当这个数组被释放时，原数组的内容将被更新</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>代码：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np </span><br><span class="line"> </span><br><span class="line">x = np.array([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>])  </span><br><span class="line"><span class="keyword">print</span> (x.flags)</span><br></pre></td></tr></table></figure>
+<p><strong>输出：</strong></p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">C_CONTIGUOUS :</span> <span class="literal">True</span></span><br><span class="line"><span class="attr">F_CONTIGUOUS :</span> <span class="literal">True</span></span><br><span class="line"><span class="attr">OWNDATA :</span> <span class="literal">True</span></span><br><span class="line"><span class="attr">WRITEABLE :</span> <span class="literal">True</span></span><br><span class="line"><span class="attr">ALIGNED :</span> <span class="literal">True</span></span><br><span class="line"><span class="attr">WRITEBACKIFCOPY :</span> <span class="literal">False</span></span><br><span class="line"><span class="attr">UPDATEIFCOPY :</span> <span class="literal">False</span></span><br></pre></td></tr></table></figure>
+<h4 id="2-2-创建NumPy数组"><a href="#2-2-创建NumPy数组" class="headerlink" title="2.2 创建NumPy数组"></a>2.2 创建NumPy数组</h4><h5 id="2-2-1-使用array-函数创建数组"><a href="#2-2-1-使用array-函数创建数组" class="headerlink" title="2.2.1 使用array()函数创建数组"></a>2.2.1 使用<code>array()</code>函数创建数组</h5><p><strong>语法：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">array(object, dtype=<span class="literal">None</span>, copy=<span class="literal">True</span>, order=<span class="string">'K'</span>, subok=<span class="literal">False</span>, ndmin=<span class="number">0</span>, /)</span><br></pre></td></tr></table></figure>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">名称</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">object</td>
+<td style="text-align:left">数组或嵌套的数列</td>
+</tr>
+<tr>
+<td style="text-align:left">dtype</td>
+<td style="text-align:left">数组元素的数据类型，可选</td>
+</tr>
+<tr>
+<td style="text-align:left">copy</td>
+<td style="text-align:left">对象是否需要复制，可选</td>
+</tr>
+<tr>
+<td style="text-align:left">order</td>
+<td style="text-align:left">创建数组的样式，C为行方向，F为列方向，A为任意方向（默认）,可选</td>
+</tr>
+<tr>
+<td style="text-align:left">subok</td>
+<td style="text-align:left">默认返回一个与基类类型一致的数组，可选</td>
+</tr>
+<tr>
+<td style="text-align:left">ndmin</td>
+<td style="text-align:left">指定生成数组的最小维度，可选</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>示例：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">data = np.array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line">data2 = np.array((<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>))</span><br><span class="line">data3 = np.array(((<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>), (<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>)))</span><br><span class="line">data4 = np.array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>], complex, ndmin=<span class="number">2</span>)</span><br><span class="line">print(<span class="string">"data="</span>, data)</span><br><span class="line">print(<span class="string">"data2="</span>, data2)</span><br><span class="line">print(<span class="string">"data3="</span>, data3)</span><br><span class="line">print(<span class="string">"data4="</span>, data4)</span><br></pre></td></tr></table></figure>
+<p><strong>输出：</strong></p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">data= [<span class="number">1</span> <span class="number">2</span> <span class="number">3</span>]</span><br><span class="line">data2= [<span class="number">1</span> <span class="number">2</span> <span class="number">3</span>]</span><br><span class="line">data3= [[<span class="number">1</span> <span class="number">2</span> <span class="number">3</span>]</span><br><span class="line"> [<span class="number">4</span> <span class="number">5</span> <span class="number">6</span>]]</span><br><span class="line">data4= [[<span class="number">1.</span>+<span class="number">0.</span>j <span class="number">2.</span>+<span class="number">0.</span>j <span class="number">3.</span>+<span class="number">0.</span>j <span class="number">4.</span>+<span class="number">0.</span>j <span class="number">5.</span>+<span class="number">0.</span>j]]</span><br></pre></td></tr></table></figure>
+<p><strong>解析：</strong></p>
+<p>可以通过<code>array()</code>函数由<strong>列表</strong>、<strong>元组</strong>转化，由列表/元组转化为多维数组需要子元素为列表/元组的列表/元组，即:</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]]</span><br><span class="line">[(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>),(<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>)]</span><br><span class="line">([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>])</span><br><span class="line">((<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>),(<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>))</span><br></pre></td></tr></table></figure>
+<p>都是可以的。</p>
+<h5 id="2-2-2-numpy创建数组"><a href="#2-2-2-numpy创建数组" class="headerlink" title="2.2.2 numpy创建数组"></a>2.2.2 <code>numpy</code>创建数组</h5><ul>
+<li><strong><code>empty()</code>函数</strong></li>
+</ul>
+<p>创建一个只分配内存空间的数组，其中的元素将随机填充。</p>
+<p><strong>语法：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">empty(shape, dtype=float, order=<span class="string">'C'</span>, /)</span><br></pre></td></tr></table></figure>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th><strong>名称</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>shape</td>
+<td>数组的维度，例如(2,3)代表两行三列</td>
+</tr>
+<tr>
+<td>dtype</td>
+<td>数组元素的类型，可选，默认为float64</td>
+</tr>
+<tr>
+<td>order</td>
+<td>创建数组的样式，C为行方向，F为列方向，A为任意方向（默认）,可选</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>代码：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">data = np.empty((<span class="number">3</span>, <span class="number">5</span>))</span><br><span class="line">print(data)</span><br></pre></td></tr></table></figure>
+<p><strong>输出：</strong></p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[[<span class="number">6.23042070e-307</span> <span class="number">4.67296746e-307</span> <span class="number">1.69121096e-306</span> <span class="number">2.31424250e-306</span></span><br><span class="line">  <span class="number">1.89146896e-307</span>]</span><br><span class="line"> [<span class="number">7.56571288e-307</span> <span class="number">3.11525958e-307</span> <span class="number">1.24610723e-306</span> <span class="number">1.37962320e-306</span>       </span><br><span class="line">  <span class="number">1.29060871e-306</span>]</span><br><span class="line"> [<span class="number">2.22518251e-306</span> <span class="number">1.33511969e-306</span> <span class="number">1.78022342e-306</span> <span class="number">1.05700345e-307</span>       </span><br><span class="line">  <span class="number">2.76676762e-322</span>]]</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong><code>zeros()</code>和<code>ones()</code>函数</strong></li>
+</ul>
+<p><code>zeros()</code>将创建一个用指定形状用0填充的数组。默认的dtype是float64。</p>
+<p><code>ones()</code>将创建一个用指定形状用1填充的数组。默认的dtype是float64。</p>
+<p><strong>语法：</strong></p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">zeros(shape, <span class="attribute">dtype</span>=float, <span class="attribute">order</span>=<span class="string">'C'</span>, /)</span><br><span class="line">ones(shape, <span class="attribute">dtype</span>=None, <span class="attribute">order</span>=<span class="string">'C'</span>)</span><br></pre></td></tr></table></figure>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th><strong>名称</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>shape</td>
+<td>数组的维度，例如(2,3)代表两行三列</td>
+</tr>
+<tr>
+<td>dtype</td>
+<td>数组元素的类型，可选</td>
+</tr>
+<tr>
+<td>order</td>
+<td>创建数组的样式，C为行方向，F为列方向，A为任意方向（默认）,可选</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>代码：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">data_0 = np.zeros((<span class="number">2</span>, <span class="number">3</span>))</span><br><span class="line">data_1 = np.ones((<span class="number">3</span>, <span class="number">2</span>))</span><br><span class="line">print(<span class="string">"data_0="</span>, data_0)</span><br><span class="line">print(<span class="string">"data_1="</span>, data_1)</span><br></pre></td></tr></table></figure>
+<p><strong>输出：</strong></p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">data_0= [[<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span>]</span><br><span class="line"> [<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span>]]</span><br><span class="line">data_1= [[<span class="number">1.</span> <span class="number">1.</span>]</span><br><span class="line"> [<span class="number">1.</span> <span class="number">1.</span>]</span><br><span class="line"> [<span class="number">1.</span> <span class="number">1.</span>]]</span><br></pre></td></tr></table></figure>
+<h5 id="2-2-3-从数值范围创建数组"><a href="#2-2-3-从数值范围创建数组" class="headerlink" title="2.2.3 从数值范围创建数组"></a>2.2.3 从数值范围创建数组</h5><ul>
+<li><strong><code>arange()</code>函数</strong></li>
+</ul>
+<p><code>arrange()</code>函数将创建具有有规律<strong>递增</strong>值的数组。</p>
+<p><strong>语法：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arange(start=<span class="literal">None</span>, stop, step=<span class="literal">None</span>,dtype=<span class="literal">None</span>, /)</span><br></pre></td></tr></table></figure>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th><strong>名称</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Start</td>
+<td>开始数值，可选，所输出的数组中包括开始数值</td>
+</tr>
+<tr>
+<td>stop</td>
+<td>结束数值，若不定义则默认从0开始，单独使用时仅可使用正数，所输出的数组中不包括结束数值</td>
+</tr>
+<tr>
+<td>step</td>
+<td>步长，可正可负可为小数，可选</td>
+</tr>
+<tr>
+<td>dtype</td>
+<td>数组中的元素类型</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>代码：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">data = np.arange(<span class="number">10</span>)</span><br><span class="line">data1 = np.arange(<span class="number">1</span>, <span class="number">10</span>)</span><br><span class="line">data2 = np.arange(<span class="number">1</span>, <span class="number">10</span>, <span class="number">2</span>)</span><br><span class="line">data3 = np.arange(<span class="number">10</span>, <span class="number">1</span>, <span class="number">-2</span>)</span><br><span class="line">dataf = np.arange(<span class="number">1</span>, <span class="number">10</span>, <span class="number">2</span>, float)</span><br><span class="line">print(<span class="string">"data="</span>, data)</span><br><span class="line">print(<span class="string">"data1="</span>, data1)</span><br><span class="line">print(<span class="string">"data2="</span>, data2)</span><br><span class="line">print(<span class="string">"data3="</span>, data2)</span><br><span class="line">print(<span class="string">"dataf="</span>, dataf)</span><br></pre></td></tr></table></figure>
+<p><strong>输出：</strong></p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">data= [<span class="number">0</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span> <span class="number">7</span> <span class="number">8</span> <span class="number">9</span>]</span><br><span class="line">data1= [<span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span> <span class="number">7</span> <span class="number">8</span> <span class="number">9</span>]</span><br><span class="line">data2= [<span class="number">1</span> <span class="number">3</span> <span class="number">5</span> <span class="number">7</span> <span class="number">9</span>]</span><br><span class="line">data3= [<span class="number">1</span> <span class="number">3</span> <span class="number">5</span> <span class="number">7</span> <span class="number">9</span>]</span><br><span class="line">dataf= [<span class="number">1.</span> <span class="number">3.</span> <span class="number">5.</span> <span class="number">7.</span> <span class="number">9.</span>]</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong><code>linspace()</code>函数</strong></li>
+</ul>
+<p><code>linspace()</code> 将创建具有指定数量元素的数组，并在指定的开始值和结束值之间平均间隔。该数组为指定起始值的等差数列。</p>
+<p><strong>语法：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">linspace(start, stop, num=<span class="number">50</span>, endpoint=<span class="literal">True</span>, retstep=<span class="literal">False</span>, dtype=<span class="literal">None</span>, axis=<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th><strong>名称</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>start</td>
+<td>序列的起始值</td>
+</tr>
+<tr>
+<td>stop</td>
+<td>序列的终止值</td>
+</tr>
+<tr>
+<td>num</td>
+<td>序列的项数，默认为50项</td>
+</tr>
+<tr>
+<td>endpoint</td>
+<td>是否包括<code>stop</code>默认包括</td>
+</tr>
+<tr>
+<td>retstep</td>
+<td>是否输出步长，默认不输出</td>
+</tr>
+<tr>
+<td>dtype</td>
+<td>元素属性，默认为<code>float64</code></td>
+</tr>
+<tr>
+<td>axis</td>
+<td>操作维度，可选值0/-1,可选</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>代码：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">data = np.linspace(<span class="number">0</span>,<span class="number">6</span>,<span class="number">3</span>,endpoint=<span class="literal">False</span>)</span><br><span class="line">data_2 = np.linspace(<span class="number">0</span>,<span class="number">6</span>,<span class="number">3</span>)</span><br><span class="line">print(data)</span><br><span class="line">print(data_2)</span><br></pre></td></tr></table></figure>
+<p><strong>输出：</strong></p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">0.</span> <span class="number">2.</span> <span class="number">4.</span>]</span><br><span class="line">[<span class="number">0.</span> <span class="number">3.</span> <span class="number">6.</span>]</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong><code>logspace()</code>函数</strong></li>
+</ul>
+<p><code>logspace()</code>用于创建一个等比数列。</p>
+<p><strong>语法：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.logspace(start, stop, num=<span class="number">50</span>, endpoint=<span class="literal">True</span>, base=<span class="number">10.0</span>, dtype=<span class="literal">None</span>)</span><br></pre></td></tr></table></figure>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">参数</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">start</td>
+<td style="text-align:left">序列的起始值</td>
+</tr>
+<tr>
+<td style="text-align:left">stop</td>
+<td style="text-align:left">序列的终止值</td>
+</tr>
+<tr>
+<td style="text-align:left">num</td>
+<td style="text-align:left">要生成的等步长的样本数量，默认为<code>50</code></td>
+</tr>
+<tr>
+<td style="text-align:left">endpoint</td>
+<td style="text-align:left">该值为 <code>true</code> 时，数列中中包含<code>stop</code>值，反之不包含，默认是True。</td>
+</tr>
+<tr>
+<td style="text-align:left">base</td>
+<td style="text-align:left">对数 log 的底数，默认底数为10。</td>
+</tr>
+<tr>
+<td style="text-align:left">dtype</td>
+<td style="text-align:left"><code>ndarray</code> 的数据类型,默认为float64</td>
+</tr>
+</tbody>
+</table>
+</div>
+<script type="math/tex; mode=display">
+数组为:[{base}^{start},……,{base}^{stop}],其中endpoint=True</script><p><strong>代码：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">a = np.logspace(<span class="number">0</span>, <span class="number">9</span>, <span class="number">10</span>, base=<span class="number">2</span>)</span><br><span class="line">print(a)</span><br></pre></td></tr></table></figure>
+<p><strong>输出：</strong></p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[  <span class="number">1.</span>   <span class="number">2.</span>   <span class="number">4.</span>   <span class="number">8.</span>  <span class="number">16.</span>  <span class="number">32.</span>  <span class="number">64.</span> <span class="number">128.</span> <span class="number">256.</span> <span class="number">512.</span>]</span><br></pre></td></tr></table></figure>
+<h5 id="2-2-4-从已有的数组创建数组"><a href="#2-2-4-从已有的数组创建数组" class="headerlink" title="2.2.4 从已有的数组创建数组"></a>2.2.4 从已有的数组创建数组</h5><ul>
+<li><strong><code>asarray()</code>函数</strong></li>
+</ul>
+<p><strong>语法：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">numpy.asarray(a, dtype = <span class="literal">None</span>, order = <span class="literal">None</span>)</span><br></pre></td></tr></table></figure>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">参数</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">a</td>
+<td style="text-align:left">任意形式的输入参数，可以是，列表, 列表的元组, 元组, 元组的元组, 元组的列表，多维数组</td>
+</tr>
+<tr>
+<td style="text-align:left">dtype</td>
+<td style="text-align:left">数据类型，可选</td>
+</tr>
+<tr>
+<td style="text-align:left">order</td>
+<td style="text-align:left">可选，有”C”和”F”两个选项,分别代表，行优先和列优先，在计算机内存中的存储元素的顺序。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>代码：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">x = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">y = (<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>)</span><br><span class="line">z = [(<span class="number">7</span>, <span class="number">8</span>), (<span class="number">9</span>, <span class="number">10</span>, <span class="number">11</span>)]</span><br><span class="line"><span class="comment"># 从列表创建数组</span></span><br><span class="line">a = np.asarray(x)</span><br><span class="line"><span class="comment"># 从元组创建数组</span></span><br><span class="line">b = np.asarray(y)</span><br><span class="line"><span class="comment"># 从元组列表创建数组</span></span><br><span class="line">c = np.asarray(z)</span><br><span class="line">print(a, b, c)</span><br></pre></td></tr></table></figure>
+<p><strong>输出：</strong></p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span> <span class="number">2</span> <span class="number">3</span>] [<span class="number">4</span> <span class="number">5</span> <span class="number">6</span>] [(<span class="number">7</span>, <span class="number">8</span>) (<span class="number">9</span>, <span class="number">10</span>, <span class="number">11</span>)]</span><br></pre></td></tr></table></figure>
+<div class="note info no-icon"><p>当然，<code>asarray</code>也可以设置<code>dtype</code>属性，例如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np </span><br><span class="line"> </span><br><span class="line">x =  [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>] </span><br><span class="line">a = np.asarray(x, dtype =  float)  </span><br><span class="line"><span class="keyword">print</span> (a)</span><br></pre></td></tr></table></figure>
+<p>输出为：</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[ <span class="number">1.</span>  <span class="number">2.</span>  <span class="number">3.</span>]</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li><strong><code>frombuffer()</code>函数</strong></li>
+</ul>
+<p><code>numpy.frombuffer</code>用于实现动态数组。<code>numpy.frombuffer</code>接受 buffer 输入参数，以流的形式读入转化成 ndarray 对象。</p>
+<p><strong>语法：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">numpy.frombuffer(buffer, dtype = float, count = <span class="number">-1</span>, offset = <span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+<div class="note danger no-icon"><p><strong>注意：</strong>buffer 是字符串的时候，Python3 默认 str 是 Unicode 类型，所以要转成 bytestring 在原 str 前加上 b。</p></div>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">参数</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">buffer</td>
+<td style="text-align:left">可以是任意对象，会以流的形式读入。</td>
+</tr>
+<tr>
+<td style="text-align:left">dtype</td>
+<td style="text-align:left">返回数组的数据类型，可选</td>
+</tr>
+<tr>
+<td style="text-align:left">count</td>
+<td style="text-align:left">读取的数据数量，默认为-1，读取所有数据。</td>
+</tr>
+<tr>
+<td style="text-align:left">offset</td>
+<td style="text-align:left">读取的起始位置，默认为0。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>代码：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np </span><br><span class="line"> </span><br><span class="line">s =  <span class="string">b'Hello World'</span> </span><br><span class="line">a = np.frombuffer(s, dtype =  <span class="string">'S1'</span>)  </span><br><span class="line"><span class="keyword">print</span> (a)</span><br></pre></td></tr></table></figure>
+<p><strong>输出：</strong></p>
+<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="name">b</span><span class="symbol">'H</span>' b<span class="symbol">'e</span>' b<span class="symbol">'l</span>' b<span class="symbol">'l</span>' b<span class="symbol">'o</span>' b' ' b<span class="symbol">'W</span>' b<span class="symbol">'o</span>' b<span class="symbol">'r</span>' b<span class="symbol">'l</span>' b<span class="symbol">'d</span>']</span><br></pre></td></tr></table></figure>
+<h4 id="2-3-数据类型"><a href="#2-3-数据类型" class="headerlink" title="2.3 数据类型"></a>2.3 数据类型</h4><p>numpy 支持的数据类型比 Python 内置的类型要多很多，基本上可以和 C 语言的数据类型对应上，其中部分类型对应为 Python 内置的类型。下表列举了常用 NumPy 基本类型，参考链接：<br><a href="https://www.runoob.com/numpy/numpy-dtype.html" target="_blank" rel="noopener">菜鸟编程</a><br><a href="https://www.numpy.org.cn/" target="_blank" rel="noopener"><strong>NumPy</strong> 中文网</a></p>
+<div><div class="fold_hider"><div class="close hider_title">点击显/隐表格</div></div><div class="fold">
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">名称</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">bool_</td>
+<td style="text-align:left">布尔型数据类型（True 或者 False）</td>
+</tr>
+<tr>
+<td style="text-align:left">int_</td>
+<td style="text-align:left">默认的整数类型（类似于 C 语言中的 long，int32 或 int64）</td>
+</tr>
+<tr>
+<td style="text-align:left">intc</td>
+<td style="text-align:left">与 C 的 int 类型一样，一般是 int32 或 int 64</td>
+</tr>
+<tr>
+<td style="text-align:left">intp</td>
+<td style="text-align:left">用于索引的整数类型（类似于 C 的 ssize_t，一般情况下仍然是 int32 或 int64）</td>
+</tr>
+<tr>
+<td style="text-align:left">int8</td>
+<td style="text-align:left">字节（-128 to 127）</td>
+</tr>
+<tr>
+<td style="text-align:left">int16</td>
+<td style="text-align:left">整数（-32768 to 32767）</td>
+</tr>
+<tr>
+<td style="text-align:left">int32</td>
+<td style="text-align:left">整数（-2147483648 to 2147483647）</td>
+</tr>
+<tr>
+<td style="text-align:left">int64</td>
+<td style="text-align:left">整数（-9223372036854775808 to 9223372036854775807）</td>
+</tr>
+<tr>
+<td style="text-align:left">uint8</td>
+<td style="text-align:left">无符号整数（0 to 255）</td>
+</tr>
+<tr>
+<td style="text-align:left">uint16</td>
+<td style="text-align:left">无符号整数（0 to 65535）</td>
+</tr>
+<tr>
+<td style="text-align:left">uint32</td>
+<td style="text-align:left">无符号整数（0 to 4294967295）</td>
+</tr>
+<tr>
+<td style="text-align:left">uint64</td>
+<td style="text-align:left">无符号整数（0 to 18446744073709551615）</td>
+</tr>
+<tr>
+<td style="text-align:left">float_</td>
+<td style="text-align:left">float64 类型的简写</td>
+</tr>
+<tr>
+<td style="text-align:left">float16</td>
+<td style="text-align:left">半精度浮点数，包括：1 个符号位，5 个指数位，10 个尾数位</td>
+</tr>
+<tr>
+<td style="text-align:left">float32</td>
+<td style="text-align:left">单精度浮点数，包括：1 个符号位，8 个指数位，23 个尾数位</td>
+</tr>
+<tr>
+<td style="text-align:left">float64</td>
+<td style="text-align:left">双精度浮点数，包括：1 个符号位，11 个指数位，52 个尾数位</td>
+</tr>
+<tr>
+<td style="text-align:left">complex_</td>
+<td style="text-align:left">complex128 类型的简写，即 128 位复数</td>
+</tr>
+<tr>
+<td style="text-align:left">complex64</td>
+<td style="text-align:left">复数，表示双 32 位浮点数（实数部分和虚数部分）</td>
+</tr>
+<tr>
+<td style="text-align:left">complex128</td>
+<td style="text-align:left">复数，表示双 64 位浮点数（实数部分和虚数部分）</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</div></div>
+<h5 id="2-3-1-查看数据类型"><a href="#2-3-1-查看数据类型" class="headerlink" title="2.3.1 查看数据类型"></a>2.3.1 查看数据类型</h5><p>通过<code>ndarray.dtype</code>可以创建一个表示数据类型的对象，如果想要获取数据类型名称，需要访问<code>name</code>属性进行获取，例如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">data = np.array([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]])</span><br><span class="line">print(data.dtype.name)</span><br></pre></td></tr></table></figure>
+<p>本段代码在<code>64位Windows系统</code>将输出<code>int32</code>，在<code>64位Linux或MacOS</code>中将输出<code>int64</code></p>
+<p><strong>2.3.2 创建数据类型</strong></p>
+<p>可以通过如下语法构造<code>dtype</code>对象</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">numpy.dtype(object, align, copy)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>object - 要转换为的数据类型对象</li>
+<li>align - 如果为 true，填充字段使其类似 C 的结构体。</li>
+<li>copy - 复制 dtype 对象 ，如果为 false，则是对内置数据类型对象的引用</li>
+</ul>
+<p>每一个NumPy内置的数据类型都有一个特征码，它能唯一标识一种数据类型，具体如表所示：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th><strong>特征码</strong></th>
+<th><strong>含义</strong></th>
+<th><strong>特征码</strong></th>
+<th><strong>含义</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>b</td>
+<td>布尔型</td>
+<td>i</td>
+<td>有符号整型</td>
+</tr>
+<tr>
+<td>u</td>
+<td>无符号整型</td>
+<td>f</td>
+<td>浮点型</td>
+</tr>
+<tr>
+<td>c</td>
+<td>复数类型</td>
+<td>O</td>
+<td>Python对象</td>
+</tr>
+<tr>
+<td>S,a</td>
+<td>字节字符串</td>
+<td>U</td>
+<td>unicode字符串</td>
+</tr>
+<tr>
+<td>V</td>
+<td>原始数据</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>字节顺序是通过对数据类型预先设定”&lt;”或”&gt;”来决定的。”&lt;”意味着<strong>小端法</strong>(最小值存储在最小的地址，即低位组放在最前面)。”&gt;”意味着<strong>大端法</strong>(最重要的字节存储在最小的地址，即高位组放在最前面)。例如如下代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="comment"># 创建car类型</span></span><br><span class="line">car = np.dtype([(<span class="string">'name'</span>, <span class="string">'a3'</span>), (<span class="string">'age'</span>, <span class="string">'i1'</span>), (<span class="string">'speed'</span>, <span class="string">'f4'</span>)])</span><br><span class="line"><span class="comment"># 创建dtype为car类型的数组</span></span><br><span class="line">a = np.array([(<span class="string">'xz'</span>, <span class="number">1</span>, <span class="number">20</span>), (<span class="string">'ln'</span>, <span class="number">2</span>, <span class="number">10</span>)], dtype=car)</span><br><span class="line">print(a)</span><br></pre></td></tr></table></figure>
+<p>输出为：</p>
+<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[(<span class="name">b</span><span class="symbol">'xz</span>', <span class="number">1</span>, <span class="number">20</span>.) (<span class="name">b</span><span class="symbol">'ln</span>', <span class="number">2</span>, <span class="number">10</span>.)]</span><br></pre></td></tr></table></figure>
+<h5 id="2-3-3-转换数据类型"><a href="#2-3-3-转换数据类型" class="headerlink" title="2.3.3 转换数据类型"></a>2.3.3 转换数据类型</h5><ul>
+<li><strong><code>astype()</code>函数</strong></li>
+</ul>
+<p>该函数可以对<code>ndarray</code>对象的数据类型进行转换。</p>
+<p><strong>代码：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">data = np.zeros((<span class="number">2</span>, <span class="number">3</span>))</span><br><span class="line">print(<span class="string">"修改前的类型:"</span>, data.dtype)</span><br><span class="line">int_data = data.astype(np.int64)</span><br><span class="line">print(<span class="string">"修改后的类型"</span>, int_data.dtype)</span><br></pre></td></tr></table></figure>
+<p><strong>输出：</strong></p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">修改前的类型: <span class="built_in">float</span>64</span><br><span class="line">修改后的类型 <span class="built_in">int</span>64</span><br></pre></td></tr></table></figure>
+<h4 id="2-4-数组运算"><a href="#2-4-数组运算" class="headerlink" title="2.4 数组运算"></a>2.4 数组运算</h4>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2020/04/02/Python%E5%B8%B8%E7%94%A8%E5%BA%93%E2%80%94%E2%80%94Numpy/">Python常用库——Numpy   <i class="fa fa-arrow-up"></i></a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 小哲 的个人博客">小哲    <i class="fa fa-user"></i></a></p>
+  <p><span>发布时间:</span>2020年04月02日 - 10:20</p>
+  <p><span>最后更新:</span>2020年04月05日 - 00:18</p>
+  <p><span>原始链接:</span><i class="fa fa-clipboard" data-clipboard-text="https://ame1314.github.io/2020/04/02/Python%E5%B8%B8%E7%94%A8%E5%BA%93%E2%80%94%E2%80%94Numpy/"  aria-label="复制成功！">&nbsp;点击复制原始链接</i></p>
+  <!--<a class="link" href="https://ame1314.github.io/2020/04/02/Python%E5%B8%B8%E7%94%A8%E5%BA%93%E2%80%94%E2%80%94Numpy/" title="Python常用库——Numpy">https://ame1314.github.io/2020/04/02/Python%E5%B8%B8%E7%94%A8%E5%BA%93%E2%80%94%E2%80%94Numpy/</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">协议</a>-转载请保留原文链接及<a href="https://ame1314.github.io/about/" target="_blank">作者</a></p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+    });
+    });  
+</script>
+
+      </div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="小哲 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="小哲 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/04/01/%E4%BD%BF%E7%94%A8Typora-PicGo-gitee%E5%BF%AB%E9%80%9F%E7%BC%96%E8%BE%91/" rel="next" title="使用Typora+PicGo+gitee快速编辑">
+                <i class="fa fa-chevron-left"></i> 使用Typora+PicGo+gitee快速编辑
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">小哲</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">50</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/AME1314" target="_blank" title="GitHub">
+                      GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:957798624@qq.com" target="_blank" title="E-Mail">
+                      E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/me1314-28/activities" target="_blank" title="知乎">
+                      知乎</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.jianshu.com/u/302bb46f2381" target="_blank" title="简书">
+                      简书</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://qm.qq.com/cgi-bin/qm/qr?k=2--mYdSVUaf_g94-fgsqPbsiyehFYYVI" target="_blank" title="QQ">
+                      QQ</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-heartbeat"></i>
+                
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://vxiaozhe1998.gitee.io/ourstory" title="致我亲爱的她" target="_blank">致我亲爱的她</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+<!-- CloudCalendar -->
+<div class="widget-wrap" style="width: 90%;margin-left: auto;margin-right: auto; opacity: 0.97;">
+	<div class="widget" id="CloudCalendar"></div>
+</div>
+
+          
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#0-NumPy的安装"><span class="nav-text">0. NumPy的安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-NumPy库简介"><span class="nav-text">1. NumPy库简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-NumPy"><span class="nav-text">2. NumPy</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-Ndarray"><span class="nav-text">2.1 Ndarray</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-1-1-常用属性"><span class="nav-text">2.1.1 常用属性</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-创建NumPy数组"><span class="nav-text">2.2 创建NumPy数组</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2-1-使用array-函数创建数组"><span class="nav-text">2.2.1 使用array()函数创建数组</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2-2-numpy创建数组"><span class="nav-text">2.2.2 numpy创建数组</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2-3-从数值范围创建数组"><span class="nav-text">2.2.3 从数值范围创建数组</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2-4-从已有的数组创建数组"><span class="nav-text">2.2.4 从已有的数组创建数组</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-数据类型"><span class="nav-text">2.3 数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-3-1-查看数据类型"><span class="nav-text">2.3.1 查看数据类型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-3-3-转换数据类型"><span class="nav-text">2.3.3 转换数据类型</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-数组运算"><span class="nav-text">2.4 数组运算</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+          <div class="theme-info" style="color:rgb(255, 118, 117)"><a class="my-love" target="_blank" href="http://vxiaozhe1998.gitee.io/ourstory"><i class="fa fa-heartbeat" aria-hidden="true"></i>&nbsp;&nbsp;致我最亲爱的她&nbsp;&nbsp;</a></div>
+
+<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+&nbsp;|&nbsp;<span class="with-love">
+    <i class="fa fa-star"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">小哲</span>
+
+  
+ &nbsp;|&nbsp;
+<i class="fa fa-pencil"></i> &nbsp;<span class="post-count">博客全站共73.5k字</span>
+</div>
+<span class="post-count">备案号：<a href="http://beian.miit.gov.cn" target="_blank" rel="noopener">鲁ICP备20010439号</a></span>
+
+
+  <script src='https://unpkg.com/mermaid@8.4.8/dist/mermaid.min.js'></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({"theme":"default","startOnLoad":true});
+    }
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/reading_progress/reading_progress.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: true,
+        appId: 'JJLlbkBaSy8XSGmhN77qdoaH-gzGzoHsz',
+        appKey: 'qV4tGqiYgwQUW1B61hVq62Em',
+        placeholder: '轻轻地你来了，你确定不留下点儿标记嘛',
+        avatar:'retro',
+        guest_info:guest,
+        pageSize:'5' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "default";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleLeft";
+      
+          flOptions.networks = "Weibo,Douban,QQZone,Linkedin,renren,Wechat,QQ";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script>
+
+
+  
+
+  <!-- calendar widget -->
+
+
+    <script src="/lib/CloudCalendar/CloudCalendar.js"></script>
+    <script src="/lib/CloudCalendar/languages.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        $('#CloudCalendar').aCalendar('zh-CN', 
+            $.extend(
+                '', {
+                    single:true,
+                    root:'/calendar/'
+                }
+            )
+        );
+    });
+    </script>
+
+
+
+  
+  <style>
+    .copy-btn {
+        display: inline-block;
+        cursor: pointer;
+        background-color: #ecedf0;
+        border: none;
+        border-radius: 3px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        -webkit-appearance: none;
+        font-size: 13px;
+        font-weight: 700;
+        line-height: 20px;
+        color: #333;
+        -webkit-transition: opacity .3s ease-in-out;
+        -o-transition: opacity .3s ease-in-out;
+        transition: opacity .3s ease-in-out;
+        padding: 2px 6px;
+        position: absolute;
+        opacity: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 10px;
+      top: 9px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('<i class="fa fa-clipboard"></i>  复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('')
+          $b.append('<i class="fa fa-clipboard"></i>  复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+  <script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+  <script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+</body>
+</html>

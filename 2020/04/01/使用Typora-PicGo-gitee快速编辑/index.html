@@ -1,0 +1,1529 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+<meta name="referrer" content="no-referrer"/>
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-center-atom.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/my.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/my-32x32.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/my-16x16.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/my.png?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="HEXO,图床," />
+
+
+
+
+  
+
+
+  <link rel="alternate" href="/atom.xml" title="小哲の博客" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="本文将完美解决Github图床加载过慢以及编辑过程中图片插入流程繁杂的问题。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用Typora+PicGo+gitee快速编辑">
+<meta property="og:url" content="https://ame1314.github.io/2020/04/01/%E4%BD%BF%E7%94%A8Typora-PicGo-gitee%E5%BF%AB%E9%80%9F%E7%BC%96%E8%BE%91/index.html">
+<meta property="og:site_name" content="小哲の博客">
+<meta property="og:description" content="本文将完美解决Github图床加载过慢以及编辑过程中图片插入流程繁杂的问题。">
+<meta property="og:image" content="https://gitee.com/Vxiaozhe1998/Pic/raw/master/img/20200402001820.png">
+<meta property="og:image" content="https://gitee.com/Vxiaozhe1998/Pic/raw/master/img/20200402094543.png">
+<meta property="og:image" content="https://gitee.com/Vxiaozhe1998/Pic/raw/master/img/20200402094544.png">
+<meta property="og:image" content="https://gitee.com/Vxiaozhe1998/Pic/raw/master/img/20200402094545.png">
+<meta property="og:image" content="https://gitee.com/Vxiaozhe1998/Pic/raw/master/img/20200402094546.png">
+<meta property="og:image" content="https://gitee.com/Vxiaozhe1998/Pic/raw/master/img/20200402094547.png">
+<meta property="og:image" content="https://gitee.com/Vxiaozhe1998/Pic/raw/master/img/20200402001826.png">
+<meta property="og:image" content="https://gitee.com/Vxiaozhe1998/Pic/raw/master/img/20200402001827.png">
+<meta property="og:image" content="https://gitee.com/Vxiaozhe1998/Pic/raw/master/img/20200402001828.png">
+<meta property="og:image" content="https://gitee.com/Vxiaozhe1998/Pic/raw/master/img/20200402002254.png">
+<meta property="og:image" content="https://gitee.com/Vxiaozhe1998/Pic/raw/master/img/20200402003715.png">
+<meta property="og:image" content="https://gitee.com/Vxiaozhe1998/Pic/raw/master/img/20200402003716.png">
+<meta property="article:published_time" content="2020-04-01T15:17:11.000Z">
+<meta property="article:modified_time" content="2020-04-02T02:21:03.236Z">
+<meta property="article:author" content="小哲">
+<meta property="article:tag" content="HEXO">
+<meta property="article:tag" content="图床">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/Vxiaozhe1998/Pic/raw/master/img/20200402001820.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://ame1314.github.io/2020/04/01/使用Typora-PicGo-gitee快速编辑/"/>
+
+
+
+
+
+  <title>使用Typora+PicGo+gitee快速编辑 | 小哲の博客</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">小哲の博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">一个不像程序猿的设计狮</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-镜像">
+          <a href="http://vxiaozhe1998.gitee.io" target="_blank" rel="section noopener">
+            
+              <i class="menu-item-icon fa fa-fw fa-heart"></i> <br />
+            
+            镜像
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-link"></i> <br />
+            
+            友链
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    <div class="reading-progress-bar"></div>
+    
+
+  
+
+  
+  
+    
+  
+  
+
+  <article class="post post-type-normal true" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://ame1314.github.io/2020/04/01/%E4%BD%BF%E7%94%A8Typora-PicGo-gitee%E5%BF%AB%E9%80%9F%E7%BC%96%E8%BE%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="小哲">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小哲の博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">使用Typora+PicGo+gitee快速编辑</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+          
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-01T23:17:11+08:00">
+                2020-04-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%8D%9A%E5%AE%A2/" itemprop="url" rel="index">
+                    <span itemprop="name">博客</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/04/01/%E4%BD%BF%E7%94%A8Typora-PicGo-gitee%E5%BF%AB%E9%80%9F%E7%BC%96%E8%BE%91/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/04/01/%E4%BD%BF%E7%94%A8Typora-PicGo-gitee%E5%BF%AB%E9%80%9F%E7%BC%96%E8%BE%91/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  816
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+              
+            </div>
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div class="note info no-icon"><p>本文将完美解决Github图床加载过慢以及编辑过程中图片插入流程繁杂的问题。</p></div>
+<a id="more"></a>
+<h3 id="0-原料"><a href="#0-原料" class="headerlink" title="0. 原料"></a>0. 原料</h3><ul>
+<li>Typora——<a href="https://www.typora.io/" target="_blank" rel="noopener">下载地址</a></li>
+<li>PicGo——<a href="https://github.com/Molunerfinn/PicGo/releases" target="_blank" rel="noopener">下载地址</a></li>
+<li>Gitee——<a href="https://gitee.com/" target="_blank" rel="noopener">注册地址</a></li>
+</ul>
+<h3 id="1-开始使用"><a href="#1-开始使用" class="headerlink" title="1. 开始使用"></a>1. 开始使用</h3><h4 id="1-1-创建Gitee仓库"><a href="#1-1-创建Gitee仓库" class="headerlink" title="1.1 创建Gitee仓库"></a>1.1 创建Gitee仓库</h4><p>注意在创建仓库时在开源处一定要选择开源：</p>
+<p><img src="https://gitee.com/Vxiaozhe1998/Pic/raw/master/img/20200402001820.png" alt="image-20200401235542934"></p>
+<h4 id="1-2-配置PicGo"><a href="#1-2-配置PicGo" class="headerlink" title="1.2 配置PicGo"></a>1.2 配置PicGo</h4><div class="note danger no-icon"><p>强烈建议不要将<code>PicGo</code>安装于路径<code>C:\Program Files\</code>下，建议更换路径，否则<code>Typroa</code>可能无法使用<code>PicGo</code></p></div>
+<h5 id="1-2-1-安装插件"><a href="#1-2-1-安装插件" class="headerlink" title="1.2.1 安装插件"></a>1.2.1 安装插件</h5><p>首先在PicGo的<code>插件设置</code>中搜索<code>gitee</code>，安装<code>gitee-uploader</code></p>
+<p><img src="https://gitee.com/Vxiaozhe1998/Pic/raw/master/img/20200402094543.png" alt="image-20200402000440149"></p>
+<h5 id="1-2-2-配置插件"><a href="#1-2-2-配置插件" class="headerlink" title="1.2.2 配置插件"></a>1.2.2 配置插件</h5><p>在<code>repo</code>处填写你的仓库位置，在<code>gitee</code>中仓库对应的网址为<code>gitee.com/仓库位置</code>,例如下图中方框部分即为仓库位置：</p>
+<p><img src="https://gitee.com/Vxiaozhe1998/Pic/raw/master/img/20200402094544.png" alt="image-20200402000609146"></p>
+<p>在<code>token</code>处填写你申请的个人令牌。</p>
+<h5 id="1-2-3-申请token"><a href="#1-2-3-申请token" class="headerlink" title="1.2.3 申请token"></a>1.2.3 申请<code>token</code></h5><p>在<code>gitee</code>中点击<code>头像</code>-&gt;<code>设置</code>在<code>安全设置</code>处<code>私人令牌</code>处申请<code>token</code></p>
+<p><img src="https://gitee.com/Vxiaozhe1998/Pic/raw/master/img/20200402094545.png" alt="image-20200401235744574"></p>
+<p>填写完成单击<code>确定</code>并<code>设为默认图床</code>即可</p>
+<p><img src="https://gitee.com/Vxiaozhe1998/Pic/raw/master/img/20200402094546.png" alt="image-20200402000704667"></p>
+<h5 id="1-2-4-其他设置"><a href="#1-2-4-其他设置" class="headerlink" title="1.2.4 其他设置"></a>1.2.4 其他设置</h5><p>在<code>PicGo设置</code>中点击<code>设置Server</code>：</p>
+<p><img src="https://gitee.com/Vxiaozhe1998/Pic/raw/master/img/20200402094547.png" alt="image-20200402000126145"></p>
+<p>将监听端口更改为<code>36677</code>:</p>
+<p><img src="https://gitee.com/Vxiaozhe1998/Pic/raw/master/img/20200402001826.png" alt="image-20200402000733778"></p>
+<p>开启<code>时间戳重命名</code>:</p>
+<p><img src="https://gitee.com/Vxiaozhe1998/Pic/raw/master/img/20200402001827.png" alt="image-20200402000816613"></p>
+<p>为了简约可以关闭显示其他无关图床。</p>
+<h4 id="1-3-配置Typora"><a href="#1-3-配置Typora" class="headerlink" title="1.3 配置Typora"></a>1.3 配置Typora</h4><p>在Typora软件中依次打开<code>文件</code>-&gt;<code>偏好设置</code>-&gt;<code>图像</code></p>
+<p><img src="https://gitee.com/Vxiaozhe1998/Pic/raw/master/img/20200402001828.png" alt="image-20200402001228481"></p>
+<p>使用HEXO写博客的读者在开启了HEXO的资源文件夹时建议将Typora的图像设置中的<code>插入图片时</code>选项更改为<code>复制到指定路径</code>并勾选<code>对本地位置上的图片应用上述规则</code>和<code>对网络位置的图片应用上述规则</code>,在<code>上传服务设定</code>中选择<code>PicGo(app)</code>选项，<code>PicGo路径</code>选择<code>PicGo</code>的安装目录，可以通过验证图片上传选项来验证是否配置成功。配置成功之后在整篇文章写完之后可以在<code>Typora</code>中依次点击<code>格式</code>-&gt;<code>图像</code>-&gt;<code>上传所有本地图像</code>进行上传。</p>
+<p><strong>至此，所有的配置已经完成</strong></p>
+<h3 id="2-写在后面"><a href="#2-写在后面" class="headerlink" title="2. 写在后面"></a>2. 写在后面</h3><h4 id="2-1-PicGo管理"><a href="#2-1-PicGo管理" class="headerlink" title="2.1 PicGo管理"></a>2.1 PicGo管理</h4><p>我们可以通过<code>PicGo</code>的<code>相册</code>功能对已上传图片进行<code>删除</code>、<code>复制</code>和<code>编辑</code>：</p>
+<p><img src="https://gitee.com/Vxiaozhe1998/Pic/raw/master/img/20200402002254.png" alt="image-20200402002203484"></p>
+<p>通过在<code>上传区</code>更改<code>链接格式</code>可以改变在<code>相册</code>处复制的链接格式。</p>
+<p><img src="https://gitee.com/Vxiaozhe1998/Pic/raw/master/img/20200402003715.png" alt="image-20200402002324340"></p>
+<p>你也可以在<code>PicGo设置</code>中开启<code>上传前重命名</code>来优化图片注解。</p>
+<p><img src="https://gitee.com/Vxiaozhe1998/Pic/raw/master/img/20200402003716.png" alt="image-20200402002502304"></p>
+<h4 id="2-2-几个操作的解释"><a href="#2-2-几个操作的解释" class="headerlink" title="2.2 几个操作的解释"></a>2.2 几个操作的解释</h4><h5 id="2-2-1-为什么要建议将Typora的图像设置中的插入图片时选项更改为复制到指定路径？"><a href="#2-2-1-为什么要建议将Typora的图像设置中的插入图片时选项更改为复制到指定路径？" class="headerlink" title="2.2.1 为什么要建议将Typora的图像设置中的插入图片时选项更改为复制到指定路径？"></a>2.2.1 为什么要建议将Typora的图像设置中的<code>插入图片时</code>选项更改为<code>复制到指定路径</code>？</h5><p>答：经作者尝试如果在该选项选择<code>上传图片</code>则将无法在<code>Typora</code>中直接粘贴剪贴板中的图片。因此选择<code>复制到指定路径</code>既方便了图片管理也解决了无法粘贴剪贴板中的图片的问题。</p>
+<h5 id="2-2-2-错误"><a href="#2-2-2-错误" class="headerlink" title="2.2.2  错误"></a>2.2.2  错误</h5><div class="table-container">
+<table>
+<thead>
+<tr>
+<th><strong>错误</strong></th>
+<th><strong>原因</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Failed to fetch</code></td>
+<td><code>1.2.4 其他设置</code>中<code>更改监听端口</code>未进行而引起的。</td>
+</tr>
+<tr>
+<td><code>{“success”,false}</code></td>
+<td>文件名冲突</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>附，如果在上传的过程中出现如下代码串：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">failed to launch PicGo <span class="string">app:</span> Command <span class="string">failed:</span> <span class="string">C:</span>\Program Files\PicGo\PicGo.exe</span><br><span class="line"><span class="string">'C:\Program'</span> �����ڲ����ⲿ���Ҳ���ǿ����еĳ���</span><br><span class="line">���������ļ���</span><br></pre></td></tr></table></figure>
+<p>这意味着您在安装<code>PicGo</code>时安装目录选在了<code>C:\Program Files\</code>下，您需要重新安装，在安装时更改为非<code>C:\Program Files\</code>的路径。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2020/04/01/%E4%BD%BF%E7%94%A8Typora-PicGo-gitee%E5%BF%AB%E9%80%9F%E7%BC%96%E8%BE%91/">使用Typora+PicGo+gitee快速编辑   <i class="fa fa-arrow-up"></i></a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 小哲 的个人博客">小哲    <i class="fa fa-user"></i></a></p>
+  <p><span>发布时间:</span>2020年04月01日 - 23:17</p>
+  <p><span>最后更新:</span>2020年04月02日 - 10:21</p>
+  <p><span>原始链接:</span><i class="fa fa-clipboard" data-clipboard-text="https://ame1314.github.io/2020/04/01/%E4%BD%BF%E7%94%A8Typora-PicGo-gitee%E5%BF%AB%E9%80%9F%E7%BC%96%E8%BE%91/"  aria-label="复制成功！">&nbsp;点击复制原始链接</i></p>
+  <!--<a class="link" href="https://ame1314.github.io/2020/04/01/%E4%BD%BF%E7%94%A8Typora-PicGo-gitee%E5%BF%AB%E9%80%9F%E7%BC%96%E8%BE%91/" title="使用Typora+PicGo+gitee快速编辑">https://ame1314.github.io/2020/04/01/%E4%BD%BF%E7%94%A8Typora-PicGo-gitee%E5%BF%AB%E9%80%9F%E7%BC%96%E8%BE%91/</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">协议</a>-转载请保留原文链接及<a href="https://ame1314.github.io/about/" target="_blank">作者</a></p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+    });
+    });  
+</script>
+
+      </div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="小哲 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="小哲 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/HEXO/" rel="tag"><i class="fa fa-tag"></i> HEXO</a>
+          
+            <a href="/tags/%E5%9B%BE%E5%BA%8A/" rel="tag"><i class="fa fa-tag"></i> 图床</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/03/21/%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%9B%BD%E5%86%85%E8%8A%82%E7%82%B9/" rel="next" title="博客的国内节点">
+                <i class="fa fa-chevron-left"></i> 博客的国内节点
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/04/02/Python%E5%B8%B8%E7%94%A8%E5%BA%93%E2%80%94%E2%80%94Numpy/" rel="prev" title="Python常用库——Numpy">
+                Python常用库——Numpy <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">小哲</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">50</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/AME1314" target="_blank" title="GitHub">
+                      GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:957798624@qq.com" target="_blank" title="E-Mail">
+                      E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/me1314-28/activities" target="_blank" title="知乎">
+                      知乎</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.jianshu.com/u/302bb46f2381" target="_blank" title="简书">
+                      简书</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://qm.qq.com/cgi-bin/qm/qr?k=2--mYdSVUaf_g94-fgsqPbsiyehFYYVI" target="_blank" title="QQ">
+                      QQ</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-heartbeat"></i>
+                
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://vxiaozhe1998.gitee.io/ourstory" title="致我亲爱的她" target="_blank">致我亲爱的她</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+<!-- CloudCalendar -->
+<div class="widget-wrap" style="width: 90%;margin-left: auto;margin-right: auto; opacity: 0.97;">
+	<div class="widget" id="CloudCalendar"></div>
+</div>
+
+          
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#0-原料"><span class="nav-text">0. 原料</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-开始使用"><span class="nav-text">1. 开始使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-创建Gitee仓库"><span class="nav-text">1.1 创建Gitee仓库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-配置PicGo"><span class="nav-text">1.2 配置PicGo</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-2-1-安装插件"><span class="nav-text">1.2.1 安装插件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-2-2-配置插件"><span class="nav-text">1.2.2 配置插件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-2-3-申请token"><span class="nav-text">1.2.3 申请token</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-2-4-其他设置"><span class="nav-text">1.2.4 其他设置</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-配置Typora"><span class="nav-text">1.3 配置Typora</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-写在后面"><span class="nav-text">2. 写在后面</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-PicGo管理"><span class="nav-text">2.1 PicGo管理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-几个操作的解释"><span class="nav-text">2.2 几个操作的解释</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2-1-为什么要建议将Typora的图像设置中的插入图片时选项更改为复制到指定路径？"><span class="nav-text">2.2.1 为什么要建议将Typora的图像设置中的插入图片时选项更改为复制到指定路径？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2-2-错误"><span class="nav-text">2.2.2  错误</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+          <div class="theme-info" style="color:rgb(255, 118, 117)"><a class="my-love" target="_blank" href="http://vxiaozhe1998.gitee.io/ourstory"><i class="fa fa-heartbeat" aria-hidden="true"></i>&nbsp;&nbsp;致我最亲爱的她&nbsp;&nbsp;</a></div>
+
+<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+&nbsp;|&nbsp;<span class="with-love">
+    <i class="fa fa-star"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">小哲</span>
+
+  
+ &nbsp;|&nbsp;
+<i class="fa fa-pencil"></i> &nbsp;<span class="post-count">博客全站共73.5k字</span>
+</div>
+<span class="post-count">备案号：<a href="http://beian.miit.gov.cn" target="_blank" rel="noopener">鲁ICP备20010439号</a></span>
+
+
+  <script src='https://unpkg.com/mermaid@8.4.8/dist/mermaid.min.js'></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({"theme":"default","startOnLoad":true});
+    }
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/reading_progress/reading_progress.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: true,
+        appId: 'JJLlbkBaSy8XSGmhN77qdoaH-gzGzoHsz',
+        appKey: 'qV4tGqiYgwQUW1B61hVq62Em',
+        placeholder: '轻轻地你来了，你确定不留下点儿标记嘛',
+        avatar:'retro',
+        guest_info:guest,
+        pageSize:'5' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "default";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleLeft";
+      
+          flOptions.networks = "Weibo,Douban,QQZone,Linkedin,renren,Wechat,QQ";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script>
+
+
+  
+
+  <!-- calendar widget -->
+
+
+    <script src="/lib/CloudCalendar/CloudCalendar.js"></script>
+    <script src="/lib/CloudCalendar/languages.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        $('#CloudCalendar').aCalendar('zh-CN', 
+            $.extend(
+                '', {
+                    single:true,
+                    root:'/calendar/'
+                }
+            )
+        );
+    });
+    </script>
+
+
+
+  
+  <style>
+    .copy-btn {
+        display: inline-block;
+        cursor: pointer;
+        background-color: #ecedf0;
+        border: none;
+        border-radius: 3px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        -webkit-appearance: none;
+        font-size: 13px;
+        font-weight: 700;
+        line-height: 20px;
+        color: #333;
+        -webkit-transition: opacity .3s ease-in-out;
+        -o-transition: opacity .3s ease-in-out;
+        transition: opacity .3s ease-in-out;
+        padding: 2px 6px;
+        position: absolute;
+        opacity: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 10px;
+      top: 9px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('<i class="fa fa-clipboard"></i>  复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('')
+          $b.append('<i class="fa fa-clipboard"></i>  复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+  <script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+  <script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+</body>
+</html>
