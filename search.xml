@@ -622,7 +622,77 @@
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">data = np.zeros((<span class="number">2</span>, <span class="number">3</span>))</span><br><span class="line">print(<span class="string">"修改前的类型:"</span>, data.dtype)</span><br><span class="line">int_data = data.astype(np.int64)</span><br><span class="line">print(<span class="string">"修改后的类型"</span>, int_data.dtype)</span><br></pre></td></tr></table></figure>
 <p><strong>输出：</strong></p>
 <figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">修改前的类型: <span class="built_in">float</span>64</span><br><span class="line">修改后的类型 <span class="built_in">int</span>64</span><br></pre></td></tr></table></figure>
-<h4 id="2-4-数组运算"><a href="#2-4-数组运算" class="headerlink" title="2.4 数组运算"></a>2.4 数组运算</h4>]]></content>
+<h4 id="2-4-切片和索引"><a href="#2-4-切片和索引" class="headerlink" title="2.4 切片和索引"></a>2.4 切片和索引</h4><h5 id="2-4-1-基础篇"><a href="#2-4-1-基础篇" class="headerlink" title="2.4.1 基础篇"></a>2.4.1 基础篇</h5><p>在Python中接触过使用<code>list</code>函数的切片操作，<code>ndarray</code>对象内容可以同样通过索引或切片操作来访问和修改，基于<code>0 - n</code>的下标进行索引，使用内置的<code>slice</code>函数，设置<code>start</code>，<code>stop</code>，<code>step</code>参数，从原数组中切割出一个新数组，其中<code>slice</code>语法为：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">slice(start: Any, stop: Any, step: Any=...)</span><br><span class="line">slice(stop)</span><br><span class="line">slice(start, stop[, step])</span><br></pre></td></tr></table></figure>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th><strong>参数</strong></th>
+<th><strong>说明</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>start</td>
+<td>索引开始</td>
+</tr>
+<tr>
+<td>stop</td>
+<td>索引结束</td>
+</tr>
+<tr>
+<td>step</td>
+<td>索引步长</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>代码：</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">a = np.arange(<span class="number">10</span>)</span><br><span class="line">s = slice(<span class="number">2</span>, <span class="number">7</span>, <span class="number">2</span>)   <span class="comment"># 从索引 2 开始到索引 7 停止，间隔为 2</span></span><br><span class="line">print(a[s])</span><br></pre></td></tr></table></figure>
+<p><strong>输出：</strong></p>
+<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">[<span class="number">2</span> <span class="number">4</span> <span class="number">6</span>]</span><br></pre></td></tr></table></figure>
+<p>当然也可以直接通过冒号分割切片参数<strong>start:stop:step</strong>来进行切片操作：</p>
+<p><strong>代码：</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">a = np.arange(<span class="number">10</span>)</span><br><span class="line">b = a[<span class="number">2</span>:<span class="number">7</span>:<span class="number">2</span>]	<span class="comment"># 从索引 2 开始到索引 7 停止，间隔为 2</span></span><br><span class="line">print(b)</span><br></pre></td></tr></table></figure>
+<p><strong>输出：</strong></p>
+<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">[<span class="number">2</span> <span class="number">4</span> <span class="number">6</span>]</span><br></pre></td></tr></table></figure>
+<div class="note primary no-icon"><h6 id="有关-的解释"><a href="#有关-的解释" class="headerlink" title="有关:的解释"></a>有关<code>:</code>的解释</h6><ul>
+<li>放置一个参数返回与该索引相对应的单个元素<code>[2]</code></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">a = np.arange(<span class="number">10</span>)</span><br><span class="line">print(a[<span class="number">2</span>])</span><br></pre></td></tr></table></figure>
+<p>输出为：<code>2</code></p>
+<ul>
+<li>如果使用<code>[2:]</code>则输出从该索引(包括该元素)之后的所有项</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">a = np.arange(<span class="number">10</span>)</span><br><span class="line">print(a[<span class="number">2</span>:])</span><br></pre></td></tr></table></figure>
+<p>输出为：<code>[2 3 4 5 6 7 8 9]</code></p>
+<ul>
+<li>如果使用<code>[:7]</code>则输出从该索引(不包括该元素)之前的所有项</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">a = np.arange(<span class="number">10</span>)</span><br><span class="line">print(a[:<span class="number">7</span>])</span><br></pre></td></tr></table></figure>
+<p>输出为：<code>[0 1 2 3 4 5 6]</code></p>
+<ul>
+<li>如果使用<code>[2:7]</code>那么则提取两个索引(不包括停止索引)之间的项</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">a = np.arange(<span class="number">10</span>)</span><br><span class="line">print(a[<span class="number">2</span>:<span class="number">7</span>])</span><br></pre></td></tr></table></figure>
+<p>输出为：<code>[2 3 4 5 6]</code></p>
+<ul>
+<li>同样可以使用负值对数组进行反转<code>[::-1]</code></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">a = np.arange(<span class="number">10</span>)</span><br><span class="line">print(a[::<span class="number">-1</span>])</span><br></pre></td></tr></table></figure>
+<p>输出为：<code>[9 8 7 6 5 4 3 2 1 0]</code></p>
+<ul>
+<li>多维数组同样适用上述索引提取方法</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">a = np.array([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]])</span><br><span class="line">print(a)</span><br><span class="line"><span class="comment"># 从某个索引处开始切割</span></span><br><span class="line">print(<span class="string">'从数组索引 a[1:] 处开始切割'</span>)</span><br><span class="line">print(a[<span class="number">1</span>:])</span><br></pre></td></tr></table></figure>
+<p>输出为：</p>
+<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">[[<span class="number">1</span> <span class="number">2</span> <span class="number">3</span>]</span><br><span class="line"> [<span class="number">3</span> <span class="number">4</span> <span class="number">5</span>]</span><br><span class="line"> [<span class="number">4</span> <span class="number">5</span> <span class="number">6</span>]]</span><br><span class="line">从数组索引 a[<span class="number">1</span>:] 处开始切割</span><br><span class="line">[[<span class="number">3</span> <span class="number">4</span> <span class="number">5</span>]</span><br><span class="line"> [<span class="number">4</span> <span class="number">5</span> <span class="number">6</span>]]</span><br></pre></td></tr></table></figure>
+<p>更多例子：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">a = np.arange(<span class="number">10</span>)</span><br><span class="line">print(a[<span class="number">1</span>:<span class="number">9</span>:<span class="number">2</span>])  <span class="comment"># 输出在索引为1和9之间(不包括9)步长为2的元素</span></span><br><span class="line">print(a[<span class="number">9</span>:<span class="number">1</span>:<span class="number">-2</span>])  <span class="comment"># 反向输出在索引为9和1之间(不包括1)步长为2的元素</span></span><br></pre></td></tr></table></figure>
+<p>输出为：</p>
+<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">[<span class="number">1</span> <span class="number">3</span> <span class="number">5</span> <span class="number">7</span>]</span><br><span class="line">[<span class="number">9</span> <span class="number">7</span> <span class="number">5</span> <span class="number">3</span>]</span><br></pre></td></tr></table></figure></div>
+]]></content>
       <categories>
         <category>博客</category>
       </categories>
@@ -779,8 +849,8 @@
         <category>博客</category>
       </categories>
       <tags>
-        <tag>Neumorphism</tag>
         <tag>NEXT</tag>
+        <tag>Neumorphism</tag>
       </tags>
   </entry>
   <entry>
