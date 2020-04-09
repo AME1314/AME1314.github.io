@@ -127,7 +127,7 @@
 <p><strong>示例：</strong></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">data = np.arange(<span class="number">12</span>).reshape(<span class="number">3</span>, <span class="number">4</span>)</span><br><span class="line">print(<span class="string">"data="</span>, data)</span><br><span class="line">print(<span class="string">"type(data)="</span>, type(data))</span><br><span class="line">print(<span class="string">"data.ndim="</span>, data.ndim)</span><br><span class="line">print(<span class="string">"data.shape="</span>, data.shape)</span><br><span class="line">print(<span class="string">"data.size="</span>, data.size)</span><br><span class="line">print(<span class="string">"data.dtype="</span>, data.dtype)</span><br></pre></td></tr></table></figure>
 <p><strong>输出：</strong></p>
-<figure class="highlight lsl"><table><tr><td class="code"><pre><span class="line">data= [[ <span class="number">0</span>  <span class="number">1</span>  <span class="number">2</span>  <span class="number">3</span>]</span><br><span class="line"> [ <span class="number">4</span>  <span class="number">5</span>  <span class="number">6</span>  <span class="number">7</span>]</span><br><span class="line"> [ <span class="number">8</span>  <span class="number">9</span> <span class="number">10</span> <span class="number">11</span>]]</span><br><span class="line">type(data)= &lt;class 'numpy.ndarray'&gt;</span><br><span class="line">data.ndim= <span class="number">2</span></span><br><span class="line">data.shape= (<span class="number">3</span>, <span class="number">4</span>)</span><br><span class="line">data.size= <span class="number">12</span></span><br><span class="line">data.dtype= int32</span><br></pre></td></tr></table></figure>
+<figure class="highlight lsl"><table><tr><td class="code"><pre><span class="line">data= [[ <span class="number">0</span>  <span class="number">1</span>  <span class="number">2</span>  <span class="number">3</span>]</span><br><span class="line"> [ <span class="number">4</span>  <span class="number">5</span>  <span class="number">6</span>  <span class="number">7</span>]</span><br><span class="line"> [ <span class="number">8</span>  <span class="number">9</span> <span class="number">10</span> <span class="number">11</span>]]</span><br><span class="line">type(data)= &lt;class 'numpy.ndarray'&gt;</span><br><span class="line">data.ndim= <span class="number">2</span></span><br><span class="line">data.shape= (<span class="number">3</span>, <span class="number">4</span></span><br><span class="line">data.size= <span class="number">12</span></span><br><span class="line">data.dtype= int32</span><br></pre></td></tr></table></figure>
 <p><strong>解析：</strong></p>
 <p>在代码示例中，第一行将<code>numpy</code>库导入并将其取名为<code>np</code>，第二行初始化一个三行四列的递增数组<code>data</code>,第三行输出<code>data</code>,第四行输出<code>data</code>的类型，第五行输出了数组的维度个数，第六行输出了数组的维度，第七行输出了数组中元素的总个数，第八行输出了元素的类型。</p>
 <h5 id="2-1-1-常用属性"><a href="#2-1-1-常用属性" class="headerlink" title="2.1.1 常用属性"></a>2.1.1 常用属性</h5><ul>
@@ -1298,7 +1298,357 @@
 </tbody>
 </table>
 </div>
-<h4 id="2-6-函数"><a href="#2-6-函数" class="headerlink" title="2.6 函数"></a>2.6 函数</h4><h5 id="2-6-1-通用函数"><a href="#2-6-1-通用函数" class="headerlink" title="2.6.1 通用函数"></a>2.6.1 通用函数</h5><h5 id="2-6-2-统计函数"><a href="#2-6-2-统计函数" class="headerlink" title="2.6.2 统计函数"></a>2.6.2 统计函数</h5><h5 id="2-6-3-线性代数相关函数"><a href="#2-6-3-线性代数相关函数" class="headerlink" title="2.6.3 线性代数相关函数"></a>2.6.3 线性代数相关函数</h5><h5 id="2-6-4-随机数相关函数"><a href="#2-6-4-随机数相关函数" class="headerlink" title="2.6.4 随机数相关函数"></a>2.6.4 随机数相关函数</h5>]]></content>
+<h4 id="2-6-函数"><a href="#2-6-函数" class="headerlink" title="2.6 函数"></a>2.6 函数</h4><h5 id="2-6-1-通用函数"><a href="#2-6-1-通用函数" class="headerlink" title="2.6.1 通用函数"></a>2.6.1 通用函数</h5><p>在Numpy中提供了诸如<strong>sin</strong>，<strong>cos</strong>和<strong>exp</strong>等常见的数学函数，这些函数称为通用函数(ufunc)，通用函数是针对ndarray数据执行元素级运算的函数，函数返回是一个新的数组，通常，将通用函数中接受一个数组参数的函数称为一元通用函数，接受两个数组参数的称为二元通用函数。</p>
+<p><strong>常用的一元通用函数</strong></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th><strong>函数</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>abs、fabs</td>
+<td>计算整数、浮点数或辅助的绝对值</td>
+</tr>
+<tr>
+<td>sqrt</td>
+<td>计算各元素的算术平方根</td>
+</tr>
+<tr>
+<td>square</td>
+<td>计算各元素的平方</td>
+</tr>
+<tr>
+<td>exp</td>
+<td>计算各元素的指数e<sup>x</sup></td>
+</tr>
+<tr>
+<td>log、log10、log2、log1p</td>
+<td>分别为自然对数（底数为e），底数为10的对数，底数为2的对数，log(1+x)</td>
+</tr>
+<tr>
+<td>sign</td>
+<td>计算各元素的正负号:1(正数)、0（零）、-1（负数）</td>
+</tr>
+<tr>
+<td>ceil</td>
+<td>计算各元素的ceilling值，即大于或者等于该值的最小整数</td>
+</tr>
+<tr>
+<td>floor</td>
+<td>计算个元素的floor值，即小于或者等于该值的最大整数</td>
+</tr>
+<tr>
+<td>rint</td>
+<td>将各元素四舍五入到最接近的整数</td>
+</tr>
+<tr>
+<td>modf</td>
+<td>将数组的小数和整数部分以两个独立数组的形式返回</td>
+</tr>
+<tr>
+<td>isnan</td>
+<td>返回一个表示“哪些值是NaN”的布尔型数组</td>
+</tr>
+<tr>
+<td>isfinite、isinf</td>
+<td>分别返回表示“哪些元素是有穷的”或“哪些元素是无穷的”的布尔型数组</td>
+</tr>
+<tr>
+<td>sin、sinh、cos、cosh、tan、tanh</td>
+<td>普通型和双曲型三角函数</td>
+</tr>
+<tr>
+<td>arcos、arccosh、arcsin</td>
+<td>反三角函数</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>常见的二元通用函数</strong></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th><strong>函数</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>add</td>
+<td>将数组中对应的元素相加</td>
+</tr>
+<tr>
+<td>subtract</td>
+<td>从第一个数组减去第二个数组中的元素</td>
+</tr>
+<tr>
+<td>multiply</td>
+<td>两个数组元素相乘</td>
+</tr>
+<tr>
+<td>divide、floor_divide</td>
+<td>除法或向下整除法(舍去余数)</td>
+</tr>
+<tr>
+<td>maximum、fmax</td>
+<td>元素级的最大值计算</td>
+</tr>
+<tr>
+<td>minimum、fmin</td>
+<td>元素级的最小值计算</td>
+</tr>
+<tr>
+<td>mod</td>
+<td>元素级的求模运算</td>
+</tr>
+<tr>
+<td>copysign</td>
+<td>将第二个数组中的值得符号赋值给第一个数组中的值</td>
+</tr>
+<tr>
+<td>greater、greater_equal、less、less_equal、equal、not_equal、logical_and、logical_or、logical_xor</td>
+<td>执行元素级的比较运算，最终产生布尔型数组，相当于运算符&gt;、≥、&lt;、≤、==、!=、逻辑和、逻辑或、逻辑异或</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>代码：</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 通用函数</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="comment"># 计算各元素的平方根</span></span><br><span class="line">a = np.array([<span class="number">1</span>, <span class="number">4</span>, <span class="number">9</span>])</span><br><span class="line">print(<span class="string">"数组平方根为:"</span>, np.sqrt(a))</span><br><span class="line"><span class="comment"># 返回数组的整数与小数</span></span><br><span class="line">b = np.array([<span class="number">1.2</span>, <span class="number">2.5</span>, <span class="number">3</span>])</span><br><span class="line">c = np.modf(b)[<span class="number">0</span>]</span><br><span class="line">d = np.modf(b)[<span class="number">1</span>]</span><br><span class="line">print(<span class="string">"b数组的小数部分为:"</span>, c, <span class="string">"\nb数组的整数部分为:"</span>, d)</span><br><span class="line"><span class="comment"># 符号赋予</span></span><br><span class="line">e = np.ones(<span class="number">5</span>)</span><br><span class="line">e[::<span class="number">2</span>] = <span class="number">-1</span></span><br><span class="line">f = np.arange(<span class="number">5</span>)</span><br><span class="line">g = np.copysign(f, e)</span><br><span class="line">print(<span class="string">"符号赋予后的数组:"</span>, g)</span><br><span class="line"><span class="comment"># 元素级比较</span></span><br><span class="line">print(<span class="string">"e和g数组比较:"</span>, np.greater(e, g))</span><br></pre></td></tr></table></figure>
+<p><strong>输出：</strong></p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">数组平方根为:</span> <span class="string">[1.</span> <span class="number">2</span><span class="string">.</span> <span class="number">3</span><span class="string">.]</span></span><br><span class="line"><span class="string">b数组的小数部分为:</span> <span class="string">[0.2</span> <span class="number">0.5</span> <span class="number">0</span><span class="string">.</span> <span class="string">]</span> </span><br><span class="line"><span class="string">b数组的整数部分为:</span> <span class="string">[1.</span> <span class="number">2</span><span class="string">.</span> <span class="number">3</span><span class="string">.]</span></span><br><span class="line"><span class="string">符号赋予后的数组:</span> <span class="string">[-0.</span>  <span class="number">1</span><span class="string">.</span> <span class="number">-2</span><span class="string">.</span>  <span class="number">3</span><span class="string">.</span> <span class="number">-4</span><span class="string">.]</span>   </span><br><span class="line"><span class="string">e和g数组比较:</span> <span class="string">[False</span> <span class="literal">False</span>  <span class="literal">True</span> <span class="literal">False</span>  <span class="literal">True</span><span class="string">]</span></span><br></pre></td></tr></table></figure>
+<h5 id="2-6-2-统计函数"><a href="#2-6-2-统计函数" class="headerlink" title="2.6.2 统计函数"></a>2.6.2 统计函数</h5><h6 id="1-将条件逻辑转换为数组运算"><a href="#1-将条件逻辑转换为数组运算" class="headerlink" title="1. 将条件逻辑转换为数组运算"></a>1. 将条件逻辑转换为数组运算</h6><p>numpy的<code>where()</code>函数是三元表达式<code>x if condition else y</code>的矢量化版本，可以通过逻辑转化为数组运算，例如：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">a = np.array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line">b = np.array([<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>])</span><br><span class="line">con = np.array([<span class="literal">True</span>, <span class="literal">False</span>, <span class="literal">True</span>])</span><br><span class="line">print(np.where(con, a, b))</span><br></pre></td></tr></table></figure>
+<p>输出为<code>[1 5 3]</code>，可以看出，<code>where</code>函数的第一个参数作为判定条件，如果元素为<code>True</code>则选取第二个数组中对应位置的元素，如果为<code>False</code>则选取第三个数组中对应位置的元素。当然判定数组也可以使用<code>1</code>代表<code>True</code>，<code>0</code>代表<code>False</code>，即<code>con = np.array([1, 0, 1])</code>也能得到同样的结果。</p>
+<h6 id="2-数组的统计运算"><a href="#2-数组的统计运算" class="headerlink" title="2. 数组的统计运算"></a>2. 数组的统计运算</h6><p><strong>NumPy数组中与统计运算相关的方法</strong></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th><strong>方法</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sum</td>
+<td>对数组中全部或某个轴向的元素求和</td>
+</tr>
+<tr>
+<td>mean</td>
+<td>算术平均值</td>
+</tr>
+<tr>
+<td>min</td>
+<td>计算数组中的最小值</td>
+</tr>
+<tr>
+<td>max</td>
+<td>计算数组中的最大值</td>
+</tr>
+<tr>
+<td>argmin</td>
+<td>输出最小值索引</td>
+</tr>
+<tr>
+<td>argmax</td>
+<td>输出最大值索引</td>
+</tr>
+<tr>
+<td>cumsum</td>
+<td>所有元素的累计和</td>
+</tr>
+<tr>
+<td>cumprod</td>
+<td>所有元素的累计积</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>代码：</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">a = np.arange(<span class="number">10</span>)</span><br><span class="line">print(<span class="string">"累计和为："</span>, np.cumsum(a))</span><br><span class="line">print(<span class="string">"累计积为："</span>, np.cumprod(a))</span><br></pre></td></tr></table></figure>
+<p>对于累计和如下图所示，累计积同理：</p>
+<p><img src="https://gitee.com/Vxiaozhe1998/Pic/raw/master/img/20200409170537.png" alt="cumsum"></p>
+<p><strong>输出：</strong></p>
+<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">累计和为： [ <span class="number">0</span>  <span class="number">1</span>  <span class="number">3</span>  <span class="number">6</span> <span class="number">10</span> <span class="number">15</span> <span class="number">21</span> <span class="number">28</span> <span class="number">36</span> <span class="number">45</span>]</span><br><span class="line">累计积为： [<span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>]</span><br></pre></td></tr></table></figure>
+<h6 id="3-数组排序"><a href="#3-数组排序" class="headerlink" title="3. 数组排序"></a>3. 数组排序</h6><p>对数组中的元素进行排序，只需使用<code>sort()</code>函数，例如：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">arr = np.array([[<span class="number">1</span>, <span class="number">5</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">5</span>, <span class="number">8</span>, <span class="number">3</span>, <span class="number">1</span>]])</span><br><span class="line">arr.sort()</span><br><span class="line">print(arr)</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">[[<span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">5</span>]</span><br><span class="line"> [<span class="number">1</span> <span class="number">3</span> <span class="number">5</span> <span class="number">8</span>]]</span><br></pre></td></tr></table></figure>
+<p>排序方法会修改原来的数组，函数中的参数代表着轴，例如：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">arr = np.array([[<span class="number">1</span>, <span class="number">5</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">5</span>, <span class="number">8</span>, <span class="number">3</span>, <span class="number">1</span>]])</span><br><span class="line">arr.sort(<span class="number">0</span>)</span><br><span class="line">print(arr)</span><br></pre></td></tr></table></figure>
+<p>则得到的结果为：</p>
+<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">[[<span class="number">1</span> <span class="number">5</span> <span class="number">2</span> <span class="number">1</span>]</span><br><span class="line"> [<span class="number">5</span> <span class="number">8</span> <span class="number">3</span> <span class="number">3</span>]]</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/Vxiaozhe1998/Pic/raw/master/img/20200409175407.png" alt="排序"></p>
+<h6 id="4-检索数组元素"><a href="#4-检索数组元素" class="headerlink" title="4. 检索数组元素"></a>4. 检索数组元素</h6><p>在NumPy中，<code>all()</code>函数用于判断整个数组中的元素的值是否全部满足条件，如果全部满足条件则返回<code>True</code>，否则返回<code>False</code>。<code>any()</code>函数用于判断整个数组中的元素至少有一个满足条件则返回<code>True</code>,否则返回<code>False</code>。</p>
+<p><strong>代码：</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">arr = np.arange(<span class="number">12</span>).reshape(<span class="number">3</span>, <span class="number">4</span>)</span><br><span class="line">print(np.any(arr &gt; <span class="number">10</span>))</span><br><span class="line">print(np.all(arr &gt; <span class="number">10</span>))</span><br></pre></td></tr></table></figure>
+<p><strong>输出：</strong></p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="literal">True</span></span><br><span class="line"><span class="literal">False</span></span><br></pre></td></tr></table></figure>
+<h6 id="5-唯一化及其他集合逻辑"><a href="#5-唯一化及其他集合逻辑" class="headerlink" title="5. 唯一化及其他集合逻辑"></a>5. 唯一化及其他集合逻辑</h6><p><strong><code>unique()</code></strong></p>
+<p>去除数组中的重复元素，保留唯一元素，即如果数组为<code>[1,1,2,2]</code>则输出为<code>[1,2]</code>，且排序输出数组</p>
+<p>语法：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">unique(ar, return_index=<span class="literal">False</span>, return_inverse=<span class="literal">False</span>, return_counts=<span class="literal">False</span>, axis=<span class="literal">None</span>)</span><br></pre></td></tr></table></figure>
+<p>参数说明：</p>
+<ul>
+<li><code>ar</code>: 待操作数组</li>
+<li><code>return_index</code>: 输出数组元素对应的索引(可选,默认False)</li>
+<li><code>return_inverse</code>: 输出重建数组元素索引(可选,默认False)</li>
+<li><code>return_count</code>： 输出每一元素出现的次数(可选,默认False)</li>
+<li><code>axis</code>：函数的操作维度(可选)</li>
+</ul>
+<p>图解参数：</p>
+<p><img src="https://gitee.com/Vxiaozhe1998/Pic/raw/master/img/20200409220909.png" alt="unique"></p>
+<p>对于操作维度，如果不定义默认将数组降为一维，对一维数组进行<code>unique</code>操作。</p>
+<p>代码：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">arr = np.array([<span class="number">7</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">8</span>, <span class="number">2</span>])</span><br><span class="line">print(np.unique(arr, return_index=<span class="literal">True</span>))</span><br><span class="line">print(np.unique(arr, return_inverse=<span class="literal">True</span>))</span><br><span class="line">print(np.unique(arr, return_counts=<span class="literal">True</span>))</span><br><span class="line">arr_2 = np.array([[<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>], [<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>], [<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]])</span><br><span class="line">print(np.unique(arr_2))</span><br><span class="line">print(np.unique(arr_2, axis=<span class="number">0</span>))</span><br><span class="line">print(np.unique(arr_2, axis=<span class="number">1</span>))</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">(<span class="built_in">array</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">7</span>, <span class="number">8</span>]), <span class="built_in">array</span>([<span class="number">2</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">4</span>], </span><br><span class="line">dtype=<span class="built_in">int</span>64))</span><br><span class="line">(<span class="built_in">array</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">7</span>, <span class="number">8</span>]), <span class="built_in">array</span>([<span class="number">2</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">3</span>, <span class="number">1</span>], dtype=<span class="built_in">int</span>64))</span><br><span class="line">(<span class="built_in">array</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">7</span>, <span class="number">8</span>]), <span class="built_in">array</span>([<span class="number">2</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">1</span>], </span><br><span class="line">dtype=<span class="built_in">int</span>64))</span><br><span class="line">[<span class="number">0</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span>]</span><br><span class="line">[[<span class="number">0</span> <span class="number">1</span> <span class="number">0</span>]</span><br><span class="line"> [<span class="number">2</span> <span class="number">3</span> <span class="number">4</span>]]</span><br><span class="line">[[<span class="number">0</span> <span class="number">0</span> <span class="number">1</span>]</span><br><span class="line"> [<span class="number">0</span> <span class="number">0</span> <span class="number">1</span>]</span><br><span class="line"> [<span class="number">2</span> <span class="number">4</span> <span class="number">3</span>]]</span><br></pre></td></tr></table></figure>
+<p>在二维数组中对<code>1</code>轴使用<code>unique</code>函数时，排序以输出的第一行为准，例如：</p>
+<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">[[<span class="number">4</span> <span class="number">3</span> <span class="number">2</span> <span class="number">1</span>]</span><br><span class="line"> [<span class="number">5</span> <span class="number">6</span> <span class="number">7</span> <span class="number">8</span>]]</span><br></pre></td></tr></table></figure>
+<p>输出将为：</p>
+<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">[[<span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span>]</span><br><span class="line"> [<span class="number">8</span> <span class="number">7</span> <span class="number">6</span> <span class="number">5</span>]]</span><br></pre></td></tr></table></figure>
+<p><strong>数组集合运算的常见函数</strong></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th><strong>函数</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>unique(x)</td>
+<td>计算x中的唯一元素，并返回有序结果</td>
+</tr>
+<tr>
+<td>intersect1d(x,y)</td>
+<td>计算x和y中的公共元素，并返回有序结果</td>
+</tr>
+<tr>
+<td>union1d(x,y)</td>
+<td>计算x和y的并集，并返回有序结果</td>
+</tr>
+<tr>
+<td>in1d(x,y)</td>
+<td>得到一个表示”x的元素是否包含y”的布尔型数组</td>
+</tr>
+<tr>
+<td>setdiff1d(x,y)</td>
+<td>集合的差，即元素在x中且不再y中</td>
+</tr>
+<tr>
+<td>setxor1d(x,y)</td>
+<td>集合的对称差，即存在于一个数组中但不同时存在于两个元素中的元素</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h5 id="2-6-3-线性代数相关函数"><a href="#2-6-3-线性代数相关函数" class="headerlink" title="2.6.3 线性代数相关函数"></a>2.6.3 线性代数相关函数</h5><p>线性代数是数学运算中的一个重要工具，在numpy.linalg模块中有一组标准的矩阵分解运算以及诸如逆和行列式之类的东西，下面的例子代表矩阵的乘法：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">a = np.array([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]])</span><br><span class="line">b = np.array([[<span class="number">1</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">4</span>], [<span class="number">5</span>, <span class="number">6</span>]])</span><br><span class="line">print(a.dot(b))  <span class="comment"># 等价于np.dot(a,b)</span></span><br></pre></td></tr></table></figure>
+<p>输出为：</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">[[<span class="number">22</span> <span class="number">28</span>]</span><br><span class="line"> [<span class="number">49</span> <span class="number">64</span>]]</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/Vxiaozhe1998/Pic/raw/master/img/20200409224041.png" alt="矩阵乘法"></p>
+<p><strong>linalg模块常用函数</strong></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th><strong>函数</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dot</td>
+<td>矩阵乘法</td>
+</tr>
+<tr>
+<td>diag</td>
+<td>以一维数组的形式返回方阵的对角线或将一维数组转为方阵</td>
+</tr>
+<tr>
+<td>trace</td>
+<td>计算对角线元素和</td>
+</tr>
+<tr>
+<td>det</td>
+<td>计算矩阵的行列式</td>
+</tr>
+<tr>
+<td>eig</td>
+<td>计算方阵的特征值和特征向量</td>
+</tr>
+<tr>
+<td>inv</td>
+<td>计算方阵的逆</td>
+</tr>
+<tr>
+<td>qr</td>
+<td>计算qr分解</td>
+</tr>
+<tr>
+<td>svd</td>
+<td>计算奇异值</td>
+</tr>
+<tr>
+<td>solve</td>
+<td>解线性方程组Ax=b，其中A是一个方阵</td>
+</tr>
+<tr>
+<td>lstsq</td>
+<td>计算Ax=b的最小二乘解</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h5 id="2-6-4-随机数相关函数"><a href="#2-6-4-随机数相关函数" class="headerlink" title="2.6.4 随机数相关函数"></a>2.6.4 随机数相关函数</h5><p>与Python的random模块相比，NumPy的random模块功能更多，它增加了一些可以高效生成多种概率分布的样本值函数。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="comment"># 随机生成一个3行3列的二维数组</span></span><br><span class="line">print(np.random.rand(<span class="number">3</span>, <span class="number">3</span>))</span><br><span class="line"><span class="comment"># 随机生成一个的三维数组</span></span><br><span class="line">print(np.random.rand(<span class="number">2</span>, <span class="number">3</span>, <span class="number">3</span>))</span><br></pre></td></tr></table></figure>
+<p>输出:</p>
+<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">[[<span class="number">0.51977788</span> <span class="number">0.78215477</span> <span class="number">0.03626778</span>]</span><br><span class="line"> [<span class="number">0.53886531</span> <span class="number">0.84636492</span> <span class="number">0.20763375</span>]       </span><br><span class="line"> [<span class="number">0.62779302</span> <span class="number">0.01742627</span> <span class="number">0.21344803</span>]]      </span><br><span class="line">[[[<span class="number">0.21952024</span> <span class="number">0.79324513</span> <span class="number">0.99029048</span>]      </span><br><span class="line">  [<span class="number">0.25493268</span> <span class="number">0.64863243</span> <span class="number">0.61611571</span>]      </span><br><span class="line">  [<span class="number">0.85816947</span> <span class="number">0.52925024</span> <span class="number">0.16129451</span>]]     </span><br><span class="line"></span><br><span class="line"> [[<span class="number">0.02905666</span> <span class="number">0.85701923</span> <span class="number">0.81112184</span>]      </span><br><span class="line">  [<span class="number">0.93242048</span> <span class="number">0.2237645</span>  <span class="number">0.35160048</span>]      </span><br><span class="line">  [<span class="number">0.8884219</span>  <span class="number">0.59137365</span> <span class="number">0.81497935</span>]]]</span><br></pre></td></tr></table></figure>
+<p><strong>random模块常见函数</strong></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th><strong>函数</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>seed</td>
+<td>生成随机数种子</td>
+</tr>
+<tr>
+<td>rand</td>
+<td>生成均匀分布的样本值</td>
+</tr>
+<tr>
+<td>randint</td>
+<td>从给定的上下限范围内随机选取整数</td>
+</tr>
+<tr>
+<td>normal</td>
+<td>产生正态分布的样本值</td>
+</tr>
+<tr>
+<td>beta</td>
+<td>产生Beta分布的样本值</td>
+</tr>
+<tr>
+<td>uniform</td>
+<td>产生在[0,1]中均匀分布的样本值</td>
+</tr>
+</tbody>
+</table>
+</div>
+]]></content>
       <categories>
         <category>博客</category>
       </categories>
@@ -1455,8 +1805,8 @@
         <category>博客</category>
       </categories>
       <tags>
-        <tag>Neumorphism</tag>
         <tag>NEXT</tag>
+        <tag>Neumorphism</tag>
       </tags>
   </entry>
   <entry>
@@ -6308,6 +6658,27 @@ op->e</textarea><textarea id="flowchart-0-options" style="display: none">{"scale
       </tags>
   </entry>
   <entry>
+    <title>7-4 擅长C (20分)</title>
+    <url>/2020/01/31/7-4%20%E6%93%85%E9%95%BFC%20(20%E5%88%86)/</url>
+    <content><![CDATA[<p>当你被面试官要求用 C 写一个“Hello World”时，有本事像下图显示的那样写一个出来吗？<a id="more"></a><br><img src="https://images.ptausercontent.com/ba3b8678-061d-4fc6-a87e-ce08e1434410.jpg" alt="HWC.jpg"></p>
+<blockquote>
+<p><strong>输入格式：</strong><br>输入首先给出 26 个英文大写字母 A-Z，每个字母用一个 7×5 的、由 <code>C</code> 和 <code>.</code> 组成的矩阵构成。最后在一行中给出一个句子，以回车结束。句子是由若干个单词（每个包含不超过 10 个连续的大写英文字母）组成的，单词间以任何非大写英文字母分隔。<br>题目保证至少给出一个单词。</p>
+<p><strong>输出格式：</strong><br>对每个单词，将其每个字母用矩阵形式在一行中输出，字母间有一列空格分隔。单词的首尾不得有多余空格。<br>相邻的两个单词间必须有一空行分隔。输出的首尾不得有多余空行。</p>
+<p>输入：<br><div class="note default no-icon"><p>..C..<br>.C.C.<br>C…C<br>CCCCC<br>C…C<br>C…C<br>C…C<br>CCCC.<br>C…C<br>C…C<br>CCCC.<br>C…C<br>C…C<br>CCCC.<br>.CCC.<br>C…C<br>C….<br>C….<br>C….<br>C…C<br>.CCC.<br>CCCC.<br>C…C<br>C…C<br>C…C<br>C…C<br>C…C<br>CCCC.<br>CCCCC<br>C….<br>C….<br>CCCC.<br>C….<br>C….<br>CCCCC<br>CCCCC<br>C….<br>C….<br>CCCC.<br>C….<br>C….<br>C….<br>CCCC.<br>C…C<br>C….<br>C.CCC<br>C…C<br>C…C<br>CCCC.<br>C…C<br>C…C<br>C…C<br>CCCCC<br>C…C<br>C…C<br>C…C<br>CCCCC<br>..C..<br>..C..<br>..C..<br>..C..<br>..C..<br>CCCCC<br>CCCCC<br>….C<br>….C<br>….C<br>….C<br>C…C<br>.CCC.<br>C…C<br>C..C.<br>C.C..<br>CC…<br>C.C..<br>C..C.<br>C…C<br>C….<br>C….<br>C….<br>C….<br>C….<br>C….<br>CCCCC<br>C…C<br>C…C<br>CC.CC<br>C.C.C<br>C…C<br>C…C<br>C…C<br>C…C<br>C…C<br>CC..C<br>C.C.C<br>C..CC<br>C…C<br>C…C<br>.CCC.<br>C…C<br>C…C<br>C…C<br>C…C<br>C…C<br>.CCC.<br>CCCC.<br>C…C<br>C…C<br>CCCC.<br>C….<br>C….<br>C….<br>.CCC.<br>C…C<br>C…C<br>C…C<br>C.C.C<br>C..CC<br>.CCC.<br>CCCC.<br>C…C<br>CCCC.<br>CC…<br>C.C..<br>C..C.<br>C…C<br>.CCC.<br>C…C<br>C….<br>.CCC.<br>….C<br>C…C<br>.CCC.<br>CCCCC<br>..C..<br>..C..<br>..C..<br>..C..<br>..C..<br>..C..<br>C…C<br>C…C<br>C…C<br>C…C<br>C…C<br>C…C<br>.CCC.<br>C…C<br>C…C<br>C…C<br>C…C<br>C…C<br>.C.C.<br>..C..<br>C…C<br>C…C<br>C…C<br>C.C.C<br>CC.CC<br>C…C<br>C…C<br>C…C<br>C…C<br>.C.C.<br>..C..<br>.C.C.<br>C…C<br>C…C<br>C…C<br>C…C<br>.C.C.<br>..C..<br>..C..<br>..C..<br>..C..<br>CCCCC<br>….C<br>…C.<br>..C..<br>.C…<br>C….<br>CCCCC<br>HELLO~WORLD!</p></div></p>
+<p>输出：<br><div class="note default no-icon"><p>C…C CCCCC C…. C…. .CCC.<br>C…C C…. C…. C…. C…C<br>C…C C…. C…. C…. C…C<br>CCCCC CCCC. C…. C…. C…C<br>C…C C…. C…. C…. C…C<br>C…C C…. C…. C…. C…C<br>C…C CCCCC CCCCC CCCCC .CCC.</p>
+<p>C…C .CCC. CCCC. C…. CCCC.<br>C…C C…C C…C C…. C…C<br>C…C C…C CCCC. C…. C…C<br>C.C.C C…C CC… C…. C…C<br>CC.CC C…C C.C.. C…. C…C<br>C…C C…C C..C. C…. C…C<br>C…C .CCC. C…C CCCCC CCCC.</p></div></p>
+</blockquote>
+<div class="note default no-icon"><p>作者: 陈越<br>单位: 浙江大学<br>时间限制: 400 ms<br>内存限制: 64 MB<br>代码长度限制: 16 KB</p></div>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><h3 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>PAT（乙级）（2019年冬季考试）</category>
+      </categories>
+      <tags>
+        <tag>编程</tag>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>7-5 区块反转 (25分)</title>
     <url>/2020/01/31/7-5%20%E5%8C%BA%E5%9D%97%E5%8F%8D%E8%BD%AC%20(25%E5%88%86)/</url>
     <content><![CDATA[<p>给定一个单链表 <em>L</em>，我们将每 <em>K</em> 个结点看成一个<strong>区块</strong>（链表最后若不足 <em>K</em> 个结点，也看成一个区块），请编写程序将 <em>L</em> 中所有区块的链接反转。例如：给定 <em>L</em> 为 1→2→3→4→5→6→7→8，<em>K</em> 为 3，则输出应该为 7→8→4→5→6→1→2→3。<a id="more"></a></p>
@@ -6321,27 +6692,6 @@ op->e</textarea><textarea id="flowchart-0-options" style="display: none">{"scale
 > 输入：
 <div class="note default no-icon"><p>00100 8 3<br>71120 7 88666<br>00000 4 99999<br>00100 1 12309<br>68237 6 71120<br>33218 3 00000<br>99999 5 68237<br>88666 8 -1<br>12309 2 33218</p></div></p>
 <p>输出：<br><div class="note default no-icon"><p>71120 7 88666<br>88666 8 00000<br>00000 4 99999<br>99999 5 68237<br>68237 6 00100<br>00100 1 12309<br>12309 2 33218<br>33218 3 -1</p></div></p>
-</blockquote>
-<div class="note default no-icon"><p>作者: 陈越<br>单位: 浙江大学<br>时间限制: 400 ms<br>内存限制: 64 MB<br>代码长度限制: 16 KB</p></div>
-<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><h3 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>PAT（乙级）（2019年冬季考试）</category>
-      </categories>
-      <tags>
-        <tag>编程</tag>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>7-4 擅长C (20分)</title>
-    <url>/2020/01/31/7-4%20%E6%93%85%E9%95%BFC%20(20%E5%88%86)/</url>
-    <content><![CDATA[<p>当你被面试官要求用 C 写一个“Hello World”时，有本事像下图显示的那样写一个出来吗？<a id="more"></a><br><img src="https://images.ptausercontent.com/ba3b8678-061d-4fc6-a87e-ce08e1434410.jpg" alt="HWC.jpg"></p>
-<blockquote>
-<p><strong>输入格式：</strong><br>输入首先给出 26 个英文大写字母 A-Z，每个字母用一个 7×5 的、由 <code>C</code> 和 <code>.</code> 组成的矩阵构成。最后在一行中给出一个句子，以回车结束。句子是由若干个单词（每个包含不超过 10 个连续的大写英文字母）组成的，单词间以任何非大写英文字母分隔。<br>题目保证至少给出一个单词。</p>
-<p><strong>输出格式：</strong><br>对每个单词，将其每个字母用矩阵形式在一行中输出，字母间有一列空格分隔。单词的首尾不得有多余空格。<br>相邻的两个单词间必须有一空行分隔。输出的首尾不得有多余空行。</p>
-<p>输入：<br><div class="note default no-icon"><p>..C..<br>.C.C.<br>C…C<br>CCCCC<br>C…C<br>C…C<br>C…C<br>CCCC.<br>C…C<br>C…C<br>CCCC.<br>C…C<br>C…C<br>CCCC.<br>.CCC.<br>C…C<br>C….<br>C….<br>C….<br>C…C<br>.CCC.<br>CCCC.<br>C…C<br>C…C<br>C…C<br>C…C<br>C…C<br>CCCC.<br>CCCCC<br>C….<br>C….<br>CCCC.<br>C….<br>C….<br>CCCCC<br>CCCCC<br>C….<br>C….<br>CCCC.<br>C….<br>C….<br>C….<br>CCCC.<br>C…C<br>C….<br>C.CCC<br>C…C<br>C…C<br>CCCC.<br>C…C<br>C…C<br>C…C<br>CCCCC<br>C…C<br>C…C<br>C…C<br>CCCCC<br>..C..<br>..C..<br>..C..<br>..C..<br>..C..<br>CCCCC<br>CCCCC<br>….C<br>….C<br>….C<br>….C<br>C…C<br>.CCC.<br>C…C<br>C..C.<br>C.C..<br>CC…<br>C.C..<br>C..C.<br>C…C<br>C….<br>C….<br>C….<br>C….<br>C….<br>C….<br>CCCCC<br>C…C<br>C…C<br>CC.CC<br>C.C.C<br>C…C<br>C…C<br>C…C<br>C…C<br>C…C<br>CC..C<br>C.C.C<br>C..CC<br>C…C<br>C…C<br>.CCC.<br>C…C<br>C…C<br>C…C<br>C…C<br>C…C<br>.CCC.<br>CCCC.<br>C…C<br>C…C<br>CCCC.<br>C….<br>C….<br>C….<br>.CCC.<br>C…C<br>C…C<br>C…C<br>C.C.C<br>C..CC<br>.CCC.<br>CCCC.<br>C…C<br>CCCC.<br>CC…<br>C.C..<br>C..C.<br>C…C<br>.CCC.<br>C…C<br>C….<br>.CCC.<br>….C<br>C…C<br>.CCC.<br>CCCCC<br>..C..<br>..C..<br>..C..<br>..C..<br>..C..<br>..C..<br>C…C<br>C…C<br>C…C<br>C…C<br>C…C<br>C…C<br>.CCC.<br>C…C<br>C…C<br>C…C<br>C…C<br>C…C<br>.C.C.<br>..C..<br>C…C<br>C…C<br>C…C<br>C.C.C<br>CC.CC<br>C…C<br>C…C<br>C…C<br>C…C<br>.C.C.<br>..C..<br>.C.C.<br>C…C<br>C…C<br>C…C<br>C…C<br>.C.C.<br>..C..<br>..C..<br>..C..<br>..C..<br>CCCCC<br>….C<br>…C.<br>..C..<br>.C…<br>C….<br>CCCCC<br>HELLO~WORLD!</p></div></p>
-<p>输出：<br><div class="note default no-icon"><p>C…C CCCCC C…. C…. .CCC.<br>C…C C…. C…. C…. C…C<br>C…C C…. C…. C…. C…C<br>CCCCC CCCC. C…. C…. C…C<br>C…C C…. C…. C…. C…C<br>C…C C…. C…. C…. C…C<br>C…C CCCCC CCCCC CCCCC .CCC.</p>
-<p>C…C .CCC. CCCC. C…. CCCC.<br>C…C C…C C…C C…. C…C<br>C…C C…C CCCC. C…. C…C<br>C.C.C C…C CC… C…. C…C<br>CC.CC C…C C.C.. C…. C…C<br>C…C C…C C..C. C…. C…C<br>C…C .CCC. C…C CCCCC CCCC.</p></div></p>
 </blockquote>
 <div class="note default no-icon"><p>作者: 陈越<br>单位: 浙江大学<br>时间限制: 400 ms<br>内存限制: 64 MB<br>代码长度限制: 16 KB</p></div>
 <h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><h3 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
