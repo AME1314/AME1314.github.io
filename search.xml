@@ -1,6 +1,363 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Python数据可视化</title>
+    <url>/2020/04/27/Python%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/</url>
+    <content><![CDATA[<div class="note info no-icon"><p>本文将介绍<code>plotly</code>的使用</p>
+<p>参考：<a href="https://www.jianshu.com/p/e5fb1b5c0957" target="_blank" rel="noopener">可视化神器—Plotly</a>    <a href="https://www.sohu.com/a/304434615_99994410" target="_blank" rel="noopener">强烈推荐一款Python可视化神器！强烈必备！ </a>    <a href="https://mp.weixin.qq.com/s?__biz=MjM5MDI1ODUyMA==&amp;mid=2672939754&amp;idx=1&amp;sn=5eea5c5f7fd118929491a7487bc51a99&amp;chksm=bce2f6dd8b957fcbf9030cc99dc8a7159cab9c9326ea51bd0c1155afc00e4d959e72ce8f5715&amp;mpshare=1&amp;scene=2&amp;srcid=1207otQ5wvIH21zfYydXf7mv&amp;from=timeline#rd" target="_blank" rel="noopener">用Python给数据分析穿上嫁衣，炫的不要不要的…</a>    <a href="https://www.zhihu.com/question/39684179" target="_blank" rel="noopener">数据可视化的库</a></p></div>
+<a id="more"></a>
+]]></content>
+      <categories>
+        <category>可视化</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>数据可视化</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python数据预处理</title>
+    <url>/2020/04/22/Python%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86/</url>
+    <content><![CDATA[<div class="note info no-icon"><p>数据预处理包括数据的清洗、合并、重塑与转换，解决数据缺失、极端值、数据格式不统一等问题，本文通过介绍Pandas中专门用于进行数据预处理的函数及方法来进行数据预处理的标准流程。</p></div>
+<a id="more"></a>
+<h3 id="0-数据清洗"><a href="#0-数据清洗" class="headerlink" title="0. 数据清洗"></a>0. 数据清洗</h3><p>数据清洗是一项复杂的工作，该过程目的在于提高数据的质量，将脏数据清理干净，使数据具有完整性、唯一性、权威性、合法性、一致性等特点。Pandas常见的数据清洗操作有空值和缺失值的处理、重复值的处理、异常值的处理、统一数据格式等。</p>
+<h4 id="0-1-空值和缺失值的处理"><a href="#0-1-空值和缺失值的处理" class="headerlink" title="0.1 空值和缺失值的处理"></a>0.1 空值和缺失值的处理</h4><p>空值一般表示数据未知、不适用或将在以后添加数据。缺失值是指数据集中某个或某些属性不完整主要原因有机械原因和人为原因，机械原因往往因为机器故障而人为原因可能由于人为隐瞒或录入失误而引起的。空值使用<code>None</code>表示，缺失值使用<code>NaN</code>表示，处理空值和缺失值通常有如下四个函数：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th><strong>函数名</strong></th>
+<th><strong>函数效果</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>isnull()</code></td>
+<td>检查空值或缺失值</td>
+</tr>
+<tr>
+<td><code>notnull()</code></td>
+<td>检查空值或缺失值</td>
+</tr>
+<tr>
+<td><code>dropna()</code></td>
+<td>删除含有空值或缺失值的行或列</td>
+</tr>
+<tr>
+<td><code>fillna()</code></td>
+<td>填充空值或缺失值</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h5 id="0-1-1-isnull-和notnull"><a href="#0-1-1-isnull-和notnull" class="headerlink" title="0.1.1 isnull()和notnull()"></a>0.1.1 <code>isnull()</code>和<code>notnull()</code></h5><p><code>isnull()</code>和<code>notnull()</code>参数都是只有一个，表示检查空值对象，不同之处在于<code>isnull()</code>如果检测到<code>None</code>或<code>NaN</code>则标记为<code>True</code>而<code>notnull()</code>检测到<code>None</code>或<code>NaN</code>则标记为<code>False</code>，例如：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> numpy <span class="keyword">import</span> NaN</span><br><span class="line">data = pd.DataFrame(</span><br><span class="line">    [[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, NaN], [<span class="number">2</span>, <span class="number">4</span>, NaN, NaN], [NaN, NaN, NaN, NaN], [<span class="number">1</span>, <span class="number">2</span>, <span class="number">6</span>, <span class="number">7</span>]],</span><br><span class="line">    columns=[<span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'C'</span>, <span class="string">'D'</span>])</span><br><span class="line">print(data)</span><br><span class="line">print(pd.isnull(data))</span><br><span class="line">print(pd.notnull(data))</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line">       <span class="string">A</span>      <span class="string">B</span>      <span class="string">C</span>      <span class="string">D</span></span><br><span class="line"><span class="number">0</span>  <span class="literal">False</span>   <span class="literal">True</span>  <span class="literal">False</span>   <span class="literal">True</span></span><br><span class="line"><span class="number">1</span>  <span class="literal">False</span>  <span class="literal">False</span>  <span class="literal">False</span>   <span class="literal">True</span></span><br><span class="line"><span class="number">2</span>  <span class="literal">False</span>   <span class="literal">True</span>  <span class="literal">False</span>  <span class="literal">False</span></span><br><span class="line"><span class="number">3</span>   <span class="literal">True</span>  <span class="literal">False</span>  <span class="literal">False</span>   <span class="literal">True</span></span><br><span class="line">       <span class="string">A</span>      <span class="string">B</span>     <span class="string">C</span>      <span class="string">D</span></span><br><span class="line"><span class="number">0</span>   <span class="literal">True</span>  <span class="literal">False</span>  <span class="literal">True</span>  <span class="literal">False</span></span><br><span class="line"><span class="number">1</span>   <span class="literal">True</span>   <span class="literal">True</span>  <span class="literal">True</span>  <span class="literal">False</span></span><br><span class="line"><span class="number">2</span>   <span class="literal">True</span>  <span class="literal">False</span>  <span class="literal">True</span>   <span class="literal">True</span></span><br><span class="line"><span class="number">3</span>  <span class="literal">False</span>   <span class="literal">True</span>  <span class="literal">True</span>  <span class="literal">False</span></span><br></pre></td></tr></table></figure>
+<h5 id="0-1-2-dropna"><a href="#0-1-2-dropna" class="headerlink" title="0.1.2 dropna()"></a>0.1.2 <code>dropna()</code></h5><p>该方法作用是删除含有空值或缺失值的行或列。</p>
+<h6 id="语法："><a href="#语法：" class="headerlink" title="语法："></a>语法：</h6><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pandas.dropna(axis=<span class="number">0</span>,how=<span class="string">'any'</span>,thresh=<span class="literal">None</span>,subset=<span class="literal">None</span>,inplace=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>axis</code>:确定过滤行的行或列，默认为<code>0</code>。取值为<code>0</code>或<code>index</code>时删除包含缺失值或空值的行；取值为<code>1</code>或<code>columns</code>时删除包含缺失值或空值的列。</li>
+<li><code>how</code>:确定过滤的标准，默认为<code>any</code>,取值为<code>any</code>时，则存在<code>NaN</code>或<code>None</code>则删除该行或该列；取值为<code>all</code>时，则所有值都为<code>NaN</code>或<code>None</code>是才删除该行或该列。</li>
+<li><code>thresh</code>:表示有效数据的最小要求，如果传入了2，则是要求该行或该列至少有两个非<code>NaN</code>或<code>None</code>时将其保留。</li>
+<li><code>subset</code>:表示在特定子集中的寻找<code>NaN</code>或<code>None</code></li>
+<li><code>inplace</code>:表示是否在原数据上操作默认为<code>False</code>，如果设为<code>True</code>则在原数据操作，如果设为<code>False</code>则修改原数据的副本返回新的数据。</li>
+</ul>
+<h6 id="实例："><a href="#实例：" class="headerlink" title="实例："></a>实例：</h6><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> numpy <span class="keyword">import</span> NaN</span><br><span class="line">data = pd.DataFrame(</span><br><span class="line">    [[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, NaN], [<span class="number">2</span>, <span class="number">4</span>, NaN, NaN], [NaN, NaN, NaN, NaN], [<span class="number">1</span>, <span class="number">2</span>, <span class="number">6</span>, <span class="number">7</span>]],</span><br><span class="line">    columns=[<span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'C'</span>, <span class="string">'D'</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 默认参数</span></span><br><span class="line">print(data.dropna())</span><br><span class="line"></span><br><span class="line"><span class="comment"># 当一行/列全部都为NaN时删除该行/列</span></span><br><span class="line">print(<span class="string">"\n"</span>, data.dropna(how=<span class="string">'all'</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 直接对原始数据操作</span></span><br><span class="line">data.dropna(inplace=<span class="literal">True</span>)</span><br><span class="line">print(<span class="string">"\n修改后的数据为:\n"</span>, data)</span><br></pre></td></tr></table></figure>
+<p><strong>输出为：</strong></p>
+<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">     A    B    C    D</span><br><span class="line"><span class="number">3</span>  <span class="number">1.0</span>  <span class="number">2.0</span>  <span class="number">6.0</span>  <span class="number">7.0</span></span><br><span class="line"></span><br><span class="line">      A    B    C    D</span><br><span class="line"><span class="number">0</span>  <span class="number">1.0</span>  <span class="number">2.0</span>  <span class="number">3.0</span>  NaN</span><br><span class="line"><span class="number">1</span>  <span class="number">2.0</span>  <span class="number">4.0</span>  NaN  NaN</span><br><span class="line"><span class="number">3</span>  <span class="number">1.0</span>  <span class="number">2.0</span>  <span class="number">6.0</span>  <span class="number">7.0</span></span><br><span class="line"></span><br><span class="line">修改后的数据为:</span><br><span class="line">      A    B    C    D</span><br><span class="line"><span class="number">3</span>  <span class="number">1.0</span>  <span class="number">2.0</span>  <span class="number">6.0</span>  <span class="number">7.0</span></span><br></pre></td></tr></table></figure>
+<h5 id="0-1-3-fillna"><a href="#0-1-3-fillna" class="headerlink" title="0.1.3 fillna()"></a>0.1.3 <code>fillna()</code></h5><p>该方法可实现空值或缺失值的填充。</p>
+<h6 id="语法：-1"><a href="#语法：-1" class="headerlink" title="语法："></a>语法：</h6><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pandas.fillna(value=<span class="literal">None</span>,methon=<span class="literal">None</span>,axis=<span class="literal">None</span>,inplace=<span class="literal">False</span>,limit=<span class="literal">None</span>,downcast=<span class="literal">None</span>,**kwargs)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>value</code>:用于填充的数值</li>
+<li><code>methon</code>：表示填充方式，默认为<code>None</code>另外支持一下取值<ul>
+<li><code>pad/ffill</code>:将最后一个有效数据向后传播，也就是说用缺失值前面的一个值代替缺失值。</li>
+<li><code>backfill/bfill</code>:将最后一个有效值向前传播，也就是说用缺失值后面的一个值代替缺失值。</li>
+</ul>
+</li>
+<li><code>limit</code>:可以连续填充的最大数据量，默认为<code>None</code></li>
+</ul>
+<blockquote>
+<p><strong>注意：</strong><code>method</code>和<code>value</code>参数不能同时使用。</p>
+</blockquote>
+<h6 id="实例：-1"><a href="#实例：-1" class="headerlink" title="实例："></a>实例：</h6><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> numpy <span class="keyword">import</span> NaN</span><br><span class="line">data = pd.DataFrame(</span><br><span class="line">    [[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, NaN], [<span class="number">2</span>, <span class="number">4</span>, NaN, NaN], [NaN, NaN, NaN, NaN], [<span class="number">1</span>, <span class="number">2</span>, <span class="number">6</span>, <span class="number">7</span>]],</span><br><span class="line">    columns=[<span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'C'</span>, <span class="string">'D'</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 常数填充缺失值</span></span><br><span class="line">print(<span class="string">"用常数6填充缺失值:\n"</span>, data.fillna(value=<span class="string">"6"</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 向下填充缺失值（前向填充)</span></span><br><span class="line">print(<span class="string">"\n前向填充缺失值:\n"</span>, data.fillna(method=<span class="string">"ffill"</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 指定列填充缺失值</span></span><br><span class="line">print(<span class="string">"\n用常数10填充A列缺失值，用常数20填充B列缺失值:\n"</span>, data.fillna(&#123;<span class="string">'A'</span>: <span class="number">10</span>, <span class="string">'B'</span>: <span class="number">20</span>&#125;))</span><br></pre></td></tr></table></figure>
+<p>输出为：</p>
+<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">用常数<span class="number">6</span>填充缺失值:</span><br><span class="line">    A  B  C  D</span><br><span class="line"><span class="number">0</span>  <span class="number">1</span>  <span class="number">2</span>  <span class="number">3</span>  <span class="number">6</span></span><br><span class="line"><span class="number">1</span>  <span class="number">2</span>  <span class="number">4</span>  <span class="number">6</span>  <span class="number">6</span></span><br><span class="line"><span class="number">2</span>  <span class="number">6</span>  <span class="number">6</span>  <span class="number">6</span>  <span class="number">6</span></span><br><span class="line"><span class="number">3</span>  <span class="number">1</span>  <span class="number">2</span>  <span class="number">6</span>  <span class="number">7</span></span><br><span class="line"></span><br><span class="line">前向填充缺失值:</span><br><span class="line">      A    B    C    D</span><br><span class="line"><span class="number">0</span>  <span class="number">1.0</span>  <span class="number">2.0</span>  <span class="number">3.0</span>  NaN</span><br><span class="line"><span class="number">1</span>  <span class="number">2.0</span>  <span class="number">4.0</span>  <span class="number">3.0</span>  NaN</span><br><span class="line"><span class="number">2</span>  <span class="number">2.0</span>  <span class="number">4.0</span>  <span class="number">3.0</span>  NaN</span><br><span class="line"><span class="number">3</span>  <span class="number">1.0</span>  <span class="number">2.0</span>  <span class="number">6.0</span>  <span class="number">7.0</span></span><br><span class="line"></span><br><span class="line">用常数<span class="number">10</span>填充A列缺失值，用常数<span class="number">20</span>填充B列缺失值:</span><br><span class="line">       A     B    C    D</span><br><span class="line"><span class="number">0</span>   <span class="number">1.0</span>   <span class="number">2.0</span>  <span class="number">3.0</span>  NaN</span><br><span class="line"><span class="number">1</span>   <span class="number">2.0</span>   <span class="number">4.0</span>  NaN  NaN</span><br><span class="line"><span class="number">2</span>  <span class="number">10.0</span>  <span class="number">20.0</span>  NaN  NaN</span><br><span class="line"><span class="number">3</span>   <span class="number">1.0</span>   <span class="number">2.0</span>  <span class="number">6.0</span>  <span class="number">7.0</span></span><br></pre></td></tr></table></figure>
+<h4 id="0-2-重复值的处理"><a href="#0-2-重复值的处理" class="headerlink" title="0.2 重复值的处理"></a>0.2 重复值的处理</h4><p>当数据中出现了重复值，大多数情况需要删除，例如下表中:</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th></th>
+<th><strong>id</strong></th>
+<th><strong>name</strong></th>
+<th><strong>height</strong></th>
+<th><strong>sex</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>zz</td>
+<td>160</td>
+<td>男</td>
+</tr>
+<tr>
+<td>1</td>
+<td>2</td>
+<td>yxy</td>
+<td>160</td>
+<td>男</td>
+</tr>
+<tr>
+<td>2</td>
+<td>3</td>
+<td>zxy</td>
+<td>170</td>
+<td>女</td>
+</tr>
+<tr>
+<td>3</td>
+<td>4</td>
+<td>wcc</td>
+<td>170</td>
+<td>男</td>
+</tr>
+<tr>
+<td>4</td>
+<td>4</td>
+<td>wcc</td>
+<td>170</td>
+<td>男</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>显然索引为<code>3</code>和<code>4</code>的数据完全相同需要进行删除，对于重复值的处理，Pandas提供了以下两个函数:</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th><strong>函数</strong></th>
+<th><strong>函数效果</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>duplicated()</code></td>
+<td>标记是否有重复值</td>
+</tr>
+<tr>
+<td><code>drop_duplicates()</code></td>
+<td>删除重复值</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h5 id="0-2-1-duplicated-重复值标记函数"><a href="#0-2-1-duplicated-重复值标记函数" class="headerlink" title="0.2.1 duplicated()重复值标记函数"></a>0.2.1 <code>duplicated()</code>重复值标记函数</h5><h6 id="语法"><a href="#语法" class="headerlink" title="语法:"></a>语法:</h6><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">duplicated(subset=<span class="literal">None</span>,keep=<span class="string">'first'</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>subset</code>:用于识别重复的列标签或列标签序列，默认识别所有列标签。</li>
+<li><code>keep</code>:删除重复值并保留第一次出现的项，取值如下：<ul>
+<li><code>first</code>:从前向后查找，除了第一次出现的项其余相同的均标记为重复。（默认值）</li>
+<li><code>last</code>:从后往前查找，除了最后一次出现的项其余相同的均标记为重复。</li>
+<li><code>False</code>:所有相同的标记均标记为重复。</li>
+</ul>
+</li>
+</ul>
+<h6 id="实例：-2"><a href="#实例：-2" class="headerlink" title="实例："></a>实例：</h6><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">data = pd.DataFrame(</span><br><span class="line">    [[<span class="number">1</span>, <span class="string">'zz'</span>, <span class="number">160</span>, <span class="string">'男'</span>], [<span class="number">2</span>, <span class="string">'yxy'</span>, <span class="number">160</span>, <span class="string">'男'</span>], [<span class="number">3</span>, <span class="string">'zxy'</span>, <span class="number">170</span>, <span class="string">'女'</span>],</span><br><span class="line">     [<span class="number">4</span>, <span class="string">'wcc'</span>, <span class="number">170</span>, <span class="string">'男'</span>], [<span class="number">4</span>, <span class="string">'wcc'</span>, <span class="number">170</span>, <span class="string">'男'</span>]],</span><br><span class="line">    columns=[<span class="string">'id'</span>, <span class="string">'name'</span>, <span class="string">'height'</span>, <span class="string">'sex'</span>])</span><br><span class="line">data_p = pd.DataFrame([</span><br><span class="line">    data.duplicated(),</span><br><span class="line">    data.duplicated(keep=<span class="string">"last"</span>),</span><br><span class="line">    data.duplicated([<span class="string">'height'</span>])</span><br><span class="line">],</span><br><span class="line">                      index=[<span class="string">'无参数'</span>, <span class="string">'从后向前查找'</span>, <span class="string">'指定height列'</span>])</span><br><span class="line">print(data_p)</span><br></pre></td></tr></table></figure>
+<p>输出为:</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line">               <span class="number">0</span>      <span class="number">1</span>      <span class="number">2</span>      <span class="number">3</span>      <span class="number">4</span></span><br><span class="line"><span class="string">无参数</span>        <span class="literal">False</span>  <span class="literal">False</span>  <span class="literal">False</span>  <span class="literal">False</span>   <span class="literal">True</span></span><br><span class="line"><span class="string">从后向前查找</span>     <span class="literal">False</span>  <span class="literal">False</span>  <span class="literal">False</span>   <span class="literal">True</span>  <span class="literal">False</span></span><br><span class="line"><span class="string">指定height列</span>  <span class="literal">False</span>   <span class="literal">True</span>  <span class="literal">False</span>   <span class="literal">True</span>   <span class="literal">True</span></span><br></pre></td></tr></table></figure>
+<h5 id="0-2-2-drop-duplicates-重复值删除函数"><a href="#0-2-2-drop-duplicates-重复值删除函数" class="headerlink" title="0.2.2 drop_duplicates()重复值删除函数"></a>0.2.2 <code>drop_duplicates()</code>重复值删除函数</h5><h6 id="语法：-2"><a href="#语法：-2" class="headerlink" title="语法："></a>语法：</h6><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">drop_duplicates(subset=<span class="literal">None</span>,keep=<span class="string">"first"</span>,inplace=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+<h6 id="实例：-3"><a href="#实例：-3" class="headerlink" title="实例："></a>实例：</h6><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">data = pd.DataFrame(</span><br><span class="line">    [[<span class="number">1</span>, <span class="string">'zz'</span>, <span class="number">160</span>, <span class="string">'男'</span>], [<span class="number">2</span>, <span class="string">'yxy'</span>, <span class="number">160</span>, <span class="string">'男'</span>], [<span class="number">3</span>, <span class="string">'zxy'</span>, <span class="number">170</span>, <span class="string">'女'</span>],</span><br><span class="line">     [<span class="number">4</span>, <span class="string">'wcc'</span>, <span class="number">170</span>, <span class="string">'男'</span>], [<span class="number">4</span>, <span class="string">'wcc'</span>, <span class="number">170</span>, <span class="string">'男'</span>]],</span><br><span class="line">    columns=[<span class="string">'id'</span>, <span class="string">'name'</span>, <span class="string">'height'</span>, <span class="string">'sex'</span>])</span><br><span class="line">print(data.drop_duplicates())</span><br></pre></td></tr></table></figure>
+<p>输出为：</p>
+<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">   id name  height sex</span><br><span class="line"><span class="number">0</span>   <span class="number">1</span>   zz     <span class="number">160</span>   男</span><br><span class="line"><span class="number">1</span>   <span class="number">2</span>  yxy     <span class="number">160</span>   男</span><br><span class="line"><span class="number">2</span>   <span class="number">3</span>  zxy     <span class="number">170</span>   女</span><br><span class="line"><span class="number">3</span>   <span class="number">4</span>  wcc     <span class="number">170</span>   男</span><br></pre></td></tr></table></figure>
+<h4 id="0-3-异常值的处理"><a href="#0-3-异常值的处理" class="headerlink" title="0.3 异常值的处理"></a>0.3 异常值的处理</h4><p>异常值指的是样本中的个别值，其数值明显偏离它所属样本的其余观测值：</p>
+<p><img src="https://gitee.com/Vxiaozhe1998/Pic/raw/master/img/20200423003202.png" alt="异常值"></p>
+<p>如图，蓝色圈出来的点明显高于其他值。对于异常值的检测通常使用<code>3σ原则(拉依达准则)</code>或<code>箱型图</code>检测。</p>
+<h5 id="0-3-1-基于3σ原则检测异常值"><a href="#0-3-1-基于3σ原则检测异常值" class="headerlink" title="0.3.1 基于3σ原则检测异常值"></a>0.3.1 基于<code>3σ原则</code>检测异常值</h5><p>3σ原则又称拉依达原则，它是指假设一组检测数据中只含有随机误差，对其进行计算处理得到标准偏差，按一定概率确定一个区间，凡是超过这个区间的误差都是粗大误差，在此误差范围内的数据应予以剔除，在正态分布概率公式中，<em><code>σ</code></em>表示标准差，<em><code>μ</code></em>表示平均数,<em><code>f(x)</code></em>表示正态分布函数，表达式如下:</p>
+<script type="math/tex; mode=display">
+f(x)=\frac{1}{\sqrt{2\pi\sigma}}e^{(-\frac{(x-\mu)^2}{2\sigma^2})}</script><p>其中正态函数的分布函数图如下所示：</p>
+<p><img src="https://gitee.com/Vxiaozhe1998/Pic/raw/master/img/20200423005435.png" alt="正态函数"></p>
+<ul>
+<li>数值分布在（<em><code>μ-σ</code></em>，<em><code>μ+σ</code></em>）中的概率为68.27%</li>
+<li>数值分布在（<em><code>μ-2σ</code></em>，<em><code>μ+2σ</code></em>）中的概率为95.44%</li>
+<li>数值分布在（<em><code>μ-3σ</code></em>，<em><code>μ+3σ</code></em>）中的概率为99.70%</li>
+</ul>
+<p>通过<em><code>3σ</code></em>原则，可以定义如下函数：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># ser1表示传入DataFrame的某一列</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">three_sigma</span><span class="params">(ser1)</span>:</span></span><br><span class="line">    <span class="comment"># 求平均值</span></span><br><span class="line">    mean_value = ser1.mean()</span><br><span class="line">    <span class="comment"># 求标准差</span></span><br><span class="line">    std_value = ser1.std()</span><br><span class="line">    <span class="comment"># 位于(μ-3σ,μ+3σ)区间内的数据是正常的，不在该区间的数据是异常的</span></span><br><span class="line">    <span class="comment"># ser1中的数值小于μ-3σ或大于μ+3σ均为异常值</span></span><br><span class="line">    <span class="comment"># 一旦发现异常值就标注为True，否则标注为False</span></span><br><span class="line">    rule = (mean_value - <span class="number">3</span> * std_value &gt; ser1) | (mean_value + <span class="number">3</span> * std_value &lt; ser1)</span><br><span class="line">    <span class="comment"># 返回异常值的位置索引</span></span><br><span class="line">    index = np.arange(ser1.shape[<span class="number">0</span>])[rule]</span><br><span class="line">    <span class="comment"># 获取异常数据</span></span><br><span class="line">    outrange = ser1.iloc[index]</span><br><span class="line">    <span class="keyword">return</span>(outrange)</span><br></pre></td></tr></table></figure>
+<p>对于一组数据例如：<code>1,2,3,4,5,1000,2,3,4,5,3,8,23,12,66</code>，通过<code>3σ原则</code>来进行检测：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">data = pd.DataFrame(&#123;<span class="string">"A"</span>: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">1000</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">3</span>, <span class="number">8</span>, <span class="number">23</span>, <span class="number">12</span>, <span class="number">66</span>]&#125;)</span><br><span class="line">print(three_sigma(data[<span class="string">'A'</span>]))</span><br></pre></td></tr></table></figure>
+<p>检测结果为：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="number">5</span>    <span class="number">1000</span></span><br><span class="line"><span class="attr">Name:</span> <span class="string">A,</span> <span class="attr">dtype:</span> <span class="string">int64</span></span><br></pre></td></tr></table></figure>
+<h5 id="0-3-2-基于箱型图检测异常值"><a href="#0-3-2-基于箱型图检测异常值" class="headerlink" title="0.3.2 基于箱型图检测异常值"></a>0.3.2 基于箱型图检测异常值</h5><p>箱型图是一种用作显示一组数据分散情况的统计图，在箱型图中，异常值被定义为小于Q<sub>l</sub>-1.5IQR或大于Q<sub>u</sub>+1.5IQR的值。其中：</p>
+<ul>
+<li>Q<sub>l</sub>称为下四分位数，表示全部观察值中有四分之一的数据取值比他小</li>
+<li>Q<sub>u</sub>称为上四分位数，表示全部观察值中有四分之一的数据取值比他大</li>
+<li>IQR称为四分位数的间距，是上四分位数Q<sub>u</sub>与下四分位数Q<sub>l</sub>之差，其间包含了全部观察值的一半。</li>
+</ul>
+<p><img src="https://gitee.com/Vxiaozhe1998/Pic/raw/master/img/20200426104631.png" alt="箱型图"></p>
+<blockquote>
+<p>离散点表示的是<strong>异常值</strong>，上界表示除异常值以外数据中最大值；下界表示除异常值以外数据中最小值。</p>
+</blockquote>
+<p>箱型图根据实际的数据进行绘制，对数据没有任何要求，箱型图判断异常值的标准是以四分位数和四分位距为基础。在Pandas中提供了一个<code>boxplot()</code>方法用于绘制箱型图：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">data = pd.DataFrame(&#123;</span><br><span class="line">    <span class="string">'A'</span>: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>],</span><br><span class="line">    <span class="string">'B'</span>: [<span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">2</span>],</span><br><span class="line">    <span class="string">'C'</span>: [<span class="number">1</span>, <span class="number">4</span>, <span class="number">7</span>, <span class="number">4</span>],</span><br><span class="line">    <span class="string">'D'</span>: [<span class="number">1</span>, <span class="number">5</span>, <span class="number">30</span>, <span class="number">3</span>]</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">data.boxplot(column=[<span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'C'</span>, <span class="string">'D'</span>])</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/Vxiaozhe1998/Pic/raw/master/img/20200427115734.png" alt="output"></p>
+<blockquote>
+<p>使用<code>vscode</code>或<code>pycharm</code>进行可视化需要使用绘图库，如果需要直接显示可以通过使用<code>Jupyter</code>进行快速编辑，安装教程如下:</p>
+<ul>
+<li><a href="https://www.jianshu.com/p/91365f343585" target="_blank" rel="noopener">Jupyter Notebook介绍、安装及使用教程</a></li>
+</ul>
+<p>通过在<code>Jupyter</code>中输入:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">data = pd.DataFrame(&#123;</span><br><span class="line">    <span class="string">'A'</span>: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>],</span><br><span class="line">    <span class="string">'B'</span>: [<span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">2</span>],</span><br><span class="line">    <span class="string">'C'</span>: [<span class="number">1</span>, <span class="number">4</span>, <span class="number">7</span>, <span class="number">4</span>],</span><br><span class="line">    <span class="string">'D'</span>: [<span class="number">1</span>, <span class="number">5</span>, <span class="number">30</span>, <span class="number">3</span>]</span><br><span class="line">&#125;)</span><br><span class="line">data.boxplot(column=[<span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'C'</span>, <span class="string">'D'</span>])</span><br></pre></td></tr></table></figure>
+<p>即可达到实时显示的目的：</p>
+<p><img src="https://gitee.com/Vxiaozhe1998/Pic/raw/master/img/20200427181516.png" alt="Jupyter"></p>
+</blockquote>
+<p>可以看出根据检出结果异常值被检测出，对于异常值，通常会使用以下四种方式处理异常值：</p>
+<ul>
+<li>删除异常值记录</li>
+<li>使用具体值进行替换，例如使用前后两个观测值的平均值进行修正</li>
+<li>不处理，直接在具有异常值的数据集中统计分析</li>
+<li>视为缺失值，利用缺失值的处理方法修正异常值</li>
+</ul>
+<p>如果需要对异常值进行替换，可以使用<code>replace()</code>函数。</p>
+<h6 id="replace"><a href="#replace" class="headerlink" title="replace()"></a><code>replace()</code></h6><p><strong>函数语法：</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">replace(to_replace=<span class="literal">None</span>,value=<span class="literal">None</span>,inplace=<span class="literal">False</span>,limit=<span class="literal">None</span>,regex=<span class="literal">False</span>,method=<span class="string">'pad'</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>to_replace</code>:表示查找被替换的方式</li>
+<li><code>value</code>:用来替换任何匹配<code>to_replace</code>的值，默认为<code>None</code></li>
+<li><code>limit</code>:表示前向或后向填充的最大尺寸间隙</li>
+<li><code>regex</code>:接收布尔值或与<code>to_replace</code>相同的类型，默认为<code>False</code>，表示是否将<code>to_replace</code>和<code>value</code>解释为正则表达式。</li>
+</ul>
+<p><strong>实例：</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">data = pd.DataFrame(&#123;</span><br><span class="line">    <span class="string">'A'</span>: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>],</span><br><span class="line">    <span class="string">'B'</span>: [<span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">2</span>],</span><br><span class="line">    <span class="string">'C'</span>: [<span class="number">1</span>, <span class="number">4</span>, <span class="number">7</span>, <span class="number">4</span>],</span><br><span class="line">    <span class="string">'D'</span>: [<span class="number">1</span>, <span class="number">5</span>, <span class="number">30</span>, <span class="number">3</span>]</span><br><span class="line">&#125;)</span><br><span class="line">data.replace(to_replace=<span class="number">30</span>, value=<span class="number">3</span>, inplace=<span class="literal">True</span>)</span><br><span class="line">print(data)</span><br></pre></td></tr></table></figure>
+<p>通过<code>replace</code>方法将<code>data</code>中的异常值<code>30</code>直接在原数据集中替换为<code>3</code>，注意，<code>replace()</code>方法中的<code>to_replace</code>参数的传入值也可为列表<code>list</code></p>
+<p><strong>输出：</strong></p>
+<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">   A  B  C  D</span><br><span class="line"><span class="number">0</span>  <span class="number">1</span>  <span class="number">2</span>  <span class="number">1</span>  <span class="number">1</span></span><br><span class="line"><span class="number">1</span>  <span class="number">2</span>  <span class="number">3</span>  <span class="number">4</span>  <span class="number">5</span></span><br><span class="line"><span class="number">2</span>  <span class="number">3</span>  <span class="number">5</span>  <span class="number">7</span>  <span class="number">3</span></span><br><span class="line"><span class="number">3</span>  <span class="number">4</span>  <span class="number">2</span>  <span class="number">4</span>  <span class="number">3</span></span><br></pre></td></tr></table></figure>
+<h4 id="0-4-更改数据类型"><a href="#0-4-更改数据类型" class="headerlink" title="0.4 更改数据类型"></a>0.4 更改数据类型</h4><p>在处理数据时可能会遇到数据类型不一致的问题，对于数据类型的统一有如下三种方式：</p>
+<ul>
+<li>创建时指定数据类型</li>
+<li><code>astype()</code>方法</li>
+<li><code>numberic()</code>方法</li>
+</ul>
+<h5 id="0-4-1-创建时指定数据类型"><a href="#0-4-1-创建时指定数据类型" class="headerlink" title="0.4.1 创建时指定数据类型"></a>0.4.1 创建时指定数据类型</h5><p>使用<code>dtype</code>参数，例如：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">data = pd.DataFrame(&#123;<span class="string">"A"</span>: [<span class="string">'1'</span>, <span class="string">'2'</span>, <span class="string">'3'</span>], <span class="string">"B"</span>: [<span class="string">'4'</span>, <span class="string">'5'</span>, <span class="string">'6'</span>]&#125;, dtype=<span class="string">'int'</span>)</span><br><span class="line">print(data.dtypes)</span><br></pre></td></tr></table></figure>
+<p>可以看出输入的对象是字符型，但是通过指定<code>dtype</code>最终的对象为<code>int</code>型。</p>
+<figure class="highlight nimrod"><table><tr><td class="code"><pre><span class="line">A    <span class="built_in">int32</span></span><br><span class="line">B    <span class="built_in">int32</span></span><br><span class="line">dtype: <span class="keyword">object</span></span><br></pre></td></tr></table></figure>
+<h5 id="0-4-2-astype-方法"><a href="#0-4-2-astype-方法" class="headerlink" title="0.4.2 astype()方法"></a>0.4.2 <code>astype()</code>方法</h5><h6 id="语法：-3"><a href="#语法：-3" class="headerlink" title="语法："></a>语法：</h6><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">astype(dtype,copy=<span class="literal">True</span>,errors=<span class="string">'raise'</span>,** kwargs)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>dtype</code>:数据类型</li>
+<li><code>copy</code>:是否建立副本，默认为<code>True</code></li>
+<li><code>errors</code>:错误采取的处理方式，默认为<code>raise</code>（允许引发异常），还可以设置为<code>ignore</code>(抑制异常)</li>
+</ul>
+<h6 id="实例：-4"><a href="#实例：-4" class="headerlink" title="实例："></a>实例：</h6><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">data = pd.DataFrame(&#123;<span class="string">"A"</span>: [<span class="string">'1.1'</span>, <span class="string">'2.2'</span>, <span class="string">'3'</span>], <span class="string">"B"</span>: [<span class="string">'4'</span>, <span class="string">'5'</span>, <span class="string">'6'</span>]&#125;, dtype=<span class="string">'float'</span>)</span><br><span class="line">print(data.dtypes)</span><br><span class="line">print(data[<span class="string">'A'</span>].astype(dtype=<span class="string">'int'</span>))</span><br></pre></td></tr></table></figure>
+<h6 id="输出："><a href="#输出：" class="headerlink" title="输出："></a>输出：</h6><figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">A    <span class="built_in">float</span>64</span><br><span class="line">B    <span class="built_in">float</span>64</span><br><span class="line">dtype: object</span><br><span class="line"><span class="number">0</span>    <span class="number">1</span></span><br><span class="line"><span class="number">1</span>    <span class="number">2</span></span><br><span class="line"><span class="number">2</span>    <span class="number">3</span></span><br><span class="line">Name: A, dtype: <span class="built_in">int</span>32</span><br></pre></td></tr></table></figure>
+<h5 id="0-4-3-to-numeric"><a href="#0-4-3-to-numeric" class="headerlink" title="0.4.3 to_numeric()"></a>0.4.3 <code>to_numeric()</code></h5><p><code>astype()</code>方法存在局限性，通过<code>to_numeric()</code>函数可以将传入参数转换为数值类型。</p>
+<h6 id="语法：-4"><a href="#语法：-4" class="headerlink" title="语法："></a>语法：</h6><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pandas.to_numeric(arg,error=<span class="string">'raise'</span>,downcast=<span class="literal">None</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>arg</code>:表示要转换的数据，可以是<code>list</code>,<code>tuple</code>,<code>Series</code></li>
+<li><code>errors</code>:错误采取的处理方式</li>
+</ul>
+<blockquote>
+<p><code>to_numeric</code>函数无法直接操作<code>DataFrame</code>对象</p>
+</blockquote>
+<h6 id="实例：-5"><a href="#实例：-5" class="headerlink" title="实例："></a>实例：</h6><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">data = pd.Series([<span class="string">'1'</span>, <span class="string">'1.2'</span>, <span class="string">'3'</span>])</span><br><span class="line">print(pd.to_numeric(data).dtypes)</span><br></pre></td></tr></table></figure>
+<h6 id="输出"><a href="#输出" class="headerlink" title="输出:"></a>输出:</h6><figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">float</span>64</span><br></pre></td></tr></table></figure>
+<h3 id="1-数据合并"><a href="#1-数据合并" class="headerlink" title="1. 数据合并"></a>1. 数据合并</h3><h4 id="1-1-轴向堆叠数据"><a href="#1-1-轴向堆叠数据" class="headerlink" title="1.1 轴向堆叠数据"></a>1.1 轴向堆叠数据</h4><p>通过使用<code>concat()</code>函数可以沿着一条轴对多个对象进行堆叠，语法格式为:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pandas.concat(objs,axis=<span class="number">0</span>,join=<span class="string">'outer'</span>,join_axes=<span class="literal">None</span>,ignore_index=<span class="literal">False</span>,keys=<span class="literal">None</span>,levels=<span class="literal">None</span>,names=<span class="literal">None</span>,verify_integrity=<span class="literal">False</span>,sort=<span class="literal">None</span>,copy=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>axis</code>:表示连接的轴向，默认为0，还可以设置为1</li>
+<li><code>join</code>:表示连接方式，<code>inner</code>表示内连接，<code>outer</code>表示外连接，默认外连接</li>
+<li><code>ignore_index</code>:接收布尔值，默认为<code>False</code>，如果设置为<code>True</code>，则表示清除现有索引并重置索引值</li>
+<li><code>keys</code>:接收序列，表示添加最外层索引</li>
+<li><code>levels</code>:用于构建<code>MultiIndex</code>的特定级别（唯一）</li>
+<li><code>names</code>:在设置了<code>keys</code>和<code>level</code>参数后，用于创建分层级别的名称</li>
+<li><code>verify_integerity</code>:检查新的连接轴是否包含重复值。接收布尔值，当设置为<code>True</code>时，如果有重复的轴将会抛出错误，默认为<code>False</code></li>
+</ul>
+<h5 id="1-1-1-横向堆叠、纵向堆叠、内连接、外连接"><a href="#1-1-1-横向堆叠、纵向堆叠、内连接、外连接" class="headerlink" title="1.1.1 横向堆叠、纵向堆叠、内连接、外连接"></a>1.1.1 横向堆叠、纵向堆叠、内连接、外连接</h5><p><img src="https://gitee.com/Vxiaozhe1998/Pic/raw/master/img/20200428220405.png" alt="堆叠方式"></p>
+<p>横向堆叠以<code>行</code>为标准，相同名称的行保存为一行，而纵向堆叠以<code>列</code>为标准，相同名称的列保存为一列；内连接是将两个<code>DataFrame</code>对象中都有的列或行进行堆叠连接，而外连接是将两个<code>DataFrame</code>对象所有的列和行进行堆叠连接。</p>
+<blockquote>
+<p>横向堆叠默认不考虑列索引而纵向堆叠默认不考虑行索引，缺失值使用<code>NaN</code>填充</p>
+</blockquote>
+<h6 id="实例：-6"><a href="#实例：-6" class="headerlink" title="实例："></a>实例：</h6><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">data1 = pd.DataFrame(</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">"A"</span>: [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>],</span><br><span class="line">        <span class="string">"B"</span>: [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>],</span><br><span class="line">        <span class="string">"C"</span>: [<span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>, <span class="number">11</span>]</span><br><span class="line">    &#125;, dtype=int)</span><br><span class="line">data2 = pd.DataFrame(&#123;</span><br><span class="line">    <span class="string">"B"</span>: [<span class="number">12</span>, <span class="number">13</span>, <span class="number">14</span>],</span><br><span class="line">    <span class="string">"C"</span>: [<span class="number">15</span>, <span class="number">16</span>, <span class="number">17</span>],</span><br><span class="line">    <span class="string">"D"</span>: [<span class="number">18</span>, <span class="number">19</span>, <span class="number">20</span>]</span><br><span class="line">&#125;,</span><br><span class="line">                     dtype=int)</span><br><span class="line"><span class="comment"># 纵向外连接</span></span><br><span class="line">data3 = pd.concat([data1, data2], join=<span class="string">'outer'</span>, axis=<span class="number">0</span>)</span><br><span class="line">print(data3)</span><br></pre></td></tr></table></figure>
+<h6 id="输出-1"><a href="#输出-1" class="headerlink" title="输出:"></a>输出:</h6><figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">     A   B   C     D</span><br><span class="line"><span class="number">0</span>  <span class="number">0.0</span>   <span class="number">4</span>   <span class="number">8</span>   NaN</span><br><span class="line"><span class="number">1</span>  <span class="number">1.0</span>   <span class="number">5</span>   <span class="number">9</span>   NaN</span><br><span class="line"><span class="number">2</span>  <span class="number">2.0</span>   <span class="number">6</span>  <span class="number">10</span>   NaN</span><br><span class="line"><span class="number">3</span>  <span class="number">3.0</span>   <span class="number">7</span>  <span class="number">11</span>   NaN</span><br><span class="line"><span class="number">0</span>  NaN  <span class="number">12</span>  <span class="number">15</span>  <span class="number">18.0</span></span><br><span class="line"><span class="number">1</span>  NaN  <span class="number">13</span>  <span class="number">16</span>  <span class="number">19.0</span></span><br><span class="line"><span class="number">2</span>  NaN  <span class="number">14</span>  <span class="number">17</span>  <span class="number">20.0</span></span><br></pre></td></tr></table></figure>
+<h4 id="1-2-主键合并数据"><a href="#1-2-主键合并数据" class="headerlink" title="1.2 主键合并数据"></a>1.2 主键合并数据</h4><p>主键合并类似于关系型数据库，根据一个或多个键将不同的<code>DataFrame</code>对象连接起来，大多数是将两个<code>DataFrame</code>对象中重叠的列作为合并的键，Pandas中提供了用于主键合并的<code>merge()</code>函数，语法为：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pandas.merge(left,right,how=<span class="string">'inner'</span>,on=<span class="literal">None</span>,left_on=<span class="literal">None</span>,right_on=<span class="literal">None</span>,left_index=<span class="literal">False</span>,right_index=<span class="literal">False</span>,sort=<span class="literal">False</span>,suffixes=(<span class="string">'_x'</span>,<span class="string">'_y'</span>),copy=<span class="literal">True</span>,indicator=<span class="literal">False</span>,validate=<span class="literal">None</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>left</code>:参与合并的左侧<code>DataFrame</code>对象</li>
+<li><code>right</code>:参与合并的右侧<code>DataFrame</code>对象</li>
+<li><code>how</code>:表示连接方式，默认为<code>inner</code>，该参数还支持如下取值:<ul>
+<li><code>left</code>:使用左侧的<code>DataFrame</code>的键，类似SQL的左外连接</li>
+<li><code>right</code>:使用右侧的<code>DataFrame</code>的键，类似SQL的右外连接</li>
+<li><code>outer</code>:使用两个<code>DataFrame</code>所有的键，类似于SQL全连接</li>
+<li><code>inner</code>:使用两个<code>DataFrame</code>键的交集，类似于SQL内连接</li>
+</ul>
+</li>
+<li><code>on</code>:用于连接的列名，必须存在于两个<code>DataFrame</code>对象中</li>
+<li><code>left_on</code>:以左侧<code>DataFrame</code>作为连接键</li>
+<li><code>right_on</code>:以右侧<code>DataFrame</code>作为连接键</li>
+<li><code>left_index</code>:左侧的行索引用作连接键</li>
+<li><code>right_index</code>:右侧的行索引用作连接键</li>
+<li><code>sort</code>:是否排序，接收布尔值，默认为<code>False</code></li>
+<li><code>suffixes</code>:用于追加到重叠列名的末尾，默认为<code>(_x,_y)</code></li>
+</ul>
+<blockquote>
+<p>在使用<code>merge()</code>函数进行合并时默认使用重叠的列索引作为合并键，并采用内连接的方式合并数据。</p>
+</blockquote>
+<h5 id="1-2-1-通过主键合并"><a href="#1-2-1-通过主键合并" class="headerlink" title="1.2.1 通过主键合并"></a>1.2.1 通过主键合并</h5><p><img src="https://gitee.com/Vxiaozhe1998/Pic/raw/master/img/20200428214055.png" alt="通过主键合并"></p>
+<p>针对同一个主键存在两张不同字段的表，根据主键整合到一张表里面，例如上图中左侧两张表均有索引为<code>key</code>的一列数据，两表通过<code>key</code>列合并为一个表。即：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">top = pd.DataFrame(&#123;<span class="string">"key"</span>: [<span class="string">'k0'</span>, <span class="string">'k3'</span>, <span class="string">'k4'</span>], <span class="string">"A"</span>: [<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>], <span class="string">"B"</span>: [<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>]&#125;)</span><br><span class="line">bottom = pd.DataFrame(&#123;</span><br><span class="line">    <span class="string">"key"</span>: [<span class="string">'k0'</span>, <span class="string">'k2'</span>, <span class="string">'k3'</span>],</span><br><span class="line">    <span class="string">"C"</span>: [<span class="number">7</span>, <span class="number">9</span>, <span class="number">11</span>],</span><br><span class="line">    <span class="string">"D"</span>: [<span class="number">8</span>, <span class="number">10</span>, <span class="number">12</span>]</span><br><span class="line">&#125;)</span><br><span class="line">print(pd.merge(top, bottom, on=<span class="string">"key"</span>))</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight lsl"><table><tr><td class="code"><pre><span class="line">  <span class="type">key</span>  A  B   C   D</span><br><span class="line"><span class="number">0</span>  k0  <span class="number">1</span>  <span class="number">2</span>   <span class="number">7</span>   <span class="number">8</span></span><br><span class="line"><span class="number">1</span>  k3  <span class="number">3</span>  <span class="number">4</span>  <span class="number">11</span>  <span class="number">12</span></span><br></pre></td></tr></table></figure>
+<h5 id="1-2-2-多个主键合并"><a href="#1-2-2-多个主键合并" class="headerlink" title="1.2.2 多个主键合并"></a>1.2.2 多个主键合并</h5><p><img src="https://gitee.com/Vxiaozhe1998/Pic/raw/master/img/20200428215307.png" alt="多个主键合并"></p>
+<p>通过<code>merge()</code>函数可以对含有多个重叠列的<code>DataFrame</code>对象进行合并，例如上图中使用<code>key</code>和<code>B</code>作为合并键得到右侧合并结果：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">top = pd.DataFrame(&#123;<span class="string">"key"</span>: [<span class="string">'k0'</span>, <span class="string">'k3'</span>, <span class="string">'k4'</span>], <span class="string">"A"</span>: [<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>], <span class="string">"B"</span>: [<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>]&#125;)</span><br><span class="line">bottom = pd.DataFrame(&#123;</span><br><span class="line">    <span class="string">"key"</span>: [<span class="string">'k0'</span>, <span class="string">'k2'</span>, <span class="string">'k3'</span>],</span><br><span class="line">    <span class="string">"C"</span>: [<span class="number">7</span>, <span class="number">9</span>, <span class="number">11</span>],</span><br><span class="line">    <span class="string">"D"</span>: [<span class="number">8</span>, <span class="number">10</span>, <span class="number">12</span>],</span><br><span class="line">    <span class="string">"B"</span>: [<span class="number">2</span>, <span class="number">3</span>, <span class="number">1</span>]</span><br><span class="line">&#125;)</span><br><span class="line">print(pd.merge(top, bottom, on=[<span class="string">"key"</span>, <span class="string">"B"</span>]))</span><br></pre></td></tr></table></figure>
+<p>输出为：</p>
+<figure class="highlight lsl"><table><tr><td class="code"><pre><span class="line">  <span class="type">key</span>  A  B  C  D</span><br><span class="line"><span class="number">0</span>  k0  <span class="number">1</span>  <span class="number">2</span>  <span class="number">7</span>  <span class="number">8</span></span><br></pre></td></tr></table></figure>
+<div class="note primary no-icon"><p><strong><code>merge()</code>函数支持四种合并方式分别为<code>内连接(inner)</code>、<code>外连接(outer)</code>、<code>左连接(left)</code>、<code>右连接(right)</code>。函数中的<code>how</code>默认参数为<code>inner</code>，不同合并方式解释如下。</strong>(下列操作均针对于<code>key</code>为键值)</p>
+<p><img src="https://gitee.com/Vxiaozhe1998/Pic/raw/master/img/20200428231255.png" alt="连接方式"></p>
+<ul>
+<li><code>内连接(inner)</code>:匹配两个<code>DataFrame</code>对象中均有的键值并合并</li>
+<li><code>外连接(outer)</code>:合并两个<code>DataFrame</code>对象中所有的键值，缺失值用<code>NaN</code>填充</li>
+<li><code>左连接(left)</code>:以<code>merge</code>函数中第一个出现的<code>DataFrame</code>对象的指定键值为标准进行连接，第一个出现的<code>DataFrame</code>表中数据将会全部显示，而第二个出现的<code>DataFrame</code>对象只会显示与重叠数据行索引相同的数据，合并后缺失数据用<code>NaN</code>填充</li>
+<li><code>右连接(right)</code>:以<code>merge</code>函数中第二个出现的<code>DataFrame</code>对象的指定键值为标准进行连接，第二个出现的<code>DataFrame</code>表中数据将会全部显示，而第一个出现的<code>DataFrame</code>对象只会显示与重叠数据行索引相同的数据，合并后缺失数据用<code>NaN</code>填充</li>
+</ul>
+<h6 id="示例代码："><a href="#示例代码：" class="headerlink" title="示例代码："></a>示例代码：</h6><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">left = pd.DataFrame(&#123;</span><br><span class="line">    <span class="string">'key'</span>: [<span class="string">'K0'</span>, <span class="string">'K1'</span>, <span class="string">'K2'</span>],</span><br><span class="line">    <span class="string">'A'</span>: [<span class="string">'A0'</span>, <span class="string">'A1'</span>, <span class="string">'A2'</span>],</span><br><span class="line">    <span class="string">'B'</span>: [<span class="string">'B0'</span>, <span class="string">'B1'</span>, <span class="string">'B2'</span>]</span><br><span class="line">&#125;)</span><br><span class="line">right = pd.DataFrame(&#123;</span><br><span class="line">    <span class="string">'key'</span>: [<span class="string">'K0'</span>, <span class="string">'K1'</span>, <span class="string">'K2'</span>, <span class="string">'K3'</span>],</span><br><span class="line">    <span class="string">'B'</span>: [<span class="string">'B0'</span>, <span class="string">'B1'</span>, <span class="string">'B2'</span>, <span class="string">'B3'</span>],</span><br><span class="line">    <span class="string">'C'</span>: [<span class="string">'C0'</span>, <span class="string">'C1'</span>, <span class="string">'C2'</span>, <span class="string">'C3'</span>],</span><br><span class="line">    <span class="string">'D'</span>: [<span class="string">'D0'</span>, <span class="string">'D1'</span>, <span class="string">'D2'</span>, <span class="string">'D3'</span>]</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment"># 左连接</span></span><br><span class="line">data_left = pd.merge(left, right, how=<span class="string">'left'</span>, on=<span class="string">'key'</span>)</span><br><span class="line"><span class="comment"># 右连接</span></span><br><span class="line">data_right = pd.merge(left, right, how=<span class="string">'right'</span>, on=<span class="string">'key'</span>)</span><br><span class="line"><span class="comment"># 内连接</span></span><br><span class="line">data_inner = pd.merge(left, right, how=<span class="string">'inner'</span>, on=<span class="string">'key'</span>)</span><br><span class="line"><span class="comment"># 外连接</span></span><br><span class="line">data_outer = pd.merge(left, right, how=<span class="string">'outer'</span>, on=<span class="string">'key'</span>)</span><br></pre></td></tr></table></figure></div>
+<div class="note danger no-icon"><p>如果两张表行索引和列索引均没有重叠部分，可以通过将<code>merge()</code>函数的<code>left_index</code>与<code>right_index</code>均设置为<code>True</code>即可，例如：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">left = pd.DataFrame(&#123;<span class="string">'A'</span>: [<span class="string">'A0'</span>, <span class="string">'A1'</span>], <span class="string">'B'</span>: [<span class="string">'B0'</span>, <span class="string">'B1'</span>]&#125;, index=[<span class="string">'a'</span>, <span class="string">'b'</span>])</span><br><span class="line">right = pd.DataFrame(&#123;<span class="string">'C'</span>: [<span class="string">'C0'</span>, <span class="string">'C1'</span>], <span class="string">'D'</span>: [<span class="string">'D0'</span>, <span class="string">'D1'</span>]&#125;)</span><br><span class="line">data = pd.merge(left, right, how=<span class="string">'outer'</span>, left_index=<span class="literal">True</span>, right_index=<span class="literal">True</span>)</span><br><span class="line">print(data)</span><br></pre></td></tr></table></figure>
+<p>输出为：</p>
+<figure class="highlight armasm"><table><tr><td class="code"><pre><span class="line">     A    <span class="keyword">B </span>   C    D</span><br><span class="line">a   A0   <span class="keyword">B0 </span> NaN  NaN</span><br><span class="line"><span class="keyword">b </span>  <span class="built_in">A1</span>   <span class="keyword">B1 </span> NaN  NaN</span><br><span class="line"><span class="number">0</span>  NaN  NaN   <span class="built_in">C0</span>   <span class="built_in">D0</span></span><br><span class="line"><span class="number">1</span>  NaN  NaN   <span class="built_in">C1</span>   <span class="built_in">D1</span></span><br></pre></td></tr></table></figure></div>
+<h4 id="1-3-根据行索引合并数据"><a href="#1-3-根据行索引合并数据" class="headerlink" title="1.3 根据行索引合并数据"></a>1.3 根据行索引合并数据</h4><h5 id="1-3-1-join-方法"><a href="#1-3-1-join-方法" class="headerlink" title="1.3.1 join()方法"></a>1.3.1 <code>join()</code>方法</h5><p><code>join()</code>方法能够通过索引或者指定的列来连接<code>DataFrame</code>。</p>
+<h6 id="语法：-5"><a href="#语法：-5" class="headerlink" title="语法："></a>语法：</h6><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">join(other,on=<span class="literal">None</span>,how=<span class="string">'left'</span>,lsuffix=<span class="string">''</span>,rsuffix=<span class="string">''</span>,sort=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>on</code>：用于连接的列名</li>
+<li><code>lsuffix</code>：接收字符串，用于在左侧重叠的列名后添加后缀</li>
+<li><code>rsuffix</code>：接收字符串，用于在右侧重叠的列名后添加后缀</li>
+<li><code>sort</code>：接收布尔值，根据连接键对合并的数据进行排序，默认为<code>False</code></li>
+</ul>
+<h6 id="实例：-7"><a href="#实例：-7" class="headerlink" title="实例："></a>实例：</h6><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">left = pd.DataFrame(&#123;<span class="string">'A'</span>: [<span class="string">'A0'</span>, <span class="string">'A1'</span>], <span class="string">'B'</span>: [<span class="string">'B0'</span>, <span class="string">'B1'</span>]&#125;, index=[<span class="string">'a'</span>, <span class="string">'b'</span>])</span><br><span class="line">right = pd.DataFrame(&#123;<span class="string">'C'</span>: [<span class="string">'C0'</span>, <span class="string">'C1'</span>], <span class="string">'D'</span>: [<span class="string">'D0'</span>, <span class="string">'D1'</span>]&#125;)</span><br><span class="line">data = left.join(right, how=<span class="string">"outer"</span>)</span><br><span class="line">print(data)</span><br></pre></td></tr></table></figure>
+<h6 id="输出：-1"><a href="#输出：-1" class="headerlink" title="输出："></a>输出：</h6><figure class="highlight armasm"><table><tr><td class="code"><pre><span class="line">     A    <span class="keyword">B </span>   C    D</span><br><span class="line">a   A0   <span class="keyword">B0 </span> NaN  NaN</span><br><span class="line"><span class="keyword">b </span>  <span class="built_in">A1</span>   <span class="keyword">B1 </span> NaN  NaN</span><br><span class="line"><span class="number">0</span>  NaN  NaN   <span class="built_in">C0</span>   <span class="built_in">D0</span></span><br><span class="line"><span class="number">1</span>  NaN  NaN   <span class="built_in">C1</span>   <span class="built_in">D1</span></span><br></pre></td></tr></table></figure>
+<h4 id="1-4-合并重叠数据"><a href="#1-4-合并重叠数据" class="headerlink" title="1.4 合并重叠数据"></a>1.4 合并重叠数据</h4><p>在处理数据时，当一个<code>DataFrame</code>对象出现了缺失值，对于这些缺失数据如果想要通过其他的<code>DataFrame</code>对象中的数据填充，可以通过<code>combine_first()</code>方法填充缺失数据。</p>
+<h6 id="语法：-6"><a href="#语法：-6" class="headerlink" title="语法："></a>语法：</h6><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">combine_first(other)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>other</code>:用于接收填充缺失值的对象</li>
+</ul>
+<h6 id="实例：-8"><a href="#实例：-8" class="headerlink" title="实例："></a>实例：</h6><p><img src="https://gitee.com/Vxiaozhe1998/Pic/raw/master/img/20200429002254.png" alt="合并重叠数据"></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> numpy <span class="keyword">import</span> NaN</span><br><span class="line">left = pd.DataFrame(&#123;</span><br><span class="line">    <span class="string">'key'</span>: [<span class="string">'K0'</span>, <span class="string">'K1'</span>, <span class="string">'K2'</span>, <span class="string">'K3'</span>],</span><br><span class="line">    <span class="string">'A'</span>: [<span class="string">'A0'</span>, NaN, <span class="string">'A2'</span>, <span class="string">'A3'</span>],</span><br><span class="line">    <span class="string">'B'</span>: [NaN, <span class="string">'B1'</span>, NaN, <span class="string">'B3'</span>]</span><br><span class="line">&#125;)</span><br><span class="line">right = pd.DataFrame(&#123;</span><br><span class="line">    <span class="string">'A'</span>: [<span class="string">'C0'</span>, <span class="string">'C1'</span>, <span class="string">'C2'</span>],</span><br><span class="line">    <span class="string">'B'</span>: [<span class="string">'D0'</span>, <span class="string">'D1'</span>, <span class="string">'D2'</span>]</span><br><span class="line">&#125;,</span><br><span class="line">                     index=[<span class="number">1</span>, <span class="number">2</span>, <span class="number">0</span>])</span><br><span class="line">print(left.combine_first(right))</span><br></pre></td></tr></table></figure>
+<h6 id="输出：-2"><a href="#输出：-2" class="headerlink" title="输出："></a>输出：</h6><figure class="highlight armasm"><table><tr><td class="code"><pre><span class="line">    A   <span class="keyword">B </span>key</span><br><span class="line"><span class="number">0</span>  A0  <span class="built_in">D2</span>  K0</span><br><span class="line"><span class="number">1</span>  <span class="built_in">C0</span>  <span class="keyword">B1 </span> K1</span><br><span class="line"><span class="number">2</span>  <span class="built_in">A2</span>  <span class="built_in">D1</span>  K2</span><br><span class="line"><span class="number">3</span>  <span class="built_in">A3</span>  <span class="keyword">B3 </span> K3</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>使用<code>combine_first</code>方法合并两个<code>DataFrame</code>对象时，必须确保他们的行索引和列索引有重叠部分</p>
+</blockquote>
+<h3 id="2-数据重塑"><a href="#2-数据重塑" class="headerlink" title="2. 数据重塑"></a>2. 数据重塑</h3><h4 id="2-1-重塑层次化索引"><a href="#2-1-重塑层次化索引" class="headerlink" title="2.1 重塑层次化索引"></a>2.1 重塑层次化索引</h4><h4 id="2-2-轴向旋转"><a href="#2-2-轴向旋转" class="headerlink" title="2.2 轴向旋转"></a>2.2 轴向旋转</h4><h3 id="3-数据转换"><a href="#3-数据转换" class="headerlink" title="3. 数据转换"></a>3. 数据转换</h3><h4 id="3-1-重命名轴索引"><a href="#3-1-重命名轴索引" class="headerlink" title="3.1 重命名轴索引"></a>3.1 重命名轴索引</h4><h4 id="3-2-离散化连续数据"><a href="#3-2-离散化连续数据" class="headerlink" title="3.2 离散化连续数据"></a>3.2 离散化连续数据</h4><h4 id="3-3-哑变量处理类别型数据"><a href="#3-3-哑变量处理类别型数据" class="headerlink" title="3.3 哑变量处理类别型数据"></a>3.3 哑变量处理类别型数据</h4>]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>数据分析</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Pandas</title>
     <url>/2020/04/13/Pandas/</url>
     <content><![CDATA[<div class="note info no-icon"><p>Pandas是一个强大的分析结构化数据的工具集；它的使用基础是Numpy（提供高性能的矩阵运算）；用于数据挖掘和数据分析，同时也提供数据清洗功能。</p></div>
@@ -58,7 +415,7 @@
 <li><code>fill_value</code>：引入缺失值时使用的替代值</li>
 <li><code>limit</code>：前向或后向填充时的最大填充量</li>
 </ul>
-<div class="note danger no-icon"><p>前向/后向填充可以使用<code>reindex()</code>方法中的<code>methon=&#39;ffill&#39;</code>(后向填充)、<code>mothon=&#39;bfill&#39;</code>(前向填充)，也可以使用<code>ffill()</code>或<code>bfill()</code>方法，建议使用<code>reindex().ffill()</code>/<code>reindex().bfill()</code></p></div>
+<div class="note danger no-icon"><p>前向/后向填充可以使用<code>reindex()</code>方法中的<code>methon=&#39;ffill&#39;</code>(前向填充)、<code>mothon=&#39;bfill&#39;</code>(后向填充)，也可以使用<code>ffill()</code>或<code>bfill()</code>方法，建议使用<code>reindex().ffill()</code>/<code>reindex().bfill()</code></p></div>
 <p><strong>代码：</strong></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">data = pd.Series([<span class="number">1</span>,<span class="number">5</span>,<span class="number">3</span>,<span class="number">8</span>,<span class="number">4</span>], index=[<span class="string">'b'</span>, <span class="string">'e'</span>, <span class="string">'a'</span>, <span class="string">'d'</span>, <span class="string">'g'</span>])</span><br><span class="line">print(data.reindex([<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>, <span class="string">'e'</span>, <span class="string">'f'</span>, <span class="string">'g'</span>],</span><br><span class="line">                   fill_value=<span class="number">6</span>))  <span class="comment"># 填充缺失值为6</span></span><br><span class="line">print(data.reindex([<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>, <span class="string">'e'</span>, <span class="string">'f'</span>, <span class="string">'g'</span>]).bfill())  <span class="comment"># 后向填充</span></span><br><span class="line">print(data.reindex([<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>, <span class="string">'e'</span>, <span class="string">'f'</span>, <span class="string">'g'</span>]).ffill())  <span class="comment"># 前向填充</span></span><br></pre></td></tr></table></figure>
 <p><strong>输出：</strong></p>
@@ -352,28 +709,29 @@
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">data = pd.read_csv(<span class="string">'./test.csv'</span>)</span><br><span class="line">print(data)</span><br></pre></td></tr></table></figure>
 <h6 id="输出：-1"><a href="#输出：-1" class="headerlink" title="输出："></a>输出：</h6><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">  Unnamed: <span class="number">0</span>  Unnamed: <span class="number">1</span>    model  num</span><br><span class="line"><span class="number">0</span>          A           <span class="number">1</span>      CPU   <span class="number">80</span>      </span><br><span class="line"><span class="number">1</span>          A           <span class="number">2</span>      GPU  <span class="number">152</span>      </span><br><span class="line"><span class="number">2</span>          A           <span class="number">4</span>    FLASH  <span class="number">113</span>      </span><br><span class="line"><span class="number">3</span>          B           <span class="number">3</span>      SSD  <span class="number">354</span>      </span><br><span class="line"><span class="number">4</span>          B           <span class="number">5</span>      HDD    <span class="number">1</span>      </span><br><span class="line"><span class="number">5</span>          C           <span class="number">1</span>      USB  <span class="number">231</span>      </span><br><span class="line"><span class="number">6</span>          C           <span class="number">5</span>   TYPE-C   <span class="number">35</span>      </span><br><span class="line"><span class="number">7</span>          C           <span class="number">8</span>  MIC-USB   <span class="number">12</span>      </span><br><span class="line"><span class="number">8</span>          C           <span class="number">1</span>    DRIVE    <span class="number">7</span></span><br></pre></td></tr></table></figure>
 <p>可以通过<code>del data[&#39;Unnamed: 0&#39;]</code>来删除该列。</p>
-<h4 id="6-2-读写EXCLE文件"><a href="#6-2-读写EXCLE文件" class="headerlink" title="6.2 读写EXCLE文件"></a>6.2 读写<code>EXCLE</code>文件</h4><p>Excle文件是常见的存储数据文件，它里面均是以二维表格的形式显示的，可以对数据进行统计分析等操作，常见扩展名为<code>.xls</code>和<code>.xlsx</code>两种格式，对于Excle文件的读写常用的两个方法为<code>to_excle()</code>和<code>read_excle()</code>两种方法。</p>
-<h5 id="6-2-2-写入Excle文件to-excle-方法"><a href="#6-2-2-写入Excle文件to-excle-方法" class="headerlink" title="6.2.2 写入Excle文件to_excle()方法"></a>6.2.2 写入Excle文件<code>to_excle()</code>方法</h5><h6 id="函数语法：-2"><a href="#函数语法：-2" class="headerlink" title="函数语法："></a>函数语法：</h6><p>详细参数请查看官方文档：<a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_excel.html" target="_blank" rel="noopener">DataFrame.to_excel()</a></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">DataFrame.to_excel(excle_writer,sheet_name=<span class="string">'Sheet1'</span>,na_rep=<span class="string">''</span>,float_format=<span class="literal">None</span>,columns=<span class="literal">None</span>,header=<span class="literal">True</span>,index=<span class="literal">True</span>,……)</span><br></pre></td></tr></table></figure>
+<h4 id="6-2-读写EXCEL文件"><a href="#6-2-读写EXCEL文件" class="headerlink" title="6.2 读写EXCEL文件"></a>6.2 读写<code>EXCEL</code>文件</h4><p>excel文件是常见的存储数据文件，它里面均是以二维表格的形式显示的，可以对数据进行统计分析等操作，常见扩展名为<code>.xls</code>和<code>.xlsx</code>两种格式，对于excel文件的读写常用的两个方法为<code>to_excel()</code>和<code>read_excel()</code>两种方法。</p>
+<h5 id="6-2-2-写入excel文件to-excel-方法"><a href="#6-2-2-写入excel文件to-excel-方法" class="headerlink" title="6.2.2 写入excel文件to_excel()方法"></a>6.2.2 写入excel文件<code>to_excel()</code>方法</h5><h6 id="函数语法：-2"><a href="#函数语法：-2" class="headerlink" title="函数语法："></a>函数语法：</h6><p>详细参数请查看官方文档：<a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_excel.html" target="_blank" rel="noopener">DataFrame.to_excel()</a></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">DataFrame.to_excel(excel_writer,sheet_name=<span class="string">'Sheet1'</span>,na_rep=<span class="string">''</span>,float_format=<span class="literal">None</span>,columns=<span class="literal">None</span>,header=<span class="literal">True</span>,index=<span class="literal">True</span>,……)</span><br></pre></td></tr></table></figure>
 <ul>
-<li><code>excle_writer</code>:表示读取的文件路径</li>
+<li><code>excel_writer</code>:表示读取的文件路径</li>
 <li><code>sheet_name</code>:表示工作表名称，默认为<code>Sheet1</code></li>
 <li><code>na_rep</code>:表示缺失数据</li>
 <li><code>index</code>:表示是否写行索引，默认为<code>True</code></li>
 </ul>
 <h6 id="代码：-2"><a href="#代码：-2" class="headerlink" title="代码："></a>代码：</h6><p>读取上文中生成的<code>test.csv</code>文件</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">data_excle = pd.DataFrame(</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">"model"</span>: [</span><br><span class="line">            <span class="string">'CPU'</span>, <span class="string">'GPU'</span>, <span class="string">'FLASH'</span>, <span class="string">'SSD'</span>, <span class="string">'HDD'</span>, <span class="string">'USB'</span>, <span class="string">'TYPE-C'</span>, <span class="string">'MIC-USB'</span>,</span><br><span class="line">            <span class="string">'DRIVE'</span></span><br><span class="line">        ],</span><br><span class="line">        <span class="string">"num"</span>: [<span class="number">80</span>, <span class="number">152</span>, <span class="number">113</span>, <span class="number">354</span>, <span class="number">1</span>, <span class="number">231</span>, <span class="number">35</span>, <span class="number">12</span>, <span class="number">7</span>]</span><br><span class="line">    &#125;,</span><br><span class="line">    index=[[<span class="string">'A'</span>, <span class="string">'A'</span>, <span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'B'</span>, <span class="string">'C'</span>, <span class="string">'C'</span>, <span class="string">'C'</span>, <span class="string">'C'</span>],</span><br><span class="line">           [<span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">1</span>]])</span><br><span class="line">data_excle.to_excel(<span class="string">'./test.xlsx'</span>, <span class="string">'TestExcle'</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">data_excel = pd.DataFrame(</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">"model"</span>: [</span><br><span class="line">            <span class="string">'CPU'</span>, <span class="string">'GPU'</span>, <span class="string">'FLASH'</span>, <span class="string">'SSD'</span>, <span class="string">'HDD'</span>, <span class="string">'USB'</span>, <span class="string">'TYPE-C'</span>, <span class="string">'MIC-USB'</span>,</span><br><span class="line">            <span class="string">'DRIVE'</span></span><br><span class="line">        ],</span><br><span class="line">        <span class="string">"num"</span>: [<span class="number">80</span>, <span class="number">152</span>, <span class="number">113</span>, <span class="number">354</span>, <span class="number">1</span>, <span class="number">231</span>, <span class="number">35</span>, <span class="number">12</span>, <span class="number">7</span>]</span><br><span class="line">    &#125;,</span><br><span class="line">    index=[[<span class="string">'A'</span>, <span class="string">'A'</span>, <span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'B'</span>, <span class="string">'C'</span>, <span class="string">'C'</span>, <span class="string">'C'</span>, <span class="string">'C'</span>],</span><br><span class="line">           [<span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">1</span>]])</span><br><span class="line">data_excel.to_excel(<span class="string">'./test.xlsx'</span>, <span class="string">'Testexcel'</span>)</span><br></pre></td></tr></table></figure>
 <h6 id="输出：-2"><a href="#输出：-2" class="headerlink" title="输出："></a>输出：</h6><p>将在根目录输出文件名为<code>test.xlsx</code>的表格，表格内容如图。</p>
-<p><img src="https://gitee.com/Vxiaozhe1998/Pic/raw/master/img/20200419195344.png" alt="to_excle"></p>
-<h5 id="6-2-2-读取Excle文件read-excle-方法"><a href="#6-2-2-读取Excle文件read-excle-方法" class="headerlink" title="6.2.2 读取Excle文件read_excle()方法"></a>6.2.2 读取Excle文件<code>read_excle()</code>方法</h5><h6 id="函数语法：-3"><a href="#函数语法：-3" class="headerlink" title="函数语法："></a>函数语法：</h6><p>详细参数请查看官方文档：<a href="https://pandas.pydata.org/docs/reference/api/pandas.read_excel.html" target="_blank" rel="noopener">Pandas.read_excel()</a></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">Pandas.read_excle(io,sheet_name=<span class="number">0</span>,header=<span class="number">0</span>,name=<span class="literal">None</span>,index_col=<span class="literal">None</span>,**kwds)</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/Vxiaozhe1998/Pic/raw/master/img/20200419195344.png" alt="to_excel"></p>
+<h5 id="6-2-2-读取excel文件read-excel-方法"><a href="#6-2-2-读取excel文件read-excel-方法" class="headerlink" title="6.2.2 读取excel文件read_excel()方法"></a>6.2.2 读取excel文件<code>read_excel()</code>方法</h5><h6 id="函数语法：-3"><a href="#函数语法：-3" class="headerlink" title="函数语法："></a>函数语法：</h6><p>详细参数请查看官方文档：<a href="https://pandas.pydata.org/docs/reference/api/pandas.read_excel.html" target="_blank" rel="noopener">Pandas.read_excel()</a></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">Pandas.read_excel(io,sheet_name=<span class="number">0</span>,header=<span class="number">0</span>,name=<span class="literal">None</span>,index_col=<span class="literal">None</span>,**kwds)</span><br></pre></td></tr></table></figure>
 <ul>
 <li><code>io</code>:表示路径对象</li>
 <li><code>sheet_name</code>：指定要读取的工作表，默认为0</li>
-<li><code>header</code>：用于解析DataFrame的列标签</li>
-<li><code>names</code>要使用的列名称</li>
+<li><code>header</code>：用于解析DataFrame的列标签，默认为0，即取第一列为列标题</li>
+<li><code>index_col</code>：用于解析DataFrame的行标签，默认为<code>None</code>，如果表格中第一列为索引则将该属性设置为0</li>
+<li><code>names</code>:要使用的列名称</li>
 </ul>
-<h6 id="代码：-3"><a href="#代码：-3" class="headerlink" title="代码："></a>代码：</h6><p>读取上文中生成的<code>test.xlsx</code>文件，由于Excle中合并的单元格会产生缺失值，使用<code>ffill()</code>方法进行向下填充。</p>
+<h6 id="代码：-3"><a href="#代码：-3" class="headerlink" title="代码："></a>代码：</h6><p>读取上文中生成的<code>test.xlsx</code>文件，由于excel中合并的单元格会产生缺失值，使用<code>ffill()</code>方法进行向下填充。</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">data = pd.read_excel(<span class="string">'./test.xlsx'</span>).ffill()</span><br><span class="line">print(data)</span><br></pre></td></tr></table></figure>
 <h6 id="输出：-3"><a href="#输出：-3" class="headerlink" title="输出："></a>输出：</h6><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">  Unnamed: <span class="number">0</span>  Unnamed: <span class="number">1</span>    model  num</span><br><span class="line"><span class="number">0</span>          A           <span class="number">1</span>      CPU   <span class="number">80</span></span><br><span class="line"><span class="number">1</span>          A           <span class="number">2</span>      GPU  <span class="number">152</span></span><br><span class="line"><span class="number">2</span>          A           <span class="number">4</span>    FLASH  <span class="number">113</span></span><br><span class="line"><span class="number">3</span>          B           <span class="number">3</span>      SSD  <span class="number">354</span></span><br><span class="line"><span class="number">4</span>          B           <span class="number">5</span>      HDD    <span class="number">1</span></span><br><span class="line"><span class="number">5</span>          C           <span class="number">1</span>      USB  <span class="number">231</span></span><br><span class="line"><span class="number">6</span>          C           <span class="number">5</span>   TYPE-C   <span class="number">35</span></span><br><span class="line"><span class="number">7</span>          C           <span class="number">8</span>  MIC-USB   <span class="number">12</span></span><br><span class="line"><span class="number">8</span>          C           <span class="number">1</span>    DRIVE    <span class="number">7</span></span><br></pre></td></tr></table></figure>
 <h4 id="6-3-读写HTML文件"><a href="#6-3-读写HTML文件" class="headerlink" title="6.3 读写HTML文件"></a>6.3 读写<code>HTML</code>文件</h4><h5 id="6-3-1-读取HTML表格方法read-html-方法"><a href="#6-3-1-读取HTML表格方法read-html-方法" class="headerlink" title="6.3.1 读取HTML表格方法read_html()方法"></a>6.3.1 读取HTML表格方法<code>read_html()</code>方法</h5><h6 id="函数语法：-4"><a href="#函数语法：-4" class="headerlink" title="函数语法："></a>函数语法：</h6><p>详细参数请查看官方文档：<a href="https://pandas.pydata.org/docs/reference/api/pandas.read_html.html?highlight=read_html#pandas.read_html" target="_blank" rel="noopener">pandas.read_html()</a></p>
@@ -1245,7 +1603,8 @@
 <p>代码：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">x = np.arange(<span class="number">32</span>).reshape((<span class="number">8</span>, <span class="number">4</span>))</span><br><span class="line">print(x[np.ix_([<span class="number">1</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">2</span>], [<span class="number">0</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">2</span>])])</span><br><span class="line">print(x[[<span class="number">1</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">2</span>], [<span class="number">0</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">2</span>]])</span><br></pre></td></tr></table></figure>
 <p>输出：</p>
-<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">[[ <span class="number">4</span>  <span class="number">7</span>  <span class="number">5</span>  <span class="number">6</span>]</span><br><span class="line"> [<span class="number">20</span> <span class="number">23</span> <span class="number">21</span> <span class="number">22</span>]</span><br><span class="line"> [<span class="number">28</span> <span class="number">31</span> <span class="number">29</span> <span class="number">30</span>]</span><br><span class="line"> [ <span class="number">8</span> <span class="number">11</span>  <span class="number">9</span> <span class="number">10</span>]]</span><br><span class="line">[ <span class="number">4</span> <span class="number">23</span> <span class="number">29</span> <span class="number">10</span>]</span><br></pre></td></tr></table></figure></div>
+<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">[[ <span class="number">4</span>  <span class="number">7</span>  <span class="number">5</span>  <span class="number">6</span>]</span><br><span class="line"> [<span class="number">20</span> <span class="number">23</span> <span class="number">21</span> <span class="number">22</span>]</span><br><span class="line"> [<span class="number">28</span> <span class="number">31</span> <span class="number">29</span> <span class="number">30</span>]</span><br><span class="line"> [ <span class="number">8</span> <span class="number">11</span>  <span class="number">9</span> <span class="number">10</span>]]</span><br><span class="line">[ <span class="number">4</span> <span class="number">23</span> <span class="number">29</span> <span class="number">10</span>]</span><br></pre></td></tr></table></figure>
+<p>可以看出<code>np.ix_</code>方法第一个参数指定的是行，第二个参数指定的该行选取列的顺序。</p></div>
 <p><strong>布尔索引</strong>指的是将一个布尔数组作为数组索引，返回的数据是布尔数组中<code>True</code>对应位置的值，比如一个简单的例子：</p>
 <div class="note info no-icon"><p>考试结束五个同学的成绩如下表：</p>
 <div class="table-container">
@@ -2122,7 +2481,7 @@
 </div>
 ]]></content>
       <categories>
-        <category>博客</category>
+        <category>编程</category>
       </categories>
       <tags>
         <tag>Python</tag>
@@ -7091,26 +7450,6 @@ op->e</textarea><textarea id="flowchart-0-options" style="display: none">{"scale
       </tags>
   </entry>
   <entry>
-    <title>7-2 老鼠爱大米 (20分)</title>
-    <url>/2020/01/31/7-2%20%E8%80%81%E9%BC%A0%E7%88%B1%E5%A4%A7%E7%B1%B3%20(20%E5%88%86)/</url>
-    <content><![CDATA[<p>翁恺老师曾经设计过一款 Java 挑战游戏，叫“老鼠爱大米”（或许因为他的外号叫“胖胖鼠”）。每个玩家用 Java 代码控制一只鼠，目标是抢吃尽可能多的大米让自己变成胖胖鼠，最胖的那只就是冠军。<br><a id="more"></a>因为游戏时间不能太长，我们把玩家分成 <em>N</em> 组，每组 <em>M</em> 只老鼠同场竞技，然后从 <em>N</em> 个分组冠军中直接选出最胖的冠军胖胖鼠。现在就请你写个程序来得到冠军的体重。</p>
-<blockquote>
-<p><strong>输入格式：</strong><br>输入在第一行中给出 2 个正整数：<em>N</em>（≤100）为组数，<em>M</em>（≤10）为每组玩家个数。随后 <em>N</em> 行，每行给出一组玩家控制的 <em>M</em> 只老鼠最后的体重，均为不超过 104 的非负整数。数字间以空格分隔。</p>
-<p><strong>输出格式：</strong><br>首先在第一行顺次输出各组冠军的体重，数字间以 1 个空格分隔，行首尾不得有多余空格。随后在第二行输出冠军胖胖鼠的体重。</p>
-<p>输入：<br><div class="note default no-icon"><p>3 5<br>62 53 88 72 81<br>12 31 9 0 2<br>91 42 39 6 48</p></div></p>
-<p>输出：<br><div class="note default no-icon"><p>88 31 91<br>91</p></div></p>
-</blockquote>
-<div class="note default no-icon"><p>作者: 陈越<br>单位: 浙江大学<br>时间限制: 400 ms<br>内存限制: 64 MB<br>代码长度限制: 16 KB</p></div>
-<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><h3 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>PAT（乙级）（2019年冬季考试）</category>
-      </categories>
-      <tags>
-        <tag>编程</tag>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>7-3 String复读机 (20分)</title>
     <url>/2020/01/31/7-3%20String%E5%A4%8D%E8%AF%BB%E6%9C%BA%20(20%E5%88%86)/</url>
     <content><![CDATA[<p>给定一个长度不超过10<sup>4</sup>的、仅由英文字母构成的字符串。请将字符重新调整顺序，按 <code>StringString....</code> （注意区分大小写）这样的顺序输出，并忽略其它字符。当然，六种字符的个数不一定是一样多的，若某种字符已经输出完，则余下的字符仍按 <code>String</code> 的顺序打印，直到所有字符都被输出。例如 <code>gnirtSSs</code> 要调整成 <code>StringS</code> 输出，其中 <code>s</code> 是多余字符被忽略。<a id="more"></a></p>
@@ -7140,6 +7479,26 @@ op->e</textarea><textarea id="flowchart-0-options" style="display: none">{"scale
 <p>输入：<br><div class="note default no-icon"><p>..C..<br>.C.C.<br>C…C<br>CCCCC<br>C…C<br>C…C<br>C…C<br>CCCC.<br>C…C<br>C…C<br>CCCC.<br>C…C<br>C…C<br>CCCC.<br>.CCC.<br>C…C<br>C….<br>C….<br>C….<br>C…C<br>.CCC.<br>CCCC.<br>C…C<br>C…C<br>C…C<br>C…C<br>C…C<br>CCCC.<br>CCCCC<br>C….<br>C….<br>CCCC.<br>C….<br>C….<br>CCCCC<br>CCCCC<br>C….<br>C….<br>CCCC.<br>C….<br>C….<br>C….<br>CCCC.<br>C…C<br>C….<br>C.CCC<br>C…C<br>C…C<br>CCCC.<br>C…C<br>C…C<br>C…C<br>CCCCC<br>C…C<br>C…C<br>C…C<br>CCCCC<br>..C..<br>..C..<br>..C..<br>..C..<br>..C..<br>CCCCC<br>CCCCC<br>….C<br>….C<br>….C<br>….C<br>C…C<br>.CCC.<br>C…C<br>C..C.<br>C.C..<br>CC…<br>C.C..<br>C..C.<br>C…C<br>C….<br>C….<br>C….<br>C….<br>C….<br>C….<br>CCCCC<br>C…C<br>C…C<br>CC.CC<br>C.C.C<br>C…C<br>C…C<br>C…C<br>C…C<br>C…C<br>CC..C<br>C.C.C<br>C..CC<br>C…C<br>C…C<br>.CCC.<br>C…C<br>C…C<br>C…C<br>C…C<br>C…C<br>.CCC.<br>CCCC.<br>C…C<br>C…C<br>CCCC.<br>C….<br>C….<br>C….<br>.CCC.<br>C…C<br>C…C<br>C…C<br>C.C.C<br>C..CC<br>.CCC.<br>CCCC.<br>C…C<br>CCCC.<br>CC…<br>C.C..<br>C..C.<br>C…C<br>.CCC.<br>C…C<br>C….<br>.CCC.<br>….C<br>C…C<br>.CCC.<br>CCCCC<br>..C..<br>..C..<br>..C..<br>..C..<br>..C..<br>..C..<br>C…C<br>C…C<br>C…C<br>C…C<br>C…C<br>C…C<br>.CCC.<br>C…C<br>C…C<br>C…C<br>C…C<br>C…C<br>.C.C.<br>..C..<br>C…C<br>C…C<br>C…C<br>C.C.C<br>CC.CC<br>C…C<br>C…C<br>C…C<br>C…C<br>.C.C.<br>..C..<br>.C.C.<br>C…C<br>C…C<br>C…C<br>C…C<br>.C.C.<br>..C..<br>..C..<br>..C..<br>..C..<br>CCCCC<br>….C<br>…C.<br>..C..<br>.C…<br>C….<br>CCCCC<br>HELLO~WORLD!</p></div></p>
 <p>输出：<br><div class="note default no-icon"><p>C…C CCCCC C…. C…. .CCC.<br>C…C C…. C…. C…. C…C<br>C…C C…. C…. C…. C…C<br>CCCCC CCCC. C…. C…. C…C<br>C…C C…. C…. C…. C…C<br>C…C C…. C…. C…. C…C<br>C…C CCCCC CCCCC CCCCC .CCC.</p>
 <p>C…C .CCC. CCCC. C…. CCCC.<br>C…C C…C C…C C…. C…C<br>C…C C…C CCCC. C…. C…C<br>C.C.C C…C CC… C…. C…C<br>CC.CC C…C C.C.. C…. C…C<br>C…C C…C C..C. C…. C…C<br>C…C .CCC. C…C CCCCC CCCC.</p></div></p>
+</blockquote>
+<div class="note default no-icon"><p>作者: 陈越<br>单位: 浙江大学<br>时间限制: 400 ms<br>内存限制: 64 MB<br>代码长度限制: 16 KB</p></div>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><h3 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>PAT（乙级）（2019年冬季考试）</category>
+      </categories>
+      <tags>
+        <tag>编程</tag>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>7-2 老鼠爱大米 (20分)</title>
+    <url>/2020/01/31/7-2%20%E8%80%81%E9%BC%A0%E7%88%B1%E5%A4%A7%E7%B1%B3%20(20%E5%88%86)/</url>
+    <content><![CDATA[<p>翁恺老师曾经设计过一款 Java 挑战游戏，叫“老鼠爱大米”（或许因为他的外号叫“胖胖鼠”）。每个玩家用 Java 代码控制一只鼠，目标是抢吃尽可能多的大米让自己变成胖胖鼠，最胖的那只就是冠军。<br><a id="more"></a>因为游戏时间不能太长，我们把玩家分成 <em>N</em> 组，每组 <em>M</em> 只老鼠同场竞技，然后从 <em>N</em> 个分组冠军中直接选出最胖的冠军胖胖鼠。现在就请你写个程序来得到冠军的体重。</p>
+<blockquote>
+<p><strong>输入格式：</strong><br>输入在第一行中给出 2 个正整数：<em>N</em>（≤100）为组数，<em>M</em>（≤10）为每组玩家个数。随后 <em>N</em> 行，每行给出一组玩家控制的 <em>M</em> 只老鼠最后的体重，均为不超过 104 的非负整数。数字间以空格分隔。</p>
+<p><strong>输出格式：</strong><br>首先在第一行顺次输出各组冠军的体重，数字间以 1 个空格分隔，行首尾不得有多余空格。随后在第二行输出冠军胖胖鼠的体重。</p>
+<p>输入：<br><div class="note default no-icon"><p>3 5<br>62 53 88 72 81<br>12 31 9 0 2<br>91 42 39 6 48</p></div></p>
+<p>输出：<br><div class="note default no-icon"><p>88 31 91<br>91</p></div></p>
 </blockquote>
 <div class="note default no-icon"><p>作者: 陈越<br>单位: 浙江大学<br>时间限制: 400 ms<br>内存限制: 64 MB<br>代码长度限制: 16 KB</p></div>
 <h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><h3 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
@@ -7237,26 +7596,6 @@ op->e</textarea><textarea id="flowchart-0-options" style="display: none">{"scale
       </tags>
   </entry>
   <entry>
-    <title>1001 害死人不偿命的(3n+1)猜想 (15分)</title>
-    <url>/2020/01/29/1001%20%E5%AE%B3%E6%AD%BB%E4%BA%BA%E4%B8%8D%E5%81%BF%E5%91%BD%E7%9A%84(3n+1)%E7%8C%9C%E6%83%B3/</url>
-    <content><![CDATA[<p><strong>对任何一个正整数 <em>n</em>，如果它是偶数，那么把它砍掉一半；如果它是奇数，那么把 (3<em>n</em>+1) 砍掉一半。这样一直反复砍下去，最后一定在某一步得到 <em>n</em>=1。<a id="more"></a></strong>卡拉兹在 1950 年的世界数学家大会上公布了这个猜想，传说当时耶鲁大学师生齐动员，拼命想证明这个貌似很傻很天真的命题，结果闹得学生们无心学业，一心只证 (3<em>n</em>+1)，以至于有人说这是一个阴谋，卡拉兹是在蓄意延缓美国数学界教学与科研的进展……我们今天的题目不是证明卡拉兹猜想，而是对给定的任一不超过 1000 的正整数 <em>n</em>，简单地数一下，需要多少步（砍几下）才能得到 <em>n</em>=1？</p>
-<blockquote>
-<p><strong>输入格式：</strong><br>每个测试输入包含 1 个测试用例，即给出正整数 <em>n</em> 的值。</p>
-<p><strong>输出格式：</strong><br>输出从 <em>n</em> 计算到 1 需要的步数。</p>
-<p>输入：<br><div class="note default no-icon"><p>3</p></div></p>
-<p>输出：<br><div class="note default no-icon"><p>5</p></div></p>
-</blockquote>
-<div class="note default no-icon"><p>作者: CHEN, Yue<br>单位: 浙江大学<br>时间限制: 400 ms<br>内存限制: 64 MB<br>代码长度限制: 16 KB</p></div>
-<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><h3 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="comment">//定义奇数处理函数 </span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">odd</span><span class="params">(<span class="keyword">int</span> a)</span></span>;</span><br><span class="line"><span class="comment">//定义偶数处理函数 </span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">oval</span><span class="params">(<span class="keyword">int</span> b)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="keyword">int</span> count=<span class="number">0</span>;</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">	<span class="keyword">while</span>(n!=<span class="number">1</span>)&#123;</span><br><span class="line">		<span class="keyword">if</span>(n%<span class="number">2</span>==<span class="number">0</span>)&#123;</span><br><span class="line">			n=oval(n);</span><br><span class="line">			count++;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span>&#123;</span><br><span class="line">			n=odd(n);</span><br><span class="line">			count++;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;count;</span><br><span class="line">&#125; </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">odd</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> (<span class="number">3</span>*n+<span class="number">1</span>)/<span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">oval</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> n/<span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>PAT（乙级）</category>
-      </categories>
-      <tags>
-        <tag>编程</tag>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>1002 写出这个数 (20分)</title>
     <url>/2020/01/29/1002%20%E5%86%99%E5%87%BA%E8%BF%99%E4%B8%AA%E6%95%B0%20(20%E5%88%86)/</url>
     <content><![CDATA[<p>读入一个正整数 <em>n</em>，计算其各位数字之和，用汉语拼音写出和的每一位数字。<a id="more"></a></p>
@@ -7268,6 +7607,26 @@ op->e</textarea><textarea id="flowchart-0-options" style="display: none">{"scale
 </blockquote>
 <div class="note default no-icon"><p>作者: CHEN, Yue<br>单位: 浙江大学<br>时间限制: 400 ms<br>内存限制: 64 MB<br>代码长度限制: 16 KB</p></div>
 <h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><h3 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> N 10000</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> M 5 </span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">char</span> number[<span class="number">10</span>][<span class="number">5</span>]=&#123;<span class="string">"ling"</span>,<span class="string">"yi"</span>,<span class="string">"er"</span>,<span class="string">"san"</span>,<span class="string">"si"</span>,<span class="string">"wu"</span>,<span class="string">"liu"</span>,<span class="string">"qi"</span>,<span class="string">"ba"</span>,<span class="string">"jiu"</span>&#125;;</span><br><span class="line">	<span class="comment">//定义字符串 </span></span><br><span class="line">	<span class="keyword">char</span> <span class="built_in">array</span>[N];</span><br><span class="line">	<span class="comment">//记录和每位的数字 </span></span><br><span class="line">	<span class="keyword">int</span> <span class="built_in">log</span>[M];</span><br><span class="line">	<span class="comment">// 记录和 </span></span><br><span class="line">	<span class="keyword">int</span> sum=<span class="number">0</span>,i=<span class="number">0</span>;</span><br><span class="line">	<span class="comment">//将每一位置为-1 </span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;M;j++)&#123;</span><br><span class="line">		<span class="built_in">log</span>[j]=<span class="number">-1</span>;</span><br><span class="line">	&#125; </span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;<span class="built_in">array</span>;</span><br><span class="line">	<span class="keyword">while</span>(<span class="built_in">array</span>[i]!=<span class="string">'\0'</span>)&#123;</span><br><span class="line">		sum+=<span class="built_in">array</span>[i]-<span class="string">'0'</span>;</span><br><span class="line">		i++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> j=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(sum&gt;<span class="number">0</span>)&#123;</span><br><span class="line">		<span class="built_in">log</span>[j]=sum%<span class="number">10</span>;</span><br><span class="line">		sum=sum/<span class="number">10</span>;</span><br><span class="line">		j++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(i=M<span class="number">-1</span>;i&gt;=<span class="number">0</span>;i--)&#123;</span><br><span class="line">		<span class="keyword">if</span>(<span class="built_in">log</span>[i]!=<span class="number">-1</span>)&#123;</span><br><span class="line">			<span class="keyword">if</span>(i==<span class="number">0</span>)&#123;</span><br><span class="line">			<span class="built_in">cout</span>&lt;&lt;number[<span class="built_in">log</span>[i]];	</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span>&#123;</span><br><span class="line">				<span class="built_in">cout</span>&lt;&lt;number[<span class="built_in">log</span>[i]]&lt;&lt;<span class="string">' '</span>; </span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>PAT（乙级）</category>
+      </categories>
+      <tags>
+        <tag>编程</tag>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>1001 害死人不偿命的(3n+1)猜想 (15分)</title>
+    <url>/2020/01/29/1001%20%E5%AE%B3%E6%AD%BB%E4%BA%BA%E4%B8%8D%E5%81%BF%E5%91%BD%E7%9A%84(3n+1)%E7%8C%9C%E6%83%B3/</url>
+    <content><![CDATA[<p><strong>对任何一个正整数 <em>n</em>，如果它是偶数，那么把它砍掉一半；如果它是奇数，那么把 (3<em>n</em>+1) 砍掉一半。这样一直反复砍下去，最后一定在某一步得到 <em>n</em>=1。<a id="more"></a></strong>卡拉兹在 1950 年的世界数学家大会上公布了这个猜想，传说当时耶鲁大学师生齐动员，拼命想证明这个貌似很傻很天真的命题，结果闹得学生们无心学业，一心只证 (3<em>n</em>+1)，以至于有人说这是一个阴谋，卡拉兹是在蓄意延缓美国数学界教学与科研的进展……我们今天的题目不是证明卡拉兹猜想，而是对给定的任一不超过 1000 的正整数 <em>n</em>，简单地数一下，需要多少步（砍几下）才能得到 <em>n</em>=1？</p>
+<blockquote>
+<p><strong>输入格式：</strong><br>每个测试输入包含 1 个测试用例，即给出正整数 <em>n</em> 的值。</p>
+<p><strong>输出格式：</strong><br>输出从 <em>n</em> 计算到 1 需要的步数。</p>
+<p>输入：<br><div class="note default no-icon"><p>3</p></div></p>
+<p>输出：<br><div class="note default no-icon"><p>5</p></div></p>
+</blockquote>
+<div class="note default no-icon"><p>作者: CHEN, Yue<br>单位: 浙江大学<br>时间限制: 400 ms<br>内存限制: 64 MB<br>代码长度限制: 16 KB</p></div>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><h3 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="comment">//定义奇数处理函数 </span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">odd</span><span class="params">(<span class="keyword">int</span> a)</span></span>;</span><br><span class="line"><span class="comment">//定义偶数处理函数 </span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">oval</span><span class="params">(<span class="keyword">int</span> b)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="keyword">int</span> count=<span class="number">0</span>;</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">	<span class="keyword">while</span>(n!=<span class="number">1</span>)&#123;</span><br><span class="line">		<span class="keyword">if</span>(n%<span class="number">2</span>==<span class="number">0</span>)&#123;</span><br><span class="line">			n=oval(n);</span><br><span class="line">			count++;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span>&#123;</span><br><span class="line">			n=odd(n);</span><br><span class="line">			count++;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;count;</span><br><span class="line">&#125; </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">odd</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> (<span class="number">3</span>*n+<span class="number">1</span>)/<span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">oval</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> n/<span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>PAT（乙级）</category>
       </categories>
