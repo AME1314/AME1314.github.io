@@ -1,0 +1,1568 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+<meta name="referrer" content="no-referrer"/>
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-center-atom.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/my.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/my-32x32.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/my-16x16.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/my.png?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Python,数据分析," />
+
+
+
+
+  
+
+
+  <link rel="alternate" href="/atom.xml" title="小哲知识库" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="在进行数据分析的过程中往往需要我们对数据进行分类或合并，在本节将学习有关Python中的有关分组聚合的方法。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python的数据聚合与分组运算">
+<meta property="og:url" content="https://vxiaozhe1998.github.io/2020/05/09/Python%E7%9A%84%E6%95%B0%E6%8D%AE%E8%81%9A%E5%90%88%E4%B8%8E%E5%88%86%E7%BB%84%E8%BF%90%E7%AE%97/index.html">
+<meta property="og:site_name" content="小哲知识库">
+<meta property="og:description" content="在进行数据分析的过程中往往需要我们对数据进行分类或合并，在本节将学习有关Python中的有关分组聚合的方法。">
+<meta property="og:image" content="https://gitee.com/Vxiaozhe1998/Pic/raw/master/img/20200509161202.png">
+<meta property="og:image" content="https://gitee.com/Vxiaozhe1998/Pic/raw/master/img/20200511224132.png">
+<meta property="og:image" content="https://gitee.com/Vxiaozhe1998/Pic/raw/master/img/20200513160617.png">
+<meta property="article:published_time" content="2020-05-09T06:42:04.000Z">
+<meta property="article:modified_time" content="2020-05-13T10:36:41.254Z">
+<meta property="article:author" content="小哲">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="数据分析">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/Vxiaozhe1998/Pic/raw/master/img/20200509161202.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://vxiaozhe1998.github.io/2020/05/09/Python的数据聚合与分组运算/"/>
+
+
+
+
+
+  <title>Python的数据聚合与分组运算 | 小哲知识库</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">小哲知识库</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">一个不像程序猿的设计狮</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-镜像">
+          <a href="http://vxiaozhe1998.gitee.io" target="_blank" rel="section noopener">
+            
+              <i class="menu-item-icon fa fa-fw fa-heart"></i> <br />
+            
+            镜像
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-link"></i> <br />
+            
+            友链
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    <div class="reading-progress-bar"></div>
+    
+
+  
+
+  
+  
+    
+  
+  
+
+  <article class="post post-type-normal true" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://vxiaozhe1998.github.io/2020/05/09/Python%E7%9A%84%E6%95%B0%E6%8D%AE%E8%81%9A%E5%90%88%E4%B8%8E%E5%88%86%E7%BB%84%E8%BF%90%E7%AE%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="小哲">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小哲知识库">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Python的数据聚合与分组运算</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+          
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-09T14:42:04+08:00">
+                2020-05-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index">
+                    <span itemprop="name">编程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.4k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  6
+                </span>
+              
+            </div>
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div class="note info no-icon"><p>在进行数据分析的过程中往往需要我们对数据进行分类或合并，在本节将学习有关Python中的有关分组聚合的方法。</p></div>
+<a id="more"></a>
+<h3 id="0-分组聚合原理"><a href="#0-分组聚合原理" class="headerlink" title="0 分组聚合原理"></a>0 分组聚合原理</h3><p>在Pandas中，分组是指使用特定的条件将原数据划分为多个组，聚合在这里指的是，对每个分组中的数据执行某些操作，最后将计算的结果进行整合。</p>
+<blockquote>
+<p>参考文档：<a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/groupby.html" target="_blank" rel="noopener">Group By: split-apply-combine</a></p>
+</blockquote>
+<p><img src="https://gitee.com/Vxiaozhe1998/Pic/raw/master/img/20200509161202.png" alt="分组聚合原理"></p>
+<h3 id="1-groupby方法"><a href="#1-groupby方法" class="headerlink" title="1 groupby方法"></a>1 <code>groupby</code>方法</h3><h4 id="1-1-语法"><a href="#1-1-语法" class="headerlink" title="1.1 语法"></a>1.1 语法</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">groupby(by=<span class="literal">None</span>, axis=<span class="number">0</span>, level=<span class="literal">None</span>, as_index=<span class="literal">True</span>, sort=<span class="literal">True</span>,group_keys=<span class="literal">True</span>, squeeze=<span class="literal">False</span>, observed=<span class="literal">False</span>, **kwargs)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p><code>by</code>：用于确定进行分组的依据</p>
+</li>
+<li><p><code>axis</code>：表示分组轴的方向</p>
+</li>
+<li><p><code>sort</code>：表示是否对分组标签进行排序，接收布尔值，默认为True</p>
+</li>
+</ul>
+<blockquote>
+<p><code>by</code>参数可接收的数据主要有：<strong>列表或数组</strong>、<strong>DataFrame某列</strong>、<strong>字典或Series对象</strong>、<strong>函数</strong></p>
+</blockquote>
+<h4 id="1-2-实例"><a href="#1-2-实例" class="headerlink" title="1.2 实例"></a>1.2 实例</h4><h5 id="1-2-1-按照Key进行分组，使用列索引字段"><a href="#1-2-1-按照Key进行分组，使用列索引字段" class="headerlink" title="1.2.1 按照Key进行分组，使用列索引字段"></a>1.2.1 按照Key进行分组，使用列索引字段</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">data = pd.DataFrame(&#123;</span><br><span class="line">    <span class="string">"Key"</span>: [<span class="string">'C'</span>, <span class="string">'B'</span>, <span class="string">'C'</span>, <span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'B'</span>, <span class="string">'A'</span>, <span class="string">'C'</span>, <span class="string">'A'</span>],</span><br><span class="line">    <span class="string">"Data"</span>: [<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>, <span class="number">10</span>, <span class="number">1</span>, <span class="number">14</span>, <span class="number">16</span>, <span class="number">18</span>]</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">data_obj = data.groupby(by=<span class="string">"Key"</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> data_obj:</span><br><span class="line">    print(i)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>输出</p>
+</blockquote>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">(<span class="string">'A'</span>,   Key  Data</span><br><span class="line"><span class="number">3</span>   A     <span class="number">8</span></span><br><span class="line"><span class="number">6</span>   A    <span class="number">14</span></span><br><span class="line"><span class="number">8</span>   A    <span class="number">18</span>)</span><br><span class="line">(<span class="string">'B'</span>,   Key  Data</span><br><span class="line"><span class="number">1</span>   B     <span class="number">4</span></span><br><span class="line"><span class="number">4</span>   B    <span class="number">10</span></span><br><span class="line"><span class="number">5</span>   B     <span class="number">1</span>)</span><br><span class="line">(<span class="string">'C'</span>,   Key  Data</span><br><span class="line"><span class="number">0</span>   C     <span class="number">2</span></span><br><span class="line"><span class="number">2</span>   C     <span class="number">6</span></span><br><span class="line"><span class="number">7</span>   C    <span class="number">16</span>)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>可以看出，程序通过关键词<code>Key</code>将数据分为三组：</p>
+<p><img src="https://gitee.com/Vxiaozhe1998/Pic/raw/master/img/20200511224132.png" alt="数据分组示意图"></p>
+</blockquote>
+<h5 id="1-2-2-使用series进行分组"><a href="#1-2-2-使用series进行分组" class="headerlink" title="1.2.2 使用series进行分组"></a>1.2.2 使用<code>series</code>进行分组</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">data = pd.DataFrame(&#123;</span><br><span class="line">    <span class="string">"Key"</span>: [<span class="string">'C'</span>, <span class="string">'B'</span>, <span class="string">'C'</span>, <span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'B'</span>, <span class="string">'A'</span>, <span class="string">'C'</span>, <span class="string">'A'</span>],</span><br><span class="line">    <span class="string">"Data"</span>: [<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>, <span class="number">10</span>, <span class="number">1</span>, <span class="number">14</span>, <span class="number">16</span>, <span class="number">18</span>]</span><br><span class="line">&#125;)</span><br><span class="line">ser_obj = pd.Series([</span><br><span class="line">    <span class="string">'a'</span>,</span><br><span class="line">    <span class="string">'b'</span>,</span><br><span class="line">    <span class="string">'c'</span>,</span><br><span class="line">    <span class="string">'a'</span>,</span><br><span class="line">    <span class="string">'b'</span>,</span><br><span class="line">    <span class="string">'c'</span>,</span><br><span class="line">    <span class="string">'a'</span>,</span><br><span class="line">    <span class="string">'b'</span>,</span><br><span class="line">    <span class="string">'c'</span>,</span><br><span class="line">])</span><br><span class="line">group_obj = data.groupby(by=ser_obj)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> group_obj:</span><br><span class="line">    print(i)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>输出</p>
+</blockquote>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">(<span class="string">'a'</span>,   Key  Data</span><br><span class="line"><span class="number">0</span>   C     <span class="number">2</span></span><br><span class="line"><span class="number">3</span>   A     <span class="number">8</span></span><br><span class="line"><span class="number">6</span>   A    <span class="number">14</span>)</span><br><span class="line">(<span class="string">'b'</span>,   Key  Data</span><br><span class="line"><span class="number">1</span>   B     <span class="number">4</span></span><br><span class="line"><span class="number">4</span>   B    <span class="number">10</span></span><br><span class="line"><span class="number">7</span>   C    <span class="number">16</span>)</span><br><span class="line">(<span class="string">'c'</span>,   Key  Data</span><br><span class="line"><span class="number">2</span>   C     <span class="number">6</span></span><br><span class="line"><span class="number">5</span>   B     <span class="number">1</span></span><br><span class="line"><span class="number">8</span>   A    <span class="number">18</span>)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>通过<code>Series</code>对象来分组可以理解成在原<code>DataFrame</code>数据中添加了一列数据，分组时以该列数据作为<code>key</code>进行索引分组。如果<code>Series</code>对象的索引长度大于或小于源数据，不会报错只会输出交集部分。</p>
+</blockquote>
+<h5 id="1-2-3-通过字典进行分组"><a href="#1-2-3-通过字典进行分组" class="headerlink" title="1.2.3 通过字典进行分组"></a>1.2.3 通过字典进行分组</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">data = pd.DataFrame(&#123;</span><br><span class="line">    <span class="string">'A'</span>: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>],</span><br><span class="line">    <span class="string">'B'</span>: [<span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>],</span><br><span class="line">    <span class="string">'C'</span>: [<span class="number">11</span>, <span class="number">12</span>, <span class="number">13</span>, <span class="number">14</span>, <span class="number">15</span>]</span><br><span class="line">&#125;)</span><br><span class="line">mapping = &#123;<span class="string">'A'</span>: <span class="string">'第一组'</span>, <span class="string">'B'</span>: <span class="string">'第一组'</span>, <span class="string">'C'</span>: <span class="string">'第二组'</span>&#125;</span><br><span class="line">by_dict = data.groupby(mapping, axis=<span class="number">1</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> by_dict:</span><br><span class="line">    print(i)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>输出</p>
+</blockquote>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">(<span class="string">'第一组'</span>,    A   B</span><br><span class="line"><span class="number">0</span>  <span class="number">1</span>   <span class="number">6</span></span><br><span class="line"><span class="number">1</span>  <span class="number">2</span>   <span class="number">7</span></span><br><span class="line"><span class="number">2</span>  <span class="number">3</span>   <span class="number">8</span></span><br><span class="line"><span class="number">3</span>  <span class="number">4</span>   <span class="number">9</span></span><br><span class="line"><span class="number">4</span>  <span class="number">5</span>  <span class="number">10</span>)</span><br><span class="line">(<span class="string">'第二组'</span>,     C</span><br><span class="line"><span class="number">0</span>  <span class="number">11</span></span><br><span class="line"><span class="number">1</span>  <span class="number">12</span></span><br><span class="line"><span class="number">2</span>  <span class="number">13</span></span><br><span class="line"><span class="number">3</span>  <span class="number">14</span></span><br><span class="line"><span class="number">4</span>  <span class="number">15</span>)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>可以发现<code>A</code>,<code>B</code>已经放入了<code>第一组</code>，而<code>C</code>放入了<code>第二组</code>,注意组中只会包括字典中的元素，例如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">data = pd.DataFrame(&#123;</span><br><span class="line">    <span class="string">'A'</span>: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>],</span><br><span class="line">    <span class="string">'B'</span>: [<span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>],</span><br><span class="line">    <span class="string">'C'</span>: [<span class="number">11</span>, <span class="number">12</span>, <span class="number">13</span>, <span class="number">14</span>, <span class="number">15</span>],</span><br><span class="line">    <span class="string">'D'</span>: [<span class="number">16</span>, <span class="number">17</span>, <span class="number">18</span>, <span class="number">19</span>, <span class="number">20</span>]</span><br><span class="line">&#125;)</span><br><span class="line">mapping = &#123;<span class="string">'A'</span>: <span class="string">'第一组'</span>, <span class="string">'B'</span>: <span class="string">'第一组'</span>, <span class="string">'C'</span>: <span class="string">'第二组'</span>&#125;</span><br><span class="line">by_dict = data.groupby(mapping, axis=<span class="number">1</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> by_dict:</span><br><span class="line">    print(i)</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">(<span class="string">'第一组'</span>,    A   B</span><br><span class="line"><span class="number">0</span>  <span class="number">1</span>   <span class="number">6</span></span><br><span class="line"><span class="number">1</span>  <span class="number">2</span>   <span class="number">7</span></span><br><span class="line"><span class="number">2</span>  <span class="number">3</span>   <span class="number">8</span></span><br><span class="line"><span class="number">3</span>  <span class="number">4</span>   <span class="number">9</span></span><br><span class="line"><span class="number">4</span>  <span class="number">5</span>  <span class="number">10</span>)</span><br><span class="line">(<span class="string">'第二组'</span>,     C</span><br><span class="line"><span class="number">0</span>  <span class="number">11</span></span><br><span class="line"><span class="number">1</span>  <span class="number">12</span></span><br><span class="line"><span class="number">2</span>  <span class="number">13</span></span><br><span class="line"><span class="number">3</span>  <span class="number">14</span></span><br><span class="line"><span class="number">4</span>  <span class="number">15</span>)</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h5 id="1-2-4-通过函数分组"><a href="#1-2-4-通过函数分组" class="headerlink" title="1.2.4 通过函数分组"></a>1.2.4 通过函数分组</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">data = pd.DataFrame(</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">'A'</span>: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>],</span><br><span class="line">        <span class="string">'B'</span>: [<span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>],</span><br><span class="line">        <span class="string">'C'</span>: [<span class="number">11</span>, <span class="number">12</span>, <span class="number">13</span>, <span class="number">14</span>, <span class="number">15</span>],</span><br><span class="line">        <span class="string">'D'</span>: [<span class="number">16</span>, <span class="number">17</span>, <span class="number">18</span>, <span class="number">19</span>, <span class="number">20</span>]</span><br><span class="line">    &#125;,</span><br><span class="line">    index=[<span class="string">'zz'</span>, <span class="string">'yxy'</span>, <span class="string">'wcc'</span>, <span class="string">'ln'</span>, <span class="string">'wyf'</span>])</span><br><span class="line">fun_obj = data.groupby(len)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> fun_obj:</span><br><span class="line">    print(i)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>输出</p>
+</blockquote>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">(<span class="number">2</span>,     A  B   C   D</span><br><span class="line">zz  <span class="number">1</span>  <span class="number">6</span>  <span class="number">11</span>  <span class="number">16</span></span><br><span class="line">ln  <span class="number">4</span>  <span class="number">9</span>  <span class="number">14</span>  <span class="number">19</span>)</span><br><span class="line">(<span class="number">3</span>,      A   B   C   D</span><br><span class="line">yxy  <span class="number">2</span>   <span class="number">7</span>  <span class="number">12</span>  <span class="number">17</span></span><br><span class="line">wcc  <span class="number">3</span>   <span class="number">8</span>  <span class="number">13</span>  <span class="number">18</span></span><br><span class="line">wyf  <span class="number">5</span>  <span class="number">10</span>  <span class="number">15</span>  <span class="number">20</span>)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>通过长度函数<code>len</code>对数据进行分组</p>
+</blockquote>
+<h3 id="2-数据聚合"><a href="#2-数据聚合" class="headerlink" title="2 数据聚合"></a>2 数据聚合</h3><p>数据聚合，一般是指对分组中的数据执行某些操作，例如平均值、最大值，操作之后会得到一个结果集，这些实现聚合的操作称为聚合方法。</p>
+<h4 id="2-1-内置的统计方法聚合数据"><a href="#2-1-内置的统计方法聚合数据" class="headerlink" title="2.1 内置的统计方法聚合数据"></a>2.1 内置的统计方法聚合数据</h4><p>例如我们对下表数据按<code>key1</code>分组后求每个分组的平均值：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th></th>
+<th><strong>key1</strong></th>
+<th><strong>key2</strong></th>
+<th><strong>data1</strong></th>
+<th><strong>data2</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>A</td>
+<td>one</td>
+<td>2</td>
+<td>3.0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>A</td>
+<td>two</td>
+<td>3</td>
+<td>5.0</td>
+</tr>
+<tr>
+<td>2</td>
+<td>B</td>
+<td>one</td>
+<td>4</td>
+<td>NaN</td>
+</tr>
+<tr>
+<td>3</td>
+<td>B</td>
+<td>two</td>
+<td>6</td>
+<td>3.0</td>
+</tr>
+<tr>
+<td>4</td>
+<td>A</td>
+<td>one</td>
+<td>8</td>
+<td>7.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h5 id="2-1-1-实例代码"><a href="#2-1-1-实例代码" class="headerlink" title="2.1.1 实例代码"></a>2.1.1 实例代码</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">data = pd.DataFrame(&#123;</span><br><span class="line">    <span class="string">'key1'</span>: [<span class="string">'A'</span>, <span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'B'</span>, <span class="string">'A'</span>],</span><br><span class="line">    <span class="string">'key2'</span>: [<span class="string">'one'</span>, <span class="string">'two'</span>, <span class="string">'one'</span>, <span class="string">'two'</span>, <span class="string">'one'</span>],</span><br><span class="line">    <span class="string">'data1'</span>: [<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>],</span><br><span class="line">    <span class="string">'data2'</span>: [<span class="number">3</span>, <span class="number">5</span>, np.nan, <span class="number">3</span>, <span class="number">7</span>]</span><br><span class="line">&#125;)</span><br><span class="line">print(data.groupby(<span class="string">'key1'</span>).mean())</span><br></pre></td></tr></table></figure>
+<h5 id="2-1-2-输出"><a href="#2-1-2-输出" class="headerlink" title="2.1.2 输出"></a>2.1.2 输出</h5><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">         data1  data2</span><br><span class="line">key1</span><br><span class="line">A     <span class="number">4.333333</span>    <span class="number">5.0</span></span><br><span class="line">B     <span class="number">5.000000</span>    <span class="number">3.0</span></span><br></pre></td></tr></table></figure>
+<p>如果原数据为：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">data = pd.DataFrame(&#123;</span><br><span class="line">    <span class="string">'key1'</span>: [<span class="string">'A'</span>, <span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'B'</span>, <span class="string">'A'</span>],</span><br><span class="line">    <span class="string">'key2'</span>: [<span class="string">'one'</span>, <span class="string">'two'</span>, <span class="string">'one'</span>, <span class="string">'two'</span>, <span class="string">'one'</span>],</span><br><span class="line">    <span class="string">'data1'</span>: [<span class="number">2</span>, <span class="number">3</span>, np.nan, np.nan, <span class="number">8</span>],</span><br><span class="line">    <span class="string">'data2'</span>: [<span class="number">3</span>, <span class="number">5</span>, np.nan, np.nan, <span class="number">7</span>]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>则输出为：</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">         <span class="attr">data1</span>  <span class="string">data2</span></span><br><span class="line"><span class="attr">key1</span></span><br><span class="line"><span class="attr">A</span>     <span class="string">4.333333    5.0</span></span><br><span class="line"><span class="attr">B</span>          <span class="string">NaN    NaN</span></span><br></pre></td></tr></table></figure>
+<p>可知如果参与运算的数据中有<code>NaN</code>值则会自动过滤这些<code>NaN</code>值。</p>
+<h4 id="2-2-面向列的聚合方法"><a href="#2-2-面向列的聚合方法" class="headerlink" title="2.2 面向列的聚合方法"></a>2.2 面向列的聚合方法</h4><p>当内置的方法无法满足需求时可以自定义一个函数传给<code>agg()</code>方法实现对<code>Series</code>或<code>DataFrame</code>对象进行聚合运算。</p>
+<h5 id="2-2-1-agg-函数"><a href="#2-2-1-agg-函数" class="headerlink" title="2.2.1 agg()函数"></a>2.2.1 <code>agg()</code>函数</h5><h6 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">agg(func,axis=<span class="number">0</span>,*args,**kwargs)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>func</code>:表示用于汇总数据的函数，可以为单个函数或函数列表</li>
+<li><code>axis</code>:表示函数作用于轴的方向</li>
+</ul>
+<h6 id="对每一列数据应用同一函数"><a href="#对每一列数据应用同一函数" class="headerlink" title="对每一列数据应用同一函数"></a>对每一列数据应用同一函数</h6><p>通过对表格中的<code>key</code>值进行分组，计算每个分组中每列数据的和</p>
+<p><img src="https://gitee.com/Vxiaozhe1998/Pic/raw/master/img/20200513160617.png" alt="表格"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="comment"># 创建表格</span></span><br><span class="line">data = pd.DataFrame(np.arange(<span class="number">36</span>).reshape(<span class="number">6</span>,<span class="number">6</span>),columns=list(<span class="string">'abcdef'</span>))</span><br><span class="line">data[<span class="string">'key'</span>] = pd.Series(list(<span class="string">'aaabbb'</span>))</span><br><span class="line"><span class="comment"># 通过key分组</span></span><br><span class="line">data_gr = data.groupby(by=<span class="string">'key'</span>)</span><br><span class="line"><span class="comment"># 对每列求和</span></span><br><span class="line">print(data_gr.agg(sum))</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>输出</p>
+</blockquote>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">      a   b   c   d   e   f</span><br><span class="line"><span class="type">key</span></span><br><span class="line">a    <span class="number">18</span>  <span class="number">21</span>  <span class="number">24</span>  <span class="number">27</span>  <span class="number">30</span>  <span class="number">33</span></span><br><span class="line">b    <span class="number">72</span>  <span class="number">75</span>  <span class="number">78</span>  <span class="number">81</span>  <span class="number">84</span>  <span class="number">87</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>拓展：</strong></p>
+<p>可以通过:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(dict([x <span class="keyword">for</span> x <span class="keyword">in</span> data_gr])[<span class="string">'a'</span>])</span><br></pre></td></tr></table></figure>
+<p>获取<code>a</code>组的数据：</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">    a   b   c   d   e   f <span class="type">key</span></span><br><span class="line"><span class="number">0</span>   <span class="number">0</span>   <span class="number">1</span>   <span class="number">2</span>   <span class="number">3</span>   <span class="number">4</span>   <span class="number">5</span>   a</span><br><span class="line"><span class="number">1</span>   <span class="number">6</span>   <span class="number">7</span>   <span class="number">8</span>   <span class="number">9</span>  <span class="number">10</span>  <span class="number">11</span>   a</span><br><span class="line"><span class="number">2</span>  <span class="number">12</span>  <span class="number">13</span>  <span class="number">14</span>  <span class="number">15</span>  <span class="number">16</span>  <span class="number">17</span>   a</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h6 id="拓展："><a href="#拓展：" class="headerlink" title="拓展："></a>拓展：</h6><blockquote>
+<p><strong>通过<code>agg()</code>使用自定义函数</strong></p>
+<p>在下述代码中将定义一个求每个分组数据的极差值的函数（最大值-最小值）</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">range_data_group</span><span class="params">(arr)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> arr.max() - arr.min()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建表格</span></span><br><span class="line">data = pd.DataFrame(np.arange(<span class="number">36</span>).reshape(<span class="number">6</span>, <span class="number">6</span>), columns=list(<span class="string">'abcdef'</span>))</span><br><span class="line">data[<span class="string">'key'</span>] = pd.Series(list(<span class="string">'aaabbb'</span>))</span><br><span class="line"><span class="comment"># 通过key分组</span></span><br><span class="line">data_gr = data.groupby(by=<span class="string">'key'</span>)</span><br><span class="line">print(data_gr.agg(range_data_group))</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">      a   b   c   d   e   f</span><br><span class="line"><span class="type">key</span></span><br><span class="line">a    <span class="number">12</span>  <span class="number">12</span>  <span class="number">12</span>  <span class="number">12</span>  <span class="number">12</span>  <span class="number">12</span></span><br><span class="line">b    <span class="number">12</span>  <span class="number">12</span>  <span class="number">12</span>  <span class="number">12</span>  <span class="number">12</span>  <span class="number">12</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2020/05/09/Python%E7%9A%84%E6%95%B0%E6%8D%AE%E8%81%9A%E5%90%88%E4%B8%8E%E5%88%86%E7%BB%84%E8%BF%90%E7%AE%97/">Python的数据聚合与分组运算   <i class="fa fa-arrow-up"></i></a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 小哲 的个人博客">小哲    <i class="fa fa-user"></i></a></p>
+  <p><span>发布时间:</span>2020年05月09日 - 14:42</p>
+  <p><span>最后更新:</span>2020年05月13日 - 18:36</p>
+  <p><span>原始链接:</span><i class="fa fa-clipboard" data-clipboard-text="https://vxiaozhe1998.github.io/2020/05/09/Python%E7%9A%84%E6%95%B0%E6%8D%AE%E8%81%9A%E5%90%88%E4%B8%8E%E5%88%86%E7%BB%84%E8%BF%90%E7%AE%97/"  aria-label="复制成功！">&nbsp;点击复制原始链接</i></p>
+  <!--<a class="link" href="https://vxiaozhe1998.github.io/2020/05/09/Python%E7%9A%84%E6%95%B0%E6%8D%AE%E8%81%9A%E5%90%88%E4%B8%8E%E5%88%86%E7%BB%84%E8%BF%90%E7%AE%97/" title="Python的数据聚合与分组运算">https://vxiaozhe1998.github.io/2020/05/09/Python%E7%9A%84%E6%95%B0%E6%8D%AE%E8%81%9A%E5%90%88%E4%B8%8E%E5%88%86%E7%BB%84%E8%BF%90%E7%AE%97/</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">协议</a>-转载请保留原文链接及<a href="https://ame1314.github.io/about/" target="_blank">作者</a></p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+    });
+    });  
+</script>
+
+      </div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="小哲 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="小哲 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
+          
+            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" rel="tag"><i class="fa fa-tag"></i> 数据分析</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/04/27/Python%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/" rel="next" title="Python数据可视化">
+                <i class="fa fa-chevron-left"></i> Python数据可视化
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">小哲</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/AME1314" target="_blank" title="GitHub">
+                      GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:957798624@qq.com" target="_blank" title="E-Mail">
+                      E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/me1314-28/activities" target="_blank" title="知乎">
+                      知乎</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.jianshu.com/u/302bb46f2381" target="_blank" title="简书">
+                      简书</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://qm.qq.com/cgi-bin/qm/qr?k=2--mYdSVUaf_g94-fgsqPbsiyehFYYVI" target="_blank" title="QQ">
+                      QQ</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-heartbeat"></i>
+                
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://vxiaozhe1998.gitee.io/ourstory" title="致我亲爱的她" target="_blank">致我亲爱的她</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+<!-- CloudCalendar -->
+<div class="widget-wrap" style="width: 90%;margin-left: auto;margin-right: auto; opacity: 0.97;">
+	<div class="widget" id="CloudCalendar"></div>
+</div>
+
+          
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#0-分组聚合原理"><span class="nav-text">0 分组聚合原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-groupby方法"><span class="nav-text">1 groupby方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-语法"><span class="nav-text">1.1 语法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-实例"><span class="nav-text">1.2 实例</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-2-1-按照Key进行分组，使用列索引字段"><span class="nav-text">1.2.1 按照Key进行分组，使用列索引字段</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-2-2-使用series进行分组"><span class="nav-text">1.2.2 使用series进行分组</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-2-3-通过字典进行分组"><span class="nav-text">1.2.3 通过字典进行分组</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-2-4-通过函数分组"><span class="nav-text">1.2.4 通过函数分组</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-数据聚合"><span class="nav-text">2 数据聚合</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-内置的统计方法聚合数据"><span class="nav-text">2.1 内置的统计方法聚合数据</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-1-1-实例代码"><span class="nav-text">2.1.1 实例代码</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-1-2-输出"><span class="nav-text">2.1.2 输出</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-面向列的聚合方法"><span class="nav-text">2.2 面向列的聚合方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2-1-agg-函数"><span class="nav-text">2.2.1 agg()函数</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#语法"><span class="nav-text">语法</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#对每一列数据应用同一函数"><span class="nav-text">对每一列数据应用同一函数</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#拓展："><span class="nav-text">拓展：</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+          <div class="theme-info" style="color:rgb(255, 118, 117)"><a class="my-love" target="_blank" href="http://vxiaozhe1998.gitee.io/ourstory"><i class="fa fa-heartbeat" aria-hidden="true"></i>&nbsp;&nbsp;致我最亲爱的她&nbsp;&nbsp;</a></div>
+
+<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+&nbsp;|&nbsp;<span class="with-love">
+    <i class="fa fa-star"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">小哲</span>
+
+  
+ &nbsp;|&nbsp;
+<i class="fa fa-pencil"></i> &nbsp;<span class="post-count">博客全站共94.7k字</span>
+</div>
+
+<span class="post-count">备案号：<a href="http://beian.miit.gov.cn" target="_blank" rel="noopener">鲁ICP备20010439号</a></span>
+<div>
+<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=37028302000737" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="https://gitee.com/Vxiaozhe1998/Pic/raw/master/img/20200408003236.png" class="Police" style="float:left;"/><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px;">鲁公网安备 37028302000737号</p></a>
+</div>
+
+  <script src='https://unpkg.com/mermaid@8.4.8/dist/mermaid.min.js'></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({"theme":"default","startOnLoad":true});
+    }
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/reading_progress/reading_progress.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "default";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleLeft";
+      
+          flOptions.networks = "Weibo,Douban,QQZone,Linkedin,renren,Wechat,QQ";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script>
+
+
+  
+
+  <!-- calendar widget -->
+
+
+    <script src="/lib/CloudCalendar/CloudCalendar.js"></script>
+    <script src="/lib/CloudCalendar/languages.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        $('#CloudCalendar').aCalendar('zh-CN', 
+            $.extend(
+                '', {
+                    single:true,
+                    root:'/calendar/'
+                }
+            )
+        );
+    });
+    </script>
+
+
+
+  
+  <style>
+    .copy-btn {
+        display: inline-block;
+        cursor: pointer;
+        background-color: #ecedf0;
+        border: none;
+        border-radius: 3px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        -webkit-appearance: none;
+        font-size: 13px;
+        font-weight: 700;
+        line-height: 20px;
+        color: #333;
+        -webkit-transition: opacity .3s ease-in-out;
+        -o-transition: opacity .3s ease-in-out;
+        transition: opacity .3s ease-in-out;
+        padding: 2px 6px;
+        position: absolute;
+        opacity: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 10px;
+      top: 9px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('<i class="fa fa-clipboard"></i>  复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('')
+          $b.append('<i class="fa fa-clipboard"></i>  复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+  <script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+  <script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+</body>
+</html>

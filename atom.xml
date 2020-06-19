@@ -5,9 +5,9 @@
   <subtitle>一个不像程序猿的设计狮</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://ame1314.github.io/"/>
-  <updated>2020-04-27T03:50:41.267Z</updated>
-  <id>https://ame1314.github.io/</id>
+  <link href="https://vxiaozhe1998.github.io/"/>
+  <updated>2020-05-13T10:36:41.254Z</updated>
+  <id>https://vxiaozhe1998.github.io/</id>
   
   <author>
     <name>小哲</name>
@@ -17,9 +17,34 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Python的数据聚合与分组运算</title>
+    <link href="https://vxiaozhe1998.github.io/2020/05/09/Python%E7%9A%84%E6%95%B0%E6%8D%AE%E8%81%9A%E5%90%88%E4%B8%8E%E5%88%86%E7%BB%84%E8%BF%90%E7%AE%97/"/>
+    <id>https://vxiaozhe1998.github.io/2020/05/09/Python%E7%9A%84%E6%95%B0%E6%8D%AE%E8%81%9A%E5%90%88%E4%B8%8E%E5%88%86%E7%BB%84%E8%BF%90%E7%AE%97/</id>
+    <published>2020-05-09T06:42:04.000Z</published>
+    <updated>2020-05-13T10:36:41.254Z</updated>
+    
+    <content type="html"><![CDATA[<div class="note info no-icon"><p>在进行数据分析的过程中往往需要我们对数据进行分类或合并，在本节将学习有关Python中的有关分组聚合的方法。</p></div><a id="more"></a><h3 id="0-分组聚合原理"><a href="#0-分组聚合原理" class="headerlink" title="0 分组聚合原理"></a>0 分组聚合原理</h3><p>在Pandas中，分组是指使用特定的条件将原数据划分为多个组，聚合在这里指的是，对每个分组中的数据执行某些操作，最后将计算的结果进行整合。</p><blockquote><p>参考文档：<a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/groupby.html" target="_blank" rel="noopener">Group By: split-apply-combine</a></p></blockquote><p><img src="https://gitee.com/Vxiaozhe1998/Pic/raw/master/img/20200509161202.png" alt="分组聚合原理"></p><h3 id="1-groupby方法"><a href="#1-groupby方法" class="headerlink" title="1 groupby方法"></a>1 <code>groupby</code>方法</h3><h4 id="1-1-语法"><a href="#1-1-语法" class="headerlink" title="1.1 语法"></a>1.1 语法</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">groupby(by=<span class="literal">None</span>, axis=<span class="number">0</span>, level=<span class="literal">None</span>, as_index=<span class="literal">True</span>, sort=<span class="literal">True</span>,group_keys=<span class="literal">True</span>, squeeze=<span class="literal">False</span>, observed=<span class="literal">False</span>, **kwargs)</span><br></pre></td></tr></table></figure><ul><li><p><code>by</code>：用于确定进行分组的依据</p></li><li><p><code>axis</code>：表示分组轴的方向</p></li><li><p><code>sort</code>：表示是否对分组标签进行排序，接收布尔值，默认为True</p></li></ul><blockquote><p><code>by</code>参数可接收的数据主要有：<strong>列表或数组</strong>、<strong>DataFrame某列</strong>、<strong>字典或Series对象</strong>、<strong>函数</strong></p></blockquote><h4 id="1-2-实例"><a href="#1-2-实例" class="headerlink" title="1.2 实例"></a>1.2 实例</h4><h5 id="1-2-1-按照Key进行分组，使用列索引字段"><a href="#1-2-1-按照Key进行分组，使用列索引字段" class="headerlink" title="1.2.1 按照Key进行分组，使用列索引字段"></a>1.2.1 按照Key进行分组，使用列索引字段</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">data = pd.DataFrame(&#123;</span><br><span class="line">    <span class="string">"Key"</span>: [<span class="string">'C'</span>, <span class="string">'B'</span>, <span class="string">'C'</span>, <span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'B'</span>, <span class="string">'A'</span>, <span class="string">'C'</span>, <span class="string">'A'</span>],</span><br><span class="line">    <span class="string">"Data"</span>: [<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>, <span class="number">10</span>, <span class="number">1</span>, <span class="number">14</span>, <span class="number">16</span>, <span class="number">18</span>]</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">data_obj = data.groupby(by=<span class="string">"Key"</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> data_obj:</span><br><span class="line">    print(i)</span><br></pre></td></tr></table></figure><blockquote><p>输出</p></blockquote><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">(<span class="string">'A'</span>,   Key  Data</span><br><span class="line"><span class="number">3</span>   A     <span class="number">8</span></span><br><span class="line"><span class="number">6</span>   A    <span class="number">14</span></span><br><span class="line"><span class="number">8</span>   A    <span class="number">18</span>)</span><br><span class="line">(<span class="string">'B'</span>,   Key  Data</span><br><span class="line"><span class="number">1</span>   B     <span class="number">4</span></span><br><span class="line"><span class="number">4</span>   B    <span class="number">10</span></span><br><span class="line"><span class="number">5</span>   B     <span class="number">1</span>)</span><br><span class="line">(<span class="string">'C'</span>,   Key  Data</span><br><span class="line"><span class="number">0</span>   C     <span class="number">2</span></span><br><span class="line"><span class="number">2</span>   C     <span class="number">6</span></span><br><span class="line"><span class="number">7</span>   C    <span class="number">16</span>)</span><br></pre></td></tr></table></figure><blockquote><p>可以看出，程序通过关键词<code>Key</code>将数据分为三组：</p><p><img src="https://gitee.com/Vxiaozhe1998/Pic/raw/master/img/20200511224132.png" alt="数据分组示意图"></p></blockquote><h5 id="1-2-2-使用series进行分组"><a href="#1-2-2-使用series进行分组" class="headerlink" title="1.2.2 使用series进行分组"></a>1.2.2 使用<code>series</code>进行分组</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">data = pd.DataFrame(&#123;</span><br><span class="line">    <span class="string">"Key"</span>: [<span class="string">'C'</span>, <span class="string">'B'</span>, <span class="string">'C'</span>, <span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'B'</span>, <span class="string">'A'</span>, <span class="string">'C'</span>, <span class="string">'A'</span>],</span><br><span class="line">    <span class="string">"Data"</span>: [<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>, <span class="number">10</span>, <span class="number">1</span>, <span class="number">14</span>, <span class="number">16</span>, <span class="number">18</span>]</span><br><span class="line">&#125;)</span><br><span class="line">ser_obj = pd.Series([</span><br><span class="line">    <span class="string">'a'</span>,</span><br><span class="line">    <span class="string">'b'</span>,</span><br><span class="line">    <span class="string">'c'</span>,</span><br><span class="line">    <span class="string">'a'</span>,</span><br><span class="line">    <span class="string">'b'</span>,</span><br><span class="line">    <span class="string">'c'</span>,</span><br><span class="line">    <span class="string">'a'</span>,</span><br><span class="line">    <span class="string">'b'</span>,</span><br><span class="line">    <span class="string">'c'</span>,</span><br><span class="line">])</span><br><span class="line">group_obj = data.groupby(by=ser_obj)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> group_obj:</span><br><span class="line">    print(i)</span><br></pre></td></tr></table></figure><blockquote><p>输出</p></blockquote><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">(<span class="string">'a'</span>,   Key  Data</span><br><span class="line"><span class="number">0</span>   C     <span class="number">2</span></span><br><span class="line"><span class="number">3</span>   A     <span class="number">8</span></span><br><span class="line"><span class="number">6</span>   A    <span class="number">14</span>)</span><br><span class="line">(<span class="string">'b'</span>,   Key  Data</span><br><span class="line"><span class="number">1</span>   B     <span class="number">4</span></span><br><span class="line"><span class="number">4</span>   B    <span class="number">10</span></span><br><span class="line"><span class="number">7</span>   C    <span class="number">16</span>)</span><br><span class="line">(<span class="string">'c'</span>,   Key  Data</span><br><span class="line"><span class="number">2</span>   C     <span class="number">6</span></span><br><span class="line"><span class="number">5</span>   B     <span class="number">1</span></span><br><span class="line"><span class="number">8</span>   A    <span class="number">18</span>)</span><br></pre></td></tr></table></figure><blockquote><p>通过<code>Series</code>对象来分组可以理解成在原<code>DataFrame</code>数据中添加了一列数据，分组时以该列数据作为<code>key</code>进行索引分组。如果<code>Series</code>对象的索引长度大于或小于源数据，不会报错只会输出交集部分。</p></blockquote><h5 id="1-2-3-通过字典进行分组"><a href="#1-2-3-通过字典进行分组" class="headerlink" title="1.2.3 通过字典进行分组"></a>1.2.3 通过字典进行分组</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">data = pd.DataFrame(&#123;</span><br><span class="line">    <span class="string">'A'</span>: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>],</span><br><span class="line">    <span class="string">'B'</span>: [<span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>],</span><br><span class="line">    <span class="string">'C'</span>: [<span class="number">11</span>, <span class="number">12</span>, <span class="number">13</span>, <span class="number">14</span>, <span class="number">15</span>]</span><br><span class="line">&#125;)</span><br><span class="line">mapping = &#123;<span class="string">'A'</span>: <span class="string">'第一组'</span>, <span class="string">'B'</span>: <span class="string">'第一组'</span>, <span class="string">'C'</span>: <span class="string">'第二组'</span>&#125;</span><br><span class="line">by_dict = data.groupby(mapping, axis=<span class="number">1</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> by_dict:</span><br><span class="line">    print(i)</span><br></pre></td></tr></table></figure><blockquote><p>输出</p></blockquote><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">(<span class="string">'第一组'</span>,    A   B</span><br><span class="line"><span class="number">0</span>  <span class="number">1</span>   <span class="number">6</span></span><br><span class="line"><span class="number">1</span>  <span class="number">2</span>   <span class="number">7</span></span><br><span class="line"><span class="number">2</span>  <span class="number">3</span>   <span class="number">8</span></span><br><span class="line"><span class="number">3</span>  <span class="number">4</span>   <span class="number">9</span></span><br><span class="line"><span class="number">4</span>  <span class="number">5</span>  <span class="number">10</span>)</span><br><span class="line">(<span class="string">'第二组'</span>,     C</span><br><span class="line"><span class="number">0</span>  <span class="number">11</span></span><br><span class="line"><span class="number">1</span>  <span class="number">12</span></span><br><span class="line"><span class="number">2</span>  <span class="number">13</span></span><br><span class="line"><span class="number">3</span>  <span class="number">14</span></span><br><span class="line"><span class="number">4</span>  <span class="number">15</span>)</span><br></pre></td></tr></table></figure><blockquote><p>可以发现<code>A</code>,<code>B</code>已经放入了<code>第一组</code>，而<code>C</code>放入了<code>第二组</code>,注意组中只会包括字典中的元素，例如：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">data = pd.DataFrame(&#123;</span><br><span class="line">    <span class="string">'A'</span>: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>],</span><br><span class="line">    <span class="string">'B'</span>: [<span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>],</span><br><span class="line">    <span class="string">'C'</span>: [<span class="number">11</span>, <span class="number">12</span>, <span class="number">13</span>, <span class="number">14</span>, <span class="number">15</span>],</span><br><span class="line">    <span class="string">'D'</span>: [<span class="number">16</span>, <span class="number">17</span>, <span class="number">18</span>, <span class="number">19</span>, <span class="number">20</span>]</span><br><span class="line">&#125;)</span><br><span class="line">mapping = &#123;<span class="string">'A'</span>: <span class="string">'第一组'</span>, <span class="string">'B'</span>: <span class="string">'第一组'</span>, <span class="string">'C'</span>: <span class="string">'第二组'</span>&#125;</span><br><span class="line">by_dict = data.groupby(mapping, axis=<span class="number">1</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> by_dict:</span><br><span class="line">    print(i)</span><br></pre></td></tr></table></figure><p>输出：</p><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">(<span class="string">'第一组'</span>,    A   B</span><br><span class="line"><span class="number">0</span>  <span class="number">1</span>   <span class="number">6</span></span><br><span class="line"><span class="number">1</span>  <span class="number">2</span>   <span class="number">7</span></span><br><span class="line"><span class="number">2</span>  <span class="number">3</span>   <span class="number">8</span></span><br><span class="line"><span class="number">3</span>  <span class="number">4</span>   <span class="number">9</span></span><br><span class="line"><span class="number">4</span>  <span class="number">5</span>  <span class="number">10</span>)</span><br><span class="line">(<span class="string">'第二组'</span>,     C</span><br><span class="line"><span class="number">0</span>  <span class="number">11</span></span><br><span class="line"><span class="number">1</span>  <span class="number">12</span></span><br><span class="line"><span class="number">2</span>  <span class="number">13</span></span><br><span class="line"><span class="number">3</span>  <span class="number">14</span></span><br><span class="line"><span class="number">4</span>  <span class="number">15</span>)</span><br></pre></td></tr></table></figure></blockquote><h5 id="1-2-4-通过函数分组"><a href="#1-2-4-通过函数分组" class="headerlink" title="1.2.4 通过函数分组"></a>1.2.4 通过函数分组</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">data = pd.DataFrame(</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">'A'</span>: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>],</span><br><span class="line">        <span class="string">'B'</span>: [<span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>],</span><br><span class="line">        <span class="string">'C'</span>: [<span class="number">11</span>, <span class="number">12</span>, <span class="number">13</span>, <span class="number">14</span>, <span class="number">15</span>],</span><br><span class="line">        <span class="string">'D'</span>: [<span class="number">16</span>, <span class="number">17</span>, <span class="number">18</span>, <span class="number">19</span>, <span class="number">20</span>]</span><br><span class="line">    &#125;,</span><br><span class="line">    index=[<span class="string">'zz'</span>, <span class="string">'yxy'</span>, <span class="string">'wcc'</span>, <span class="string">'ln'</span>, <span class="string">'wyf'</span>])</span><br><span class="line">fun_obj = data.groupby(len)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> fun_obj:</span><br><span class="line">    print(i)</span><br></pre></td></tr></table></figure><blockquote><p>输出</p></blockquote><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">(<span class="number">2</span>,     A  B   C   D</span><br><span class="line">zz  <span class="number">1</span>  <span class="number">6</span>  <span class="number">11</span>  <span class="number">16</span></span><br><span class="line">ln  <span class="number">4</span>  <span class="number">9</span>  <span class="number">14</span>  <span class="number">19</span>)</span><br><span class="line">(<span class="number">3</span>,      A   B   C   D</span><br><span class="line">yxy  <span class="number">2</span>   <span class="number">7</span>  <span class="number">12</span>  <span class="number">17</span></span><br><span class="line">wcc  <span class="number">3</span>   <span class="number">8</span>  <span class="number">13</span>  <span class="number">18</span></span><br><span class="line">wyf  <span class="number">5</span>  <span class="number">10</span>  <span class="number">15</span>  <span class="number">20</span>)</span><br></pre></td></tr></table></figure><blockquote><p>通过长度函数<code>len</code>对数据进行分组</p></blockquote><h3 id="2-数据聚合"><a href="#2-数据聚合" class="headerlink" title="2 数据聚合"></a>2 数据聚合</h3><p>数据聚合，一般是指对分组中的数据执行某些操作，例如平均值、最大值，操作之后会得到一个结果集，这些实现聚合的操作称为聚合方法。</p><h4 id="2-1-内置的统计方法聚合数据"><a href="#2-1-内置的统计方法聚合数据" class="headerlink" title="2.1 内置的统计方法聚合数据"></a>2.1 内置的统计方法聚合数据</h4><p>例如我们对下表数据按<code>key1</code>分组后求每个分组的平均值：</p><div class="table-container"><table><thead><tr><th></th><th><strong>key1</strong></th><th><strong>key2</strong></th><th><strong>data1</strong></th><th><strong>data2</strong></th></tr></thead><tbody><tr><td>0</td><td>A</td><td>one</td><td>2</td><td>3.0</td></tr><tr><td>1</td><td>A</td><td>two</td><td>3</td><td>5.0</td></tr><tr><td>2</td><td>B</td><td>one</td><td>4</td><td>NaN</td></tr><tr><td>3</td><td>B</td><td>two</td><td>6</td><td>3.0</td></tr><tr><td>4</td><td>A</td><td>one</td><td>8</td><td>7.0</td></tr></tbody></table></div><h5 id="2-1-1-实例代码"><a href="#2-1-1-实例代码" class="headerlink" title="2.1.1 实例代码"></a>2.1.1 实例代码</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">data = pd.DataFrame(&#123;</span><br><span class="line">    <span class="string">'key1'</span>: [<span class="string">'A'</span>, <span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'B'</span>, <span class="string">'A'</span>],</span><br><span class="line">    <span class="string">'key2'</span>: [<span class="string">'one'</span>, <span class="string">'two'</span>, <span class="string">'one'</span>, <span class="string">'two'</span>, <span class="string">'one'</span>],</span><br><span class="line">    <span class="string">'data1'</span>: [<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>],</span><br><span class="line">    <span class="string">'data2'</span>: [<span class="number">3</span>, <span class="number">5</span>, np.nan, <span class="number">3</span>, <span class="number">7</span>]</span><br><span class="line">&#125;)</span><br><span class="line">print(data.groupby(<span class="string">'key1'</span>).mean())</span><br></pre></td></tr></table></figure><h5 id="2-1-2-输出"><a href="#2-1-2-输出" class="headerlink" title="2.1.2 输出"></a>2.1.2 输出</h5><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">         data1  data2</span><br><span class="line">key1</span><br><span class="line">A     <span class="number">4.333333</span>    <span class="number">5.0</span></span><br><span class="line">B     <span class="number">5.000000</span>    <span class="number">3.0</span></span><br></pre></td></tr></table></figure><p>如果原数据为：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">data = pd.DataFrame(&#123;</span><br><span class="line">    <span class="string">'key1'</span>: [<span class="string">'A'</span>, <span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'B'</span>, <span class="string">'A'</span>],</span><br><span class="line">    <span class="string">'key2'</span>: [<span class="string">'one'</span>, <span class="string">'two'</span>, <span class="string">'one'</span>, <span class="string">'two'</span>, <span class="string">'one'</span>],</span><br><span class="line">    <span class="string">'data1'</span>: [<span class="number">2</span>, <span class="number">3</span>, np.nan, np.nan, <span class="number">8</span>],</span><br><span class="line">    <span class="string">'data2'</span>: [<span class="number">3</span>, <span class="number">5</span>, np.nan, np.nan, <span class="number">7</span>]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><p>则输出为：</p><figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">         <span class="attr">data1</span>  <span class="string">data2</span></span><br><span class="line"><span class="attr">key1</span></span><br><span class="line"><span class="attr">A</span>     <span class="string">4.333333    5.0</span></span><br><span class="line"><span class="attr">B</span>          <span class="string">NaN    NaN</span></span><br></pre></td></tr></table></figure><p>可知如果参与运算的数据中有<code>NaN</code>值则会自动过滤这些<code>NaN</code>值。</p><h4 id="2-2-面向列的聚合方法"><a href="#2-2-面向列的聚合方法" class="headerlink" title="2.2 面向列的聚合方法"></a>2.2 面向列的聚合方法</h4><p>当内置的方法无法满足需求时可以自定义一个函数传给<code>agg()</code>方法实现对<code>Series</code>或<code>DataFrame</code>对象进行聚合运算。</p><h5 id="2-2-1-agg-函数"><a href="#2-2-1-agg-函数" class="headerlink" title="2.2.1 agg()函数"></a>2.2.1 <code>agg()</code>函数</h5><h6 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">agg(func,axis=<span class="number">0</span>,*args,**kwargs)</span><br></pre></td></tr></table></figure><ul><li><code>func</code>:表示用于汇总数据的函数，可以为单个函数或函数列表</li><li><code>axis</code>:表示函数作用于轴的方向</li></ul><h6 id="对每一列数据应用同一函数"><a href="#对每一列数据应用同一函数" class="headerlink" title="对每一列数据应用同一函数"></a>对每一列数据应用同一函数</h6><p>通过对表格中的<code>key</code>值进行分组，计算每个分组中每列数据的和</p><p><img src="https://gitee.com/Vxiaozhe1998/Pic/raw/master/img/20200513160617.png" alt="表格"></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="comment"># 创建表格</span></span><br><span class="line">data = pd.DataFrame(np.arange(<span class="number">36</span>).reshape(<span class="number">6</span>,<span class="number">6</span>),columns=list(<span class="string">'abcdef'</span>))</span><br><span class="line">data[<span class="string">'key'</span>] = pd.Series(list(<span class="string">'aaabbb'</span>))</span><br><span class="line"><span class="comment"># 通过key分组</span></span><br><span class="line">data_gr = data.groupby(by=<span class="string">'key'</span>)</span><br><span class="line"><span class="comment"># 对每列求和</span></span><br><span class="line">print(data_gr.agg(sum))</span><br></pre></td></tr></table></figure><blockquote><p>输出</p></blockquote><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">      a   b   c   d   e   f</span><br><span class="line"><span class="type">key</span></span><br><span class="line">a    <span class="number">18</span>  <span class="number">21</span>  <span class="number">24</span>  <span class="number">27</span>  <span class="number">30</span>  <span class="number">33</span></span><br><span class="line">b    <span class="number">72</span>  <span class="number">75</span>  <span class="number">78</span>  <span class="number">81</span>  <span class="number">84</span>  <span class="number">87</span></span><br></pre></td></tr></table></figure><blockquote><p><strong>拓展：</strong></p><p>可以通过:</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(dict([x <span class="keyword">for</span> x <span class="keyword">in</span> data_gr])[<span class="string">'a'</span>])</span><br></pre></td></tr></table></figure><p>获取<code>a</code>组的数据：</p><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">    a   b   c   d   e   f <span class="type">key</span></span><br><span class="line"><span class="number">0</span>   <span class="number">0</span>   <span class="number">1</span>   <span class="number">2</span>   <span class="number">3</span>   <span class="number">4</span>   <span class="number">5</span>   a</span><br><span class="line"><span class="number">1</span>   <span class="number">6</span>   <span class="number">7</span>   <span class="number">8</span>   <span class="number">9</span>  <span class="number">10</span>  <span class="number">11</span>   a</span><br><span class="line"><span class="number">2</span>  <span class="number">12</span>  <span class="number">13</span>  <span class="number">14</span>  <span class="number">15</span>  <span class="number">16</span>  <span class="number">17</span>   a</span><br></pre></td></tr></table></figure></blockquote><h6 id="拓展："><a href="#拓展：" class="headerlink" title="拓展："></a>拓展：</h6><blockquote><p><strong>通过<code>agg()</code>使用自定义函数</strong></p><p>在下述代码中将定义一个求每个分组数据的极差值的函数（最大值-最小值）</p></blockquote><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">range_data_group</span><span class="params">(arr)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> arr.max() - arr.min()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建表格</span></span><br><span class="line">data = pd.DataFrame(np.arange(<span class="number">36</span>).reshape(<span class="number">6</span>, <span class="number">6</span>), columns=list(<span class="string">'abcdef'</span>))</span><br><span class="line">data[<span class="string">'key'</span>] = pd.Series(list(<span class="string">'aaabbb'</span>))</span><br><span class="line"><span class="comment"># 通过key分组</span></span><br><span class="line">data_gr = data.groupby(by=<span class="string">'key'</span>)</span><br><span class="line">print(data_gr.agg(range_data_group))</span><br></pre></td></tr></table></figure><p>输出：</p><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">      a   b   c   d   e   f</span><br><span class="line"><span class="type">key</span></span><br><span class="line">a    <span class="number">12</span>  <span class="number">12</span>  <span class="number">12</span>  <span class="number">12</span>  <span class="number">12</span>  <span class="number">12</span></span><br><span class="line">b    <span class="number">12</span>  <span class="number">12</span>  <span class="number">12</span>  <span class="number">12</span>  <span class="number">12</span>  <span class="number">12</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;div class=&quot;note info no-icon&quot;&gt;&lt;p&gt;在进行数据分析的过程中往往需要我们对数据进行分类或合并，在本节将学习有关Python中的有关分组聚合的方法。&lt;/p&gt;&lt;/div&gt;
+    
+    </summary>
+    
+    
+      <category term="编程" scheme="https://vxiaozhe1998.github.io/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+    
+      <category term="Python" scheme="https://vxiaozhe1998.github.io/tags/Python/"/>
+    
+      <category term="数据分析" scheme="https://vxiaozhe1998.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Python数据可视化</title>
-    <link href="https://ame1314.github.io/2020/04/27/Python%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
-    <id>https://ame1314.github.io/2020/04/27/Python%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/</id>
+    <link href="https://vxiaozhe1998.github.io/2020/04/27/Python%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
+    <id>https://vxiaozhe1998.github.io/2020/04/27/Python%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/</id>
     <published>2020-04-27T03:22:46.000Z</published>
     <updated>2020-04-27T03:50:41.267Z</updated>
     
@@ -33,19 +58,19 @@
     </summary>
     
     
-      <category term="可视化" scheme="https://ame1314.github.io/categories/%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
+      <category term="可视化" scheme="https://vxiaozhe1998.github.io/categories/%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
     
     
-      <category term="Python" scheme="https://ame1314.github.io/tags/Python/"/>
+      <category term="Python" scheme="https://vxiaozhe1998.github.io/tags/Python/"/>
     
-      <category term="数据可视化" scheme="https://ame1314.github.io/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
+      <category term="数据可视化" scheme="https://vxiaozhe1998.github.io/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
     
   </entry>
   
   <entry>
     <title>Python数据预处理</title>
-    <link href="https://ame1314.github.io/2020/04/22/Python%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86/"/>
-    <id>https://ame1314.github.io/2020/04/22/Python%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86/</id>
+    <link href="https://vxiaozhe1998.github.io/2020/04/22/Python%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86/"/>
+    <id>https://vxiaozhe1998.github.io/2020/04/22/Python%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86/</id>
     <published>2020-04-22T01:26:27.000Z</published>
     <updated>2020-05-04T15:05:12.383Z</updated>
     
@@ -58,19 +83,19 @@
     </summary>
     
     
-      <category term="编程" scheme="https://ame1314.github.io/categories/%E7%BC%96%E7%A8%8B/"/>
+      <category term="编程" scheme="https://vxiaozhe1998.github.io/categories/%E7%BC%96%E7%A8%8B/"/>
     
     
-      <category term="Python" scheme="https://ame1314.github.io/tags/Python/"/>
+      <category term="Python" scheme="https://vxiaozhe1998.github.io/tags/Python/"/>
     
-      <category term="数据分析" scheme="https://ame1314.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
+      <category term="数据分析" scheme="https://vxiaozhe1998.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
     
   </entry>
   
   <entry>
     <title>Pandas</title>
-    <link href="https://ame1314.github.io/2020/04/13/Pandas/"/>
-    <id>https://ame1314.github.io/2020/04/13/Pandas/</id>
+    <link href="https://vxiaozhe1998.github.io/2020/04/13/Pandas/"/>
+    <id>https://vxiaozhe1998.github.io/2020/04/13/Pandas/</id>
     <published>2020-04-13T02:44:05.000Z</published>
     <updated>2020-05-04T05:59:08.553Z</updated>
     
@@ -83,19 +108,19 @@
     </summary>
     
     
-      <category term="编程" scheme="https://ame1314.github.io/categories/%E7%BC%96%E7%A8%8B/"/>
+      <category term="编程" scheme="https://vxiaozhe1998.github.io/categories/%E7%BC%96%E7%A8%8B/"/>
     
     
-      <category term="Python" scheme="https://ame1314.github.io/tags/Python/"/>
+      <category term="Python" scheme="https://vxiaozhe1998.github.io/tags/Python/"/>
     
-      <category term="数据分析" scheme="https://ame1314.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
+      <category term="数据分析" scheme="https://vxiaozhe1998.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
     
   </entry>
   
   <entry>
     <title>防脱发指南</title>
-    <link href="https://ame1314.github.io/2020/04/08/%E9%98%B2%E8%84%B1%E5%8F%91%E6%8C%87%E5%8D%97/"/>
-    <id>https://ame1314.github.io/2020/04/08/%E9%98%B2%E8%84%B1%E5%8F%91%E6%8C%87%E5%8D%97/</id>
+    <link href="https://vxiaozhe1998.github.io/2020/04/08/%E9%98%B2%E8%84%B1%E5%8F%91%E6%8C%87%E5%8D%97/"/>
+    <id>https://vxiaozhe1998.github.io/2020/04/08/%E9%98%B2%E8%84%B1%E5%8F%91%E6%8C%87%E5%8D%97/</id>
     <published>2020-04-08T13:59:14.000Z</published>
     <updated>2020-04-08T14:01:11.886Z</updated>
     
@@ -108,17 +133,17 @@
     </summary>
     
     
-      <category term="养生" scheme="https://ame1314.github.io/categories/%E5%85%BB%E7%94%9F/"/>
+      <category term="养生" scheme="https://vxiaozhe1998.github.io/categories/%E5%85%BB%E7%94%9F/"/>
     
     
-      <category term="hair" scheme="https://ame1314.github.io/tags/hair/"/>
+      <category term="hair" scheme="https://vxiaozhe1998.github.io/tags/hair/"/>
     
   </entry>
   
   <entry>
     <title>Numpy</title>
-    <link href="https://ame1314.github.io/2020/04/02/Numpy/"/>
-    <id>https://ame1314.github.io/2020/04/02/Numpy/</id>
+    <link href="https://vxiaozhe1998.github.io/2020/04/02/Numpy/"/>
+    <id>https://vxiaozhe1998.github.io/2020/04/02/Numpy/</id>
     <published>2020-04-02T02:20:47.000Z</published>
     <updated>2020-05-04T04:02:18.605Z</updated>
     
@@ -131,21 +156,21 @@
     </summary>
     
     
-      <category term="编程" scheme="https://ame1314.github.io/categories/%E7%BC%96%E7%A8%8B/"/>
+      <category term="编程" scheme="https://vxiaozhe1998.github.io/categories/%E7%BC%96%E7%A8%8B/"/>
     
     
-      <category term="Python" scheme="https://ame1314.github.io/tags/Python/"/>
+      <category term="Python" scheme="https://vxiaozhe1998.github.io/tags/Python/"/>
     
-      <category term="数据分析" scheme="https://ame1314.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
+      <category term="数据分析" scheme="https://vxiaozhe1998.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
     
   </entry>
   
   <entry>
     <title>使用Typora+PicGo+gitee快速编辑</title>
-    <link href="https://ame1314.github.io/2020/04/01/%E4%BD%BF%E7%94%A8Typora-PicGo-gitee%E5%BF%AB%E9%80%9F%E7%BC%96%E8%BE%91/"/>
-    <id>https://ame1314.github.io/2020/04/01/%E4%BD%BF%E7%94%A8Typora-PicGo-gitee%E5%BF%AB%E9%80%9F%E7%BC%96%E8%BE%91/</id>
+    <link href="https://vxiaozhe1998.github.io/2020/04/01/%E4%BD%BF%E7%94%A8Typora-PicGo-gitee%E5%BF%AB%E9%80%9F%E7%BC%96%E8%BE%91/"/>
+    <id>https://vxiaozhe1998.github.io/2020/04/01/%E4%BD%BF%E7%94%A8Typora-PicGo-gitee%E5%BF%AB%E9%80%9F%E7%BC%96%E8%BE%91/</id>
     <published>2020-04-01T15:17:11.000Z</published>
-    <updated>2020-04-02T02:21:03.236Z</updated>
+    <updated>2020-05-12T01:39:24.560Z</updated>
     
     <content type="html"><![CDATA[<div class="note info no-icon"><p>本文将完美解决Github图床加载过慢以及编辑过程中图片插入流程繁杂的问题。</p></div><a id="more"></a><h3 id="0-原料"><a href="#0-原料" class="headerlink" title="0. 原料"></a>0. 原料</h3><ul><li>Typora——<a href="https://www.typora.io/" target="_blank" rel="noopener">下载地址</a></li><li>PicGo——<a href="https://github.com/Molunerfinn/PicGo/releases" target="_blank" rel="noopener">下载地址</a></li><li>Gitee——<a href="https://gitee.com/" target="_blank" rel="noopener">注册地址</a></li></ul><h3 id="1-开始使用"><a href="#1-开始使用" class="headerlink" title="1. 开始使用"></a>1. 开始使用</h3><h4 id="1-1-创建Gitee仓库"><a href="#1-1-创建Gitee仓库" class="headerlink" title="1.1 创建Gitee仓库"></a>1.1 创建Gitee仓库</h4><p>注意在创建仓库时在开源处一定要选择开源：</p><p><img src="https://gitee.com/Vxiaozhe1998/Pic/raw/master/img/20200402001820.png" alt="image-20200401235542934"></p><h4 id="1-2-配置PicGo"><a href="#1-2-配置PicGo" class="headerlink" title="1.2 配置PicGo"></a>1.2 配置PicGo</h4><div class="note danger no-icon"><p>强烈建议不要将<code>PicGo</code>安装于路径<code>C:\Program Files\</code>下，建议更换路径，否则<code>Typroa</code>可能无法使用<code>PicGo</code></p></div><h5 id="1-2-1-安装插件"><a href="#1-2-1-安装插件" class="headerlink" title="1.2.1 安装插件"></a>1.2.1 安装插件</h5><p>首先在PicGo的<code>插件设置</code>中搜索<code>gitee</code>，安装<code>gitee-uploader</code></p><p><img src="https://gitee.com/Vxiaozhe1998/Pic/raw/master/img/20200402094543.png" alt="image-20200402000440149"></p><h5 id="1-2-2-配置插件"><a href="#1-2-2-配置插件" class="headerlink" title="1.2.2 配置插件"></a>1.2.2 配置插件</h5><p>在<code>repo</code>处填写你的仓库位置，在<code>gitee</code>中仓库对应的网址为<code>gitee.com/仓库位置</code>,例如下图中方框部分即为仓库位置：</p><p><img src="https://gitee.com/Vxiaozhe1998/Pic/raw/master/img/20200402094544.png" alt="image-20200402000609146"></p><p>在<code>token</code>处填写你申请的个人令牌。</p><h5 id="1-2-3-申请token"><a href="#1-2-3-申请token" class="headerlink" title="1.2.3 申请token"></a>1.2.3 申请<code>token</code></h5><p>在<code>gitee</code>中点击<code>头像</code>-&gt;<code>设置</code>在<code>安全设置</code>处<code>私人令牌</code>处申请<code>token</code></p><p><img src="https://gitee.com/Vxiaozhe1998/Pic/raw/master/img/20200402094545.png" alt="image-20200401235744574"></p><p>填写完成单击<code>确定</code>并<code>设为默认图床</code>即可</p><p><img src="https://gitee.com/Vxiaozhe1998/Pic/raw/master/img/20200402094546.png" alt="image-20200402000704667"></p><h5 id="1-2-4-其他设置"><a href="#1-2-4-其他设置" class="headerlink" title="1.2.4 其他设置"></a>1.2.4 其他设置</h5><p>在<code>PicGo设置</code>中点击<code>设置Server</code>：</p><p><img src="https://gitee.com/Vxiaozhe1998/Pic/raw/master/img/20200402094547.png" alt="image-20200402000126145"></p><p>将监听端口更改为<code>36677</code>:</p><p><img src="https://gitee.com/Vxiaozhe1998/Pic/raw/master/img/20200402001826.png" alt="image-20200402000733778"></p><p>开启<code>时间戳重命名</code>:</p><p><img src="https://gitee.com/Vxiaozhe1998/Pic/raw/master/img/20200402001827.png" alt="image-20200402000816613"></p><p>为了简约可以关闭显示其他无关图床。</p><h4 id="1-3-配置Typora"><a href="#1-3-配置Typora" class="headerlink" title="1.3 配置Typora"></a>1.3 配置Typora</h4><p>在Typora软件中依次打开<code>文件</code>-&gt;<code>偏好设置</code>-&gt;<code>图像</code></p><p><img src="https://gitee.com/Vxiaozhe1998/Pic/raw/master/img/20200402001828.png" alt="image-20200402001228481"></p><p>使用HEXO写博客的读者在开启了HEXO的资源文件夹时建议将Typora的图像设置中的<code>插入图片时</code>选项更改为<code>复制到指定路径</code>并勾选<code>对本地位置上的图片应用上述规则</code>和<code>对网络位置的图片应用上述规则</code>,在<code>上传服务设定</code>中选择<code>PicGo(app)</code>选项，<code>PicGo路径</code>选择<code>PicGo</code>的安装目录，可以通过验证图片上传选项来验证是否配置成功。配置成功之后在整篇文章写完之后可以在<code>Typora</code>中依次点击<code>格式</code>-&gt;<code>图像</code>-&gt;<code>上传所有本地图像</code>进行上传。</p><p><strong>至此，所有的配置已经完成</strong></p><h3 id="2-写在后面"><a href="#2-写在后面" class="headerlink" title="2. 写在后面"></a>2. 写在后面</h3><h4 id="2-1-PicGo管理"><a href="#2-1-PicGo管理" class="headerlink" title="2.1 PicGo管理"></a>2.1 PicGo管理</h4><p>我们可以通过<code>PicGo</code>的<code>相册</code>功能对已上传图片进行<code>删除</code>、<code>复制</code>和<code>编辑</code>：</p><p><img src="https://gitee.com/Vxiaozhe1998/Pic/raw/master/img/20200402002254.png" alt="image-20200402002203484"></p><p>通过在<code>上传区</code>更改<code>链接格式</code>可以改变在<code>相册</code>处复制的链接格式。</p><p><img src="https://gitee.com/Vxiaozhe1998/Pic/raw/master/img/20200402003715.png" alt="image-20200402002324340"></p><p>你也可以在<code>PicGo设置</code>中开启<code>上传前重命名</code>来优化图片注解。</p><p><img src="https://gitee.com/Vxiaozhe1998/Pic/raw/master/img/20200402003716.png" alt="image-20200402002502304"></p><h4 id="2-2-几个操作的解释"><a href="#2-2-几个操作的解释" class="headerlink" title="2.2 几个操作的解释"></a>2.2 几个操作的解释</h4><h5 id="2-2-1-为什么要建议将Typora的图像设置中的插入图片时选项更改为复制到指定路径？"><a href="#2-2-1-为什么要建议将Typora的图像设置中的插入图片时选项更改为复制到指定路径？" class="headerlink" title="2.2.1 为什么要建议将Typora的图像设置中的插入图片时选项更改为复制到指定路径？"></a>2.2.1 为什么要建议将Typora的图像设置中的<code>插入图片时</code>选项更改为<code>复制到指定路径</code>？</h5><p>答：经作者尝试如果在该选项选择<code>上传图片</code>则将无法在<code>Typora</code>中直接粘贴剪贴板中的图片。因此选择<code>复制到指定路径</code>既方便了图片管理也解决了无法粘贴剪贴板中的图片的问题。</p><h5 id="2-2-2-错误"><a href="#2-2-2-错误" class="headerlink" title="2.2.2  错误"></a>2.2.2  错误</h5><div class="table-container"><table><thead><tr><th><strong>错误</strong></th><th><strong>原因</strong></th></tr></thead><tbody><tr><td><code>Failed to fetch</code></td><td><code>1.2.4 其他设置</code>中<code>更改监听端口</code>未进行而引起的。</td></tr><tr><td><code>{“success”,false}</code></td><td>文件名冲突</td></tr></tbody></table></div><p>附，如果在上传的过程中出现如下代码串：</p><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">failed to launch PicGo <span class="string">app:</span> Command <span class="string">failed:</span> <span class="string">C:</span>\Program Files\PicGo\PicGo.exe</span><br><span class="line"><span class="string">'C:\Program'</span> �����ڲ����ⲿ���Ҳ���ǿ����еĳ���</span><br><span class="line">���������ļ���</span><br></pre></td></tr></table></figure><p>这意味着您在安装<code>PicGo</code>时安装目录选在了<code>C:\Program Files\</code>下，您需要重新安装，在安装时更改为非<code>C:\Program Files\</code>的路径。</p>]]></content>
     
@@ -156,19 +181,19 @@
     </summary>
     
     
-      <category term="博客" scheme="https://ame1314.github.io/categories/%E5%8D%9A%E5%AE%A2/"/>
+      <category term="博客" scheme="https://vxiaozhe1998.github.io/categories/%E5%8D%9A%E5%AE%A2/"/>
     
     
-      <category term="HEXO" scheme="https://ame1314.github.io/tags/HEXO/"/>
+      <category term="HEXO" scheme="https://vxiaozhe1998.github.io/tags/HEXO/"/>
     
-      <category term="图床" scheme="https://ame1314.github.io/tags/%E5%9B%BE%E5%BA%8A/"/>
+      <category term="图床" scheme="https://vxiaozhe1998.github.io/tags/%E5%9B%BE%E5%BA%8A/"/>
     
   </entry>
   
   <entry>
     <title>博客的国内节点</title>
-    <link href="https://ame1314.github.io/2020/03/21/%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%9B%BD%E5%86%85%E8%8A%82%E7%82%B9/"/>
-    <id>https://ame1314.github.io/2020/03/21/%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%9B%BD%E5%86%85%E8%8A%82%E7%82%B9/</id>
+    <link href="https://vxiaozhe1998.github.io/2020/03/21/%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%9B%BD%E5%86%85%E8%8A%82%E7%82%B9/"/>
+    <id>https://vxiaozhe1998.github.io/2020/03/21/%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%9B%BD%E5%86%85%E8%8A%82%E7%82%B9/</id>
     <published>2020-03-21T07:45:48.000Z</published>
     <updated>2020-03-21T12:22:47.264Z</updated>
     
@@ -181,19 +206,19 @@
     </summary>
     
     
-      <category term="博客" scheme="https://ame1314.github.io/categories/%E5%8D%9A%E5%AE%A2/"/>
+      <category term="博客" scheme="https://vxiaozhe1998.github.io/categories/%E5%8D%9A%E5%AE%A2/"/>
     
     
-      <category term="HEXO" scheme="https://ame1314.github.io/tags/HEXO/"/>
+      <category term="HEXO" scheme="https://vxiaozhe1998.github.io/tags/HEXO/"/>
     
-      <category term="NEXT" scheme="https://ame1314.github.io/tags/NEXT/"/>
+      <category term="NEXT" scheme="https://vxiaozhe1998.github.io/tags/NEXT/"/>
     
   </entry>
   
   <entry>
     <title>NEXT主题优化分享样式</title>
-    <link href="https://ame1314.github.io/2020/03/20/NEXT%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96%E5%88%86%E4%BA%AB%E6%A0%B7%E5%BC%8F/"/>
-    <id>https://ame1314.github.io/2020/03/20/NEXT%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96%E5%88%86%E4%BA%AB%E6%A0%B7%E5%BC%8F/</id>
+    <link href="https://vxiaozhe1998.github.io/2020/03/20/NEXT%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96%E5%88%86%E4%BA%AB%E6%A0%B7%E5%BC%8F/"/>
+    <id>https://vxiaozhe1998.github.io/2020/03/20/NEXT%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96%E5%88%86%E4%BA%AB%E6%A0%B7%E5%BC%8F/</id>
     <published>2020-03-20T00:09:42.000Z</published>
     <updated>2020-03-28T06:04:18.866Z</updated>
     
@@ -206,19 +231,19 @@
     </summary>
     
     
-      <category term="博客" scheme="https://ame1314.github.io/categories/%E5%8D%9A%E5%AE%A2/"/>
+      <category term="博客" scheme="https://vxiaozhe1998.github.io/categories/%E5%8D%9A%E5%AE%A2/"/>
     
     
-      <category term="HEXO" scheme="https://ame1314.github.io/tags/HEXO/"/>
+      <category term="HEXO" scheme="https://vxiaozhe1998.github.io/tags/HEXO/"/>
     
-      <category term="NEXT" scheme="https://ame1314.github.io/tags/NEXT/"/>
+      <category term="NEXT" scheme="https://vxiaozhe1998.github.io/tags/NEXT/"/>
     
   </entry>
   
   <entry>
     <title>基于新拟态和NEXT主题的博客</title>
-    <link href="https://ame1314.github.io/2020/03/16/%E5%9F%BA%E4%BA%8E%E6%96%B0%E6%8B%9F%E6%80%81%E5%92%8CNEXT%E4%B8%BB%E9%A2%98%E7%9A%84%E5%8D%9A%E5%AE%A2/"/>
-    <id>https://ame1314.github.io/2020/03/16/%E5%9F%BA%E4%BA%8E%E6%96%B0%E6%8B%9F%E6%80%81%E5%92%8CNEXT%E4%B8%BB%E9%A2%98%E7%9A%84%E5%8D%9A%E5%AE%A2/</id>
+    <link href="https://vxiaozhe1998.github.io/2020/03/16/%E5%9F%BA%E4%BA%8E%E6%96%B0%E6%8B%9F%E6%80%81%E5%92%8CNEXT%E4%B8%BB%E9%A2%98%E7%9A%84%E5%8D%9A%E5%AE%A2/"/>
+    <id>https://vxiaozhe1998.github.io/2020/03/16/%E5%9F%BA%E4%BA%8E%E6%96%B0%E6%8B%9F%E6%80%81%E5%92%8CNEXT%E4%B8%BB%E9%A2%98%E7%9A%84%E5%8D%9A%E5%AE%A2/</id>
     <published>2020-03-16T11:22:38.000Z</published>
     <updated>2020-03-16T11:25:51.474Z</updated>
     
@@ -231,19 +256,19 @@
     </summary>
     
     
-      <category term="博客" scheme="https://ame1314.github.io/categories/%E5%8D%9A%E5%AE%A2/"/>
+      <category term="博客" scheme="https://vxiaozhe1998.github.io/categories/%E5%8D%9A%E5%AE%A2/"/>
     
     
-      <category term="NEXT" scheme="https://ame1314.github.io/tags/NEXT/"/>
+      <category term="NEXT" scheme="https://vxiaozhe1998.github.io/tags/NEXT/"/>
     
-      <category term="Neumorphism" scheme="https://ame1314.github.io/tags/Neumorphism/"/>
+      <category term="Neumorphism" scheme="https://vxiaozhe1998.github.io/tags/Neumorphism/"/>
     
   </entry>
   
   <entry>
     <title>Reading-progress</title>
-    <link href="https://ame1314.github.io/2020/03/16/Reading-progress/"/>
-    <id>https://ame1314.github.io/2020/03/16/Reading-progress/</id>
+    <link href="https://vxiaozhe1998.github.io/2020/03/16/Reading-progress/"/>
+    <id>https://vxiaozhe1998.github.io/2020/03/16/Reading-progress/</id>
     <published>2020-03-16T02:10:49.000Z</published>
     <updated>2020-03-20T10:18:27.999Z</updated>
     
@@ -256,19 +281,19 @@
     </summary>
     
     
-      <category term="博客" scheme="https://ame1314.github.io/categories/%E5%8D%9A%E5%AE%A2/"/>
+      <category term="博客" scheme="https://vxiaozhe1998.github.io/categories/%E5%8D%9A%E5%AE%A2/"/>
     
     
-      <category term="HEXO" scheme="https://ame1314.github.io/tags/HEXO/"/>
+      <category term="HEXO" scheme="https://vxiaozhe1998.github.io/tags/HEXO/"/>
     
-      <category term="NEXT" scheme="https://ame1314.github.io/tags/NEXT/"/>
+      <category term="NEXT" scheme="https://vxiaozhe1998.github.io/tags/NEXT/"/>
     
   </entry>
   
   <entry>
     <title>15.迭代器、生成器、装饰器</title>
-    <link href="https://ame1314.github.io/2020/03/15/15-%E8%BF%AD%E4%BB%A3%E5%99%A8%E3%80%81%E7%94%9F%E6%88%90%E5%99%A8%E3%80%81%E8%A3%85%E9%A5%B0%E5%99%A8/"/>
-    <id>https://ame1314.github.io/2020/03/15/15-%E8%BF%AD%E4%BB%A3%E5%99%A8%E3%80%81%E7%94%9F%E6%88%90%E5%99%A8%E3%80%81%E8%A3%85%E9%A5%B0%E5%99%A8/</id>
+    <link href="https://vxiaozhe1998.github.io/2020/03/15/15-%E8%BF%AD%E4%BB%A3%E5%99%A8%E3%80%81%E7%94%9F%E6%88%90%E5%99%A8%E3%80%81%E8%A3%85%E9%A5%B0%E5%99%A8/"/>
+    <id>https://vxiaozhe1998.github.io/2020/03/15/15-%E8%BF%AD%E4%BB%A3%E5%99%A8%E3%80%81%E7%94%9F%E6%88%90%E5%99%A8%E3%80%81%E8%A3%85%E9%A5%B0%E5%99%A8/</id>
     <published>2020-03-15T09:41:37.000Z</published>
     <updated>2020-03-30T03:39:48.590Z</updated>
     
@@ -281,17 +306,17 @@
     </summary>
     
     
-      <category term="编程" scheme="https://ame1314.github.io/categories/%E7%BC%96%E7%A8%8B/"/>
+      <category term="编程" scheme="https://vxiaozhe1998.github.io/categories/%E7%BC%96%E7%A8%8B/"/>
     
     
-      <category term="Python" scheme="https://ame1314.github.io/tags/Python/"/>
+      <category term="Python" scheme="https://vxiaozhe1998.github.io/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>14.PEP8代码风格指南</title>
-    <link href="https://ame1314.github.io/2020/03/15/14-PEP8%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC%E6%8C%87%E5%8D%97/"/>
-    <id>https://ame1314.github.io/2020/03/15/14-PEP8%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC%E6%8C%87%E5%8D%97/</id>
+    <link href="https://vxiaozhe1998.github.io/2020/03/15/14-PEP8%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC%E6%8C%87%E5%8D%97/"/>
+    <id>https://vxiaozhe1998.github.io/2020/03/15/14-PEP8%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC%E6%8C%87%E5%8D%97/</id>
     <published>2020-03-15T02:21:33.000Z</published>
     <updated>2020-03-30T03:40:09.510Z</updated>
     
@@ -304,17 +329,17 @@
     </summary>
     
     
-      <category term="编程" scheme="https://ame1314.github.io/categories/%E7%BC%96%E7%A8%8B/"/>
+      <category term="编程" scheme="https://vxiaozhe1998.github.io/categories/%E7%BC%96%E7%A8%8B/"/>
     
     
-      <category term="Python" scheme="https://ame1314.github.io/tags/Python/"/>
+      <category term="Python" scheme="https://vxiaozhe1998.github.io/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>13.Collections模块</title>
-    <link href="https://ame1314.github.io/2020/03/15/13-Collections%E6%A8%A1%E5%9D%97/"/>
-    <id>https://ame1314.github.io/2020/03/15/13-Collections%E6%A8%A1%E5%9D%97/</id>
+    <link href="https://vxiaozhe1998.github.io/2020/03/15/13-Collections%E6%A8%A1%E5%9D%97/"/>
+    <id>https://vxiaozhe1998.github.io/2020/03/15/13-Collections%E6%A8%A1%E5%9D%97/</id>
     <published>2020-03-14T17:48:31.000Z</published>
     <updated>2020-03-30T03:40:27.599Z</updated>
     
@@ -327,17 +352,17 @@
     </summary>
     
     
-      <category term="编程" scheme="https://ame1314.github.io/categories/%E7%BC%96%E7%A8%8B/"/>
+      <category term="编程" scheme="https://vxiaozhe1998.github.io/categories/%E7%BC%96%E7%A8%8B/"/>
     
     
-      <category term="Python" scheme="https://ame1314.github.io/tags/Python/"/>
+      <category term="Python" scheme="https://vxiaozhe1998.github.io/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>Python中跨目录调用模块</title>
-    <link href="https://ame1314.github.io/2020/03/15/Python%E4%B8%AD%E8%B7%A8%E7%9B%AE%E5%BD%95%E8%B0%83%E7%94%A8%E6%A8%A1%E5%9D%97/"/>
-    <id>https://ame1314.github.io/2020/03/15/Python%E4%B8%AD%E8%B7%A8%E7%9B%AE%E5%BD%95%E8%B0%83%E7%94%A8%E6%A8%A1%E5%9D%97/</id>
+    <link href="https://vxiaozhe1998.github.io/2020/03/15/Python%E4%B8%AD%E8%B7%A8%E7%9B%AE%E5%BD%95%E8%B0%83%E7%94%A8%E6%A8%A1%E5%9D%97/"/>
+    <id>https://vxiaozhe1998.github.io/2020/03/15/Python%E4%B8%AD%E8%B7%A8%E7%9B%AE%E5%BD%95%E8%B0%83%E7%94%A8%E6%A8%A1%E5%9D%97/</id>
     <published>2020-03-14T16:46:15.000Z</published>
     <updated>2020-03-15T02:23:28.226Z</updated>
     
@@ -350,17 +375,17 @@
     </summary>
     
     
-      <category term="编程" scheme="https://ame1314.github.io/categories/%E7%BC%96%E7%A8%8B/"/>
+      <category term="编程" scheme="https://vxiaozhe1998.github.io/categories/%E7%BC%96%E7%A8%8B/"/>
     
     
-      <category term="Python" scheme="https://ame1314.github.io/tags/Python/"/>
+      <category term="Python" scheme="https://vxiaozhe1998.github.io/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>Python中较为常用模块</title>
-    <link href="https://ame1314.github.io/2020/03/15/Python%E4%B8%AD%E8%BE%83%E4%B8%BA%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%9D%97/"/>
-    <id>https://ame1314.github.io/2020/03/15/Python%E4%B8%AD%E8%BE%83%E4%B8%BA%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%9D%97/</id>
+    <link href="https://vxiaozhe1998.github.io/2020/03/15/Python%E4%B8%AD%E8%BE%83%E4%B8%BA%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%9D%97/"/>
+    <id>https://vxiaozhe1998.github.io/2020/03/15/Python%E4%B8%AD%E8%BE%83%E4%B8%BA%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%9D%97/</id>
     <published>2020-03-14T16:45:42.000Z</published>
     <updated>2020-03-15T02:23:12.577Z</updated>
     
@@ -373,17 +398,17 @@
     </summary>
     
     
-      <category term="编程" scheme="https://ame1314.github.io/categories/%E7%BC%96%E7%A8%8B/"/>
+      <category term="编程" scheme="https://vxiaozhe1998.github.io/categories/%E7%BC%96%E7%A8%8B/"/>
     
     
-      <category term="Python" scheme="https://ame1314.github.io/tags/Python/"/>
+      <category term="Python" scheme="https://vxiaozhe1998.github.io/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>Python中的变量类型</title>
-    <link href="https://ame1314.github.io/2020/03/15/Python%E4%B8%AD%E7%9A%84%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B/"/>
-    <id>https://ame1314.github.io/2020/03/15/Python%E4%B8%AD%E7%9A%84%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B/</id>
+    <link href="https://vxiaozhe1998.github.io/2020/03/15/Python%E4%B8%AD%E7%9A%84%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B/"/>
+    <id>https://vxiaozhe1998.github.io/2020/03/15/Python%E4%B8%AD%E7%9A%84%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B/</id>
     <published>2020-03-14T16:43:16.000Z</published>
     <updated>2020-03-15T02:22:48.957Z</updated>
     
@@ -396,17 +421,17 @@
     </summary>
     
     
-      <category term="编程" scheme="https://ame1314.github.io/categories/%E7%BC%96%E7%A8%8B/"/>
+      <category term="编程" scheme="https://vxiaozhe1998.github.io/categories/%E7%BC%96%E7%A8%8B/"/>
     
     
-      <category term="Python" scheme="https://ame1314.github.io/tags/Python/"/>
+      <category term="Python" scheme="https://vxiaozhe1998.github.io/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>12.模块</title>
-    <link href="https://ame1314.github.io/2020/03/14/12-%E6%A8%A1%E5%9D%97/"/>
-    <id>https://ame1314.github.io/2020/03/14/12-%E6%A8%A1%E5%9D%97/</id>
+    <link href="https://vxiaozhe1998.github.io/2020/03/14/12-%E6%A8%A1%E5%9D%97/"/>
+    <id>https://vxiaozhe1998.github.io/2020/03/14/12-%E6%A8%A1%E5%9D%97/</id>
     <published>2020-03-14T01:57:27.000Z</published>
     <updated>2020-03-30T03:40:42.617Z</updated>
     
@@ -419,17 +444,17 @@
     </summary>
     
     
-      <category term="编程" scheme="https://ame1314.github.io/categories/%E7%BC%96%E7%A8%8B/"/>
+      <category term="编程" scheme="https://vxiaozhe1998.github.io/categories/%E7%BC%96%E7%A8%8B/"/>
     
     
-      <category term="Python" scheme="https://ame1314.github.io/tags/Python/"/>
+      <category term="Python" scheme="https://vxiaozhe1998.github.io/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>11.面向对象</title>
-    <link href="https://ame1314.github.io/2020/03/13/11-%E7%B1%BB/"/>
-    <id>https://ame1314.github.io/2020/03/13/11-%E7%B1%BB/</id>
+    <link href="https://vxiaozhe1998.github.io/2020/03/13/11-%E7%B1%BB/"/>
+    <id>https://vxiaozhe1998.github.io/2020/03/13/11-%E7%B1%BB/</id>
     <published>2020-03-13T15:23:01.000Z</published>
     <updated>2020-03-30T03:40:57.492Z</updated>
     
@@ -442,17 +467,17 @@
     </summary>
     
     
-      <category term="编程" scheme="https://ame1314.github.io/categories/%E7%BC%96%E7%A8%8B/"/>
+      <category term="编程" scheme="https://vxiaozhe1998.github.io/categories/%E7%BC%96%E7%A8%8B/"/>
     
     
-      <category term="Python" scheme="https://ame1314.github.io/tags/Python/"/>
+      <category term="Python" scheme="https://vxiaozhe1998.github.io/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>文章加密测试</title>
-    <link href="https://ame1314.github.io/2020/03/13/%E6%96%87%E7%AB%A0%E5%8A%A0%E5%AF%86%E6%B5%8B%E8%AF%95/"/>
-    <id>https://ame1314.github.io/2020/03/13/%E6%96%87%E7%AB%A0%E5%8A%A0%E5%AF%86%E6%B5%8B%E8%AF%95/</id>
+    <link href="https://vxiaozhe1998.github.io/2020/03/13/%E6%96%87%E7%AB%A0%E5%8A%A0%E5%AF%86%E6%B5%8B%E8%AF%95/"/>
+    <id>https://vxiaozhe1998.github.io/2020/03/13/%E6%96%87%E7%AB%A0%E5%8A%A0%E5%AF%86%E6%B5%8B%E8%AF%95/</id>
     <published>2020-03-13T04:02:58.000Z</published>
     <updated>2020-03-13T16:38:37.620Z</updated>
     
@@ -465,33 +490,10 @@
     </summary>
     
     
-      <category term="测试" scheme="https://ame1314.github.io/categories/%E6%B5%8B%E8%AF%95/"/>
+      <category term="测试" scheme="https://vxiaozhe1998.github.io/categories/%E6%B5%8B%E8%AF%95/"/>
     
     
-      <category term="test" scheme="https://ame1314.github.io/tags/test/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>10.异常</title>
-    <link href="https://ame1314.github.io/2020/03/11/10-%E5%BC%82%E5%B8%B8/"/>
-    <id>https://ame1314.github.io/2020/03/11/10-%E5%BC%82%E5%B8%B8/</id>
-    <published>2020-03-11T15:48:37.000Z</published>
-    <updated>2020-03-30T03:41:09.543Z</updated>
-    
-    <content type="html"><![CDATA[<div class="note info no-icon"><p>在本文中将解释有关断言和异常的知识</p></div><a id="more"></a><h4 id="一、实验目的"><a href="#一、实验目的" class="headerlink" title="一、实验目的"></a>一、实验目的</h4><ul><li>断言</li><li>NameError</li><li>TypeError</li><li>异常处理（try..except）</li><li>异常抛出（raise）</li><li>finally 子句</li></ul><h4 id="二、知识要点"><a href="#二、知识要点" class="headerlink" title="二、知识要点"></a>二、知识要点</h4><h5 id="1-断言"><a href="#1-断言" class="headerlink" title="1.断言"></a>1.断言</h5><p>Python assert（断言）用于判断一个表达式，在表达式条件为 false 的时候触发异常。断言可以在条件不满足程序运行的情况下直接返回错误，而不必等待程序运行后出现崩溃的情况，语法格式为：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">assert</span> expression</span><br></pre></td></tr></table></figure><br>例如我们的代码只能在windows系统下运行，可以先判断当前系统是否符合条件:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">assert</span> (<span class="string">'linux'</span> <span class="keyword">in</span> sys.platform), <span class="string">'错误'</span></span><br><span class="line">print(<span class="string">"hello"</span>)</span><br></pre></td></tr></table></figure><br>会输出：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"F:/Python/10/eg 10-1.py"</span>, line <span class="number">5</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    <span class="keyword">assert</span> (<span class="string">'linux'</span> <span class="keyword">in</span> sys.platform), <span class="string">'错误'</span></span><br><span class="line">AssertionError: 错误</span><br><span class="line"></span><br><span class="line">Process finished <span class="keyword">with</span> exit code <span class="number">1</span></span><br></pre></td></tr></table></figure><br>当我们将<code>linux</code>更改为<code>win32</code>就会输出<code>hello</code></p><h5 id="2-错误和异常"><a href="#2-错误和异常" class="headerlink" title="2.错误和异常"></a>2.错误和异常</h5><p>在程序执行过程中发生的任何错误都是异常。每个异常显示一些相关的错误信息，比如我们在 Python3 中使用 Python2 独有的语法就会发生<code>SyntaxError</code>：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">print</span> <span class="string">'hello'</span></span><br></pre></td></tr></table></figure><br>输出为：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">  File <span class="string">"F:/Python/10/eg 10-1.py"</span>, line <span class="number">11</span></span><br><span class="line">    <span class="keyword">print</span> <span class="string">'hello'</span></span><br><span class="line">          ^</span><br><span class="line">SyntaxError: Missing parentheses in call to 'print'. Did you mean print('hello')?</span><br></pre></td></tr></table></figure><br>而如果我们多打了一个空格：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">'hello'</span>)</span><br></pre></td></tr></table></figure><br>就会出现<code>IndentationError</code><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">  File <span class="string">"F:/Python/10/eg 10-1.py"</span>, line <span class="number">12</span></span><br><span class="line">    print(<span class="string">'hello'</span>)</span><br><span class="line">    ^</span><br><span class="line">IndentationError: unexpected indent</span><br><span class="line"></span><br><span class="line">Process finished <span class="keyword">with</span> exit code <span class="number">1</span></span><br></pre></td></tr></table></figure><br>接下来将介绍几种常见的异常：<br><strong>2.1 <code>NameError</code></strong><br>当访问一个未定义的变量则会发生 <code>NameError</code>，例如：<code>print(a)</code>会输出：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"F:/Python/10/eg 10-1.py"</span>, line <span class="number">15</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    print(a)</span><br><span class="line">NameError: name <span class="string">'a'</span> <span class="keyword">is</span> <span class="keyword">not</span> defined</span><br></pre></td></tr></table></figure></p><p><strong>2.2 <code>ZeroDivisionError</code></strong><br>当把<code>0</code>作为除数则会发生 <code>ZeroDivisionError</code>，例如：<code>print(1/0)</code>会输出：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"F:/Python/10/eg 10-1.py"</span>, line <span class="number">18</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    print(<span class="number">1</span>/<span class="number">0</span>)</span><br><span class="line">ZeroDivisionError: division by zero</span><br></pre></td></tr></table></figure></p><p><strong>2.3 <code>TyprError</code></strong><br>当操作或函数应用于不适当类型的对象时引发<code>TyprError</code>,较为常见的是字符串与整数加法，例如：<code>print(&#39;1&#39;+1)</code>会输出：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"F:/Python/10/eg 10-1.py"</span>, line <span class="number">21</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    print(<span class="string">'1'</span>+<span class="number">1</span>)</span><br><span class="line">TypeError: can only concatenate str (<span class="keyword">not</span> <span class="string">"int"</span>) to str</span><br></pre></td></tr></table></figure></p><div class="note warning"><p>标准异常：<a href="https://www.runoob.com/python/python-exceptions.html" target="_blank" rel="noopener">https://www.runoob.com/python/python-exceptions.html</a></p></div><h5 id="3-异常处理"><a href="#3-异常处理" class="headerlink" title="3.异常处理"></a>3.异常处理</h5><p><img src="https://dn-simplecloud.shiyanlou.com/courses/uid1264885-20200311-1583941636023" alt="异常处理"></p><p>我将通过一个例子来解释上图的流程：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> a != <span class="number">-1</span>:</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        a = int(input(<span class="string">"输入一个数字:"</span>))</span><br><span class="line">        <span class="keyword">if</span> a == <span class="number">-1</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">except</span> ValueError:</span><br><span class="line">        print(<span class="string">"输入类型有误"</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(<span class="number">1</span> + a)</span><br><span class="line">        print(<span class="string">"输入类型无误"</span>)</span><br><span class="line">    <span class="keyword">finally</span>:</span><br><span class="line">        print(<span class="string">"结束"</span>)</span><br><span class="line">print(<span class="string">"循环结束"</span>)</span><br></pre></td></tr></table></figure><p>我们分别输入<code>1</code>和<code>a</code>,最后输入<code>-1</code>结束，输出如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">输入一个数字:<span class="number">1</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line">输入类型无误</span><br><span class="line">结束</span><br><span class="line">输入一个数字:a</span><br><span class="line">输入类型有误</span><br><span class="line">结束</span><br><span class="line">输入一个数字:<span class="number">-1</span></span><br><span class="line">结束</span><br><span class="line">循环结束</span><br></pre></td></tr></table></figure><br>这个过程是这样的：</p><ul><li>如果我们输入一个数字<code>-1</code>，程序停止循环，程序等价为：</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> a != <span class="number">-1</span>:</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        a = int(input(<span class="string">"输入一个数字:"</span>))</span><br><span class="line">        <span class="keyword">if</span> a == <span class="number">-1</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">finally</span>:</span><br><span class="line">        print(<span class="string">"结束"</span>)</span><br><span class="line">print(<span class="string">"循环结束"</span>)</span><br></pre></td></tr></table></figure><div class="note primary no-icon"><p>注意：<code>finally</code>只要执行了<code>try</code>不管有没有异常都会执行。在真实场景的应用程序中，<code>finally</code> 子句用于释放外部资源（文件或网络连接之类的），无论它们的使用过程中是否出错。</p></div><ul><li>如果我们输入一个字母<code>‘a’</code>，程序异常，程序等价为：</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> a != <span class="number">-1</span>:</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        a = int(input(<span class="string">"输入一个数字:"</span>))</span><br><span class="line">        <span class="keyword">if</span> a == <span class="number">-1</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">except</span> ValueError:</span><br><span class="line">        print(<span class="string">"输入类型有误"</span>)</span><br><span class="line">    <span class="keyword">finally</span>:</span><br><span class="line">        print(<span class="string">"结束"</span>)</span><br><span class="line">print(<span class="string">"循环结束"</span>)</span><br></pre></td></tr></table></figure><p>即程序在<code>try</code>中的语句中出现了异常，会在<code>except</code>中匹配对应的异常类型，如果未匹配则会终止程序，如果匹配上对应的异常类型会执行对应<code>except</code>下的语句，如果语句中有<code>fially</code>，在执行完<code>except</code>中的语句会执行<code>fianlly</code>中的语句。</p><ul><li>如果我们输入一个整数<code>1</code>，程序无异常，程序等价为：</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> a != <span class="number">-1</span>:</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        a = int(input(<span class="string">"输入一个数字:"</span>))</span><br><span class="line">        <span class="keyword">if</span> a == <span class="number">-1</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(<span class="number">1</span> + a)</span><br><span class="line">        print(<span class="string">"输入类型无误"</span>)</span><br><span class="line">    <span class="keyword">finally</span>:</span><br><span class="line">        print(<span class="string">"结束"</span>)</span><br><span class="line">print(<span class="string">"循环结束"</span>)</span><br></pre></td></tr></table></figure><p>即程序通过<code>try</code>语句检测之后没有异常，如果是<code>try-except</code>格式，在没有异常的情况下会直接跳出<code>try-except</code>程序块，继续向下执行；如果是<code>try-except-else</code>格式，在没有异常的情况下会进入<code>else</code>语句中的代码；如果是<code>try-except-else-finally</code>格式，在执行完<code>else</code>语句会执行<code>finally</code>语句中的内容。</p><h5 id="4-抛出异常"><a href="#4-抛出异常" class="headerlink" title="4.抛出异常"></a>4.抛出异常</h5><p>使用raise语句主动抛出异常的意思是开发者可以自己制造程序异常，这里的程序异常不是指发生了内存溢出、列表越界访问等系统异常，而是指程序在执行过程中，发生了用户输入的数据与要求数据不符、用户操作错误等问题，这些问题都需要程序进行处理并给出相应的提示。处理这些问题多使用判断语句，在判断语句体内进行相应的问题处理，如果处理问题的语句过多，就会导致代码复杂化，代码结构不够清晰。在这种情况下，可以使用raise语句主动抛出异常，由异常处理语句块进行处理。例如：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    print(<span class="string">"请输入登录账号："</span>)</span><br><span class="line">    username = input(<span class="string">"&gt;&gt;:"</span>)</span><br><span class="line">    <span class="keyword">if</span> username != <span class="string">"zhe"</span>:</span><br><span class="line">        <span class="keyword">raise</span> Exception(<span class="string">"用户名输入错误"</span>)</span><br><span class="line">    print(<span class="string">"请输入密码："</span>)</span><br><span class="line">    psw = input(<span class="string">"&gt;&gt;:"</span>)</span><br><span class="line">    <span class="keyword">if</span> psw != <span class="string">"123456"</span>:</span><br><span class="line">        <span class="keyword">raise</span> Exception(<span class="string">"密码输入错误"</span>)</span><br><span class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">    print(e)</span><br></pre></td></tr></table></figure><br>在上述代码中，当我们输入用户名不是<code>zhe</code>时会主动抛出异常<code>用户名输入错误</code>而此时<code>except</code>语句会捕获异常并输出，而如果我们用户名无误，程序会继续向下进行，在密码输入处如果错误会抛出<code>密码输入错误</code>异常，由<code>except</code>捕获之后输出，如果一直无误，程序执行完之后跳出<code>try-except</code>语句。执行下一程序块。</p><h4 id="三、实验内容"><a href="#三、实验内容" class="headerlink" title="三、实验内容"></a>三、实验内容</h4><h5 id="1-玩转函数"><a href="#1-玩转函数" class="headerlink" title="1.玩转函数"></a>1.玩转函数</h5><div class="note info no-icon"><p>本次挑战中我们将实现一个程序，将分钟转为小时和分钟。在 MinutesToHours.py 文件中实现一个函数 <code>Hours()</code>，将用户输入的 <code>分钟数</code> 转化为 <code>小时数和分钟数</code>，并要求小时数尽量大。将结果以 <code>XX H, XX M</code> 的形式打印出来。</p></div><p>输入：<br><div class="note default no-icon"><p>80</p></div></p><p>输出：<br><div class="note default no-icon"><p>1 H,20 M</p></div></p><div class="note danger no-icon"><p><strong>注意：</strong></p><ul><li>代码中不要使用 <code>input()</code> 函数。</li><li>如果用户输入的是一个负值，程序需要<code>raise</code> 来抛出<code>ValueError</code> 异常。</li><li><code>Hours()</code>函数调用的时候，需要使用 <code>try...except</code> 处理异常。获取异常后，在屏幕上打印出<code>Parameter Error</code> 提示用户输入的值有误。</li></ul></div><ul><li>代码：</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Hours</span><span class="params">(minute)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> minute &lt; <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">raise</span> ValueError(<span class="string">"负值"</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(<span class="string">"&#123;&#125; H,&#123;&#125; M"</span>.format(int(minute / <span class="number">60</span>), minute % <span class="number">60</span>))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    Hours(int(sys.argv[<span class="number">1</span>]))</span><br><span class="line"><span class="keyword">except</span> ValueError:</span><br><span class="line">    print(<span class="string">"Parameter Error"</span>)</span><br></pre></td></tr></table></figure><ul><li>控制台的输出为：</li></ul><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(venv) F:\Python\<span class="number">10</span>&gt;python hour.py <span class="number">70</span></span><br><span class="line"><span class="number">1</span> H,<span class="number">10</span> M</span><br></pre></td></tr></table></figure><div class="note primary"><p>有关<code>sys.argv[]</code>的解释</p></div><div class="note primary no-icon"><p>在<code>sys.argv[value]</code>中对于输入的内容实际上保存为了一个列表，列表的第一个元素即为脚本，例如我们写一个输出脚本<code>print_f.py</code>，脚本中的代码如下：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line">a = sys.argv[<span class="number">0</span>]</span><br><span class="line">print(a)</span><br></pre></td></tr></table></figure><p>我们通过控制台在根目录运行，输入：<code>python print_f</code>，敲击回车，会输出<code>print_f</code><br>此时我们更改一下脚本中的代码为：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line">a = sys.argv[<span class="number">1</span>]</span><br><span class="line">print(a)</span><br></pre></td></tr></table></figure><p>我们再通过控制台在根目录输入：<code>python print_f hello</code>敲击回车会输出<code>hello</code><br>我们再更改一次代码：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line">a = sys.argv[<span class="number">2</span>:]</span><br><span class="line">print(a)</span><br></pre></td></tr></table></figure><p>在控制台中输入：<code>python print_f a b c d e</code>敲击回车输出的为：<code>[&#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;]</code>。<br>通过上面的例子我们容易理解<code>sys.argv</code>的用法。</p></div><h4 id="四、实验结果"><a href="#四、实验结果" class="headerlink" title="四、实验结果"></a>四、实验结果</h4><p>无</p><hr><p>下一篇：<a href="https://vxiaozhe1998.cn/2020/03/13/11-类/" target="_blank" rel="noopener">11.面向对象</a><br>上一篇：<a href="https://vxiaozhe1998.cn/2020/03/10/9-文件处理/" target="_blank" rel="noopener">9.文件处理</a><br>目    录：<a href="http://vxiaozhe1998.cn/2020/02/28/Python学习/" target="_blank" rel="noopener">Python学习</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;div class=&quot;note info no-icon&quot;&gt;&lt;p&gt;在本文中将解释有关断言和异常的知识&lt;/p&gt;&lt;/div&gt;
-    
-    </summary>
-    
-    
-      <category term="编程" scheme="https://ame1314.github.io/categories/%E7%BC%96%E7%A8%8B/"/>
-    
-    
-      <category term="Python" scheme="https://ame1314.github.io/tags/Python/"/>
+      <category term="test" scheme="https://vxiaozhe1998.github.io/tags/test/"/>
     
   </entry>
   
